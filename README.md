@@ -1,2 +1,3 @@
-# worldcrisismap
-Website displaying crisis and news using Google Maps.
+# weathertop
+
+Web application for hobby-meterologistsdesigned with handlebars, bootstrap and postresql.

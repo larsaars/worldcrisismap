@@ -1,0 +1,24 @@
+{{> welcome-menu }}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <img src="img/weathers.png" alt="weather icons" class="img-fluid">
+        </div>
+        <div class="col-md">
+            <form action="/authenticate" method="POST">
+                <div class="mb-3">
+                    <label for="inputEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="inputPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{> footer }}

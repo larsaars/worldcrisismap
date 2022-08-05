@@ -1,0 +1,89 @@
+{{> logged-in-menu}}
+
+<div class="card mt-3">
+    <div class="card-body p-2">
+        <div class="d-flex flex-row">
+            {{#each this.station_data}}
+                <div class="p-2">
+                    <div class="card position-relative text-white bg-dark mb-3" style="width: 15rem; height: 100%">
+                        <div class="d-flex flex-column position-absolute top-0 end-0 m-3">
+                            <i class="fa {{icon}} fa-2x" style="color:{{icon_color}}"></i>
+                            <i class="mt-2 fa {{trend_icon}} fa-2x" style="color: antiquewhite"></i>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">{{this.name}}</h3>
+                            <p class="card-text">{{{this.text}}}</p>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Time</th>
+        <th>Weather</th>
+        <th>Temperature</th>
+        <th>Wind</th>
+        <th>Air Pressure</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each readings}}
+        <tr>
+            <td>{{this.time}}</td>
+            <td>{{this.weather}}</td>
+            <td>{{this.temperature}}</td>
+            <td>{{this.wind_speed}}</td>
+            <td>{{this.air_pressure}}</td>
+            <td>
+                <a class="btn btn-circle" href="/delete-reading/{{../station_id}}/{{this.id}}">
+                    <i class="fa fa-xmark" aria-hidden="true"></i>
+                </a>
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+
+<div class="text-center">
+    <p>{{no_readings}}</p>
+</div>
+
+<form action="/add-reading/{{station_id}}" method="POST">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <label for="inputWeatherCode" class="form-label">Weather code</label>
+                <input type="number" min="0" step="any" oninput="validity.valid||(value='');" class="form-control" id="inputWeatherCode" name="weather">
+            </div>
+            <div class="col-sm">
+                <label for="inputTemperature" class="form-label">Temperature</label>
+                <input type="number" step="any" oninput="validity.valid||(value='');" class="form-control" id="inputTemperature" name="temperature">
+            </div>
+            <div class="col-sm">
+                <label for="inputWindSpeed" class="form-label">Wind speed</label>
+                <input type="number" min="0" step="any" oninput="validity.valid||(value='');" class="form-control" id="inputWindSpeed" name="wind_speed">
+            </div>
+            <div class="col-sm">
+                <label for="inputWindDirection" class="form-label">Wind direction</label>
+                <input type="number" min="0" step="any" oninput="validity.valid||(value='');" class="form-control" id="inputWindDirection" name="wind_direction">
+            </div>
+            <div class="col-sm">
+                <label for="inputAirPressure" class="form-label">Air pressure</label>
+                <input type="number" min="0" step="any" oninput="validity.valid||(value='');" class="form-control" id="inputAirPressure" name="air_pressure">
+            </div>
+        </div>
+        <div class="row mt-2 float-end">
+            <div class="col-md-12">
+                <button type="button" class="btn btn-warning" onclick="window.location.href = '/add-automatic-reading/{{station_id}}'">Add an automatic reading</button>
+                <button type="submit" class="btn btn-primary ml-2">Add reading</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+{{> footer}}
