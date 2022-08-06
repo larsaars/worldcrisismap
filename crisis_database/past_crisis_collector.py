@@ -14,6 +14,7 @@ to use the API every time the timeline is used.
 
 import requests
 import os
+from html import escape
 
 
 # delete old file
@@ -40,11 +41,11 @@ CREATE TABLE IF NOT EXISTS disasters(
     country_name VARCHAR(50),
     lat DECIMAL(10, 7),
     lon DECIMAL(10, 7),
-    type VARCHAR(50),
+    type VARCHAR(200),
     url VARCHAR(100),
     title VARCHAR(250),
-    overview_html VARCHAR(25000)
-)
+    overview_html VARCHAR(100000)
+);
 
 -- insert values into table
 ''')
@@ -64,9 +65,9 @@ while current_offset < total_count:
         try:
             fd = item['fields']
             country = fd['country'][0]
-            overview_html = fd['profile']['overview-html'].replace('\n', '<br>') if 'profile' in fd else '' 
+            overview_html = escape(fd['profile']['overview-html']) if 'profile' in fd else '' 
 
-            appendage.append(f"INSERT INTO disasters(id, date, status, country_name, lat, lon, type, url, title, overview_html) VALUES ({item['id']}, '{fd['date']['event']}', '{fd['status']}', '{country['name']}', {country['location']['lat']}, {country['location']['lon']}, '{fd['type'][0]['name']}', '{fd['url']}', '{fd['name']}', '{overview_html}')")
+            appendage.append(f"INSERT INTO disasters(id, date, status, country_name, lat, lon, type, url, title, overview_html) VALUES ({item['id']}, '{fd['date']['event']}', '{fd['status']}', '{escape(country['name'])}', {country['location']['lat']}, {country['location']['lon']}, '{fd['type'][0]['name']}', '{fd['url']}', '{escape(fd['name'])}', '{overview_html}');")
         except Exception as e:
             print(e)
 
