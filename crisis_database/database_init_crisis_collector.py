@@ -2,7 +2,7 @@
 
 """
 Creates init_tables.sql (postgressql) file from scraping
-the ReliefWeb Disasters API.
+the ReliefWeb Disasters and Reports API.
 
 Meant to init the database, the server will then proceed to update the
 database every N hours.
@@ -32,7 +32,7 @@ file = open('./init_tables.sql', 'a')
 file.write('''-- clear complete database
 DROP TABLE disasters;
 
--- create table
+-- create tables
 
 CREATE TABLE IF NOT EXISTS disasters(
     id INTEGER PRIMARY KEY,
@@ -47,10 +47,17 @@ CREATE TABLE IF NOT EXISTS disasters(
     overview_html VARCHAR(100000)
 );
 
--- insert values into table
+
+CREATE TABLE IF NOT EXISTS reports_today(
+    id INTEGER PRIMARY KEY,
+    date TIMESTAMP,
+    status VARCHAR(7)
+)
+
+-- insert values into tables
 ''')
 
-# loop through
+# begin looping through the disasters API
 current_offset, total_count = 0, 1
 
 while current_offset < total_count:
