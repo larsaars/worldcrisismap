@@ -1,0 +1,8 @@
+https://maplibre.org
+nodejs
+python3
+psycopg2
+
+the same:
+https://www.naturalearthdata.com/
+https://github.com/martynafford/natural-earth-geojson
