@@ -25,7 +25,7 @@ def escape(string):
     return string.replace('\'', '&#39;').replace('"', '&quot;').replace('\\', '\\\\').replace('\n', '<br>')
 
 
-def search_for_keywords(text: str, keywords: list) -> list:
+def search_for_keywords(text: str, keywords) -> list:
     """
     Search for keywords in string.
 
@@ -35,7 +35,7 @@ def search_for_keywords(text: str, keywords: list) -> list:
     :return: A list of all found keywords.
     """
 
-    if len(keywords) == 0:
+    if not keywords:
         return []
 
     # make sure text is lowercase, trimmed string with only alphanumeric characters
@@ -44,11 +44,10 @@ def search_for_keywords(text: str, keywords: list) -> list:
 
     # search for keywords
     found = []
-    
 
     for keyword in keywords:
         if keyword in text:
-            found.append(keyword)
+            found.append((keyword, text.count(keyword)))
 
     return found
 
@@ -63,14 +62,14 @@ def load_country_region_mapper() -> dict:
 
 
 
-def search_matching_geojson_files_or_coords(text: str, countries: list, coordinates: list, region_mapper=None) -> list:
+def search_matching_geojson_files_or_coords(text: str, countries: list, region_mapper=None):
     """
     Search for matching geojson files.
 
     :param text: The string to search in.
     :param countries: The countries to search for (ISO3 format).
 
-    :return: A list of country files.
+    :return: A list of country files and lat / lon.
     """
 
     # load region mapper if not provided
@@ -83,6 +82,9 @@ def search_matching_geojson_files_or_coords(text: str, countries: list, coordina
     # list of returned files
     all_files = []
 
+    # get most often occuring region
+    most_often_occuring_region = (None, -1, None)
+
 
     for country in countries:
         # if the country code is not in the region mapper, skip it
@@ -90,19 +92,29 @@ def search_matching_geojson_files_or_coords(text: str, countries: list, coordina
             continue
         
         # use keyword search function to find matching regions in country
-        results = search_for_keywords(text, region_mapper[country])
+        results = search_for_keywords(text, region_mapper[country].keys())
 
         # if no results for regions, just add country file,
         # else return region files
         if results:
-            for res in results: 
-                res = res.replace(' ', '_')
-                all_files.append(f'regions/{country}/{res}.json')
+            for res, count in results: 
+                # count in for most often occuring region
+                if count > most_often_occuring_region[1]:
+                    most_often_occuring_region = (res, count, country)
+
+                # append
+                all_files.append(f'regions/{country}/{res.replace(" ", "_")}.json')
         else:
             all_files.append(f'countries/{country}.json')
 
     
-    return all_files if all_files else coordinates
+    # if most often occuring region exists, return its lat / lon
+    # else return for lat / lon None, the information is delivered by API
+    if most_often_occuring_region[0] is not None:
+        region = region_mapper[most_often_occuring_region[2]][most_often_occuring_region[0]]
+        lat, lon = region['lat'], region['lon']
+    else:
+        lat, lon = None, None
 
-        
-
+    
+    return all_files if all_files else None, lat, lon

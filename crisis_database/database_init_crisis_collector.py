@@ -42,6 +42,8 @@ def main():
         status VARCHAR(7),
         country_name VARCHAR(150),
         geojson VARCHAR(2000),
+        lat DECIMAL(10,7) CHECK (lat >= -90 AND lat <= 90),
+        lon DECIMAL(10,7) CHECK (lon >= -180 AND lon <= 180),
         type VARCHAR(200),
         url VARCHAR(100),
         title VARCHAR(500),
@@ -54,6 +56,8 @@ def main():
         date TIMESTAMP,
         country_name VARCHAR(150),
         geojson VARCHAR(2000),
+        lat DECIMAL(10,7) CHECK (lat >= -90 AND lat <= 90),
+        lon DECIMAL(10,7) CHECK (lon >= -180 AND lon <= 180),
         url VARCHAR(250),
         title VARCHAR(500),
         description_html VARCHAR(100000)
