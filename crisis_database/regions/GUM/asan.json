@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[144.7323,13.4753],[144.7068,13.4759],[144.7121,13.4372],[144.7289,13.4442],[144.7478,13.4354],[144.7415,13.4688],[144.7323,13.4753]]]},"properties":{"GID_1":"GUM.3_1","GID_0":"GUM","COUNTRY":"Guam","NAME_1":"Asan","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipality","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"GU.AS","ISO_1":"NA"}}
+]}

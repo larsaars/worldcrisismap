@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[21.4813,42.2603],[21.4821,42.2121],[21.5158,42.1812],[21.513,42.1545],[21.4828,42.1349],[21.5674,42.0433],[21.591,42.036],[21.6393,42.134],[21.6645,42.1316],[21.6645,42.1571],[21.6862,42.1673],[21.6788,42.2301],[21.591,42.2489],[21.5349,42.239],[21.4813,42.2603]]]},"properties":{"GID_1":"MKD.43_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"Lipkovo","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.LI","ISO_1":"MK-704"}}
+]}

@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[45.2701,-12.7929],[45.2999,-12.7854],[45.2938,-12.7679],[45.2857,-12.7582],[45.2668,-12.7782],[45.2637,-12.7751],[45.2601,-12.7815],[45.2538,-12.7807],[45.2701,-12.7929]]]},"properties":{"GID_1":"MYT.8_1","GID_0":"MYT","COUNTRY":"Mayotte","NAME_1":"Dzaoudzi","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Préfecturederégion","ENGTYPE_1":"Commune","CC_1":"08","HASC_1":"NA","ISO_1":"NA"}}
+]}

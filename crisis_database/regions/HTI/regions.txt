@@ -1,0 +1,10 @@
+centre
+grand anse
+l artibonite
+nippes
+nord
+nord est
+nord ouest
+ouest
+sud
+sud est

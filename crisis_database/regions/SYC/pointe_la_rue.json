@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"MultiPolygon","coordinates":[[[[55.5303,-4.6851],[55.5348,-4.6746],[55.5303,-4.6782],[55.508,-4.6662],[55.5063,-4.6851],[55.5303,-4.6851]]],[[[55.5248,-4.6611],[55.5171,-4.6622],[55.5302,-4.6652],[55.5248,-4.6611]]]]},"properties":{"GID_1":"SYC.22_1","GID_0":"SYC","COUNTRY":"Seychelles","NAME_1":"PointeLaRue","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"SC.PR","ISO_1":"NA"}}
+]}

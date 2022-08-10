@@ -1,0 +1,33 @@
+amazonas
+antioquia
+arauca
+atlántico
+bogotá dc
+bolívar
+boyacá
+caldas
+caquetá
+casanare
+cauca
+cesar
+chocó
+córdoba
+cundinamarca
+guainía
+guaviare
+huila
+la guajira
+magdalena
+meta
+nariño
+nortede santander
+putumayo
+quindío
+risaralda
+san andrésy providencia
+santander
+sucre
+tolima
+valledel cauca
+vaupés
+vichada

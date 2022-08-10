@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.6832,17.2947],[-62.7088,17.3402],[-62.7207,17.3358],[-62.746,17.3389],[-62.7544,17.3332],[-62.7546,17.3256],[-62.7467,17.3169],[-62.7252,17.3144],[-62.6949,17.2929],[-62.6832,17.2947]]]},"properties":{"GID_1":"KNA.11_1","GID_0":"KNA","COUNTRY":"SaintKittsandNevis","NAME_1":"SaintPeterBasseterre","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"KN.PB","ISO_1":"KN-11"}}
+]}

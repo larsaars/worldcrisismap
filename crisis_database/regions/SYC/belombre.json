@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[55.4227,-4.6157],[55.3917,-4.6193],[55.3868,-4.6287],[55.403,-4.6461],[55.4132,-4.6318],[55.4318,-4.6271],[55.4322,-4.6197],[55.4227,-4.6157]]]},"properties":{"GID_1":"SYC.10_1","GID_0":"SYC","COUNTRY":"Seychelles","NAME_1":"Belombre","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"SC.BO","ISO_1":"NA"}}
+]}

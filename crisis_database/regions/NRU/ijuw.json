@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[166.9442,-0.5201],[166.9577,-0.5231],[166.9581,-0.5131],[166.9442,-0.5201]]]},"properties":{"GID_1":"NRU.10_1","GID_0":"NRU","COUNTRY":"Nauru","NAME_1":"Ijuw","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"NR.IJ","ISO_1":"NA"}}
+]}

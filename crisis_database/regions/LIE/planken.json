@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"MultiPolygon","coordinates":[[[[9.5831,47.1698],[9.5621,47.1685],[9.5825,47.1586],[9.5862,47.158],[9.5918,47.1642],[9.6011,47.1582],[9.597,47.1635],[9.5831,47.1698]]],[[[9.5664,47.1905],[9.564,47.1938],[9.5621,47.19],[9.5437,47.191],[9.5451,47.1786],[9.5733,47.1762],[9.5731,47.1899],[9.5664,47.1905]]]]},"properties":{"GID_1":"LIE.5_1","GID_0":"LIE","COUNTRY":"Liechtenstein","NAME_1":"Planken","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Gemeinden","ENGTYPE_1":"Commune","CC_1":"NA","HASC_1":"LI.PL","ISO_1":"LI-05"}}
+]}

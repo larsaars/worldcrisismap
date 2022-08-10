@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[68.6749,38.537],[68.7331,38.496],[68.7915,38.5534],[68.8898,38.5522],[68.7994,38.6406],[68.6577,38.5894],[68.6749,38.537]]]},"properties":{"GID_1":"TJK.1_1","GID_0":"TJK","COUNTRY":"Tajikistan","NAME_1":"Dushanbe","VARNAME_1":"NA","NL_NAME_1":"Душанбе","TYPE_1":"City","ENGTYPE_1":"City","CC_1":"NA","HASC_1":"TJ.DU","ISO_1":"TJ-DU"}}
+]}

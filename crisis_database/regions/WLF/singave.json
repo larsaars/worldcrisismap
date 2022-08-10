@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-178.1599,-14.2461],[-178.1758,-14.2389],[-178.1825,-14.255],[-178.1489,-14.3072],[-178.1594,-14.3187],[-178.1495,-14.3282],[-178.1344,-14.2854],[-178.1599,-14.2461]]]},"properties":{"GID_1":"WLF.2_1","GID_0":"WLF","COUNTRY":"WallisandFutuna","NAME_1":"Singave","VARNAME_1":"Sigave","NL_NAME_1":"NA","TYPE_1":"Kingdom","ENGTYPE_1":"Kingdom","CC_1":"NA","HASC_1":"WF.SI","ISO_1":"NA"}}
+]}

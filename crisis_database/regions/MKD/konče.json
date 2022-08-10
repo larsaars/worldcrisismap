@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[22.33,41.4247],[22.3652,41.4401],[22.4458,41.4461],[22.4788,41.461],[22.503,41.4567],[22.509,41.4667],[22.5036,41.5074],[22.4512,41.5185],[22.464,41.539],[22.4191,41.5794],[22.3659,41.5827],[22.3234,41.5988],[22.2592,41.5447],[22.3029,41.4843],[22.3367,41.4677],[22.33,41.4247]]]},"properties":{"GID_1":"MKD.36_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"Konče","VARNAME_1":"Konce","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.KN","ISO_1":"NA"}}
+]}

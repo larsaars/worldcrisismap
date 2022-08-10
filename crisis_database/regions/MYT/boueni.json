@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[45.0818,-12.9626],[45.1195,-12.9439],[45.1264,-12.9336],[45.1063,-12.9232],[45.0999,-12.8974],[45.0704,-12.8993],[45.0863,-12.9301],[45.0962,-12.9263],[45.1032,-12.9315],[45.0999,-12.9468],[45.0818,-12.9626]]]},"properties":{"GID_1":"MYT.4_1","GID_0":"MYT","COUNTRY":"Mayotte","NAME_1":"Boueni","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Chef-lieucanton","ENGTYPE_1":"Commune","CC_1":"04","HASC_1":"NA","ISO_1":"NA"}}
+]}

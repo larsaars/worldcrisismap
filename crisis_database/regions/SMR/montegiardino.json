@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[12.492,43.9186],[12.4744,43.9225],[12.4748,43.9049],[12.4685,43.8987],[12.4863,43.8999],[12.492,43.9186]]]},"properties":{"GID_1":"SMR.7_1","GID_0":"SMR","COUNTRY":"SanMarino","NAME_1":"Montegiardino","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Castello","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"SM.MG","ISO_1":"NA"}}
+]}

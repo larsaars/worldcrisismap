@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[9.564,47.2464],[9.556,47.2532],[9.5316,47.2279],[9.5587,47.2336],[9.564,47.2464]]]},"properties":{"GID_1":"LIE.8_1","GID_0":"LIE","COUNTRY":"Liechtenstein","NAME_1":"Schellenberg","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Gemeinden","ENGTYPE_1":"Commune","CC_1":"NA","HASC_1":"LI.SB","ISO_1":"NA"}}
+]}

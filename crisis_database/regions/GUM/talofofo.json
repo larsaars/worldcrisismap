@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[144.6726,13.3296],[144.6872,13.2998],[144.706,13.3019],[144.7539,13.3384],[144.7718,13.3385],[144.7725,13.3608],[144.7581,13.3723],[144.7217,13.3681],[144.6726,13.3296]]]},"properties":{"GID_1":"GUM.15_1","GID_0":"GUM","COUNTRY":"Guam","NAME_1":"Talofofo","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipality","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"GU.TF","ISO_1":"-"}}
+]}

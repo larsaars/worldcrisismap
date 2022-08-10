@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-161.0878,-9.9972],[-161.0994,-10],[-161.1043,-10.0348],[-161.0855,-10.0333],[-161.0852,-10.0233],[-161.0979,-10.0294],[-161.0939,-9.999],[-161.0826,-10.0167],[-161.0768,-10.008],[-161.0878,-9.9972]]]},"properties":{"GID_1":"COK.10_1","GID_0":"COK","COUNTRY":"CookIslands","NAME_1":"Rakahanga","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"IslandCouncil","ENGTYPE_1":"IslandCouncil","CC_1":"NA","HASC_1":"NA","ISO_1":"NA"}}
+]}

@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-66.0806,18.2973],[-66.0996,18.3426],[-66.0927,18.3721],[-66.108,18.3888],[-66.095,18.4036],[-66.1141,18.4407],[-66.1316,18.4245],[-66.1186,18.3788],[-66.1376,18.3792],[-66.1417,18.3244],[-66.1324,18.313],[-66.1439,18.2796],[-66.1083,18.2777],[-66.0806,18.2973]]]},"properties":{"GID_1":"PRI.32_1","GID_0":"PRI","COUNTRY":"PuertoRico","NAME_1":"Guaynabo","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipio","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"PR.GB","ISO_1":"-"}}
+]}

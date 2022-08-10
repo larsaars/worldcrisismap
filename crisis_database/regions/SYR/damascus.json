@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[36.2891,33.5647],[36.4009,33.5102],[36.4018,33.5905],[36.2891,33.5647]]]},"properties":{"GID_1":"SYR.5_1","GID_0":"SYR","COUNTRY":"Syria","NAME_1":"Damascus","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Muḥāfaẓah","ENGTYPE_1":"Governorate","CC_1":"NA","HASC_1":"SY.DI","ISO_1":"NA"}}
+]}

@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-2.0774,49.1801],[-2.097,49.1763],[-2.0763,49.1624],[-2.0563,49.169],[-2.0376,49.1649],[-2.0416,49.1768],[-2.0774,49.1801]]]},"properties":{"GID_1":"JEY.3_1","GID_0":"JEY","COUNTRY":"Jersey","NAME_1":"SaintClement","VARNAME_1":"St.Clement","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"GR.CL","ISO_1":"NA"}}
+]}

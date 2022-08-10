@@ -1,0 +1,37 @@
+anhui
+beijing
+chongqing
+fujian
+gansu
+guangdong
+guangxi
+guizhou
+hainan
+hebei
+heilongjiang
+henan
+hong kong
+hubei
+hunan
+jiangsu
+jiangxi
+jilin
+liaoning
+macau
+nei mongol
+ningxia hui
+qinghai
+shaanxi
+shandong
+shanghai
+shanxi
+sichuan
+tianjin
+xinjiang uygur
+xinjiang uygur
+xinjiang uygur
+xizang
+xizang
+xizang
+yunnan
+zhejiang

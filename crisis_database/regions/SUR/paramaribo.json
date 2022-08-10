@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-55.206,5.7839],[-55.1735,5.7768],[-55.1586,5.7928],[-55.1712,5.8219],[-55.1232,5.8285],[-55.1051,5.8772],[-55.1528,5.9061],[-55.189,5.8971],[-55.2571,5.9188],[-55.2568,5.8634],[-55.2403,5.8615],[-55.2309,5.8095],[-55.2391,5.7876],[-55.206,5.7839]]]},"properties":{"GID_1":"SUR.7_1","GID_0":"SUR","COUNTRY":"Suriname","NAME_1":"Paramaribo","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Distrikt","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"SR.PM","ISO_1":"SR-PM"}}
+]}

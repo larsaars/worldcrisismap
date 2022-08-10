@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[12.4556,41.9076],[12.4456,41.902],[12.4579,41.9013],[12.4556,41.9076]]]},"properties":{"GID_0":"VAT","COUNTRY":"VaticanCity"}}
+]}

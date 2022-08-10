@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[22.6636,41.1849],[22.6601,41.2086],[22.5906,41.2185],[22.5477,41.2531],[22.5303,41.2527],[22.523,41.2229],[22.5046,41.213],[22.5256,41.1862],[22.5176,41.1508],[22.5927,41.1197],[22.6636,41.1849]]]},"properties":{"GID_1":"MKD.5_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"Bogdanci","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.BG","ISO_1":"MK-401"}}
+]}

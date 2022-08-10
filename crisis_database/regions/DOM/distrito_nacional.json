@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-69.8729,18.4655],[-69.871,18.508],[-69.89,18.5146],[-69.9117,18.5083],[-69.9277,18.5194],[-69.9428,18.5145],[-69.9611,18.5418],[-69.9816,18.5408],[-69.9844,18.5126],[-70.0004,18.5117],[-69.9571,18.4716],[-69.967,18.4431],[-69.9899,18.4218],[-69.9396,18.4349],[-69.8879,18.4679],[-69.8729,18.4655]]]},"properties":{"GID_1":"DOM.5_1","GID_0":"DOM","COUNTRY":"DominicanRepublic","NAME_1":"DistritoNacional","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Distrito","ENGTYPE_1":"NationalDistrict","CC_1":"NA","HASC_1":"DO.NC","ISO_1":"NA"}}
+]}

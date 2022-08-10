@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[27.9646,47.7362],[27.9858,47.7457],[28.0111,47.7093],[28.0389,47.7136],[28.0592,47.7297],[28.0438,47.7913],[27.9784,47.7852],[27.9528,47.8162],[27.8484,47.7846],[27.8625,47.7329],[27.9345,47.7461],[27.9646,47.7362]]]},"properties":{"GID_1":"MDA.2_1","GID_0":"MDA","COUNTRY":"Moldova","NAME_1":"Bălţi","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipiu","ENGTYPE_1":"City","CC_1":"NA","HASC_1":"MD.BT","ISO_1":"NA"}}
+]}

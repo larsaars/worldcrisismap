@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[22.3911,41.7922],[22.4467,41.7894],[22.4355,41.8695],[22.4072,41.8526],[22.3911,41.86],[22.3565,41.8468],[22.3911,41.7922]]]},"properties":{"GID_1":"MKD.85_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"Zrnovci","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.ZR","ISO_1":"NA"}}
+]}

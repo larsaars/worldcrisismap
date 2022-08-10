@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[48.0346,29.2087],[47.8459,29.3075],[47.8772,29.185],[48.0346,29.2087]]]},"properties":{"GID_1":"KWT.2_1","GID_0":"KWT","COUNTRY":"Kuwait","NAME_1":"AlFarwaniyah","VARNAME_1":"Farwaniya","NL_NAME_1":"الفروانية‎","TYPE_1":"Muhafazah","ENGTYPE_1":"Province","CC_1":"NA","HASC_1":"KW.FA","ISO_1":"KW-FA"}}
+]}

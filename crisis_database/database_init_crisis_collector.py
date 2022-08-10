@@ -16,6 +16,7 @@ import requests
 import os
 
 from data_collector import *
+from utils import *
 
 
 def main():
@@ -29,35 +30,42 @@ def main():
         return
 
 
-    # init sql file 
+    # init sql file (create tables)
     cur.execute('''-- clear complete database
-    DROP TABLE disasters, reports_today;
+    DROP TABLE IF EXISTS disasters;
+    DROP TABLE IF EXISTS reports;
 
-    -- create tables
 
     CREATE TABLE IF NOT EXISTS disasters(
         id INTEGER PRIMARY KEY,
         date TIMESTAMP,
         status VARCHAR(7),
-        country_name VARCHAR(50),
-        lat DECIMAL(10, 7),
-        lon DECIMAL(10, 7),
+        country_name VARCHAR(150),
+        geojson VARCHAR(2000),
         type VARCHAR(200),
         url VARCHAR(100),
-        title VARCHAR(250),
+        title VARCHAR(500),
         description_html VARCHAR(100000)
     );
 
 
-    CREATE TABLE IF NOT EXISTS reports_today(
+    CREATE TABLE IF NOT EXISTS reports(
         id INTEGER PRIMARY KEY,
         date TIMESTAMP,
-        status VARCHAR(7)
+        country_name VARCHAR(150),
+        geojson VARCHAR(2000),
+        url VARCHAR(250),
+        title VARCHAR(500),
+        description_html VARCHAR(100000)
     );
     ''')
 
+    connection.commit()
+
     # begin looping through the disasters API
     current_offset, total_count = 0, 1
+
+    print('Loading disasters to database...')
 
     while current_offset < total_count:
         print(f'current offset: {current_offset}')
@@ -66,7 +74,16 @@ def main():
         current_offset += jumpsize
 
 
-    # continue loading todays reports
+    # continue loading reports (headlines)
+    current_offset, total_count = 0, 1
+
+    print('Loading reports to database...')
+
+    while current_offset < total_count:
+        print(f'current offset: {current_offset}')
+
+        total_count = load_reports_to_database(offset=current_offset, limit=jumpsize)
+        current_offset += jumpsize
 
 
 

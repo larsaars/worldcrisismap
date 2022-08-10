@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-4.7492,54.0693],[-4.7358,54.0682],[-4.7375,54.0776],[-4.7292,54.0779],[-4.7292,54.0831],[-4.7473,54.0853],[-4.7492,54.0693]]]},"properties":{"GID_1":"IMN.19_2","GID_0":"IMN","COUNTRY":"IsleofMan","NAME_1":"PortSaintMary","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"VillageDistrict","ENGTYPE_1":"VillageDistrict","CC_1":"NA","HASC_1":"IM.RU","ISO_1":"NA"}}
+]}

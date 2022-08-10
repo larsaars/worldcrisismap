@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[21.1336,41.4051],[21.1952,41.4291],[21.1546,41.4539],[21.1492,41.478],[21.0427,41.4695],[21.0527,41.4261],[21.0889,41.4328],[21.1336,41.4051]]]},"properties":{"GID_1":"MKD.56_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"Plasnica","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.PN","ISO_1":"MK-311"}}
+]}

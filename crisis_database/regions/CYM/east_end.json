@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-81.17,19.3479],[-81.1746,19.3013],[-81.1151,19.2929],[-81.0901,19.3096],[-81.0965,19.3535],[-81.17,19.3479]]]},"properties":{"GID_1":"CYM.3_1","GID_0":"CYM","COUNTRY":"CaymanIslands","NAME_1":"EastEnd","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"KY.EE","ISO_1":"NA"}}
+]}

@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[104.3424,49.12],[104.2835,49.0807],[104.1031,49.1213],[104.0007,48.9868],[104.3781,48.8992],[104.5696,49.0264],[104.5195,49.1056],[104.3424,49.12]]]},"properties":{"GID_1":"MNG.16_1","GID_0":"MNG","COUNTRY":"Mongolia","NAME_1":"Orhon","VARNAME_1":"Erdenet|Orkhon","NL_NAME_1":"NA","TYPE_1":"Hot","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MN.ER","ISO_1":"MN-035"}}
+]}

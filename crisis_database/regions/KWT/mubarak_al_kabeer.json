@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[48.1074,29.2137],[48.0885,29.2738],[48.0896,29.3023],[48.004,29.3051],[48.0238,29.2643],[48.0346,29.2087],[48.1074,29.2137]]]},"properties":{"GID_1":"KWT.6_1","GID_0":"KWT","COUNTRY":"Kuwait","NAME_1":"MubarakAl-Kabeer","VARNAME_1":"NA","NL_NAME_1":"مباركالكبير","TYPE_1":"Muhafazah","ENGTYPE_1":"Province","CC_1":"NA","HASC_1":"KW.MU","ISO_1":"NA"}}
+]}

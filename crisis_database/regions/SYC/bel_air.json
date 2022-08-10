@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[55.4633,-4.6205],[55.4578,-4.6172],[55.4392,-4.628],[55.4405,-4.6453],[55.4504,-4.6564],[55.457,-4.6422],[55.4478,-4.6294],[55.4633,-4.6205]]]},"properties":{"GID_1":"SYC.9_1","GID_0":"SYC","COUNTRY":"Seychelles","NAME_1":"BelAir","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"SC.BA","ISO_1":"NA"}}
+]}

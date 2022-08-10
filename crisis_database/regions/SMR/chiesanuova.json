@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[12.4105,43.8984],[12.4354,43.9053],[12.4241,43.9165],[12.429,43.9249],[12.4178,43.9291],[12.4056,43.9176],[12.4105,43.8984]]]},"properties":{"GID_1":"SMR.3_1","GID_0":"SMR","COUNTRY":"SanMarino","NAME_1":"Chiesanuova","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Castello","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"SM.CH","ISO_1":"NA"}}
+]}

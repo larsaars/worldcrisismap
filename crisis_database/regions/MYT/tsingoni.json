@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[45.126,-12.7539],[45.0929,-12.7835],[45.1325,-12.81],[45.1731,-12.7635],[45.126,-12.7539]]]},"properties":{"GID_1":"MYT.17_1","GID_0":"MYT","COUNTRY":"Mayotte","NAME_1":"Tsingoni","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Chef-lieucanton","ENGTYPE_1":"Commune","CC_1":"17","HASC_1":"NA","ISO_1":"NA"}}
+]}

@@ -1,0 +1,10 @@
+central
+copperbelt
+eastern
+luapula
+lusaka
+muchinga
+north western
+northern
+southern
+western

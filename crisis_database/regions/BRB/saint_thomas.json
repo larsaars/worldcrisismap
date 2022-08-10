@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-59.5977,13.2154],[-59.614,13.1447],[-59.553,13.167],[-59.5977,13.2154]]]},"properties":{"GID_1":"BRB.11_1","GID_0":"BRB","COUNTRY":"Barbados","NAME_1":"SaintThomas","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"BB.TH","ISO_1":"BB-11"}}
+]}

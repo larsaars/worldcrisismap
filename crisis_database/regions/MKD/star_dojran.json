@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[22.761,41.2807],[22.6622,41.2942],[22.6473,41.2727],[22.6053,41.2709],[22.5683,41.236],[22.5906,41.2185],[22.6601,41.2086],[22.6625,41.1851],[22.7172,41.1466],[22.7495,41.1826],[22.761,41.2807]]]},"properties":{"GID_1":"MKD.65_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"StarDojran","VARNAME_1":"Dojran","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.SD","ISO_1":"NA"}}
+]}

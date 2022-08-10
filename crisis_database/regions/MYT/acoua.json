@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[45.0424,-12.7472],[45.0951,-12.7324],[45.0964,-12.7156],[45.0513,-12.7006],[45.0393,-12.7232],[45.0571,-12.7285],[45.0424,-12.7472]]]},"properties":{"GID_1":"MYT.1_1","GID_0":"MYT","COUNTRY":"Mayotte","NAME_1":"Acoua","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Chef-lieucanton","ENGTYPE_1":"Commune","CC_1":"01","HASC_1":"NA","ISO_1":"NA"}}
+]}

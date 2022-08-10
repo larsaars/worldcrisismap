@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-61.6804,12.1518],[-61.7031,12.1708],[-61.7246,12.1789],[-61.7532,12.1201],[-61.7468,12.1105],[-61.6993,12.1097],[-61.6986,12.1246],[-61.6804,12.1518]]]},"properties":{"GID_1":"GRD.5_1","GID_0":"GRD","COUNTRY":"Grenada","NAME_1":"SaintJohn","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"GD.JO","ISO_1":"GD-04"}}
+]}

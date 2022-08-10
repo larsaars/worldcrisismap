@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[1.4958,42.5044],[1.469,42.5107],[1.4258,42.4935],[1.4192,42.4838],[1.441,42.4755],[1.4441,42.4437],[1.5123,42.4296],[1.5526,42.4335],[1.5605,42.4778],[1.5112,42.4849],[1.4958,42.5044]]]},"properties":{"GID_1":"AND.7_1","GID_0":"AND","COUNTRY":"Andorra","NAME_1":"SantJuliàdeLòria","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parròquia","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"AD.JL","ISO_1":"NA"}}
+]}

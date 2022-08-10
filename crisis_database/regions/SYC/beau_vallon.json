@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[55.4402,-4.5936],[55.4326,-4.5937],[55.4323,-4.609],[55.4227,-4.6157],[55.4318,-4.6271],[55.4474,-4.6075],[55.4402,-4.5936]]]},"properties":{"GID_1":"SYC.8_1","GID_0":"SYC","COUNTRY":"Seychelles","NAME_1":"BeauVallon","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"SC.BV","ISO_1":"SC-08"}}
+]}

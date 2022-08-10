@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[21.8098,41.4566],[21.8346,41.4319],[21.8976,41.4325],[21.9114,41.453],[21.954,41.4427],[21.976,41.4627],[21.9834,41.5525],[21.9237,41.5437],[21.9022,41.5216],[21.8515,41.5324],[21.852,41.5042],[21.8166,41.4894],[21.8098,41.4566]]]},"properties":{"GID_1":"MKD.62_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"Rosoman","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.RM","ISO_1":"MK-107"}}
+]}

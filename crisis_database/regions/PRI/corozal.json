@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-66.3131,18.2491],[-66.2873,18.273],[-66.2778,18.3308],[-66.3042,18.3674],[-66.3381,18.3682],[-66.3551,18.3605],[-66.3486,18.3505],[-66.383,18.2751],[-66.351,18.2414],[-66.3131,18.2491]]]},"properties":{"GID_1":"PRI.24_1","GID_0":"PRI","COUNTRY":"PuertoRico","NAME_1":"Corozal","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipio","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"PR.CZ","ISO_1":"-"}}
+]}

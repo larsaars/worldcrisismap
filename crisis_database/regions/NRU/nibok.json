@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[166.9371,-0.528],[166.9232,-0.5137],[166.9167,-0.5194],[166.9371,-0.528]]]},"properties":{"GID_1":"NRU.12_1","GID_0":"NRU","COUNTRY":"Nauru","NAME_1":"Nibok","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"NR.NI","ISO_1":"NA"}}
+]}

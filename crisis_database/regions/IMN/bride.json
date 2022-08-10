@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-4.4127,54.3503],[-4.3814,54.3523],[-4.3619,54.3887],[-4.3625,54.4179],[-4.4277,54.4046],[-4.4202,54.3793],[-4.4082,54.3761],[-4.4025,54.3617],[-4.4161,54.3555],[-4.4127,54.3503]]]},"properties":{"GID_1":"IMN.5_2","GID_0":"IMN","COUNTRY":"IsleofMan","NAME_1":"Bride","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"ParishDistrict","ENGTYPE_1":"ParishDistrict","CC_1":"NA","HASC_1":"IM.AY","ISO_1":"NA"}}
+]}

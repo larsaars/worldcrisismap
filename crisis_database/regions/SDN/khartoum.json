@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[32.481,15.231],[33.1982,15.2434],[33.555,15.4458],[33.6843,15.6784],[34.3609,15.7562],[34.2062,16.0244],[33.7744,15.9406],[32.7086,16.31],[32.1778,16.3774],[31.8283,16.6313],[31.6231,16.5281],[32.3741,15.1698],[32.481,15.231]]]},"properties":{"GID_1":"SDN.7_1","GID_0":"SDN","COUNTRY":"Sudan","NAME_1":"Khartoum","VARNAME_1":"AlKharţūm|AlKhurţūm|Cartum|J","NL_NAME_1":"الخرطوم","TYPE_1":"Wilayat","ENGTYPE_1":"State","CC_1":"NA","HASC_1":"SD.KH","ISO_1":"SD-KH"}}
+]}

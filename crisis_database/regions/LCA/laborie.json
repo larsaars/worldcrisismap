@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-61.039,13.7618],[-61.0163,13.7501],[-60.9974,13.7513],[-60.9896,13.7354],[-60.9804,13.7351],[-60.9843,13.7446],[-60.9812,13.7837],[-60.9944,13.8047],[-60.9988,13.8348],[-61.0058,13.8301],[-61.0316,13.7689],[-61.039,13.7618]]]},"properties":{"GID_1":"LCA.7_1","GID_0":"LCA","COUNTRY":"SaintLucia","NAME_1":"Laborie","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Quarter","ENGTYPE_1":"Quarter","CC_1":"NA","HASC_1":"LC.LB","ISO_1":"LC-07"}}
+]}

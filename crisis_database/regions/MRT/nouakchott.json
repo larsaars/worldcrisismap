@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-16.0365,17.8865],[-15.7814,17.8866],[-15.7811,18.3931],[-16.0501,18.3903],[-16.0504,18.3399],[-16.0379,18.2738],[-16.024,18.0751],[-16.0243,17.9999],[-16.0379,17.9882],[-16.0268,17.9915],[-16.0204,17.9821],[-16.0365,17.8865]]]},"properties":{"GID_1":"MRT.10_1","GID_0":"MRT","COUNTRY":"Mauritania","NAME_1":"Nouakchott","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"MR.NO","ISO_1":"NA"}}
+]}

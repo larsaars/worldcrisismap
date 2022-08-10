@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[47.25,7.9923],[49.06,9.57],[46.84,9.42],[46.01,10.08],[46.15,8.8],[47,8.75],[47.25,7.9923]]]},"properties":{"GID_1":"SOM.16_1","GID_0":"SOM","COUNTRY":"Somalia","NAME_1":"Sool","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Gobolka","ENGTYPE_1":"Region","CC_1":"NA","HASC_1":"SO.SO","ISO_1":"SO-SO"}}
+]}

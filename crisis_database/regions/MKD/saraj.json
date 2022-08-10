@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[21.2276,42.1005],[21.1496,42.078],[21.1892,42.0514],[21.169,42.0385],[21.179,42.0057],[21.1383,41.9889],[21.1906,41.9663],[21.1803,41.9004],[21.2172,41.8777],[21.3639,41.9527],[21.3634,41.9855],[21.3334,41.9866],[21.2843,42.0556],[21.2506,42.0518],[21.2276,42.1005]]]},"properties":{"GID_1":"MKD.63_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"Saraj","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.AJ","ISO_1":"MK-811"}}
+]}

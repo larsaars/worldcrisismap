@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"MultiPolygon","coordinates":[[[[166.6461,19.31],[166.6339,19.3056],[166.6431,19.3039],[166.6428,19.2836],[166.5975,19.2989],[166.657,19.2683],[166.6461,19.31]]],[[[166.6164,19.3186],[166.6214,19.305],[166.6331,19.3044],[166.6164,19.3186]]]]},"properties":{"GID_1":"UMI.9_1","GID_0":"UMI","COUNTRY":"UnitedStatesMinorOutlyingIsl","NAME_1":"Wake","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Island","ENGTYPE_1":"Island","CC_1":"NA","HASC_1":"NA","ISO_1":"NA"}}
+]}

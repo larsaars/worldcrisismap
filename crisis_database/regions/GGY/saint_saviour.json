@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-2.6246,49.4651],[-2.6304,49.4682],[-2.636,49.4593],[-2.6507,49.4635],[-2.6529,49.4576],[-2.6117,49.4312],[-2.5894,49.4453],[-2.6154,49.4488],[-2.6242,49.4545],[-2.6246,49.4651]]]},"properties":{"GID_1":"GGY.12_1","GID_0":"GGY","COUNTRY":"Guernsey","NAME_1":"SaintSaviour","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"GG.SV","ISO_1":"NA"}}
+]}

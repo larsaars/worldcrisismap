@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-2.6246,49.4651],[-2.6154,49.4488],[-2.5894,49.4453],[-2.5678,49.4699],[-2.5876,49.4907],[-2.5918,49.4768],[-2.6163,49.4762],[-2.6082,49.466],[-2.6246,49.4651]]]},"properties":{"GID_1":"GGY.3_1","GID_0":"GGY","COUNTRY":"Guernsey","NAME_1":"Castel","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"GG.CA","ISO_1":"NA"}}
+]}

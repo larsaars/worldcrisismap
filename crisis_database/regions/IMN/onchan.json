@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-4.4968,54.1783],[-4.4776,54.1839],[-4.4597,54.166],[-4.4208,54.1726],[-4.429,54.1987],[-4.4639,54.2177],[-4.4681,54.2303],[-4.5124,54.2011],[-4.4968,54.1783]]]},"properties":{"GID_1":"IMN.15_2","GID_0":"IMN","COUNTRY":"IsleofMan","NAME_1":"Onchan","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"IM.MD","ISO_1":"NA"}}
+]}

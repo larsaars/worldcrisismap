@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[9.5435,47.0635],[9.5616,47.0474],[9.6069,47.0615],[9.5853,47.1021],[9.5773,47.0881],[9.5848,47.0772],[9.5704,47.0746],[9.5699,47.0952],[9.5419,47.1055],[9.5331,47.1271],[9.5166,47.1268],[9.5203,47.0884],[9.5435,47.0635]]]},"properties":{"GID_1":"LIE.9_1","GID_0":"LIE","COUNTRY":"Liechtenstein","NAME_1":"Triesen","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Gemeinden","ENGTYPE_1":"Commune","CC_1":"NA","HASC_1":"LI.TN","ISO_1":"LI-09"}}
+]}

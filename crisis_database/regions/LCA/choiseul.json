@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-61.039,13.7618],[-61.0316,13.7689],[-60.9988,13.8436],[-61.0289,13.8215],[-61.0594,13.811],[-61.0691,13.801],[-61.0682,13.7893],[-61.039,13.7618]]]},"properties":{"GID_1":"LCA.4_1","GID_0":"LCA","COUNTRY":"SaintLucia","NAME_1":"Choiseul","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Quarter","ENGTYPE_1":"Quarter","CC_1":"NA","HASC_1":"LC.CH","ISO_1":"LC-03"}}
+]}

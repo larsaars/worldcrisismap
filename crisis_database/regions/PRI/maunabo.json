@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-65.8503,18.0112],[-65.8644,18.0258],[-65.881,18.0206],[-65.9885,18.0589],[-65.9816,18.035],[-65.9526,18.0231],[-65.9433,17.9925],[-65.9258,17.9858],[-65.8846,17.9868],[-65.8704,18.0065],[-65.8503,18.0112]]]},"properties":{"GID_1":"PRI.49_1","GID_0":"PRI","COUNTRY":"PuertoRico","NAME_1":"Maunabo","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipio","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"PR.MB","ISO_1":"-"}}
+]}

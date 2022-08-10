@@ -1,0 +1,21 @@
+blekinge
+dalarna
+gävleborg
+gotland
+halland
+jämtland
+jönköping
+kalmar
+kronoberg
+norrbotten
+orebro
+östergötland
+skåne
+södermanland
+stockholm
+uppsala
+värmland
+västerbotten
+västernorrland
+västmanland
+västra götaland

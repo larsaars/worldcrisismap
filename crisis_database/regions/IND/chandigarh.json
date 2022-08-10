@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[76.8282,30.7638],[76.7931,30.7665],[76.7961,30.7858],[76.7693,30.777],[76.7773,30.7855],[76.7593,30.799],[76.6906,30.7601],[76.6907,30.7467],[76.7161,30.7286],[76.7263,30.6959],[76.7944,30.6693],[76.8363,30.7143],[76.8227,30.7401],[76.8282,30.7638]]]},"properties":{"GID_1":"IND.6_1","GID_0":"IND","COUNTRY":"India","NAME_1":"Chandigarh","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"UnionTerritor","ENGTYPE_1":"UnionTerritory","CC_1":"NA","HASC_1":"IN.CH","ISO_1":"IN-CH"}}
+]}

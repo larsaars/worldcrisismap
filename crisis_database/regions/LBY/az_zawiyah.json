@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[12.7167,32.2046],[12.7552,32.2982],[12.8781,32.5106],[12.9122,32.6917],[12.9602,32.8249],[12.8037,32.7976],[12.6812,32.7915],[12.5787,32.7957],[12.4603,32.6204],[12.3604,32.497],[12.2521,32.4168],[11.9775,32.2346],[12.1147,32.2225],[12.7167,32.2046]]]},"properties":{"GID_1":"LBY.11_1","GID_0":"LBY","COUNTRY":"Libya","NAME_1":"AzZawiyah","VARNAME_1":"AzZāwiya|Zawiya","NL_NAME_1":"لزاوية","TYPE_1":"Shabiyah","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"LY.ZW","ISO_1":"LY-ZA"}}
+]}

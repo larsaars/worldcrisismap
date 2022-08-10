@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[30.8532,27.6025],[31.5525,27.6501],[32.2076,27.8442],[32.5689,27.8528],[32.4719,28.1658],[32.1901,28.3447],[31.5554,28.2665],[31.2266,28.4001],[31.0325,28.6987],[30.7374,28.7678],[29.7733,28.779],[29.5929,28.3213],[28.7884,27.9192],[28.4666,27.6746],[30.8532,27.6025]]]},"properties":{"GID_1":"EGY.10_1","GID_0":"EGY","COUNTRY":"Egypt","NAME_1":"AlMinya","VARNAME_1":"Minia|Minieh|Menia|Minya","NL_NAME_1":"NA","TYPE_1":"Muhafazah","ENGTYPE_1":"Governorate","CC_1":"NA","HASC_1":"EG.MN","ISO_1":"EG-MN"}}
+]}

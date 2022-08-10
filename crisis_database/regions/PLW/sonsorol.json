@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"MultiPolygon","coordinates":[[[[132.2222,5.3192],[132.2272,5.3186],[132.2242,5.3349],[132.2183,5.3306],[132.2222,5.3192]]],[[[132.2294,5.3578],[132.2233,5.3547],[132.2264,5.3503],[132.2294,5.3578]]]]},"properties":{"GID_1":"PLW.16_1","GID_0":"PLW","COUNTRY":"Palau","NAME_1":"Sonsorol","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"State","ENGTYPE_1":"State","CC_1":"NA","HASC_1":"PW.SO","ISO_1":"NA"}}
+]}

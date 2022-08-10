@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[159.9553,-9.4567],[160.0032,-9.4492],[160.0032,-9.4358],[160.0227,-9.4243],[159.9719,-9.4344],[159.918,-9.4233],[159.9235,-9.4426],[159.9581,-9.446],[159.9553,-9.4567]]]},"properties":{"GID_1":"SLB.4_1","GID_0":"SLB","COUNTRY":"SolomonIslands","NAME_1":"Honiara","VARNAME_1":"CapitalTerritory","NL_NAME_1":"NA","TYPE_1":"CapitalTerritory","ENGTYPE_1":"CapitalTerritory","CC_1":"NA","HASC_1":"SB.CT","ISO_1":"NA"}}
+]}

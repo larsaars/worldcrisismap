@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-159.7917,-21.1991],[-159.8161,-21.2008],[-159.8316,-21.2178],[-159.8197,-21.2556],[-159.7589,-21.2728],[-159.7375,-21.2692],[-159.7236,-21.2432],[-159.7319,-21.2167],[-159.7536,-21.2031],[-159.776,-21.2055],[-159.7917,-21.1991]]]},"properties":{"GID_1":"COK.11_1","GID_0":"COK","COUNTRY":"CookIslands","NAME_1":"Rarotonga","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"IslandCouncil","ENGTYPE_1":"IslandCouncil","CC_1":"NA","HASC_1":"NA","ISO_1":"NA"}}
+]}

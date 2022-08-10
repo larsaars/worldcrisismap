@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[166.9387,-0.5237],[166.9232,-0.5137],[166.9373,-0.5281],[166.9387,-0.5237]]]},"properties":{"GID_1":"NRU.13_1","GID_0":"NRU","COUNTRY":"Nauru","NAME_1":"Uaboe","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"NR.UA","ISO_1":"NA"}}
+]}

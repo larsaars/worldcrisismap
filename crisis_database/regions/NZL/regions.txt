@@ -1,0 +1,19 @@
+auckland
+bayof plenty
+canterbury
+chatham islands
+gisborne
+hawkes bay
+manawatu wanganui
+marlborough
+nelson
+northern islands
+northland
+otago
+southern islands
+southland
+taranaki
+tasman
+waikato
+wellington
+west coast

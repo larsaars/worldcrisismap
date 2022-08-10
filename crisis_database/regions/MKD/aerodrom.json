@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[21.4322,41.9739],[21.5361,41.9187],[21.5543,41.9279],[21.556,41.9372],[21.5113,41.9632],[21.4951,41.9616],[21.4944,41.9714],[21.4702,41.9814],[21.4322,41.9739]]]},"properties":{"GID_1":"MKD.1_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"Aerodrom","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.AD","ISO_1":"NA"}}
+]}

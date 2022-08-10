@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[134.5946,7.5345],[134.5992,7.558],[134.5848,7.5784],[134.569,7.5564],[134.5396,7.5645],[134.5217,7.5592],[134.5147,7.5364],[134.4986,7.5361],[134.4969,7.5133],[134.5092,7.5033],[134.5301,7.5059],[134.5587,7.4642],[134.5806,7.5031],[134.5712,7.5127],[134.5946,7.5345]]]},"properties":{"GID_1":"PLW.13_1","GID_0":"PLW","COUNTRY":"Palau","NAME_1":"Ngeremlengui","VARNAME_1":"Ngaremlengui","NL_NAME_1":"NA","TYPE_1":"State","ENGTYPE_1":"State","CC_1":"NA","HASC_1":"PW.NL","ISO_1":"NA"}}
+]}

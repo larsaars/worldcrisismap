@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-66.588,18.3897],[-66.5654,18.4137],[-66.5426,18.4046],[-66.5434,18.4187],[-66.5268,18.4264],[-66.5399,18.4435],[-66.526,18.454],[-66.5376,18.454],[-66.5351,18.4813],[-66.5869,18.4846],[-66.588,18.3897]]]},"properties":{"GID_1":"PRI.9_1","GID_0":"PRI","COUNTRY":"PuertoRico","NAME_1":"Barceloneta","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipio","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"PR.BC","ISO_1":"-"}}
+]}

@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[12.5101,43.956],[12.5017,43.9483],[12.4911,43.951],[12.4762,43.9428],[12.4802,43.9361],[12.4712,43.924],[12.4826,43.9174],[12.4921,43.9187],[12.513,43.9426],[12.5101,43.956]]]},"properties":{"GID_1":"SMR.5_1","GID_0":"SMR","COUNTRY":"SanMarino","NAME_1":"Faetano","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Castello","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"SM.FA","ISO_1":"SM-04"}}
+]}

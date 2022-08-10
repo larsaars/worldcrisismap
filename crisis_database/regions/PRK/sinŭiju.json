@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[124.3647,40.0119],[124.4335,40.0138],[124.4359,40.0844],[124.4755,40.109],[124.448,40.1559],[124.3858,40.1231],[124.3287,40.0631],[124.3647,40.0119]]]},"properties":{"GID_1":"PRK.14_1","GID_0":"PRK","COUNTRY":"NorthKorea","NAME_1":"Sinŭiju","VARNAME_1":"NA","NL_NAME_1":"신의주특별행정구","TYPE_1":"T'ŭkbyŏlHaengjeonggu","ENGTYPE_1":"SpecialAdministrativeRegion","CC_1":"NA","HASC_1":"NA","ISO_1":"NA"}}
+]}

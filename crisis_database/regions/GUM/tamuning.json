@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[144.8193,13.5021],[144.8097,13.5464],[144.8013,13.5345],[144.8024,13.512],[144.7913,13.5045],[144.7737,13.5063],[144.7672,13.4798],[144.8193,13.5021]]]},"properties":{"GID_1":"GUM.16_1","GID_0":"GUM","COUNTRY":"Guam","NAME_1":"Tamuning","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipality","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"GU.TM","ISO_1":"NA"}}
+]}

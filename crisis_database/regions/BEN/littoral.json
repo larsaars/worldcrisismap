@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[2.4279,6.3438],[2.4196,6.3468],[2.461,6.3543],[2.4676,6.3596],[2.4879,6.3596],[2.4869,6.3754],[2.4806,6.3825],[2.4815,6.3942],[2.3649,6.4089],[2.3637,6.3496],[2.4279,6.3438]]]},"properties":{"GID_1":"BEN.8_1","GID_0":"BEN","COUNTRY":"Benin","NAME_1":"Littoral","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Département","ENGTYPE_1":"Department","CC_1":"NA","HASC_1":"BJ.LI","ISO_1":"BJ-LI"}}
+]}

@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-4.4917,54.3435],[-4.5084,54.3235],[-4.5135,54.2849],[-4.487,54.2415],[-4.4616,54.2463],[-4.4464,54.2663],[-4.3916,54.2913],[-4.3913,54.3183],[-4.4078,54.3263],[-4.3836,54.3381],[-4.3814,54.3523],[-4.4127,54.3503],[-4.4168,54.3395],[-4.4282,54.3411],[-4.4355,54.3333],[-4.4917,54.3435]]]},"properties":{"GID_1":"IMN.11_2","GID_0":"IMN","COUNTRY":"IsleofMan","NAME_1":"Lezayre","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"ParishDistrict","ENGTYPE_1":"ParishDistrict","CC_1":"NA","HASC_1":"IM.AY","ISO_1":"NA"}}
+]}

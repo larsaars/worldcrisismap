@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[20.7396,40.9104],[20.7689,40.9253],[20.8077,41.0029],[20.8071,41.1058],[20.7378,41.1664],[20.67,41.1687],[20.6338,41.0853],[20.6737,41.074],[20.7396,40.9104]]]},"properties":{"GID_1":"MKD.42_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"LakeOhrid","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Waterbody","ENGTYPE_1":"Waterbody","CC_1":"NA","HASC_1":"NA","ISO_1":"NA"}}
+]}

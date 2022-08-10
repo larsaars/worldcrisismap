@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[48.004,29.3051],[48.0896,29.3023],[48.0924,29.331],[48.1018,29.351],[48.0971,29.3532],[48.0571,29.3404],[48.0285,29.3549],[48.0249,29.3629],[48.029,29.3671],[48.0108,29.3707],[47.9797,29.3513],[48.004,29.3051]]]},"properties":{"GID_1":"KWT.5_1","GID_0":"KWT","COUNTRY":"Kuwait","NAME_1":"Hawalli","VARNAME_1":"Hawali,Howali","NL_NAME_1":"حولي","TYPE_1":"Muhafazah","ENGTYPE_1":"Province","CC_1":"NA","HASC_1":"KW.HW","ISO_1":"KW-HA"}}
+]}

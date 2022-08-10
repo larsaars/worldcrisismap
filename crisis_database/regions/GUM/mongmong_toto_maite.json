@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[144.779,13.4815],[144.759,13.477],[144.761,13.466],[144.784,13.4622],[144.779,13.4815]]]},"properties":{"GID_1":"GUM.11_1","GID_0":"GUM","COUNTRY":"Guam","NAME_1":"Mongmong-Toto-Maite","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipality","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"GU.MT","ISO_1":"-"}}
+]}

@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[55.4792,-4.6532],[55.4652,-4.6385],[55.4647,-4.6561],[55.4792,-4.6532]]]},"properties":{"GID_1":"SYC.17_1","GID_0":"SYC","COUNTRY":"Seychelles","NAME_1":"LesMamelles","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"SC.LM","ISO_1":"NA"}}
+]}

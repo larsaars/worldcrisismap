@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[20.9483,41.8733],[20.9501,41.8513],[21.0277,41.8366],[21.079,41.7774],[21.147,41.8292],[21.1838,41.8391],[21.1784,41.8546],[21.1276,41.8419],[21.0708,41.8566],[21.0802,41.9008],[20.9812,41.9663],[20.9579,41.9526],[20.9588,41.9335],[20.9869,41.9208],[20.9483,41.8733]]]},"properties":{"GID_1":"MKD.8_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"Brvenica","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.BN","ISO_1":"MK-602"}}
+]}

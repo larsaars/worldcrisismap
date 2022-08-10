@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-63.0731,18.1821],[-63.0543,18.1907],[-63.0516,18.2109],[-63.079,18.21],[-63.0731,18.1821]]]},"properties":{"GID_1":"AIA.3_1","GID_0":"AIA","COUNTRY":"Anguilla","NAME_1":"GeorgeHill","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"AI.GH","ISO_1":"NA"}}
+]}

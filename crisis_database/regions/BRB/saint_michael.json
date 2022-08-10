@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-59.5676,13.096],[-59.5823,13.1564],[-59.6362,13.136],[-59.6332,13.1021],[-59.6101,13.0907],[-59.6126,13.0779],[-59.5676,13.096]]]},"properties":{"GID_1":"BRB.8_1","GID_0":"BRB","COUNTRY":"Barbados","NAME_1":"SaintMichael","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"BB.MI","ISO_1":"BB-08"}}
+]}

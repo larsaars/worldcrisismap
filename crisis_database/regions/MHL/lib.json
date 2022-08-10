@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[167.375,8.3186],[167.3842,8.3072],[167.3853,8.3161],[167.375,8.3186]]]},"properties":{"GID_1":"MHL.11_1","GID_0":"MHL","COUNTRY":"MarshallIslands","NAME_1":"Lib","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Island","ENGTYPE_1":"Island","CC_1":"NA","HASC_1":"NA","ISO_1":"NA"}}
+]}

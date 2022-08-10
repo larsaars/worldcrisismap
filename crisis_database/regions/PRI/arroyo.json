@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-66.0198,17.9782],[-66.0471,18.0092],[-66.0481,18.0355],[-66.0757,18.0374],[-66.0951,18.0221],[-66.0716,17.9939],[-66.0643,17.9604],[-66.0479,17.9521],[-66.0198,17.9782]]]},"properties":{"GID_1":"PRI.8_1","GID_0":"PRI","COUNTRY":"PuertoRico","NAME_1":"Arroyo","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipio","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"PR.AR","ISO_1":"-"}}
+]}

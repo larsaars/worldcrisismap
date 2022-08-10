@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-61.3751,15.2705],[-61.3645,15.2335],[-61.3463,15.2599],[-61.3751,15.2705]]]},"properties":{"GID_1":"DMA.6_1","GID_0":"DMA","COUNTRY":"Dominica","NAME_1":"SaintLuke","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"DM.LU","ISO_1":"DM-07"}}
+]}

@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[78.7778,31.4014],[78.7955,31.4528],[78.7406,31.4887],[78.7823,31.443],[78.7462,31.3617],[78.7593,31.3166],[78.7828,31.2989],[78.8196,31.2941],[78.8484,31.3088],[78.9069,31.2462],[78.8582,31.313],[78.829,31.3302],[78.8403,31.3544],[78.8272,31.3813],[78.7778,31.4014]]]},"properties":{"GID_1":"Z09.13_1","GID_0":"Z09","COUNTRY":"India","NAME_1":"HimachalPradesh","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"UnionTerritor","ENGTYPE_1":"UnionTerritory","CC_1":"NA","HASC_1":"IN.HP","ISO_1":"NA"}}
+]}

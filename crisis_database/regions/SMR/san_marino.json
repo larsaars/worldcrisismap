@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[12.4127,43.9286],[12.429,43.9249],[12.4293,43.9131],[12.455,43.9224],[12.4511,43.9342],[12.4285,43.9435],[12.4127,43.9286]]]},"properties":{"GID_1":"SMR.8_1","GID_0":"SMR","COUNTRY":"SanMarino","NAME_1":"SanMarino","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Castello","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"SM.SM","ISO_1":"NA"}}
+]}

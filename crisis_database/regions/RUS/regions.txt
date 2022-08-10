@@ -1,0 +1,83 @@
+adygey
+altay
+amur
+arkhangelsk
+astrakhan
+bashkortostan
+belgorod
+bryansk
+buryat
+chechnya
+chelyabinsk
+chukot
+chuvash
+cityof st petersburg
+dagestan
+gorno altay
+ingush
+irkutsk
+ivanovo
+kabardin balkar
+kaliningrad
+kalmyk
+kaluga
+kamchatka
+karachay cherkess
+karelia
+kemerovo
+khabarovsk
+khakass
+khanty mansiy
+kirov
+komi
+kostroma
+krasnodar
+krasnoyarsk
+kurgan
+kursk
+leningrad
+lipetsk
+magadan
+mariy el
+mordovia
+moscow city
+moskva
+murmansk
+nenets
+nizhegorod
+north ossetia
+novgorod
+novosibirsk
+omsk
+orel
+orenburg
+penza
+perm
+primorye
+pskov
+rostov
+ryazan
+sakha
+sakhalin
+samara
+saratov
+smolensk
+stavropol
+sverdlovsk
+tambov
+tatarstan
+tomsk
+tula
+tuva
+tver
+tyumen
+udmurt
+ulyanovsk
+vladimir
+volgograd
+vologda
+voronezh
+yamal nenets
+yaroslavl
+yevrey
+zabaykalye

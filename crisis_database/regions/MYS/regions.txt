@@ -1,0 +1,16 @@
+johor
+kedah
+kelantan
+kuala lumpur
+labuan
+melaka
+negeri sembilan
+pahang
+perak
+perlis
+pulau pinang
+putrajaya
+sabah
+sarawak
+selangor
+trengganu

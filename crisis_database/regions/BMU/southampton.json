@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-64.877,32.2608],[-64.8597,32.2472],[-64.8344,32.2467],[-64.8168,32.2532],[-64.8244,32.263],[-64.8564,32.2533],[-64.8653,32.26],[-64.8644,32.2675],[-64.877,32.2608]]]},"properties":{"GID_1":"BMU.10_1","GID_0":"BMU","COUNTRY":"Bermuda","NAME_1":"Southampton","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"BM.SO","ISO_1":"NA"}}
+]}

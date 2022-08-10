@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[45.1162,-12.8413],[45.0918,-12.8524],[45.1322,-12.889],[45.1384,-12.8694],[45.1216,-12.8399],[45.1162,-12.8413]]]},"properties":{"GID_1":"MYT.16_1","GID_0":"MYT","COUNTRY":"Mayotte","NAME_1":"Sada","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Chef-lieucanton","ENGTYPE_1":"Commune","CC_1":"16","HASC_1":"NA","ISO_1":"-"}}
+]}

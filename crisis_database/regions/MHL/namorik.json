@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"MultiPolygon","coordinates":[[[[168.1356,5.634],[168.1178,5.6314],[168.13,5.6278],[168.1211,5.5947],[168.1021,5.6109],[168.1004,5.5935],[168.1225,5.5928],[168.1356,5.634]]],[[[168.0964,5.6389],[168.0878,5.6408],[168.0969,5.6292],[168.0964,5.6389]]]]},"properties":{"GID_1":"MHL.17_1","GID_0":"MHL","COUNTRY":"MarshallIslands","NAME_1":"Namorik","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Atol","ENGTYPE_1":"Atol","CC_1":"NA","HASC_1":"NA","ISO_1":"NA"}}
+]}

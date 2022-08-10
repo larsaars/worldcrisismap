@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-111.046,41.379],[-111.0456,40.9978],[-109.049,41],[-107.4575,41.0027],[-106.0238,40.9977],[-104.0528,41.0017],[-104.0527,43.0028],[-104.0571,44.9987],[-107.0009,44.9972],[-109.0014,45.0008],[-111.053,44.9999],[-111.0439,43.4998],[-111.046,41.379]]]},"properties":{"GID_1":"USA.51_1","GID_0":"USA","COUNTRY":"UnitedStates","NAME_1":"Wyoming","VARNAME_1":"WY|Wyo.","NL_NAME_1":"NA","TYPE_1":"State","ENGTYPE_1":"State","CC_1":"NA","HASC_1":"US.WY","ISO_1":"US-WY"}}
+]}

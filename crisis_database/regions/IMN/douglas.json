@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-4.4708,54.1398],[-4.4781,54.156],[-4.4598,54.1663],[-4.4776,54.1839],[-4.4968,54.1783],[-4.4999,54.1593],[-4.5288,54.1529],[-4.51,54.1375],[-4.492,54.1451],[-4.4708,54.1398]]]},"properties":{"GID_1":"IMN.7_2","GID_0":"IMN","COUNTRY":"IsleofMan","NAME_1":"Douglas","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"TownDistrict","ENGTYPE_1":"TownDistrict","CC_1":"NA","HASC_1":"IM.MD","ISO_1":"NA"}}
+]}

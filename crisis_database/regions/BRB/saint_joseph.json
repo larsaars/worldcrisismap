@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-59.575,13.2033],[-59.553,13.167],[-59.5088,13.2099],[-59.5412,13.2338],[-59.575,13.2033]]]},"properties":{"GID_1":"BRB.6_1","GID_0":"BRB","COUNTRY":"Barbados","NAME_1":"SaintJoseph","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"BB.JS","ISO_1":"NA"}}
+]}

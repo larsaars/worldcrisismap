@@ -7,13 +7,9 @@ Handles the scraping of the ReliefWeb Disasters and Reports API.
 import requests
 import psycopg2 as pg
 import os
-import sys
+import json
+from utils import *
 
-def printerr(*args, **kwargs):
-    """
-    Prints an error message to the console.
-    """
-    print(*args, file=sys.stderr, **kwargs)
 
 # get environment variables
 DB_CON_STRING = os.getenv('DB_CON_STRING', None)
@@ -24,19 +20,15 @@ try:
 except Exception as e:
     printerr(e)
 
-cur = connection.cursor(cursor_factory=pg.extras.DictCursor)
+cur = connection.cursor()
 
 # cur.execute(QUERY)
 # cur.fetchall()
 
 
-def escape(string):
-    """
-    Escape dangerous characters for database in string.
+# load country region mapper
+contry_region_mapper = load_country_region_mapper()
 
-    :param string: The string to escape.
-    """
-    return string.replace('\'', '&#39;').replace('"', '&quot;').replace('\\', '\\\\').replace('\n', '<br>')
 
 
 def load_disasters_to_database(offset=0, limit=10) -> int:
@@ -54,19 +46,43 @@ def load_disasters_to_database(offset=0, limit=10) -> int:
     # loop through each disaster and add to database
     for item in res['data']:
         try:
+            # the fields object
             fd = item['fields']
-            country = fd['country'][0]
-            description_html = fd['profile']['description-html'] if 'description-html' in fd else '' 
+            
+            # generate geojson
+            # get all involved countries (alpha3 codes)
+            countries = []
+            for country in fd['country']:
+                countries.append(country['iso3'])
 
-            cur.execute(f"INSERT INTO disasters(id, date, status, country_name, lat, lon, type, url, title, description_html) VALUES ({item['id']}, '{fd['date']['event']}', '{fd['status']}', '{escape(country['name'])}', {country['location']['lat']}, {country['location']['lon']}, '{escape(fd['primary_type']['name'])}', '{fd['url']}', '{escape(fd['name'])}', '{description_html}');")
+            # for fallback (if function finds nothing, coords of first country are put in the geojson field)
+            coords = [float(fd['primary_country']['location']['lat']), float(fd['primary_country']['location']['lon'])]
+
+            # get description in plain text, if not available
+            description = fd['description'] if 'description' in fd else fd['name']
+
+            # finally generate
+            geojson = json.dumps(search_matching_geojson_files_or_coords(description, countries, coords, contry_region_mapper))
+
+            # load description_html if available
+            description_html = escape(fd['description-html']) if 'description-html' in fd else '' 
+
+            # execute insert query
+            cur.execute(f"INSERT INTO disasters(id, date, status, country_name, geojson, type, url, title, description_html) VALUES ({item['id']}, '{fd['date']['event']}', '{fd['status']}', '{escape(fd['primary_country']['name'])}', '{geojson}', '{escape(fd['primary_type']['name'])}', '{fd['url']}', '{escape(fd['name'])}', '{description_html}');")
         except Exception as e:
-            printerr(e)
+            printerr(type(e), e)
+
+    
+
+    # commit changes
+    print('Committing changes to database...')
+    connection.commit()
 
 
     # return total number of disasters in API
     return res['totalCount']
 
 
-def load_reports_to_database(limit=10) -> None:
+def load_reports_to_database(offset=0, limit=10) -> int:
     pass
 

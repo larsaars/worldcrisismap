@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-66.0527,18.1137],[-66.0195,18.1032],[-66.0102,18.0756],[-65.9774,18.0951],[-65.9622,18.0865],[-65.9336,18.0937],[-65.928,18.1891],[-65.952,18.2158],[-65.9511,18.2291],[-65.9899,18.2196],[-66.0222,18.1653],[-66.0241,18.1357],[-66.0527,18.1137]]]},"properties":{"GID_1":"PRI.66_1","GID_0":"PRI","COUNTRY":"PuertoRico","NAME_1":"SanLorenzo","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipio","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"PR.SL","ISO_1":"-"}}
+]}

@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[35.78,32.1979],[35.8547,32.2392],[35.8833,32.3141],[35.9672,32.3548],[35.9282,32.3823],[35.9221,32.4205],[35.8848,32.3991],[35.8352,32.4059],[35.7728,32.375],[35.71,32.3869],[35.667,32.2453],[35.7427,32.1696],[35.78,32.1979]]]},"properties":{"GID_1":"JOR.1_1","GID_0":"JOR","COUNTRY":"Jordan","NAME_1":"Ajlun","VARNAME_1":"Ajloan|`Ajlun","NL_NAME_1":"NA","TYPE_1":"Muhafazah","ENGTYPE_1":"Province","CC_1":"NA","HASC_1":"JO.AJ","ISO_1":"NA"}}
+]}

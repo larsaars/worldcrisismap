@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[44.4186,40.2183],[44.4378,40.1921],[44.4347,40.1335],[44.538,40.0838],[44.6374,40.1346],[44.6635,40.1654],[44.6552,40.1985],[44.57,40.2624],[44.4742,40.247],[44.4391,40.2596],[44.4186,40.2183]]]},"properties":{"GID_1":"ARM.4_1","GID_0":"ARM","COUNTRY":"Armenia","NAME_1":"Erevan","VARNAME_1":"Yerevan","NL_NAME_1":"Երևան|Ереван","TYPE_1":"Kaghak","ENGTYPE_1":"City","CC_1":"NA","HASC_1":"AM.ER","ISO_1":"AM-ER"}}
+]}

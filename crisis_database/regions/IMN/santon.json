@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-4.5656,54.1467],[-4.5941,54.1461],[-4.5865,54.1219],[-4.604,54.0915],[-4.5775,54.1021],[-4.5503,54.1007],[-4.5297,54.1162],[-4.5503,54.1241],[-4.5656,54.1467]]]},"properties":{"GID_1":"IMN.21_2","GID_0":"IMN","COUNTRY":"IsleofMan","NAME_1":"Santon","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"ParishDistrict","ENGTYPE_1":"ParishDistrict","CC_1":"NA","HASC_1":"IM.MD","ISO_1":"NA"}}
+]}

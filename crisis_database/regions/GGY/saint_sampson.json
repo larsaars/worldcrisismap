@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"MultiPolygon","coordinates":[[[[-2.5461,49.471],[-2.5338,49.4688],[-2.511,49.4801],[-2.5482,49.494],[-2.5654,49.4864],[-2.5615,49.4727],[-2.5461,49.471]]],[[[-2.5548,49.495],[-2.5582,49.4996],[-2.5765,49.4943],[-2.5664,49.488],[-2.5548,49.495]]]]},"properties":{"GID_1":"GGY.11_1","GID_0":"GGY","COUNTRY":"Guernsey","NAME_1":"SaintSampson","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"GG.SM","ISO_1":"NA"}}
+]}

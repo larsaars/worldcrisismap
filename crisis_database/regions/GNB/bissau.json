@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-15.6632,11.798],[-15.6395,11.8246],[-15.6021,11.8374],[-15.555,11.8875],[-15.5878,11.9358],[-15.5993,11.9406],[-15.6108,11.9333],[-15.6492,11.8654],[-15.6632,11.798]]]},"properties":{"GID_1":"GNB.3_1","GID_0":"GNB","COUNTRY":"Guinea-Bissau","NAME_1":"Bissau","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"SectorAutónomo","ENGTYPE_1":"AutonomousSector","CC_1":"NA","HASC_1":"GW.BS","ISO_1":"GW-BS"}}
+]}

@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-2.085,49.2071],[-2.0873,49.2135],[-2.0735,49.2172],[-2.0617,49.2363],[-2.0424,49.2401],[-2.0518,49.2443],[-2.0807,49.2382],[-2.084,49.2476],[-2.0993,49.2554],[-2.1117,49.2474],[-2.108,49.2195],[-2.1156,49.2177],[-2.1033,49.2069],[-2.085,49.2071]]]},"properties":{"GID_1":"JEY.12_1","GID_0":"JEY","COUNTRY":"Jersey","NAME_1":"Trinity","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"JE.TR","ISO_1":"NA"}}
+]}

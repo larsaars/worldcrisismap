@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-157.7078,-19.8384],[-157.7244,-19.8697],[-157.7106,-19.8983],[-157.6781,-19.8614],[-157.7078,-19.8384]]]},"properties":{"GID_1":"COK.6_1","GID_0":"COK","COUNTRY":"CookIslands","NAME_1":"Mitiaro","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"IslandCouncil","ENGTYPE_1":"IslandCouncil","CC_1":"NA","HASC_1":"NA","ISO_1":"NA"}}
+]}

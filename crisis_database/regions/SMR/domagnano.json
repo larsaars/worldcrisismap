@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[12.5057,43.9685],[12.4614,43.9579],[12.456,43.946],[12.4729,43.9391],[12.4811,43.9482],[12.5017,43.9483],[12.5057,43.9685]]]},"properties":{"GID_1":"SMR.4_1","GID_0":"SMR","COUNTRY":"SanMarino","NAME_1":"Domagnano","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Castello","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"SM.DO","ISO_1":"NA"}}
+]}

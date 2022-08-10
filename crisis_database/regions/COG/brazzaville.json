@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[15.3246,-4.2809],[15.3051,-4.2209],[15.2769,-4.2062],[15.216,-4.2602],[15.2235,-4.3299],[15.3246,-4.2809]]]},"properties":{"GID_1":"COG.2_1","GID_0":"COG","COUNTRY":"RepublicoftheCongo","NAME_1":"Brazzaville","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Région","ENGTYPE_1":"Region","CC_1":"NA","HASC_1":"CG.BR","ISO_1":"CG-BZV"}}
+]}

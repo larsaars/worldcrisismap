@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-64.7417,32.3025],[-64.7754,32.308],[-64.7725,32.2937],[-64.7417,32.3025]]]},"properties":{"GID_1":"BMU.1_1","GID_0":"BMU","COUNTRY":"Bermuda","NAME_1":"Devonshire","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"BM.DE","ISO_1":"NA"}}
+]}

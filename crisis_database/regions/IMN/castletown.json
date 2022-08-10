@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-4.675,54.0765],[-4.6592,54.0674],[-4.6332,54.0781],[-4.6521,54.0837],[-4.675,54.0765]]]},"properties":{"GID_1":"IMN.6_2","GID_0":"IMN","COUNTRY":"IsleofMan","NAME_1":"Castletown","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"TownDistrict","ENGTYPE_1":"TownDistrict","CC_1":"NA","HASC_1":"IM.RU","ISO_1":"NA"}}
+]}

@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-66.3186,18.3673],[-66.3038,18.384],[-66.2998,18.4231],[-66.3175,18.4502],[-66.3149,18.4746],[-66.3399,18.4865],[-66.3496,18.4835],[-66.3503,18.4268],[-66.3773,18.3442],[-66.3587,18.3305],[-66.3486,18.3505],[-66.3547,18.361],[-66.3186,18.3673]]]},"properties":{"GID_1":"PRI.73_1","GID_0":"PRI","COUNTRY":"PuertoRico","NAME_1":"VegaAlta","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipio","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"PR.VA","ISO_1":"-"}}
+]}

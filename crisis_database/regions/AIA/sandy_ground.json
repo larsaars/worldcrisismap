@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-63.0925,18.2045],[-63.0915,18.1968],[-63.0784,18.2005],[-63.0925,18.2045]]]},"properties":{"GID_1":"AIA.7_1","GID_0":"AIA","COUNTRY":"Anguilla","NAME_1":"SandyGround","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"AI.SG","ISO_1":"NA"}}
+]}

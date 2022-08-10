@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[31.2961,29.8041],[31.308,29.7541],[31.6837,29.7594],[31.8933,29.7337],[31.8996,30.0472],[31.862,30.1877],[31.4148,30.1964],[31.3663,30.1547],[31.3217,30.1718],[31.2168,30.0679],[31.2408,29.9619],[31.2779,29.9329],[31.2961,29.8041]]]},"properties":{"GID_1":"EGY.11_1","GID_0":"EGY","COUNTRY":"Egypt","NAME_1":"AlQahirah","VARNAME_1":"Cairo|ElCairo|ElQahira|LeCair","NL_NAME_1":"NA","TYPE_1":"Muhafazah","ENGTYPE_1":"Governorate","CC_1":"NA","HASC_1":"EG.QH","ISO_1":"EG-C"}}
+]}

@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-61.0291,13.887],[-61.0391,13.8818],[-61.0737,13.8935],[-61.0801,13.8629],[-61.0599,13.8524],[-61.0687,13.8368],[-61.0638,13.8235],[-61.076,13.804],[-61.0692,13.801],[-60.9924,13.8427],[-60.98,13.8612],[-60.9894,13.8759],[-61.0137,13.8545],[-61.0291,13.887]]]},"properties":{"GID_1":"LCA.9_1","GID_0":"LCA","COUNTRY":"SaintLucia","NAME_1":"Soufrière","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Quarter","ENGTYPE_1":"Quarter","CC_1":"NA","HASC_1":"LC.CO","ISO_1":"NA"}}
+]}

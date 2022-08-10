@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"MultiPolygon","coordinates":[[[[-158.1214,-19.9658],[-158.1372,-19.9706],[-158.1422,-20],[-158.1162,-20.0295],[-158.0812,-20.004],[-158.1214,-19.9658]]],[[[-158.2886,-19.8081],[-158.2972,-19.813],[-158.2825,-19.8161],[-158.2886,-19.8081]]]]},"properties":{"GID_1":"COK.2_1","GID_0":"COK","COUNTRY":"CookIslands","NAME_1":"Atiu","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"IslandCouncil","ENGTYPE_1":"IslandCouncil","CC_1":"NA","HASC_1":"NA","ISO_1":"NA"}}
+]}

@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[45.1162,-12.8413],[45.1223,-12.8077],[45.0996,-12.8016],[45.1004,-12.8346],[45.1162,-12.8413]]]},"properties":{"GID_1":"MYT.5_1","GID_0":"MYT","COUNTRY":"Mayotte","NAME_1":"Chiconi","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Chef-lieucanton","ENGTYPE_1":"Commune","CC_1":"05","HASC_1":"NA","ISO_1":"NA"}}
+]}

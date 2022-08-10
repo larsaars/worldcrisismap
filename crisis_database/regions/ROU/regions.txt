@@ -1,0 +1,42 @@
+alba
+arad
+argeș
+bacău
+bihor
+bistrița năsăud
+botoșani
+brăila
+brașov
+bucharest
+buzău
+călărași
+caraș severin
+cluj
+constanța
+covasna
+dâmbovița
+dolj
+galați
+giurgiu
+gorj
+harghita
+hunedoara
+ialomița
+iași
+ilfov
+maramureș
+mehedinți
+mureș
+neamț
+olt
+prahova
+sălaj
+satu mare
+sibiu
+suceava
+teleorman
+timiș
+tulcea
+vâlcea
+vaslui
+vrancea

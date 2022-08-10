@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-4.6793,54.2307],[-4.6919,54.2243],[-4.7019,54.2265],[-4.7,54.2159],[-4.68,54.2177],[-4.6793,54.2307]]]},"properties":{"GID_1":"IMN.17_2","GID_0":"IMN","COUNTRY":"IsleofMan","NAME_1":"Peel","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"TownDistrict","ENGTYPE_1":"TownDistrict","CC_1":"NA","HASC_1":"IM.GB","ISO_1":"NA"}}
+]}

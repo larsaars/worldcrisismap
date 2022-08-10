@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.3451,16.9451],[-62.349,16.939],[-62.3446,16.9315],[-62.3451,16.9451]]]},"properties":{"GID_1":"ATG.2_1","GID_0":"ATG","COUNTRY":"AntiguaandBarbuda","NAME_1":"Redonda","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Dependency","ENGTYPE_1":"Dependency","CC_1":"NA","HASC_1":"AG.RD","ISO_1":"AG-11"}}
+]}

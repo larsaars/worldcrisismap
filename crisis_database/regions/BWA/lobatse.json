@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[25.6925,-25.2394],[25.707,-25.1815],[25.6662,-25.2042],[25.6612,-25.2377],[25.6925,-25.2394]]]},"properties":{"GID_1":"BWA.10_1","GID_0":"BWA","COUNTRY":"Botswana","NAME_1":"Lobatse","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Town","ENGTYPE_1":"Town","CC_1":"NA","HASC_1":"BW.LB","ISO_1":"NA"}}
+]}

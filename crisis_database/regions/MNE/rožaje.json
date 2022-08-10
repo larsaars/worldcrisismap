@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[20.3137,42.8262],[20.313,42.8898],[20.1215,42.96],[20.0637,42.8722],[20.0539,42.8387],[20.0193,42.8032],[20.0237,42.7773],[20.0003,42.7651],[20.1915,42.738],[20.2246,42.7678],[20.2274,42.8029],[20.3137,42.8262]]]},"properties":{"GID_1":"MNE.17_1","GID_0":"MNE","COUNTRY":"Montenegro","NAME_1":"Rožaje","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"ME.RO","ISO_1":"NA"}}
+]}

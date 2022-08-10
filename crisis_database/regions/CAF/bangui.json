@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[18.5685,4.3354],[18.6675,4.352],[18.6359,4.427],[18.555,4.4023],[18.5685,4.3354]]]},"properties":{"GID_1":"CAF.2_1","GID_0":"CAF","COUNTRY":"CentralAfricanRepublic","NAME_1":"Bangui","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"CommuneAutonome","ENGTYPE_1":"AutonomousCommune","CC_1":"NA","HASC_1":"CF.BG","ISO_1":"CF-BGF"}}
+]}

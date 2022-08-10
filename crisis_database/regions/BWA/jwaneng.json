@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[24.7308,-24.6245],[24.7537,-24.5921],[24.7037,-24.6001],[24.7308,-24.6245]]]},"properties":{"GID_1":"BWA.6_1","GID_0":"BWA","COUNTRY":"Botswana","NAME_1":"Jwaneng","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Town","ENGTYPE_1":"Town","CC_1":"NA","HASC_1":"BW.JW","ISO_1":"NA"}}
+]}
