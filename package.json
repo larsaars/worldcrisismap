@@ -1,7 +1,7 @@
 {
-  "name": "weathertop-larsaars",
+  "name": "worldcrisismap",
   "version": "0.0.1",
-  "description": "Implementation of the WT assignment \"WeatherTop\".",
+  "description": "Website displaying humanitarian crisis and news using OpenStreetMap and ReliefWeb.",
   "main": "app.js",
   "scripts": {},
   "dependencies": {
@@ -16,7 +16,7 @@
     "winston": "^3.3.3"
   },
   "repository": {
-    "url": "https://github.com/OTHRegensburgWebDevKIDS/weathertop-larsaars"
+    "url": "https://github.com/larsaars/worldcrisismap"
   },
   "license": "MIT",
   "keywords": [

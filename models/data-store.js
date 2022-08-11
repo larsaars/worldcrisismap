@@ -51,14 +51,4 @@ const dataStore = {
     }
 };
 
-const email = 'lars.lars.specht@gmail.com'
-const stationId = '1'
-const reading = {
-    weather: 0,
-    temperature: 0,
-    air_pressure: 0,
-    wind_speed: 0,
-    wind_direction: 0
-}
-
 module.exports = dataStore;
