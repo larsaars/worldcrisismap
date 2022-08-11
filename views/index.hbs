@@ -1,5 +1,111 @@
-{{> welcome-menu }}
+{{> menu }}
+
+<div id="map"></div>
+<script>
+    let map = new maplibregl.Map({
+        container: 'map',
+        style: 'https://api.maptiler.com/maps/streets/style.json?key=FmkZcpxnyFTMyvbqcIqk',
+        center: [0, 33],
+        zoom: 2.2
+    });
+
+    map.on('load', async function () {
+        // init files lists, markers and generate colors for all events
+
+        // passed in following format: [['event1 file1', 'event1 file2'], ..., ['eventM file1', ..., 'eventM fileN']]
+        const disasterFiles = {{{ disasterFiles }}};
+        const newsFiles = {{{ newsFiles }}};
+        // passed via json in format: [{lat: ..., lon: ...}, {lat: ..., lon: ...}, ...]
+        const disasterMarkers = {{{ disasterMarkers }}};
+        const newsMarkers = {{{ newsMarkers }}};
+        // passed via json in format ['event1text', 'event2text', ..., 'eventMtext']
+        const disasterTexts = {{{ disasterTexts }}};
+        const newsTexts = {{{ newsTexts }}};
+        // passed via json in format: ['eventType1', 'eventType2', ..., 'eventTypeM']
+        const disasterEventTypes = {{{ disasterEventTypes }}};
+        const newsEventTypes = {{{ newsEventTypes }}};
+
+        const [disasterColors, newsColors] = generateRandomColors(disasterFiles.length, newsFiles.length);
 
 
+        let layers = map.getStyle().layers;
+        // find the index of the first symbol layer in the map style
+        let firstSymbolId;
+        for (let i = 0; i < layers.length; i++) {
+            if (layers[i].type === 'symbol') {
+                firstSymbolId = layers[i].id;
+                break;
+            }
+        }
+
+        // build sources from provided geo json files
+        map.addSource('disasters', {
+            'type': 'geojson',
+            'data': await buildGeoJSON(disasterFiles, disasterColors)
+        });
+        map.addSource('news', {
+            'type': 'geojson',
+            'data': await buildGeoJSON(newsFiles, newsColors)
+        });
+
+        // add news and disaster layer
+        map.addLayer(
+                {
+                    'id': 'disasters-layer',
+                    'type': 'fill',
+                    'source': 'disasters',
+                    'layout': {},
+                    'paint': {
+                        'fill-color': ['get', 'fill'],
+                        'fill-opacity': 0.4
+                    }
+                },
+                firstSymbolId
+        );
+        map.addLayer(
+                {
+                    'id': 'news-layer',
+                    'type': 'fill',
+                    'source': 'news',
+                    'layout': {},
+                    'paint': {
+                        'fill-color': ['get', 'fill'],
+                        'fill-opacity': 0.4
+                    }
+                },
+                firstSymbolId
+        );
+
+        // add markers for every event to the map
+        function addMarkers(coords, colors, texts, eventTypes) {
+            for (const coordsIndex in coords) {
+                // create marker icon
+                let markerIcon = document.createElement('div')
+                markerIcon.style.width = '55px';
+                markerIcon.style.height = '55px';
+                markerIcon.style.backgroundSize = 'contain';
+                markerIcon.style.backgroundImage = getMarkerImage(eventTypes[coordsIndex]);
+                markerIcon.style.cursor = 'pointer';
+
+                // create marker with popup
+                new maplibregl.Marker(markerIcon, {
+                    color: colors[coordsIndex],
+                    draggable: false,
+                    anchor: 'center'
+                }).setLngLat([coords[coordsIndex].lon, coords[coordsIndex].lat])
+                        .setPopup(new maplibregl.Popup({
+                            anchor: 'center',
+                            offset: 25,
+                            closeButton: true,
+                            closeOnClick: false
+                        }).setHTML(texts[coordsIndex]))
+                        .addTo(map)
+            }
+        }
+
+        addMarkers(disasterMarkers, disasterColors, disasterTexts, disasterEventTypes);
+        addMarkers(newsMarkers, newsColors, newsTexts, newsEventTypes);
+    });
+</script>
 
 {{> footer }}

@@ -1,12 +1,11 @@
-const logger = require('../utils/logger.js');
 
 const home = {
     index(request, response) {
         const viewData = {
-            title: 'Weathertop'
+            title: 'World Crisis Map',
         };
 
-        response.render(request.session.user ? 'index-logged-in' : 'index-logged-out' , viewData);
+        response.render('index' , viewData);
     },
 };
 
