@@ -12,5 +12,6 @@
     <orderEntry type="library" name="@fortawesome/fontawesome-free" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="maplibre-gl" level="application" />
+    <orderEntry type="library" name="w3" level="application" />
   </component>
 </module>

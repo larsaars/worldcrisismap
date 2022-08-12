@@ -1,32 +1,48 @@
 {{> menu }}
 
-<div id="map"></div>
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+    <button class="w3-bar-item w3-button w3-large"
+            onclick="closeSideBar()">Close &times;
+    </button>
+    <div id="sidebarText"></div>
+</div>
+
+<div id="main">
+    <div id="map"></div>
+</div>
+
+
 <script>
     let map = new maplibregl.Map({
         container: 'map',
         style: 'https://api.maptiler.com/maps/streets/style.json?key=FmkZcpxnyFTMyvbqcIqk',
         center: [0, 33],
-        zoom: 2.2
+        zoom: 2.2,
     });
 
+    // list of markers for all events for hover functionality
+    let markers = [];
+
+    // the passed json data from the server
+    const disasterData = {{{ disasterData }}};
+    const newsData = {{{ newsData }}};
+
+    // get disaster and news files from the server data
+    let disasterFiles = [], newsFiles = [];
+
+    // parse from json because they are passed as strings
+    for (const data of disasterData) {
+        disasterFiles.push(JSON.parse(data.geojson));
+    }
+
+    for (const data of newsData) {
+        newsFiles.push(JSON.parse(data.geojson));
+    }
+    // generate colors for all events
+    const [disasterColors, newsColors] = generateRandomColors(disasterData.length, newsData.length);
+
+
     map.on('load', async function () {
-        // init files lists, markers and generate colors for all events
-
-        // passed in following format: [['event1 file1', 'event1 file2'], ..., ['eventM file1', ..., 'eventM fileN']]
-        const disasterFiles = {{{ disasterFiles }}};
-        const newsFiles = {{{ newsFiles }}};
-        // passed via json in format: [{lat: ..., lon: ...}, {lat: ..., lon: ...}, ...]
-        const disasterMarkers = {{{ disasterMarkers }}};
-        const newsMarkers = {{{ newsMarkers }}};
-        // passed via json in format ['event1text', 'event2text', ..., 'eventMtext']
-        const disasterTexts = {{{ disasterTexts }}};
-        const newsTexts = {{{ newsTexts }}};
-        // passed via json in format: ['eventType1', 'eventType2', ..., 'eventTypeM']
-        const disasterEventTypes = {{{ disasterEventTypes }}};
-        const newsEventTypes = {{{ newsEventTypes }}};
-
-        const [disasterColors, newsColors] = generateRandomColors(disasterFiles.length, newsFiles.length);
-
 
         let layers = map.getStyle().layers;
         // find the index of the first symbol layer in the map style
@@ -77,34 +93,93 @@
         );
 
         // add markers for every event to the map
-        function addMarkers(coords, colors, texts, eventTypes) {
-            for (const coordsIndex in coords) {
+        function addMarkers(dataList, colors) {
+            for (const dataIndex in dataList) {
+                const data = dataList[dataIndex];
+                // define event type text
+                const eventType = data.type ? data.type : 'News';
+
                 // create marker icon
-                let markerIcon = document.createElement('div')
-                markerIcon.style.width = '55px';
-                markerIcon.style.height = '55px';
+                let markerIcon = document.createElement('div');
+                markerIcon.style.width = '32px';
+                markerIcon.style.height = '32px';
                 markerIcon.style.backgroundSize = 'contain';
-                markerIcon.style.backgroundImage = getMarkerImage(eventTypes[coordsIndex]);
+                markerIcon.style.backgroundImage = getMarkerImage(eventType, useBlack(colors[dataIndex]));
                 markerIcon.style.cursor = 'pointer';
+                markerIcon.style.backgroundColor = colors[dataIndex];
+                markerIcon.style.borderRadius = '50%';
 
                 // create marker with popup
-                new maplibregl.Marker(markerIcon, {
-                    color: colors[coordsIndex],
+                let marker = new maplibregl.Marker(markerIcon, {
+                    color: colors[dataIndex],
                     draggable: false,
-                    anchor: 'center'
-                }).setLngLat([coords[coordsIndex].lon, coords[coordsIndex].lat])
+                    anchor: 'center',
+                }).setLngLat([data.lon, data.lat])
                         .setPopup(new maplibregl.Popup({
                             anchor: 'center',
                             offset: 25,
-                            closeButton: true,
+                            closeButton: false,
                             closeOnClick: false
-                        }).setHTML(texts[coordsIndex]))
-                        .addTo(map)
+                        }).setHTML('<i><small>' + eventType + '</small></i><br><h3>' + data.title + '</h3>'));
+
+                // set description attribute to marker to be used in sidebar text
+                marker.description = '<i>' + eventType + '</i><br><h2>' + data.title + '</h2><br>' + data.description_html.replace('&quot;', '"');
+
+                // add to map
+                marker.addTo(map);
+
+                // and to the list of markers
+                markers.push(marker);
+
+                // add marker mouse enter and leave listener to only show popup on hover
+                // get marker div
+                const markerDiv = marker.getElement();
+                // add mouse enter listener
+                markerDiv.addEventListener('mouseenter', () => {
+                    marker.togglePopup();
+                });
+                // add mouse leave listener
+                markerDiv.addEventListener('mouseleave', () => {
+                    marker.togglePopup();
+                });
             }
         }
 
-        addMarkers(disasterMarkers, disasterColors, disasterTexts, disasterEventTypes);
-        addMarkers(newsMarkers, newsColors, newsTexts, newsEventTypes);
+        // call addMarkers for disaster and news markers
+        addMarkers(disasterData, disasterColors);
+        addMarkers(newsData, newsColors);
+    });
+
+
+    // add on map click listener
+    // for preventing popup from opening on click (only on hover)
+    map.on('click', event => {
+        const target = event.originalEvent.target;
+
+        // boolean if marker was clicked
+        let isMarker = false;
+
+        // find the marker clicked
+        for (const marker of markers) {
+            // on match
+            if (marker.getElement().contains(target)) {
+                // disable popup click
+                marker.togglePopup();
+
+                //but open sidebar with description
+                openSideBar(marker.description);
+
+                // is marker is true
+                isMarker = true;
+
+                break;
+            }
+
+            // if this was no marker clicked, close sidebar
+            if (!isMarker) {
+                closeSideBar();
+            }
+        }
     });
 </script>
 

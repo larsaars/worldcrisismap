@@ -22,6 +22,7 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended: true}));
 // use folder public as static folder for assets
 app.use(express.static('public'));
+app.use(express.static('crisis_database'));
 
 // define handlebars as the view engine
 app.engine('.hbs', handlebars.engine({extname: '.hbs'}));
@@ -35,7 +36,7 @@ app.use('/', routes);
 
 // listen on port 3000 (in env variables)
 app.listen(process.env.PORT, () => {
-    console.log(`Weathertop listening on ${process.env.PORT}`);
+    console.log(`CrisisMap listening on ${process.env.PORT}`);
 });
 
 module.exports = app;

@@ -1,20 +1,45 @@
+let sideBarIsOpen = false;
+
 function generateRandomColor() {
-    return '#' + Math.floor(Math.random() * 16777215).toString(16);
+    return '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
 }
 
 function generateRandomColors() {
-    let colorsList = []
+    let colorsList = [];
     for (const len of arguments) {
-        let colors = []
+        let colors = [];
 
         for (let i = 0; i < len; i++) {
-            colors.push(generateRandomColor())
+            colors.push(generateRandomColor());
         }
 
-        colorsList.push(colors)
+        colorsList.push(colors);
     }
 
-    return colorsList
+    return colorsList;
+}
+
+// get the red, green and blue values
+function hexToRgb(hex) {
+    // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+    const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+        return r + r + g + g + b + b;
+    });
+
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
+
+// decide whether white or black is better readable based on color
+function useBlack(baseColor) {
+    let rgb = hexToRgb(baseColor);
+    let brightness = (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
+    return brightness > 150;
 }
 
 async function buildGeoJSON(files, colors) {
@@ -22,29 +47,60 @@ async function buildGeoJSON(files, colors) {
     let featureCollection = {
         type: 'FeatureCollection',
         features: []
-    }
+    };
 
     // fetch files and add the same events the same color
     for (const eventIndex in files) {
         for (const geoJsonFile of files[eventIndex]) {
             // fetch geo json file from provided path
-            const res = await fetch(geoJsonFile)
-            let geoJson = res.json()
-            // add styling information (all elements from one event have the same color)
-            geoJson.style.fill = colors[eventIndex]
-            // add to feature collection
-            featureCollection.features.push(geoJson)
+            const res = await fetch(geoJsonFile);
+            let geoJson = await res.json();
+
+            // if the type is a feature list, add the features to the feature collection
+            // else add the single feature to the feature collection
+            let features = geoJson.type === 'FeatureCollection' ? geoJson.features : [geoJson];
+            for (const feature of features) {
+                // add styling information (all elements from one event have the same color)
+                feature.properties = {};
+                feature.properties.fill = colors[eventIndex];
+                featureCollection.features.push(feature);
+            }
         }
     }
 
-    return featureCollection
+    return featureCollection;
 }
 
-function getMarkerImage(event) {
-    switch (event) {
-        case 'Flood':
-            return 'url(markers/flood.png)'
-        default:
-            ...
+function getMarkerImage(event, useBlack) {
+    const color = useBlack ? 'black' : 'white';
+    return 'url(markers/' + color + '/' + event.toLowerCase().replace(' ', '_') + '.png)';
+}
+
+function openSideBar(text) {
+    // set sidebar is open
+    sideBarIsOpen = true;
+
+    // set sidebar text
+    $('sidebarText').innerHTML = text;
+
+    // set sidebar opened
+    let sidebarStyle = $('sidebar');
+
+    $('main').css('marginLeft', '25%');
+    sidebarStyle.css('width', '25%');
+    sidebarStyle.css('display', 'block');
+}
+
+function closeSideBar() {
+    // do nothing if sidebar is not even open
+    if (!sideBarIsOpen) {
+        return;
     }
+
+    // set sidebar is closed
+    $('main').css('marginLeft', '0%');
+    $('sidebar').css('display', 'none');
+
+    // inform sidebar is closed
+    sideBarIsOpen = false;
 }
