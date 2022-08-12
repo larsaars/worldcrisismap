@@ -108,6 +108,8 @@
                 markerIcon.style.cursor = 'pointer';
                 markerIcon.style.backgroundColor = colors[dataIndex];
                 markerIcon.style.borderRadius = '50%';
+                markerIcon.style.border = '1px solid ' + colors[dataIndex];
+                markerIcon.style.opacity = '0.72'
 
                 // create marker with popup
                 let marker = new maplibregl.Marker(markerIcon, {
@@ -117,9 +119,8 @@
                 }).setLngLat([data.lon, data.lat])
                         .setPopup(new maplibregl.Popup({
                             anchor: 'center',
-                            offset: 25,
                             closeButton: false,
-                            closeOnClick: false
+                            closeOnClick: true
                         }).setHTML('<i><small>' + eventType + '</small></i><br><h3>' + data.title + '</h3>'));
 
                 // set description attribute to marker to be used in sidebar text

@@ -4,7 +4,7 @@ const logger = require('../utils/logger.js');
 const disasterNewsStore = {
     async getNews() {
         const dbRes = await dataStore.query(
-            'SELECT * FROM reports WHERE date > now() - INTERVAL \'1 DAY\'',
+            'SELECT * FROM reports WHERE date > now() - INTERVAL \'5 DAY\'',
             [],
             'getNews() failed'
         );
