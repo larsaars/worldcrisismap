@@ -1,23 +1,25 @@
 {{> menu }}
 
-<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="sidebar">
-    <button class="w3-button w3-large me-auto"
-            onclick="closeSideBar()">&times;
-    </button>
-    <div id="sidebarText" class="container m-2"></div>
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left p-3" style="display:none" id="sidebar">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <button class="w3-button w3-large float-end"
+                    onclick="closeSideBar()">&times;
+            </button>
+        </div>
+    </div>
+    <div id="sidebarText" class="container"></div>
 </div>
 
 <div id="main">
     <div id="map"></div>
 </div>
 
-<style>
-    body { margin: 0; padding: 0; }
-    #map { position: fixed; height: 100%; width: 100% }
-</style>
-
+<div id="earth"></div>
 
 <script>
+    // get map variable
     let map = new maplibregl.Map({
         container: 'map',
         style: 'https://api.maptiler.com/maps/streets/style.json?key=FmkZcpxnyFTMyvbqcIqk',
@@ -117,46 +119,39 @@
                 markerIcon.style.backgroundColor = colors[dataIndex];
                 markerIcon.style.borderRadius = '50%';
                 markerIcon.style.border = '1px solid ' + colors[dataIndex];
-                markerIcon.style.opacity = '0.72'
+                markerIcon.style.opacity = '0.72';
 
                 // create marker with popup
                 let marker = new maplibregl.Marker(markerIcon, {
                     color: colors[dataIndex],
                     draggable: false,
                     anchor: 'center',
-                }).setLngLat([data.lon, data.lat])
-                        .setPopup(new maplibregl.Popup({
-                            anchor: 'center',
-                            closeButton: false,
-                            closeOnClick: true
-                        }).setHTML('<i><small>' + eventType + '</small></i><br><h3>' + data.title + '</h3>'));
+                }).setLngLat([data.lon, data.lat]);
 
                 // set description attribute to marker to be used in sidebar text
-                marker.description = '<i>' + eventType + '</i><br><h2>' + data.title + '</h2><br>' + data.description_html.replace('&quot;', '"');
+                marker.description = '<i>' + eventType + '</i><br><h2>' + data.title + '</h2><br>' + data.description_html.replace(/&quot;/g, '"');
+
+                // set color of marker to be used in sidebar text
+                marker.color = colors[dataIndex];
+
+                // set coords to marker
+                marker.lat = data.lat;
+                marker.lon = data.lon;
 
                 // add to map
                 marker.addTo(map);
 
                 // and to the list of markers
                 markers.push(marker);
-
-                // add marker mouse enter and leave listener to only show popup on hover
-                // get marker div
-                const markerDiv = marker.getElement();
-                // add mouse enter listener
-                markerDiv.addEventListener('mouseenter', () => {
-                    marker.togglePopup();
-                });
-                // add mouse leave listener
-                markerDiv.addEventListener('mouseleave', () => {
-                    marker.togglePopup();
-                });
             }
         }
 
         // call addMarkers for disaster and news markers
         addMarkers(disasterData, disasterColors);
         addMarkers(newsData, newsColors);
+
+        // remove loading circle
+        $('#earth').hide();
     });
 
 
@@ -172,11 +167,15 @@
         for (const marker of markers) {
             // on match
             if (marker.getElement().contains(target)) {
-                // disable popup click
-                marker.togglePopup();
+
+                // move map center to marker
+                map.flyTo({
+                    center: [marker.lon, marker.lat],
+                    essential: true,
+                });
 
                 //but open sidebar with description
-                openSideBar(marker.description);
+                openSideBar(marker.description, marker.color);
 
                 // is marker is true
                 isMarker = true;
@@ -191,5 +190,3 @@
         }
     });
 </script>
-
-{{> footer }}

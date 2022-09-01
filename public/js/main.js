@@ -1,6 +1,11 @@
+// detect if page is in mobile format or mobile phone
+// call every time newly because window can be resized
+function pageIsMobileFormat() {
+    return ($(window).innerHeight() / $(window).innerWidth()) >= 1.4;
+}
 
 function generateRandomColor() {
-    return '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+    return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
 }
 
 function generateRandomColors() {
@@ -75,20 +80,34 @@ function getMarkerImage(event, useBlack) {
     return 'url(markers/' + color + '/' + event.toLowerCase().replace(' ', '_') + '.png)';
 }
 
-function openSideBar(text) {
+function openSideBar(text, color) {
+    // get color rgb values from hex
+    const rgb = hexToRgb(color);
+
     // set sidebar text
     $('#sidebarText').html(text);
+    // open links in sidebar in new tab
+    $('#sidebarText a').attr('target', '_blank');
 
     // set sidebar opened
     let sidebar = $('#sidebar');
 
-    $('#main').css('marginLeft', '40%');
-    sidebar.css('width', '40%');
-    sidebar.show()
+    // sidebar width is different for mobile users (or mobile format)
+    const sidebarWidth = pageIsMobileFormat() ? '100%' : '42%';
+
+    // set margin left for main element, show sidebar, set color etc.
+    $('#main').css('marginLeft', sidebarWidth);
+    sidebar.css('width', sidebarWidth);
+    sidebar.css('background', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.12)`);
+    sidebar.show();
+
+
 }
 
 function closeSideBar() {
-    // set sidebar is closed
+    // set sidebar closed
     $('#main').css('marginLeft', '0%');
-    $('#sidebar').hide()
+    $('#sidebar').hide();
 }
+
+const delay = ms => new Promise(res => setTimeout(res, ms));

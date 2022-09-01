@@ -4,8 +4,75 @@ body {
 }
 
 #map {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
-    width: 100%;
+    height: 100%;
+    width: 100%
 }
+
+#sidebar {
+    display: none;
+}
+
+/*#sidebarText {
+    text-align: justify;
+    text-justify: inter-word;
+}
+*/
+
+
+/* Transparent Overlay */
+#earth:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#earth {
+    position: fixed;
+    overflow: visible;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: url(/img/loading.png);
+    border-radius: 50%;
+    background-size: 403px;
+    box-shadow: inset 4px 24px 33px 24px rgb(0, 0, 0), inset -3px 0 8px rgba(255, 255, 255, 0.3);
+    animation-name: rotate;
+    animation-duration: 11s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 11s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+@keyframes rotate {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 403px 0;
+    }
+}
+
+@-webkit-keyframes rotate {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 403px 0;
+    }
+}
+
