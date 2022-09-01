@@ -31,7 +31,7 @@ contry_region_mapper = load_country_region_mapper()
 
 
 
-def load_disasters_to_database(offset=0, limit=10) -> int:
+def load_disasters_to_database(offset=0, limit=10, single_commits=False) -> int:
     """
     Loads the disasters to the database.
 
@@ -74,21 +74,26 @@ def load_disasters_to_database(offset=0, limit=10) -> int:
 
             # execute insert query
             cur.execute(f"INSERT INTO disasters(id, date, status, country_name, geojson, lat, lon, type, url, title, description_html) VALUES ({item['id']}, '{fd['date']['event']}', '{fd['status']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{escape(fd['primary_type']['name'])}', '{fd['url']}', '{escape(fd['name'])}', '{description_html}');")
+
+            # if single_commits, commit changes after every insert
+            if single_commits:
+                connection.commit()
         except Exception as e:
             printerr(type(e), e)
 
     
 
     # commit changes
-    print('Committing changes to database...')
-    connection.commit()
+    if not single_commits:
+        print('Committing changes to database...')
+        connection.commit()
 
 
     # return total number of disasters in API
     return res['totalCount']
 
 
-def load_reports_to_database(offset=0, limit=10) -> int:
+def load_reports_to_database(offset=0, limit=10, single_commits=False) -> int:
     """
     Loads the reports (headlines) to the database.
 
@@ -135,14 +140,19 @@ def load_reports_to_database(offset=0, limit=10) -> int:
 
             # execute insert query
             cur.execute(f"INSERT INTO reports(id, date, country_name, geojson, lat, lon, url, title, description_html) VALUES ({item['id']}, '{fd['date']['changed']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{fd['url']}', '{escape(fd['title'])}', '{description_html}');")
+
+            # if single_commits, commit changes after every insert
+            if single_commits:
+                connection.commit()
         except Exception as e:
             printerr(type(e), e)
 
     
 
     # commit changes
-    print('Committing changes to database...')
-    connection.commit()
+    if not single_commits:
+        print('Committing changes to database...')
+        connection.commit()
 
 
     # return total number of disasters in API

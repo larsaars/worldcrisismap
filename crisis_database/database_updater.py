@@ -20,10 +20,10 @@ N_ITEMS = int(os.getenv('UPDATE_DISASTERS_N_ITEMS', '10'))
 
 def update_database():
     # load newest update of disasters to database
-    load_disasters_to_database(offset=0, limit=N_ITEMS)
+    load_disasters_to_database(offset=0, limit=N_ITEMS, single_commits=True)
 
     # load today's reports to database
-    load_reports_to_database(limit=N_ITEMS)
+    load_reports_to_database(offset=0, limit=N_ITEMS, single_commits=True)
 
 
 if __name__ == '__main__':

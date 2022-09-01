@@ -1,15 +1,20 @@
 {{> menu }}
 
-<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-    <button class="w3-bar-item w3-button w3-large"
-            onclick="closeSideBar()">Close &times;
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="sidebar">
+    <button class="w3-button w3-large me-auto"
+            onclick="closeSideBar()">&times;
     </button>
-    <div id="sidebarText"></div>
+    <div id="sidebarText" class="container m-2"></div>
 </div>
 
 <div id="main">
     <div id="map"></div>
 </div>
+
+<style>
+    body { margin: 0; padding: 0; }
+    #map { position: fixed; height: 100%; width: 100% }
+</style>
 
 
 <script>
@@ -19,6 +24,9 @@
         center: [0, 33],
         zoom: 2.2,
     });
+
+    // add controls to map (zoom etc)
+    map.addControl(new maplibregl.NavigationControl(), 'top-right');
 
     // list of markers for all events for hover functionality
     let markers = [];

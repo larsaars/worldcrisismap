@@ -1,4 +1,3 @@
-let sideBarIsOpen = false;
 
 function generateRandomColor() {
     return '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
@@ -77,30 +76,19 @@ function getMarkerImage(event, useBlack) {
 }
 
 function openSideBar(text) {
-    // set sidebar is open
-    sideBarIsOpen = true;
-
     // set sidebar text
-    $('sidebarText').innerHTML = text;
+    $('#sidebarText').html(text);
 
     // set sidebar opened
-    let sidebarStyle = $('sidebar');
+    let sidebar = $('#sidebar');
 
-    $('main').css('marginLeft', '25%');
-    sidebarStyle.css('width', '25%');
-    sidebarStyle.css('display', 'block');
+    $('#main').css('marginLeft', '40%');
+    sidebar.css('width', '40%');
+    sidebar.show()
 }
 
 function closeSideBar() {
-    // do nothing if sidebar is not even open
-    if (!sideBarIsOpen) {
-        return;
-    }
-
     // set sidebar is closed
-    $('main').css('marginLeft', '0%');
-    $('sidebar').css('display', 'none');
-
-    // inform sidebar is closed
-    sideBarIsOpen = false;
+    $('#main').css('marginLeft', '0%');
+    $('#sidebar').hide()
 }
