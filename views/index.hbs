@@ -1,15 +1,17 @@
 {{> menu }}
 
-<div class="w3-sidebar w3-bar-block w3-card w3-animate-left p-3" style="display:none" id="sidebar">
-    <div class="row">
-        <div class="col-sm-12">
+<div class="w3-sidebar w3-bar-block w3-card" id="sidebar">
+    <div id="sidebarContent" class="p-3">
+        <div class="row sticky-top">
+            <div class="col-sm-12">
 
-            <button class="w3-button w3-large float-end"
-                    onclick="closeSideBar()">&times;
-            </button>
+                <button type="button" class="w3-button w3-large float-end"
+                        onclick="closeSideBar()">&times;
+                </button>
+            </div>
         </div>
+        <div id="sidebarText" class="container"></div>
     </div>
-    <div id="sidebarText" class="container"></div>
 </div>
 
 <div id="main">
@@ -25,6 +27,10 @@
         style: 'https://api.maptiler.com/maps/streets/style.json?key=FmkZcpxnyFTMyvbqcIqk',
         center: [0, 33],
         zoom: 2.2,
+    });
+
+    $(window).resize(function () {
+        map.resize();
     });
 
     // add controls to map (zoom etc)
@@ -51,12 +57,13 @@
     // generate colors for all events
     const [disasterColors, newsColors] = generateRandomColors(disasterData.length, newsData.length);
 
+    // variables for geo json
+    let disasterGeoJson, newsGeoJson;
+    let firstSymbolId;
 
     map.on('load', async function () {
-
         let layers = map.getStyle().layers;
         // find the index of the first symbol layer in the map style
-        let firstSymbolId;
         for (let i = 0; i < layers.length; i++) {
             if (layers[i].type === 'symbol') {
                 firstSymbolId = layers[i].id;
@@ -64,14 +71,18 @@
             }
         }
 
+        // geo json variables
+        disasterGeoJson = await buildGeoJSON(disasterFiles, disasterColors, true);
+        newsGeoJson = await buildGeoJSON(newsFiles, newsColors, false);
+
         // build sources from provided geo json files
         map.addSource('disasters', {
             'type': 'geojson',
-            'data': await buildGeoJSON(disasterFiles, disasterColors)
+            'data': disasterGeoJson
         });
         map.addSource('news', {
             'type': 'geojson',
-            'data': await buildGeoJSON(newsFiles, newsColors)
+            'data': newsGeoJson
         });
 
         // add news and disaster layer
@@ -103,7 +114,7 @@
         );
 
         // add markers for every event to the map
-        function addMarkers(dataList, colors) {
+        function addMarkers(dataList, colors, isDisaster) {
             for (const dataIndex in dataList) {
                 const data = dataList[dataIndex];
                 // define event type text
@@ -134,6 +145,10 @@
                 // set color of marker to be used in sidebar text
                 marker.color = colors[dataIndex];
 
+                // set marker index for GeoJSON retrieval
+                marker.eventIndex = dataIndex;
+                marker.isDisaster = isDisaster
+
                 // set coords to marker
                 marker.lat = data.lat;
                 marker.lon = data.lon;
@@ -146,9 +161,10 @@
             }
         }
 
+
         // call addMarkers for disaster and news markers
-        addMarkers(disasterData, disasterColors);
-        addMarkers(newsData, newsColors);
+        addMarkers(disasterData, disasterColors, true);
+        addMarkers(newsData, newsColors, false);
 
         // remove loading circle
         $('#earth').hide();
@@ -168,25 +184,23 @@
             // on match
             if (marker.getElement().contains(target)) {
 
-                // move map center to marker
-                map.flyTo({
-                    center: [marker.lon, marker.lat],
-                    essential: true,
-                });
-
-                //but open sidebar with description
-                openSideBar(marker.description, marker.color);
+                // open sidebar with description
+                if (marker === selectedMarker) {
+                    closeSideBar();
+                } else {
+                    openSideBar(map, marker, marker.isDisaster ? disasterGeoJson : newsGeoJson);
+                }
 
                 // is marker is true
                 isMarker = true;
 
                 break;
             }
+        }
 
-            // if this was no marker clicked, close sidebar
-            if (!isMarker) {
-                closeSideBar();
-            }
+        // if this was no marker clicked, close sidebar
+        if (!isMarker) {
+            closeSideBar();
         }
     });
 </script>

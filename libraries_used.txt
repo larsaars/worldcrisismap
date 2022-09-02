@@ -2,5 +2,11 @@ https://maplibre.org
 nodejs
 python3
 psycopg2
+w3
+jquery
+bootstrap
+font-awesome
+handlebars
+postgresql
 
 https://gadm.org/download_country.html

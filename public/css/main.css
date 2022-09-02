@@ -4,15 +4,22 @@ body {
 }
 
 #map {
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     height: 100%;
-    width: 100%
+    width: 100%;
 }
 
 #sidebar {
     display: none;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+#sidebarContent {
+    height: 100%;
+    overflow-y: auto;
 }
 
 /*#sidebarText {
@@ -75,4 +82,3 @@ body {
         background-position: 403px 0;
     }
 }
-
