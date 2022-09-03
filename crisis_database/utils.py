@@ -7,6 +7,7 @@ Utilities.
 import re
 import json
 import sys
+from unidecode import unidecode
 
 
 def printerr(*args, **kwargs):
@@ -38,6 +39,9 @@ def search_for_keywords(text: str, keywords) -> list:
     if not keywords:
         return []
 
+    # remove accents
+    text = unidecode(text)
+
     # make sure text is lowercase, trimmed string with only alphanumeric characters
     text = re.sub(r'\W+', '', text)
     text = re.sub(r"(\w)([A-Z])", r"\1 \2", text).strip().lower()
@@ -46,8 +50,8 @@ def search_for_keywords(text: str, keywords) -> list:
     found = []
 
     for keyword in keywords:
-        if keyword in text:
-            found.append((keyword, text.count(keyword)))
+        if keyword in text.split():
+            found.append((unidecode(keyword), text.count(keyword)))
 
     return found
 

@@ -90,7 +90,7 @@ function getGeoJSONFromEvent(geoJSON, eventIndex) {
     let featureCollection = {
         type: 'FeatureCollection',
         features: []
-    }
+    };
 
     // retrieve all features from the geoJSON that have the eventIndex property
     for (const feature of geoJSON.features) {
@@ -112,9 +112,6 @@ function openSideBar(map, marker, allGeoJson) {
     // get color rgb values from hex
     const rgb = hexToRgb(marker.color);
 
-    // open links in sidebar in new tab
-    $('#sidebarText a').attr('target', '_blank');
-
     // sidebar and content divs
     const sidebar = $('#sidebar');
     const sidebarContent = $('#sidebarContent');
@@ -134,11 +131,15 @@ function openSideBar(map, marker, allGeoJson) {
             complete: function () {
                 // set sidebar text
                 $('#sidebarText').html(marker.description);
+                // open links in sidebar in new tab
+                $('#sidebarText a').attr('target', '_blank');
             }
         });
     } else {
         // set sidebar text directly without animation
         $('#sidebarText').html(marker.description);
+        // open links in sidebar in new tab
+        $('#sidebarText a').attr('target', '_blank');
     }
 
     // on the map, mark the region as selected (get event geo json and add it to the map as layer)
@@ -168,7 +169,6 @@ function openSideBar(map, marker, allGeoJson) {
                 'fill-opacity': 0.9
             }
         }
-
     );
 
     // set boolean to indicate sidebar is open and set selected marker

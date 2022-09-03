@@ -73,12 +73,14 @@ def load_disasters_to_database(offset=0, limit=10, single_commits=False) -> int:
             description_html = escape(fd['description-html']) if 'description-html' in fd else '' 
 
             # execute insert query
-            cur.execute(f"INSERT INTO disasters(id, date, status, country_name, geojson, lat, lon, type, url, title, description_html) VALUES ({item['id']}, '{fd['date']['event']}', '{fd['status']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{escape(fd['primary_type']['name'])}', '{fd['url']}', '{escape(fd['name'])}', '{description_html}');")
+            query = f"INSERT INTO disasters(id, date, status, country_name, geojson, lat, lon, type, url, title, description_html) VALUES ({item['id']}, '{fd['date']['changed']}', '{fd['status']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{escape(fd['primary_type']['name'])}', '{fd['url']}', '{escape(fd['name'])}', '{description_html}');"
+            cur.execute(query)
 
             # if single_commits, commit changes after every insert
             if single_commits:
                 connection.commit()
         except Exception as e:
+            connection.rollback()
             printerr(type(e), e)
 
     
@@ -139,12 +141,14 @@ def load_reports_to_database(offset=0, limit=10, single_commits=False) -> int:
             description_html = escape(fd['body-html']) if 'body-html' in fd else '' 
 
             # execute insert query
-            cur.execute(f"INSERT INTO reports(id, date, country_name, geojson, lat, lon, url, title, description_html) VALUES ({item['id']}, '{fd['date']['changed']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{fd['url']}', '{escape(fd['title'])}', '{description_html}');")
+            query = f"INSERT INTO reports(id, date, country_name, geojson, lat, lon, url, title, description_html) VALUES ({item['id']}, '{fd['date']['changed']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{fd['url']}', '{escape(fd['title'])}', '{description_html}');"
+            cur.execute(query)
 
             # if single_commits, commit changes after every insert
             if single_commits:
                 connection.commit()
         except Exception as e:
+            connection.rollback()
             printerr(type(e), e)
 
     

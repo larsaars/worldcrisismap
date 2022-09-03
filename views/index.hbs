@@ -43,6 +43,7 @@
     const disasterData = {{{ disasterData }}};
     const newsData = {{{ newsData }}};
 
+
     // get disaster and news files from the server data
     let disasterFiles = [], newsFiles = [];
 
@@ -121,7 +122,7 @@
                 const eventType = data.type ? data.type : 'News';
 
                 // create marker icon
-                let markerIcon = document.createElement('div');
+                const markerIcon = document.createElement('div');
                 markerIcon.style.width = '32px';
                 markerIcon.style.height = '32px';
                 markerIcon.style.backgroundSize = 'contain';
@@ -133,14 +134,20 @@
                 markerIcon.style.opacity = '0.72';
 
                 // create marker with popup
-                let marker = new maplibregl.Marker(markerIcon, {
+                const marker = new maplibregl.Marker(markerIcon, {
                     color: colors[dataIndex],
                     draggable: false,
                     anchor: 'center',
                 }).setLngLat([data.lon, data.lat]);
 
-                // set description attribute to marker to be used in sidebar text
-                marker.description = '<i>' + eventType + '</i><br><h2>' + data.title + '</h2><br>' + data.description_html.replace(/&quot;/g, '"');
+                // set description attribute to marker to be used in sidebar text (with formatted date)
+                const dateString = new Date(data.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                });
+
+                marker.description = '<p><i>' + eventType + '</i><p><small>' + dateString + '</small></p><h2>' + data.title + '</h2><br>' + data.description_html.replace(/&quot;/g, '"');
 
                 // set color of marker to be used in sidebar text
                 marker.color = colors[dataIndex];
@@ -161,12 +168,30 @@
             }
         }
 
-
         // call addMarkers for disaster and news markers
         addMarkers(disasterData, disasterColors, true);
         addMarkers(newsData, newsColors, false);
 
-        // remove loading circle
+        // go through all markers and change the positions of those with the same coordinates
+        for (const marker of markers) {
+            // get all markers with the same coordinates
+            const sameMarkers = markers.filter(m => m.lat === marker.lat && m.lon === marker.lon);
+
+            // if there is more than one marker with the same coordinates
+            if (sameMarkers.length > 1) {
+                // get the index of the current marker
+                const index = sameMarkers.indexOf(marker);
+
+                // calculate the offset for the current marker
+                const offset = 32 * (index - (sameMarkers.length - 1) / 2);
+
+                // set the offset
+                marker.setOffset([offset, 0]);
+            }
+        }
+
+
+        // remove loading circle (finished loading)
         $('#earth').hide();
     });
 
