@@ -30,6 +30,14 @@ body {
     padding: 10px;
 }
 
+#settingsButton {
+    cursor: pointer;
+}
+
+#settingsButton:hover {
+    opacity: 0.8;
+}
+
 /*#sidebarText {
     text-align: justify;
     text-justify: inter-word;

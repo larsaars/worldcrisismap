@@ -1,5 +1,7 @@
 // global bool if sidebar is open
 let sidebarIsClosed = true, selectedMarker = null;
+// global variable for settings
+let settingsOpened = false;
 
 // detect if page is in mobile format or mobile phone
 // call every time newly because window can be resized
@@ -195,4 +197,19 @@ function closeSideBar() {
     // set sidebar closed and selected marker null
     sidebarIsClosed = true;
     selectedMarker = null;
+}
+
+function clickSettingsButton() {
+    $('#settingsButton').animate(
+        {deg: 360},
+        {
+            duration: 200,
+            step: function (now) {
+                $(this).css({transform: 'rotate(' + now + 'deg)'});
+            },
+            complete: function () {
+                $(this).css({transform: 'rotate(0deg)'});
+            }
+        }
+    )
 }

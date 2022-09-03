@@ -18,6 +18,8 @@
     <div id="map"></div>
 
     <div id="settings">
+        <i id="settingsButton" class="fa fa-cog fa-2x" onclick="clickSettingsButton()"></i>
+
     </div>
 </div>
 
@@ -238,9 +240,10 @@
             }
         }
 
-        // if this was no marker clicked, close sidebar
+        // if this was no marker clicked, close sidebar and settings
         if (!isMarker) {
             closeSideBar();
+            clickSettingsButton();
         }
     });
 </script>

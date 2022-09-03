@@ -4,18 +4,18 @@ const home = {
     async index(request, response) {
         const viewData = {
             title: 'World Crisis Map',
-            disasterData: await disasterNewsStore.getDisasters(),
-            newsData: await disasterNewsStore.getNews()
+            disasterData: await disasterNewsStore.getDisasters(request.query.ts),
+            newsData: await disasterNewsStore.getNews(request.query.ts)
         };
 
-        response.render('index' , viewData);
+        response.render('index', viewData);
     },
     async about(request, response) {
         const viewData = {
-            title: 'About World Crisis Map',
+            title: 'About',
         };
 
-        response.render('about' , viewData);
+        response.render('about', viewData);
     }
 };
 

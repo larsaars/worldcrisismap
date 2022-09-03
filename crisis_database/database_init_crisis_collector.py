@@ -20,7 +20,7 @@ from utils import *
 
 
 def main():
-    jumpsize = 100  # scraping jumpsize
+    jumpsize = 80 # scraping jumpsize
 
     # confirm to execute
     confirm = input('This will delete all data in the database and reload. Are you sure? (y/n) ')

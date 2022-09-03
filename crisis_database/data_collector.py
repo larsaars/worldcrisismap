@@ -73,7 +73,7 @@ def load_disasters_to_database(offset=0, limit=10, single_commits=False) -> int:
             description_html = escape(fd['description-html']) if 'description-html' in fd else '' 
 
             # execute insert query
-            query = f"INSERT INTO disasters(id, date, status, country_name, geojson, lat, lon, type, url, title, description_html) VALUES ({item['id']}, '{fd['date']['changed']}', '{fd['status']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{escape(fd['primary_type']['name'])}', '{fd['url']}', '{escape(fd['name'])}', '{description_html}');"
+            query = f"INSERT INTO disasters(id, date, status, country_name, geojson, lat, lon, type, url, title, description_html) VALUES ({item['id']}, '{fd['date']['event']}', '{fd['status']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{escape(fd['primary_type']['name'])}', '{fd['url']}', '{escape(fd['name'])}', '{description_html}');"
             cur.execute(query)
 
             # if single_commits, commit changes after every insert
