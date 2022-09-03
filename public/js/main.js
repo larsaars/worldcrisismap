@@ -102,9 +102,9 @@ function getGeoJSONFromEvent(geoJSON, eventIndex) {
     return featureCollection;
 }
 
-function getMarkerImage(event, useBlack) {
+function getMarkerImagePath(event, useBlack) {
     const color = useBlack ? 'black' : 'white';
-    return 'url(markers/' + color + '/' + event.toLowerCase().replace(' ', '_') + '.png)';
+    return '/markers/' + color + '/' + event.toLowerCase().replace(/ /g, '_') + '.png';
 }
 
 function openSideBar(map, marker, allGeoJson) {
@@ -120,7 +120,7 @@ function openSideBar(map, marker, allGeoJson) {
     const sidebarWidth = pageIsMobileFormat() ? '100%' : '42%';
 
     // set margin left for main element, show sidebar, set color etc.
-    sidebarContent.css('background', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.22)`);
+    sidebarContent.css('background', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.19)`);
 
     if (sidebarIsClosed) {
         //$('#main').css('marginLeft', sidebarWidth);

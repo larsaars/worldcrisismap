@@ -10,12 +10,15 @@
                 </button>
             </div>
         </div>
-        <div id="sidebarText" class="container"></div>
+        <div id="sidebarText" class="container ps-5 pe-5 pb-5"></div>
     </div>
 </div>
 
 <div id="main">
     <div id="map"></div>
+
+    <div id="settings">
+    </div>
 </div>
 
 <div id="earth"></div>
@@ -34,7 +37,7 @@
     });
 
     // add controls to map (zoom etc)
-    map.addControl(new maplibregl.NavigationControl(), 'top-right');
+    map.addControl(new maplibregl.NavigationControl(), 'bottom-right');
 
     // list of markers for all events for hover functionality
     let markers = [];
@@ -95,7 +98,7 @@
                     'layout': {},
                     'paint': {
                         'fill-color': ['get', 'fill'],
-                        'fill-opacity': 0.4
+                        'fill-opacity': 0.33
                     }
                 },
                 firstSymbolId
@@ -108,7 +111,7 @@
                     'layout': {},
                     'paint': {
                         'fill-color': ['get', 'fill'],
-                        'fill-opacity': 0.4
+                        'fill-opacity': 0.33
                     }
                 },
                 firstSymbolId
@@ -121,12 +124,15 @@
                 // define event type text
                 const eventType = data.type ? data.type : 'News';
 
+                // get marker image path
+                const markerImagePath = getMarkerImagePath(eventType, useBlack(colors[dataIndex]));
+
                 // create marker icon
                 const markerIcon = document.createElement('div');
                 markerIcon.style.width = '32px';
                 markerIcon.style.height = '32px';
                 markerIcon.style.backgroundSize = 'contain';
-                markerIcon.style.backgroundImage = getMarkerImage(eventType, useBlack(colors[dataIndex]));
+                markerIcon.style.backgroundImage = `url(${markerImagePath})`;
                 markerIcon.style.cursor = 'pointer';
                 markerIcon.style.backgroundColor = colors[dataIndex];
                 markerIcon.style.borderRadius = '50%';
@@ -147,14 +153,21 @@
                     day: 'numeric',
                 });
 
-                marker.description = '<p><i>' + eventType + '</i><p><small>' + dateString + '</small></p><h2>' + data.title + '</h2><br>' + data.description_html.replace(/&quot;/g, '"');
+                marker.description = `<div><img src="${markerImagePath.replace(/white/g, 'black')}" alt="event type" style="width: 2rem; height: 2rem; margin-bottom: 0.5rem"><br><i>`
+                        + eventType
+                        + '</i></div><p><small>'
+                        + dateString
+                        + '</small></p><h2>'
+                        + data.title
+                        + '</h2><br>'
+                        + data.description_html.replace(/&quot;/g, '"');
 
                 // set color of marker to be used in sidebar text
                 marker.color = colors[dataIndex];
 
                 // set marker index for GeoJSON retrieval
                 marker.eventIndex = dataIndex;
-                marker.isDisaster = isDisaster
+                marker.isDisaster = isDisaster;
 
                 // set coords to marker
                 marker.lat = data.lat;
@@ -208,6 +221,8 @@
         for (const marker of markers) {
             // on match
             if (marker.getElement().contains(target)) {
+                // effect of marker click
+                $(marker.getElement()).effect('highlight', {color: marker.color}, 100);
 
                 // open sidebar with description
                 if (marker === selectedMarker) {

@@ -10,6 +10,13 @@ const home = {
 
         response.render('index' , viewData);
     },
+    async about(request, response) {
+        const viewData = {
+            title: 'About World Crisis Map',
+        };
+
+        response.render('about' , viewData);
+    }
 };
 
 module.exports = home;
