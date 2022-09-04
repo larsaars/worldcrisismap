@@ -9,7 +9,7 @@
 </ul>
 
 <h2>Source code</h2>
-<p>The source code is available on <a href="https://github.com/larsaars/worldcrisismap">GitHub</a></p>
+<p>The source code is available on <a href="https://github.com/larsaars/worldcrisismap">GitHub</a>.</p>
 
 <h2>Attributions</h2>
 <p>Thanks to the following free software.</p>
@@ -34,6 +34,7 @@
 {{> impressum }}
 
 <script>
-    // make links open in new tab
+    // make links open in new tab except for the home lin
     $('a').attr('target', '_blank');
+    $('a[href="/"]').attr('target', '_self');
 </script>
