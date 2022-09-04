@@ -1,14 +1,17 @@
 // show cookie bar
-new cookieBar()
+new cookieBar();
 
 // init url params
 const urlParams = new URLSearchParams(window.location.search);
 
 // get timestamp and validate to date if available
 const timestamp = urlParams.get('ts');
-let date = new Date(Number(timestamp) * 1000);
-if (!(date.getTime() > 0)) {
-    date = Date.now();
+let date = new Date()
+if (timestamp) {
+    date = new Date(Number(timestamp) * 1000);
+    if (!(date.getTime() > 0)) {
+        date = new Date()
+    }
 }
 
 // init date picker
@@ -33,7 +36,7 @@ $(document).ready(function () {
                 const timestamp = selectedDate.getTime() / 1000;
 
                 // set timestamp in url
-                urlParams.set('ts', timestamp);
+                urlParams.set('ts', String(timestamp));
                 window.location.search = urlParams.toString();
             }
         });
