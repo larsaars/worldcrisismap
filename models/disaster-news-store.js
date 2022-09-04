@@ -1,5 +1,4 @@
 const dataStore = require('./data-store.js');
-const timeUtils = require('../utils/time-utils.js');
 const logger = require('../utils/logger.js');
 
 const disasterNewsStore = {
@@ -16,7 +15,7 @@ const disasterNewsStore = {
                 if (date.getTime() < 1303412469000) {
                     return '[]';
                     // if date is not today, change query accordingly
-                } else if (!timeUtils.isToday(date)) {
+                } else {
                     query = 'SELECT * FROM reports WHERE date < $1 AND date > $1 - INTERVAL \'3 DAY\'';
                     values = [date];
                 }
@@ -44,8 +43,8 @@ const disasterNewsStore = {
                 if (date.getTime() < 375577200000) {
                     return '[]';
                     // if date is not today, change query accordingly
-                } else if (!timeUtils.isToday(date)) {
-                    query = 'SELECT * FROM disasters WHERE date < $1 AND date > $1 - INTERVAL \'2 MONTH\'';
+                } else {
+                    query = 'SELECT * FROM disasters WHERE date < $1 AND date > $1 - INTERVAL \'3 MONTH\'';
                     values = [date];
                 }
             }

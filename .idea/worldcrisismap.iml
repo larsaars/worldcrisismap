@@ -14,5 +14,6 @@
     <orderEntry type="library" name="maplibre-gl" level="application" />
     <orderEntry type="library" name="w3" level="application" />
     <orderEntry type="library" name="jquery-ui" level="application" />
+    <orderEntry type="library" name="bootstrap-datepicker" level="application" />
   </component>
 </module>
