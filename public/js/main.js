@@ -1,6 +1,3 @@
-// show cookie bar
-new cookieBar();
-
 // init url params
 const urlParams = new URLSearchParams(window.location.search);
 
@@ -13,6 +10,7 @@ if (timestamp) {
         date = new Date()
     }
 }
+
 
 // init date picker
 $(document).ready(function () {
@@ -49,11 +47,19 @@ let map = new maplibregl.Map({
     style: 'https://api.maptiler.com/maps/streets/style.json?key=FmkZcpxnyFTMyvbqcIqk',
     center: [0, 33],
     zoom: 2.2,
+    attributionControl: false
 });
 
 $(window).resize(function () {
     map.resize();
 });
+
+
+// add about attribution to map
+map.addControl(new maplibregl.AttributionControl({
+    compact: false,
+    customAttribution: '<a href="/about">About</a>'
+}), 'bottom-right');
 
 // add controls to map (zoom etc)
 map.addControl(new maplibregl.NavigationControl(), 'bottom-right');

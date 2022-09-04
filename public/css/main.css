@@ -27,7 +27,7 @@ body {
     top: 0;
     right: 0;
     z-index: 1;
-    border-radius: 0 0 0 20%;
+    border-radius: 0 0 0 1rem;
     background: rgba(255, 255, 255, 0.9);
 }
 
@@ -50,6 +50,16 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    border-radius: 0 0 1rem 1rem;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+#dateResetButton {
+    cursor: pointer;
+}
+
+#dateResetButton:hover {
+    opacity: 0.8;
 }
 
 /*#sidebarText {
@@ -66,7 +76,6 @@ body {
     background-color: #000 !important;
     color: #fff !important;
     border: none;
-    padding: 10px !important;
 }
 
 .datepicker-dropdown:after {
@@ -234,5 +243,3 @@ input:checked + .slider:before {
 input:checked + .slider {
     box-shadow: 0 0 0 2px #8fcc9f, 0 0 8px #8fcc9f;
 }
-
-

@@ -5,7 +5,8 @@ const home = {
         const viewData = {
             title: 'World Crisis Map',
             disasterData: await disasterNewsStore.getDisasters(request.query.ts),
-            newsData: await disasterNewsStore.getNews(request.query.ts)
+            newsData: await disasterNewsStore.getNews(request.query.ts),
+            layout: 'main'
         };
 
         response.render('index', viewData);
@@ -13,6 +14,7 @@ const home = {
     async about(request, response) {
         const viewData = {
             title: 'About',
+            layout: 'info'
         };
 
         response.render('about', viewData);

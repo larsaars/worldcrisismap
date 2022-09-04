@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{@fortawesome/fontawesome-free, bootstrap, bootstrap-datepicker, jquery, jquery-ui, maplibre-gl, w3}" />
+    <file url="PROJECT" libraries="{@fortawesome/fontawesome-free, @popperjs/core, bootstrap, bootstrap-datepicker, jquery, jquery-ui, maplibre-gl, w3}" />
   </component>
 </project>

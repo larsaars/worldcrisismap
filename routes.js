@@ -7,5 +7,4 @@ const home = require('./controllers/home.js');
 router.get('/', home.index);
 router.get('/about', home.about);
 
-
 module.exports = router;

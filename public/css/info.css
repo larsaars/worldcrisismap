@@ -1,0 +1,14 @@
+body {
+    background: rgba(6, 66, 115, 0.33);
+}
+
+#bodyDiv {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+
+    text-align: justify;
+    text-justify: inter-word;
+}

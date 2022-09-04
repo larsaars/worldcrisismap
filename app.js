@@ -33,6 +33,30 @@ app.set('views', './views');
 const routes = require('./routes');
 app.use('/', routes);
 
+// define 404 not found
+app.use(function (req, res, next) {
+    res.status(404);
+
+    // respond with html page
+    if (req.accepts('html')) {
+        const viewData = {
+            title: '404 Not Found',
+            layout: 'info'
+        };
+        res.render('404', viewData);
+    } else
+
+        // respond with json
+    if (req.accepts('json')) {
+        res.json({error: 'Not found'});
+    } else
+
+        // default to plain-text. send()
+    {
+        res.type('txt').send('Not found');
+    }
+});
+
 
 // listen on port 3000 (in env variables)
 app.listen(process.env.PORT, () => {
