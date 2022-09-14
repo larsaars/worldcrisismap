@@ -4,7 +4,7 @@ const logger = require('../utils/logger.js');
 const disasterNewsStore = {
     async getNews(timestamp) {
         // default query and values if not given or timestamp
-        let query = 'SELECT * FROM reports WHERE date > now() - INTERVAL \'3 DAY\'';
+        let query = 'SELECT * FROM reports WHERE date > now() - INTERVAL \'1 MONTH\'';
         let values = [];
 
         if (timestamp) {
@@ -16,7 +16,7 @@ const disasterNewsStore = {
                     return '[]';
                     // if date is not today, change query accordingly
                 } else {
-                    query = 'SELECT * FROM reports WHERE date < $1 AND date > $1 - INTERVAL \'3 DAY\'';
+                    query = 'SELECT * FROM reports WHERE date < $1 AND date > $1 - INTERVAL \'1 MONTH\'';
                     values = [date];
                 }
             }

@@ -123,7 +123,7 @@ map.on('load', async function () {
         for (const dataIndex in dataList) {
             const data = dataList[dataIndex];
             // define event type text
-            const eventType = data.type ? data.type : 'News';
+            const eventType = data.type ? data.type : 'Report';
 
             // get marker image path
             const markerImagePath = getMarkerImagePath(eventType, useBlack(colors[dataIndex]));
