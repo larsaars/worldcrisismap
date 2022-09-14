@@ -12,6 +12,10 @@ kill $(ps aux | grep database_updater.py | grep -v grep | awk '{print $2}')
 import os
 from time import sleep
 from data_collector import *
+from dotenv import load_dotenv
+
+# load environment variables
+load_dotenv()
 
 N_HOURS = int(os.getenv('UPDATE_DISASTERS_N_HOURS', '6'))
 N_ITEMS = int(os.getenv('UPDATE_DISASTERS_N_ITEMS', '10'))

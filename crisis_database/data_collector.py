@@ -9,7 +9,10 @@ import psycopg2 as pg
 import os
 import json
 from utils import *
+from dotenv import load_dotenv
 
+# load environment variables
+load_dotenv()
 
 # get environment variables
 DB_CON_STRING = os.getenv('DB_CON_STRING', None)
