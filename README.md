@@ -18,5 +18,6 @@ Website displaying humanitarian crisis and news using [OpenStreetMap](https://op
 
 ## helpful tips
 
+- create postgres user in `psql` prompt with `CREATE ROLE name WITH SUPERUSER LOGIN;
 - copy one postgres database to another server with `pg_dump -C dbname | bzip2 | ssh  remoteuser@remotehost "bunzip2 | psql dbname"`
 - have a look at [this](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-16-04) guide
