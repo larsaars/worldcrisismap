@@ -58,8 +58,14 @@ def search_for_keywords(text: str, keywords) -> list:
 
 def load_country_region_mapper() -> dict:
     """
+    Switch to correct relative path.
+
     Loads the region mapper (A list of all countries and their regions) from json.
     """
+    # switch to script dir
+    os.chdir(os.path.dirname(sys.argv[0]))
+
+    # load mapper
     with open('country_region_mapping.json', 'r') as f:
         return json.load(f)
 
