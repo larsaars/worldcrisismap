@@ -8,9 +8,12 @@
 # update repo
 git pull
 
-# packages
+# system packages
 sudo apt update
 sudo apt upgrade -y
+
+# install pm2
+sudo npm install -g pm2
 
 # install dependencies for python as well as for nodejs
 npm install

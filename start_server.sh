@@ -11,4 +11,4 @@ export $(grep -v '^#' .env | xargs)
 nohup python3 ./crisis_database/database_updater.py 1> /dev/null 2> ./logs/updater.log &
 
 # start the server
-nohup nodejs app.js &
+nohup node app.js &
