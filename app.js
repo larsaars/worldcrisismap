@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const express = require('express');
 const logger = require('./utils/logger');
 const handlebars = require('express-handlebars');
