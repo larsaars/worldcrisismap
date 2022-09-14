@@ -4,6 +4,8 @@ let sidebarIsClosed = true, selectedMarker = null;
 let settingsOpened = false;
 // global variable if is loading
 let loading = true;
+// global variable if datepicker div has been animated, if so, show it again on sidebar close
+let datePickerDivHiddenOnSidebar = false;
 
 // detect if page is in mobile format or mobile phone
 // call every time newly because window can be resized
@@ -43,9 +45,7 @@ function hexToRgb(hex) {
 
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
+        r: parseInt(result[1], 16), g: parseInt(result[2], 16), b: parseInt(result[3], 16)
     } : null;
 }
 
@@ -59,8 +59,7 @@ function useBlack(baseColor) {
 async function buildGeoJSON(files, colors, isDisaster) {
     // the object to be returned
     let featureCollection = {
-        type: 'FeatureCollection',
-        features: []
+        type: 'FeatureCollection', features: []
     };
 
     // fetch files and add the same events the same color
@@ -92,8 +91,7 @@ async function buildGeoJSON(files, colors, isDisaster) {
 function getGeoJSONFromEvent(geoJSON, eventIndex) {
     // the object to be returned
     let featureCollection = {
-        type: 'FeatureCollection',
-        features: []
+        type: 'FeatureCollection', features: []
     };
 
     // retrieve all features from the geoJSON that have the eventIndex property
@@ -111,6 +109,26 @@ function getMarkerImagePath(event, useBlack) {
     return '/markers/' + color + '/' + event.toLowerCase().replace(/ /g, '_') + '.png';
 }
 
+// extra function for toggling needed since change of position to show
+function toggleDatePickerDiv(isMobile) {
+    if (!isMobile) {
+        isMobile = pageIsMobileFormat();
+    }
+
+    const datePickerDiv = $('#datePickerDiv');
+
+    // if mobile view, show date picker div on bottom
+    // else on top
+    datePickerDiv.css('top', isMobile ? 'auto' : '0');
+    datePickerDiv.css('bottom', isMobile ? '0' : 'auto');
+
+    // set edge boarders
+    datePickerDiv.css('border-radius', isMobile ? '1rem 1rem 0 0' : '0 0 1rem 1rem');
+
+    // toggle date picker div
+    datePickerDiv.animate({height: 'toggle'}, {duration: 200});
+}
+
 function openSideBar(map, marker, allGeoJson) {
     // specific actions only take place if sidebar is not already opened
     // get color rgb values from hex
@@ -121,7 +139,8 @@ function openSideBar(map, marker, allGeoJson) {
     const sidebarContent = $('#sidebarContent');
 
     // sidebar width is different for mobile users (or mobile format)
-    const sidebarWidth = pageIsMobileFormat() ? '100%' : '42%';
+    const isMobile = pageIsMobileFormat();
+    const sidebarWidth = isMobile ? '100%' : '42%';
 
     // set margin left for main element, show sidebar, set color etc.
     sidebarContent.css('background', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.19)`);
@@ -139,6 +158,16 @@ function openSideBar(map, marker, allGeoJson) {
                 $('#sidebarText a').attr('target', '_blank');
             }
         });
+        // toggle show settings (only on mobile sized devices)
+        if (isMobile) {
+            $('#settings').animate({width: 'toggle', height: 'toggle'});
+
+            // if datepicker div is visible, close it
+            if ($('#datePickerDiv').is(':visible')) {
+                datePickerDivHiddenOnSidebar = true;
+                $('#datePickerDiv').animate({height: 'toggle'});
+            }
+        }
     } else {
         // set sidebar text directly without animation
         $('#sidebarText').html(marker.description);
@@ -157,23 +186,15 @@ function openSideBar(map, marker, allGeoJson) {
 
     // add source and layer
     map.addSource('marked', {
-        'type': 'geojson',
-        'data': eventGeoJSON
+        'type': 'geojson', 'data': eventGeoJSON
     });
 
     // add news and disaster layer
-    map.addLayer(
-        {
-            'id': 'marked-layer',
-            'type': 'fill',
-            'source': 'marked',
-            'layout': {},
-            'paint': {
-                'fill-color': ['get', 'fill'],
-                'fill-opacity': 0.9
-            }
+    map.addLayer({
+        'id': 'marked-layer', 'type': 'fill', 'source': 'marked', 'layout': {}, 'paint': {
+            'fill-color': ['get', 'fill'], 'fill-opacity': 0.9
         }
-    );
+    });
 
     // set boolean to indicate sidebar is open and set selected marker
     sidebarIsClosed = false;
@@ -186,6 +207,8 @@ function closeSideBar() {
         return;
     }
 
+    const isMobile = pageIsMobileFormat();
+
     // hide sidebar
     $('#sidebar').animate({width: 'toggle'}, {
         complete: function () {
@@ -193,6 +216,17 @@ function closeSideBar() {
             $('#sidebarText').html('');
         }
     });
+    // toggle show settings (if on mobile view or is not showing currently)
+    if (isMobile || !$('#settings').is(':visible')) {
+        $('#settings').animate({width: 'toggle', height: 'toggle'});
+    }
+
+    // show date picker div if it was hidden on sidebar open
+    if (datePickerDivHiddenOnSidebar) {
+        datePickerDivHiddenOnSidebar = false;
+        toggleDatePickerDiv(isMobile);
+    }
+
     // remove marked layer and source
     map.removeLayer('marked-layer');
     map.removeSource('marked');
@@ -206,34 +240,20 @@ function clickSettingsButton(onlyHide) {
         return;
     }
 
-
     // animate settings button turn
-    $('#settingsButton').animate(
-        {degrees: settingsOpened ? -180 : 180},
-        {
-            duration: 180,
-            step: function (now) {
-                $(this).css({transform: 'rotate(' + now + 'deg)'});
-            },
-            complete: function () {
-                settingsOpened = !settingsOpened;
-            }
+    $('#settingsButton').animate({degrees: settingsOpened ? -180 : 180}, {
+        duration: 180, step: function (now) {
+            $(this).css({transform: 'rotate(' + now + 'deg)'});
+        }, complete: function () {
+            settingsOpened = !settingsOpened;
         }
-    );
+    });
 
     // animate settings panel
-    $('#settingsPanel').animate(
-        {width: 'toggle'},
-        {
-            duration: 200,
-        }
-    );
+    $('#settingsPanel').animate({width: 'toggle', height: 'toggle'}, {
+        duration: 200,
+    });
 
     // also toggle date panel
-    $('#datePickerDiv').animate(
-        {height: 'toggle'},
-        {
-            duration: 200,
-        }
-    );
+    toggleDatePickerDiv(null);
 }

@@ -3,11 +3,11 @@ const urlParams = new URLSearchParams(window.location.search);
 
 // get timestamp and validate to date if available
 const timestamp = urlParams.get('ts');
-let date = new Date()
+let date = new Date();
 if (timestamp) {
     date = new Date(Number(timestamp) * 1000);
     if (!(date.getTime() > 0)) {
-        date = new Date()
+        date = new Date();
     }
 }
 
@@ -57,8 +57,7 @@ $(window).resize(function () {
 
 // add about attribution to map
 map.addControl(new maplibregl.AttributionControl({
-    compact: false,
-    customAttribution: '<a href="/about">About</a>'
+    compact: false, customAttribution: '<a href="/about">About</a>'
 }), 'bottom-right');
 
 // add controls to map (zoom etc)
@@ -101,41 +100,23 @@ map.on('load', async function () {
 
     // build sources from provided geo json files
     map.addSource('disasters', {
-        'type': 'geojson',
-        'data': disasterGeoJson
+        'type': 'geojson', 'data': disasterGeoJson
     });
     map.addSource('news', {
-        'type': 'geojson',
-        'data': newsGeoJson
+        'type': 'geojson', 'data': newsGeoJson
     });
 
     // add news and disaster layer
-    map.addLayer(
-        {
-            'id': 'disasters-layer',
-            'type': 'fill',
-            'source': 'disasters',
-            'layout': {},
-            'paint': {
-                'fill-color': ['get', 'fill'],
-                'fill-opacity': 0.33
-            }
-        },
-        firstSymbolId
-    );
-    map.addLayer(
-        {
-            'id': 'news-layer',
-            'type': 'fill',
-            'source': 'news',
-            'layout': {},
-            'paint': {
-                'fill-color': ['get', 'fill'],
-                'fill-opacity': 0.33
-            }
-        },
-        firstSymbolId
-    );
+    map.addLayer({
+        'id': 'disasters-layer', 'type': 'fill', 'source': 'disasters', 'layout': {}, 'paint': {
+            'fill-color': ['get', 'fill'], 'fill-opacity': 0.33
+        }
+    }, firstSymbolId);
+    map.addLayer({
+        'id': 'news-layer', 'type': 'fill', 'source': 'news', 'layout': {}, 'paint': {
+            'fill-color': ['get', 'fill'], 'fill-opacity': 0.33
+        }
+    }, firstSymbolId);
 
     // add markers for every event to the map
     function addMarkers(dataList, colors, isDisaster) {
@@ -161,26 +142,15 @@ map.on('load', async function () {
 
             // create marker with popup
             const marker = new maplibregl.Marker(markerIcon, {
-                color: colors[dataIndex],
-                draggable: false,
-                anchor: 'center',
+                color: colors[dataIndex], draggable: false, anchor: 'center',
             }).setLngLat([data.lon, data.lat]);
 
             // set description attribute to marker to be used in sidebar text (with formatted date)
             const dateString = new Date(data.date).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
+                year: 'numeric', month: 'long', day: 'numeric',
             });
 
-            marker.description = `<div><img src="${markerImagePath.replace(/white/g, 'black')}" alt="event type" style="width: 2rem; height: 2rem; margin-bottom: 0.5rem"><br><i>`
-                + eventType
-                + '</i></div><p><small>'
-                + dateString
-                + '</small></p><h2>'
-                + data.title
-                + '</h2><br>'
-                + data.description_html.replace(/&quot;/g, '"');
+            marker.description = `<div><img src="${markerImagePath.replace(/white/g, 'black')}" alt="event type" style="width: 2rem; height: 2rem; margin-bottom: 0.5rem"><br><i>` + eventType + '</i></div><p><small>' + dateString + '</small></p><h2>' + data.title + '</h2><br>' + data.description_html.replace(/&quot;/g, '"');
 
             // set color of marker to be used in sidebar text
             marker.color = colors[dataIndex];
@@ -270,6 +240,8 @@ map.on('load', async function () {
 
     // remove loading circle (finished loading)
     $('#earth').hide();
+    // show settings
+    $('#settings').animate({width: 'toggle', height: 'toggle'});
     // set loading false
     loading = false;
 });

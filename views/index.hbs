@@ -42,25 +42,21 @@
 
     <div id="datePickerDiv" class="p-2 w3-card">
         <div class="container">
-            <div class="row">
-                <div class="col">
-                    <form autocomplete="off">
-                        <label for="datePicker">
-                            <input type="text" id="datePicker" class="datepicker" placeholder="Pick Date"
-                                   name="date"
-                                   readonly
-                            title="When date is selected, the map will show no current news articles, disasters in the range from three months before selected date till the selected date and reports in the range from three days before selected date till the selected date.">
-                        </label>
-                    </form>
-                </div>
-                <div class="col">
-                    <!-- remove  timestamp and reload site -->
-                    <i id="dateResetButton" class="fa fa-undo fa-2x"
-                       onclick="window.location.href = window.location.pathname"
-                    title="Reset to today">
-                    </i>
+            <div class="d-inline-flex flex-row">
+                <form autocomplete="off" class="pe-1">
+                    <label for="datePicker">
+                        <input type="text" id="datePicker" class="datepicker" placeholder="Pick Date"
+                               name="date"
+                               readonly
+                               title="When date is selected, the map will show no current news articles, disasters in the range from three months before selected date till the selected date and reports in the range from three days before selected date till the selected date.">
+                    </label>
+                </form>
 
-                </div>
+                <!-- remove  timestamp and reload site -->
+                <i id="dateResetButton" class="fa fa-undo fa-2x "
+                   onclick="window.location.href = window.location.pathname"
+                   title="Reset to today">
+                </i>
             </div>
         </div>
     </div>

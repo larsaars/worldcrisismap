@@ -41,6 +41,7 @@ app.use(function (req, res, next) {
     if (req.accepts('html')) {
         const viewData = {
             title: '404 Not Found',
+            id: '404',
             layout: 'info'
         };
         res.render('404', viewData);

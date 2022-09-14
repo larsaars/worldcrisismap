@@ -23,6 +23,7 @@ body {
 }
 
 #settings {
+    display: none;
     position: absolute;
     top: 0;
     right: 0;
@@ -46,12 +47,10 @@ body {
 #datePickerDiv {
     display: none;
     position: absolute;
-    min-width: 100px;
-    top: 0;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 0 0 1rem 1rem;
     background: rgba(255, 255, 255, 0.9);
+    z-index: 999;
 }
 
 #dateResetButton {
@@ -139,7 +138,6 @@ thead tr:nth-child(3) th {
     background-color: #3D5AFE;
     color: #fff;
 }
-
 
 
 /* earth loading animation */

@@ -4,6 +4,7 @@ const home = {
     async index(request, response) {
         const viewData = {
             title: 'World Crisis Map',
+            id: 'main',
             disasterData: await disasterNewsStore.getDisasters(request.query.ts),
             newsData: await disasterNewsStore.getNews(request.query.ts),
             layout: 'main'
@@ -14,6 +15,7 @@ const home = {
     async about(request, response) {
         const viewData = {
             title: 'About',
+            id: 'about',
             layout: 'info'
         };
 
