@@ -8,6 +8,7 @@ import re
 import json
 import sys
 from unidecode import unidecode
+import os
 
 
 def printerr(*args, **kwargs):
