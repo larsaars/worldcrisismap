@@ -15,4 +15,5 @@ Website displaying humanitarian crisis and news using [OpenStreetMap](https://op
 - install packages and updates by running `./update_server.sh`
 - start server by running `./start_server.sh`
 - stop server by running `./stop_server.sh`
+- have a look at [this](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-16-04) guide
 
