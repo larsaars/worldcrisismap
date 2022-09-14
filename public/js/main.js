@@ -200,18 +200,18 @@ map.on('load', async function () {
     }
 
     // check for cookies and set checkboxes accordingly
-    const disasterCookie = getCookie('disaster');
-    const newsCookie = getCookie('news');
+    let disasterCookie = getCookie('disaster');
+    let newsCookie = getCookie('news');
 
     // if they do not exist, set
     if (!disasterCookie) {
-        console.log('setting disaster cookie');
         setCookie('disaster', 'true', 365);
+        disasterCookie = 'true';
     }
 
     if (!newsCookie) {
-        console.log('setting news cookie');
         setCookie('news', 'true', 365);
+        newsCookie = 'true';
     }
 
     // set checkboxes
