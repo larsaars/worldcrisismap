@@ -203,12 +203,14 @@ map.on('load', async function () {
     const disasterCookie = getCookie('disaster');
     const newsCookie = getCookie('news');
 
-    // if do not exist, set
+    // if they do not exist, set
     if (!disasterCookie) {
+        console.log('setting disaster cookie');
         setCookie('disaster', 'true', 365);
     }
 
     if (!newsCookie) {
+        console.log('setting news cookie');
         setCookie('news', 'true', 365);
     }
 
@@ -230,12 +232,12 @@ map.on('load', async function () {
     // also update cookies
     $('#disastersCheckbox').change(function () {
         toggleLayer('disasters-layer', this.checked);
-        setCookie('disaster', this.checked, 365);
+        setCookie('disaster', String(this.checked), 365);
     });
 
     $('#newsCheckbox').change(function () {
         toggleLayer('news-layer', this.checked);
-        setCookie('news', this.checked, 365);
+        setCookie('news', String(this.checked), 365);
     });
 
     // remove loading circle (finished loading)
