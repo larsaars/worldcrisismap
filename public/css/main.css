@@ -3,6 +3,10 @@ body {
     padding: 0;
 }
 
+li {
+    display: inline-block;
+}
+
 #map {
     position: absolute;
     top: 0;
@@ -163,7 +167,7 @@ thead tr:nth-child(3) th {
     right: 0;
     width: 200px;
     height: 200px;
-    background: url(/img/loading.png);
+    background: url(/img/loading.webp);
     border-radius: 50%;
     background-size: 403px;
     box-shadow: inset 4px 24px 33px 24px rgb(0, 0, 0), inset -3px 0 8px rgba(255, 255, 255, 0.3);
