@@ -13,8 +13,7 @@ Website displaying humanitarian crisis and news using [OpenStreetMap](https://op
 - install Python 3 and NodeJS (`sudo apt install python3-pip python3 nodejs`)
 - setup database with script `database_init_crisis_collector.py`
 - install packages and updates by running `./update_server.sh`
-- start server by running `./start_server.sh`
-- stop server by running `./stop_server.sh`
+- use something like `pm2` to keep track of running the two scripts
 
 ## helpful tips
 
