@@ -41,7 +41,12 @@
 <body>
 {{{body}}}
 
+<script type="module">
+    import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+
+    const el = document.createElement('pwa-update');
+    document.body.appendChild(el);
+</script>
 <script href="js/cookieBar/activate.js"></script>
-<script type="module" href="js/pwabuilder-sw-register.js"></script>
 </body>
 </html>
