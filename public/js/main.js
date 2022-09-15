@@ -156,7 +156,7 @@ map.on('load', async function () {
             marker.color = colors[dataIndex];
 
             // set marker index for GeoJSON retrieval
-            marker.eventIndex = dataIndex;
+            marker.eventIndex = Number(dataIndex);
             marker.isDisaster = isDisaster;
 
             // set coords to marker

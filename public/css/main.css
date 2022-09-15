@@ -7,6 +7,10 @@ li {
     display: inline-block;
 }
 
+ul {
+    list-style: circle;
+}
+
 #map {
     position: absolute;
     top: 0;

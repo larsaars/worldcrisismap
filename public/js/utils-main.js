@@ -13,9 +13,6 @@ function pageIsMobileFormat() {
     return ($(window).innerHeight() / $(window).innerWidth()) >= 1.4;
 }
 
-// do something with delay
-const delay = ms => new Promise(res => setTimeout(res, ms));
-
 function generateRandomColor() {
     return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
 }
@@ -62,28 +59,33 @@ async function buildGeoJSON(files, colors, isDisaster) {
         type: 'FeatureCollection', features: []
     };
 
-    // fetch files and add the same events the same color
-    for (const eventIndex in files) {
-        for (const geoJsonFile of files[eventIndex]) {
-            // fetch geo json file from provided path
-            const res = await fetch(geoJsonFile);
-            let geoJson = await res.json();
+    // iterate over all files
+    await Promise.all(files.map(async (geoJsonFilesList, eventIndex) => {
+            // fetch geo json from provided path
+            const geoJsons = await Promise.all(geoJsonFilesList.map(async (geoJsonFile) => {
+                const res = await fetch(geoJsonFile);
+                return await res.json();
+            }));
 
-            // if the type is a feature list, add the features to the feature collection
-            // else add the single feature to the feature collection
-            let features = geoJson.type === 'FeatureCollection' ? geoJson.features : [geoJson];
-            for (const feature of features) {
-                // add styling information (all elements from one event have the same color)
-                feature.properties = {};
-                feature.properties.fill = colors[eventIndex];
-                // add information about the event to the feature
-                feature.properties.eventIndex = eventIndex;
-                feature.properties.isDisaster = isDisaster;
-                // add the feature to the feature collection
-                featureCollection.features.push(feature);
+            // iterate over geoJsons
+            for (const geoJson of geoJsons) {
+                // if the type is a feature list, add the features to the feature collection
+                // else add the single feature to the feature collection
+                let features = geoJson.type === 'FeatureCollection' ? geoJson.features : [geoJson];
+                for (const feature of features) {
+                    // add styling information (all elements from one event have the same color)
+                    feature.properties = {};
+                    feature.properties.fill = colors[eventIndex];
+                    // add information about the event to the feature
+                    feature.properties.eventIndex = eventIndex;
+                    feature.properties.isDisaster = isDisaster;
+                    // add the feature to the feature collection
+                    featureCollection.features.push(feature);
+                }
             }
         }
-    }
+    ));
+
 
     return featureCollection;
 }
