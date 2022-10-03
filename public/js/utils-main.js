@@ -7,29 +7,11 @@ let loading = true;
 // global variable if datepicker div has been animated, if so, show it again on sidebar close
 let datePickerDivHiddenOnSidebar = false;
 
+
 // detect if page is in mobile format or mobile phone
 // call every time newly because window can be resized
 function pageIsMobileFormat() {
     return ($(window).innerHeight() / $(window).innerWidth()) >= 1.4;
-}
-
-function generateRandomColor() {
-    return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-}
-
-function generateRandomColors() {
-    let colorsList = [];
-    for (const len of arguments) {
-        let colors = [];
-
-        for (let i = 0; i < len; i++) {
-            colors.push(generateRandomColor());
-        }
-
-        colorsList.push(colors);
-    }
-
-    return colorsList;
 }
 
 // get the red, green and blue values
@@ -51,43 +33,6 @@ function useBlack(baseColor) {
     let rgb = hexToRgb(baseColor);
     let brightness = (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
     return brightness > 150;
-}
-
-async function buildGeoJSON(files, colors, isDisaster) {
-    // the object to be returned
-    let featureCollection = {
-        type: 'FeatureCollection', features: []
-    };
-
-    // iterate over all files
-    await Promise.all(files.map(async (geoJsonFilesList, eventIndex) => {
-            // fetch geo json from provided path
-            const geoJsons = await Promise.all(geoJsonFilesList.map(async (geoJsonFile) => {
-                const res = await fetch(geoJsonFile);
-                return await res.json();
-            }));
-
-            // iterate over geoJsons
-            for (const geoJson of geoJsons) {
-                // if the type is a feature list, add the features to the feature collection
-                // else add the single feature to the feature collection
-                let features = geoJson.type === 'FeatureCollection' ? geoJson.features : [geoJson];
-                for (const feature of features) {
-                    // add styling information (all elements from one event have the same color)
-                    feature.properties = {};
-                    feature.properties.fill = colors[eventIndex];
-                    // add information about the event to the feature
-                    feature.properties.eventIndex = eventIndex;
-                    feature.properties.isDisaster = isDisaster;
-                    // add the feature to the feature collection
-                    featureCollection.features.push(feature);
-                }
-            }
-        }
-    ));
-
-
-    return featureCollection;
 }
 
 function getGeoJSONFromEvent(geoJSON, eventIndex) {

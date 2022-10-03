@@ -10,6 +10,8 @@ const home = {
             layout: 'main'
         };
 
+        console.log('main page: ' + request.connection.remoteAddress);
+
         response.render('index', viewData);
     },
     async about(request, response) {
