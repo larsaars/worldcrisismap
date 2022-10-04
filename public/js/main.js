@@ -94,8 +94,6 @@ worker.onmessage = async function (e) {
         e.data.disasterColors,
     ];
 
-    console.log('feedback from worker');
-
     // wait for map to be loaded
     await mapLoaded;
 
