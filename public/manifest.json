@@ -4,6 +4,8 @@
   "theme_color": "#064273",
   "background_color": "#064273",
   "display": "standalone",
+  "id": "com.larsaars.worldcrisismap",
+  "scope": "/",
   "start_url": "/",
   "description": "Website displaying humanitarian crisis and news using OpenStreetMap and ReliefWeb.",
   "orientation": "portrait-primary",
