@@ -89,7 +89,10 @@ worker.onmessage = function (e) {
         e.data.disasterColors,
     ];
 
+    console.log('feedback from worker');
+
     map.on('load', function () {
+        console.log('map loaded');
         let layers = map.getStyle().layers;
         // find the index of the first symbol layer in the map style
         for (let i = 0; i < layers.length; i++) {

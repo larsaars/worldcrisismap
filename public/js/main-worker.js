@@ -55,6 +55,8 @@ async function buildGeoJSON(files, colors, isDisaster) {
 }
 
 self.addEventListener('message', async function (e) {
+
+    console.log('Message received from main script');
     // news and disaster data have been sent
     const disasterData = e.data.disasterData;
     const newsData = e.data.newsData;

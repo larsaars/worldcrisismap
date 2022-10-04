@@ -40,13 +40,11 @@ self.addEventListener('fetch', (event) => {
           return preloadResp;
         }
 
-        const networkResp = await fetch(event.request);
-        return networkResp;
+        return await fetch(event.request);
       } catch (error) {
 
         const cache = await caches.open(CACHE);
-        const cachedResp = await cache.match(offlineFallbackPage);
-        return cachedResp;
+        return await cache.match(offlineFallbackPage);
       }
     })());
   }

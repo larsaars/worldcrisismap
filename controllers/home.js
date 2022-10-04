@@ -10,7 +10,7 @@ const home = {
             layout: 'main'
         };
 
-        console.log('main page: ' + request.connection.remoteAddress);
+        console.log('connection at ' + new Date().toISOString());
 
         response.render('index', viewData);
     },
