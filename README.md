@@ -22,4 +22,4 @@ Website displaying humanitarian crisis and news using [OpenStreetMap](https://op
 - have a look at [this](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-16-04) guide
 - start `pm2` process with watching: `pm2 start file --watch`
 - minify [html](https://github.com/kangax/html-minifier), [css](https://github.com/cssnano/cssnano) and [JS](https://github.com/mishoo/UglifyJS)
-- [nginx https](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/)
+- [nginx https](https://certbot.eff.org/)
