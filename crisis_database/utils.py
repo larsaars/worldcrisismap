@@ -9,6 +9,7 @@ import json
 import sys
 from unidecode import unidecode
 import os
+from bs4 import BeautifulSoup
 
 
 def printerr(*args, **kwargs):
@@ -27,7 +28,7 @@ def escape(string):
     return string.replace('\'', '&#39;').replace('"', '&quot;').replace('\\', '\\\\').replace('\n', '<br>')
 
 
-def search_for_keywords(text: str, keywords) -> list:
+def search_for_keywords(text: str, keywords, is_html=False) -> list:
     """
     Search for keywords in string.
 
@@ -40,40 +41,58 @@ def search_for_keywords(text: str, keywords) -> list:
     if not keywords:
         return []
 
+    # make to text if is html
+    if is_html:
+        text = BeautifulSoup(text, features='html.parser').get_text()
+
     # remove accents
     text = unidecode(text)
 
     # make sure text is lowercase, trimmed string with only alphanumeric characters
-    text = re.sub(r'\W+', '', text)
-    text = re.sub(r"(\w)([A-Z])", r"\1 \2", text).strip().lower()
+    text = text.lower().strip()  # lowercase and trim
+    text = re.sub(r'[^a-z0-9 ]+', '', text)  # lower alphanumeric characters only
+    text = ' ' + re.sub(r'\s+', ' ', text)  # remove multiple spaces and put a space in front to be able to find if keyword is at beginning of text
 
     # search for keywords
     found = []
 
     for keyword in keywords:
-        if keyword in text.split():
-            found.append((unidecode(keyword), text.count(keyword)))
+        # unidecode keyword, strip, lowercase
+        # put a space in front of keyword, so that it is not part of another word 
+        keyword = ' ' + unidecode(keyword.strip().lower())
+        # count the occurences in text
+        count_in_text = text.count(keyword)
+
+        # if is larger 1, add to found
+        if count_in_text >= 1:
+            found.append((keyword.strip(), count_in_text))
 
     return found
 
 
-def load_country_region_mapper() -> dict:
+def load_country_region_mapper_and_country_code_mapper(change_dir=True) -> dict:
     """
     Switch to correct relative path.
 
     Loads the region mapper (A list of all countries and their regions) from json.
+    And loads the country code mapper (A list of all countries and their ISO3 codes) from json.
     """
     # switch to script dir
-    os.chdir(os.path.dirname(sys.argv[0]))
+    if change_dir:
+        os.chdir(os.path.dirname(sys.argv[0]))
 
-    # load mapper
+    # load mappers
     with open('country_region_mapping.json', 'r') as f:
-        return json.load(f)
+        country_region_mapping = json.load(f)
+
+    with open('country_code_mapping.json', 'r') as f:
+        country_code_mapping = json.load(f)
+
+    return country_region_mapping, country_code_mapping
 
 
 
-
-def search_matching_geojson_files_or_coords(text: str, countries: list, region_mapper=None):
+def search_matching_geojson_files_or_coords(text: str, countries: list, mappers=None, is_html=False):
     """
     Search for matching geojson files.
 
@@ -84,8 +103,29 @@ def search_matching_geojson_files_or_coords(text: str, countries: list, region_m
     """
 
     # load region mapper if not provided
-    if region_mapper == None:
-        region_mapper = load_country_region_mapper()
+    if mappers == None:
+        region_mapper, country_code_mapper = load_country_region_mapper_and_country_code_mapper()
+    else:
+        region_mapper, country_code_mapper = mappers
+
+
+
+    # if no countries are provided, search for country names in text (but only the one with most occurences, since else the map would be overpopulated)
+    if not countries:
+        country_max = (None, -1)
+
+        # search for country name in text
+        found = search_for_keywords(text, country_code_mapper.keys(), is_html)
+
+        # add found countries' codes to countries list
+        for country, count in found:
+            if count > country_max[1]:
+                country_max = (country_code_mapper[country], count)
+
+        # add country to countries list
+        # if is not None country
+        if country_max[0] != None:
+            countries = [country_max[0]]
 
     # make countries elements uppercase
     countries = map(str.upper, countries)
@@ -96,14 +136,14 @@ def search_matching_geojson_files_or_coords(text: str, countries: list, region_m
     # get most often occuring region
     most_often_occuring_region = (None, -1, None)
 
-
+    # loop through all countries found
     for country in countries:
         # if the country code is not in the region mapper, skip it
         if country not in region_mapper:
             continue
         
         # use keyword search function to find matching regions in country
-        results = search_for_keywords(text, region_mapper[country].keys())
+        results = search_for_keywords(text, region_mapper[country].keys(), is_html=is_html)
 
         # if no results for regions, just add country file,
         # else return region files

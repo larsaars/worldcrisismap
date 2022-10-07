@@ -29,6 +29,9 @@ def update_database():
     # load today's reports to database
     load_reports_to_database(offset=0, limit=N_ITEMS, single_commits=True)
 
+    # load news to database
+    load_news_to_database(offset=0, limit=N_ITEMS, single_commits=True)
+
 
 if __name__ == '__main__':
     while True:

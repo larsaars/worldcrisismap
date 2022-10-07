@@ -62,6 +62,18 @@ def main():
         title VARCHAR(500),
         description_html VARCHAR(100000)
     );
+
+    CREATE TABLE IF NOT EXISTS news_today(
+        id INTEGER PRIMARY KEY,
+        date TIMESTAMP,
+        country_name VARCHAR(150),
+        geojson VARCHAR(8000),
+        lat DECIMAL(10,7) CHECK (lat >= -90 AND lat <= 90),
+        lon DECIMAL(10,7) CHECK (lon >= -180 AND lon <= 180),
+        url VARCHAR(250),
+        title VARCHAR(500),
+        description_html VARCHAR(100000)
+    );
     ''')
 
     connection.commit()

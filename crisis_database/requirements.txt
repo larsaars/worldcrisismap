@@ -1,3 +1,4 @@
 psycopg2-binary
 unidecode
 python-dotenv
+bs4

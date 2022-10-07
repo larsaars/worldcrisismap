@@ -30,7 +30,7 @@ cur = connection.cursor()
 
 
 # load country region mapper
-contry_region_mapper = load_country_region_mapper()
+mappers = load_country_region_mapper_and_country_code_mapper()
 
 
 
@@ -62,7 +62,7 @@ def load_disasters_to_database(offset=0, limit=10, single_commits=False) -> int:
             description = fd['description'] if 'description' in fd else fd['name']
 
             # search for matching geojson files and lat / lon
-            geojson_object, lat, lon = search_matching_geojson_files_or_coords(description, countries, contry_region_mapper)
+            geojson_object, lat, lon = search_matching_geojson_files_or_coords(description, countries, mappers)
 
             # if lat == None, use fallback (primary country lat / lon)
             if  lat == None:
