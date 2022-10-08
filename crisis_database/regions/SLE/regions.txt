@@ -1,4 +1,0 @@
-eastern
-northern
-southern
-western

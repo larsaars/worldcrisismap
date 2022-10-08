@@ -1,5 +1,0 @@
-central
-east
-farwestern
-midwestern
-west
