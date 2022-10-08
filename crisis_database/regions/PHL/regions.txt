@@ -1,0 +1,81 @@
+abra
+agusandel norte
+agusandel sur
+aklan
+albay
+antique
+apayao
+aurora
+basilan
+bataan
+batanes
+batangas
+benguet
+biliran
+bohol
+bukidnon
+bulacan
+cagayan
+camarines norte
+camarines sur
+camiguin
+capiz
+catanduanes
+cavite
+cebu
+compostela valley
+davaodel norte
+davaodel sur
+davao oriental
+dinagat islands
+eastern samar
+guimaras
+ifugao
+ilocos norte
+ilocos sur
+iloilo
+isabela
+kalinga
+la union
+laguna
+lanaodel norte
+lanaodel sur
+leyte
+maguindanao
+marinduque
+masbate
+metropolitan manila
+misamis occidental
+misamis oriental
+mountain province
+negros occidental
+negros oriental
+north cotabato
+northern samar
+nueva ecija
+nueva vizcaya
+occidental mindoro
+oriental mindoro
+palawan
+pampanga
+pangasinan
+quezon
+quirino
+rizal
+romblon
+samar
+sarangani
+siquijor
+sorsogon
+south cotabato
+southern leyte
+sultan kudarat
+sulu
+surigaodel norte
+surigaodel sur
+tarlac
+tawitawi
+zambales
+zamboangadel norte
+zamboangadel sur
+zamboanga sibugay

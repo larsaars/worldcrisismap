@@ -1,0 +1,78 @@
+adjuntas
+aguada
+aguadilla
+aguas buenas
+aibonito
+aasco
+arecibo
+arroyo
+barceloneta
+barranquitas
+bayamn
+cabo rojo
+caguas
+camuy
+canvanas
+carolina
+catao
+cayey
+ceiba
+ciales
+cidra
+coamo
+comero
+corozal
+culebra
+dorado
+fajardo
+florida
+gunica
+guayama
+guayanilla
+guaynabo
+gurabo
+hatillo
+hormigueros
+humacao
+isabela
+jayuya
+juana daz
+juncos
+lajas
+lares
+las maras
+las piedras
+loza
+luquillo
+manat
+maricao
+maunabo
+mayagez
+moca
+morovis
+naguabo
+naranjito
+orocovis
+patillas
+peuelas
+ponce
+quebradillas
+rincn
+ro grande
+sabana grande
+salinas
+san germn
+san juan
+san lorenzo
+san sebastin
+santa isabel
+toa alta
+toa baja
+trujillo alto
+utuado
+vega alta
+vega baja
+vieques
+villalba
+yabucoa
+yauco

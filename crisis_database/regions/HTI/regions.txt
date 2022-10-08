@@ -1,0 +1,10 @@
+centre
+grandanse
+lartibonite
+nippes
+nord
+nordest
+nordouest
+ouest
+sud
+sudest

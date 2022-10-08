@@ -1,0 +1,28 @@
+blagoevgrad
+burgas
+dobrich
+gabrovo
+grad sofiya
+haskovo
+kardzhali
+kyustendil
+lovech
+montana
+pazardzhik
+pernik
+pleven
+plovdiv
+razgrad
+ruse
+shumen
+silistra
+sliven
+smolyan
+sofia
+stara zagora
+targovishte
+varna
+veliko tarnovo
+vidin
+vratsa
+yambol

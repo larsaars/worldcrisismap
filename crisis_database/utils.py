@@ -12,9 +12,6 @@ import os
 from bs4 import BeautifulSoup
 
 
-last_max_country = None
-
-
 def printerr(*args, **kwargs):
     """
     Prints an error message to the console.
@@ -103,8 +100,10 @@ def search_matching_geojson_files_or_coords(text: str, countries: list, mappers=
 
     :param text: The string to search in.
     :param countries: The countries to search for (ISO3 format).
+    :param mappers: The mappers to use.
+    :param is_html: If the text is html.
 
-    :return: A list of country files and lat / lon.
+    :return: A list of country files and lat / lon as well as last max country.
     """
 
     # load region mapper if not provided
@@ -113,11 +112,17 @@ def search_matching_geojson_files_or_coords(text: str, countries: list, mappers=
     else:
         region_mapper, country_code_mapper = mappers
 
+    
+    # create max lat / lon, they are provided if searching for countries as centers
+    # and none if nothing found
+    max_lat, max_lon = None, None
 
+    # define last max country (max country name to be returned)
+    last_max_country = None
 
     # if no countries are provided, search for country names in text (but only the one with most occurences, since else the map would be overpopulated)
     if not countries:
-        country_max = (None, -1)
+        country_max = (None, None, -1)
 
         # init countries list
         countries = []
@@ -125,27 +130,46 @@ def search_matching_geojson_files_or_coords(text: str, countries: list, mappers=
         # search for country name in text
         found = search_for_keywords(text, country_code_mapper.keys(), is_html)
 
-        print('FOUND')
-        print(found)
+        # if nothing was found, return
+        if not found:
+            return None, None, None, None
+
+
+        # accumulate founds with same country iso3 code
+        # (in some cases there are multiple country names for one iso3 code)
+
+        # first element is the country iso3 code, second element is the country name and the third element is the count
+        found = [(country_code_mapper[country]['iso3'], country, count) for country, count in found]
+
+
+        # if two items have same iso3 code, add the count
+        found_accumulated = []
+        for country_iso3, country_name, count in found:
+            if country_iso3 not in [iso3 for iso3, _, _ in found_accumulated]:
+                found_accumulated.append((country_iso3, country_name, count))
+            else:
+                for i, (iso3_, country_name_, count_) in enumerate(found_accumulated):
+                    if iso3_ == country_iso3:
+                        found_accumulated[i] = (iso3_, country_name_, count_ + count)
+
 
         # also compare to get the country with most occurences
-        for country, count in found:
+        for iso3, country, count in found_accumulated:
         # also compare to get the country with most occurences
-            if count > country_max[1]:
-                country_max = (country, count)
+            if count > country_max[2]:
+                country_max = (iso3, country, count)
 
         # add countrie(s) with most occurences to country list
         # this is done in order to not have too many countries on the map for just one article
-        for country, count in found:
-            if count == country_max[1]:
-                countries.append(country_code_mapper[country])
+        for iso3, country, count in found_accumulated:
+            if count == country_max[2]:
+                countries.append(iso3)
 
 
         # set as variable for later use
-        last_max_country = country_max[0]
+        last_max_country = country_max[1]
+        max_lat, max_lon = country_code_mapper[last_max_country]['lat'], country_code_mapper[last_max_country]['lon']
 
-    print('COUNTRIES')
-    print(countries)
 
     # make countries elements uppercase
     countries = map(str.upper, countries)
@@ -185,7 +209,7 @@ def search_matching_geojson_files_or_coords(text: str, countries: list, mappers=
         region = region_mapper[most_often_occuring_region[2]][most_often_occuring_region[0]]
         lat, lon = region['lat'], region['lon']
     else:
-        lat, lon = None, None
+        lat, lon = max_lat, max_lon
 
     
-    return all_files if all_files else None, lat, lon
+    return all_files if all_files else None, lat, lon, last_max_country

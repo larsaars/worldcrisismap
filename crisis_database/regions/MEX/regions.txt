@@ -1,0 +1,32 @@
+aguascalientes
+baja california
+baja california sur
+campeche
+chiapas
+chihuahua
+coahuila
+colima
+distrito federal
+durango
+guanajuato
+guerrero
+hidalgo
+jalisco
+mxico
+michoacn
+morelos
+nayarit
+nuevo len
+oaxaca
+puebla
+quertaro
+quintana roo
+san luis potos
+sinaloa
+sonora
+tabasco
+tamaulipas
+tlaxcala
+veracruz
+yucatn
+zacatecas

@@ -1,0 +1,27 @@
+acre
+alagoas
+amap
+amazonas
+bahia
+cear
+distrito federal
+esprito santo
+gois
+maranho
+mato grosso
+mato grossodo sul
+minas gerais
+par
+paraba
+paran
+pernambuco
+piau
+riode janeiro
+rio grandedo norte
+rio grandedo sul
+rondnia
+roraima
+santa catarina
+so paulo
+sergipe
+tocantins

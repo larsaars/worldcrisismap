@@ -31,7 +31,7 @@ cur = connection.cursor()
 
 
 # load country region mapper
-mappers = load_country_region_mapper_and_country_code_mapper(False)  # TODO must be True!
+mappers = load_country_region_mapper_and_country_code_mapper()
 
 
 
@@ -61,7 +61,7 @@ def load_disasters_to_database(offset=0, limit=10, single_commits=False) -> int:
             description = fd['description'] if 'description' in fd else fd['name']
 
             # search for matching geojson files and lat / lon
-            geojson_object, lat, lon = search_matching_geojson_files_or_coords(description, countries, mappers, False)
+            geojson_object, lat, lon, _ = search_matching_geojson_files_or_coords(description, countries, mappers, False)
 
             # if lat == None, use fallback (primary country lat / lon)
             if  lat == None:
@@ -127,7 +127,7 @@ def load_reports_to_database(offset=0, limit=10, single_commits=False) -> int:
             description = fd['body'] if 'body' in fd else fd['title']
 
             # search for matching geojson files and lat / lon
-            geojson_object, lat, lon = search_matching_geojson_files_or_coords(description, countries, mappers, False)
+            geojson_object, lat, lon, _ = search_matching_geojson_files_or_coords(description, countries, mappers, False)
 
             # if lat == None, use fallback (primary country lat / lon)
             if  lat == None:
@@ -180,35 +180,36 @@ def load_news_to_database() -> int:
     
     # loop through each entry
     for entry in feed.entries:
-        # try: TODO
-        # get entry html content
-        content = entry.content[0].value
-        
-        # generate geojson
-        geojson_object, lat, lon = search_matching_geojson_files_or_coords(content, None, mappers, True)
+        try:
+            # get entry html content
+            content = entry.content[0].value
+            
+            # generate geojson
+            geojson_object, lat, lon, last_max_country = search_matching_geojson_files_or_coords(content, None, mappers, True)
+
+            # if everything returned is None, skip
+            if lat == None and lon == None and geojson_object == None:
+                continue
 
 
-        print('-----RESULTS-----')
-        print(geojson_object, lat, lon)
+            print('-----RESULTS-----')
+            print(geojson_object, lat, lon)
 
-        # if has not found a country, continue
-        if last_max_country is None:
-            continue
-        
-        # if lat == None, use fallback (primary country lat / lon) [TODO]
-        # TODO as well: what is last country: if None
-        if  lat == None:
-            lat = 0
-            lon = 0
+            # if has not found a country, continue
+            if last_max_country is None:
+                continue
 
-        # convert geojson_object to json
-        geojson = json.dumps(geojson_object)
+            print(last_max_country)
+            
 
-        query = f"INSERT INTO news_today(date, country_name, geojson, lat, lon, url, title, description_html) VALUES ('{entry.published}', {escape(last_max_country)}', '{geojson}', {lat}, {lon}, '{escape(entry.link)}', '{escape(content)}');"
-        cur.execute(query)
-#         except Exception as e:
-#             connection.rollback()
-#             printerr(type(e), e)
+            # convert geojson_object to json
+            geojson = json.dumps(geojson_object)
+
+            query = f"INSERT INTO news_today(date, country_name, geojson, lat, lon, url, title, description_html) VALUES ('{entry.published}', '{escape(last_max_country)}', '{geojson}', {lat}, {lon}, '{escape(entry.link)}', '{escape(entry.title)}', '{escape(content)}');"
+            cur.execute(query)
+        except Exception as e:
+            connection.rollback()
+            printerr(type(e), e)
 
     # commit changes
     print('Committing changes to database...')

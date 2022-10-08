@@ -1,0 +1,20 @@
+abruzzo
+apulia
+basilicata
+calabria
+campania
+emiliaromagna
+friulivenezia giulia
+lazio
+liguria
+lombardia
+marche
+molise
+piemonte
+sardegna
+sicily
+toscana
+trentinoalto adige
+umbria
+valledaosta
+veneto
