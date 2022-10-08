@@ -25,7 +25,6 @@ def escape(string):
 
     :param string: The string to escape.
     """
-    print(string)
 
     return string.replace('\'', '&#39;').replace('"', '&quot;').replace('\\', '\\\\').replace('\n', '<br>')
 
