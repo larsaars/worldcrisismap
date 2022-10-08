@@ -1,6 +1,6 @@
 artigas
 canelones
-cerro largo
+cerrolargo
 colonia
 durazno
 flores
@@ -8,12 +8,12 @@ florida
 lavalleja
 maldonado
 montevideo
-paysandú
-río negro
+paysandu
+rionegro
 rivera
 rocha
 salto
-san josé
+sanjose
 soriano
-tacuarembó
-treintay tres
+tacuarembo
+treintaytres

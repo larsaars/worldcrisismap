@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-81.3829,19.3267],[-81.3901,19.2682],[-81.381,19.2651],[-81.3463,19.2799],[-81.3385,19.2715],[-81.3105,19.2718],[-81.3167,19.296],[-81.3468,19.2921],[-81.3668,19.3146],[-81.3685,19.3268],[-81.3829,19.3267]]]},"properties":{"GID_1":"CYM.4_1","GID_0":"CYM","COUNTRY":"CaymanIslands","NAME_1":"GeorgeTown","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"KY.GT","ISO_1":"NA"}}
-]}

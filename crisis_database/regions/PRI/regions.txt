@@ -1,32 +1,32 @@
 adjuntas
 aguada
 aguadilla
-aguas buenas
+aguasbuenas
 aibonito
-añasco
+anasco
 arecibo
 arroyo
 barceloneta
 barranquitas
-bayamón
-cabo rojo
+bayamon
+caborojo
 caguas
 camuy
-canóvanas
+canovanas
 carolina
-cataño
+catano
 cayey
 ceiba
 ciales
 cidra
 coamo
-comerío
+comerio
 corozal
 culebra
 dorado
 fajardo
 florida
-guánica
+guanica
 guayama
 guayanilla
 guaynabo
@@ -36,42 +36,42 @@ hormigueros
 humacao
 isabela
 jayuya
-juana díaz
+juanadiaz
 juncos
 lajas
 lares
-las marías
-las piedras
-loíza
+lasmarias
+laspiedras
+loiza
 luquillo
-manatí
+manati
 maricao
 maunabo
-mayagüez
+mayaguez
 moca
 morovis
 naguabo
 naranjito
 orocovis
 patillas
-peñuelas
+penuelas
 ponce
 quebradillas
-rincón
-río grande
-sabana grande
+rincon
+riogrande
+sabanagrande
 salinas
-san germán
-san juan
-san lorenzo
-san sebastián
-santa isabel
-toa alta
-toa baja
-trujillo alto
+sangerman
+sanjuan
+sanlorenzo
+sansebastian
+santaisabel
+toaalta
+toabaja
+trujilloalto
 utuado
-vega alta
-vega baja
+vegaalta
+vegabaja
 vieques
 villalba
 yabucoa

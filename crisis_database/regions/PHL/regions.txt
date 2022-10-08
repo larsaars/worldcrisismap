@@ -1,6 +1,6 @@
 abra
-agusandel norte
-agusandel sur
+agusandelnorte
+agusandelsur
 aklan
 albay
 antique
@@ -16,46 +16,46 @@ bohol
 bukidnon
 bulacan
 cagayan
-camarines norte
-camarines sur
+camarinesnorte
+camarinessur
 camiguin
 capiz
 catanduanes
 cavite
 cebu
-compostela valley
-davaodel norte
-davaodel sur
-davao oriental
-dinagat islands
-eastern samar
+compostelavalley
+davaodelnorte
+davaodelsur
+davaooriental
+dinagatislands
+easternsamar
 guimaras
 ifugao
-ilocos norte
-ilocos sur
+ilocosnorte
+ilocossur
 iloilo
 isabela
 kalinga
-la union
+launion
 laguna
-lanaodel norte
-lanaodel sur
+lanaodelnorte
+lanaodelsur
 leyte
 maguindanao
 marinduque
 masbate
-metropolitan manila
-misamis occidental
-misamis oriental
-mountain province
-negros occidental
-negros oriental
-north cotabato
-northern samar
-nueva ecija
-nueva vizcaya
-occidental mindoro
-oriental mindoro
+metropolitanmanila
+misamisoccidental
+misamisoriental
+mountainprovince
+negrosoccidental
+negrosoriental
+northcotabato
+northernsamar
+nuevaecija
+nuevavizcaya
+occidentalmindoro
+orientalmindoro
 palawan
 pampanga
 pangasinan
@@ -67,15 +67,15 @@ samar
 sarangani
 siquijor
 sorsogon
-south cotabato
-southern leyte
-sultan kudarat
+southcotabato
+southernleyte
+sultankudarat
 sulu
-surigaodel norte
-surigaodel sur
+surigaodelnorte
+surigaodelsur
 tarlac
-tawi tawi
+tawitawi
 zambales
-zamboangadel norte
-zamboangadel sur
-zamboanga sibugay
+zamboangadelnorte
+zamboangadelsur
+zamboangasibugay

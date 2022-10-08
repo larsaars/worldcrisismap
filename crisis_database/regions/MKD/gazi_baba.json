@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[21.5543,41.9279],[21.5721,41.9102],[21.5829,41.9197],[21.5721,41.9504],[21.5306,41.9721],[21.5514,42.0311],[21.541,42.0703],[21.511,42.1017],[21.4693,42.0629],[21.445,41.987],[21.5337,41.9513],[21.556,41.9372],[21.5543,41.9279]]]},"properties":{"GID_1":"MKD.23_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"GaziBaba","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.GB","ISO_1":"MK-804"}}
-]}

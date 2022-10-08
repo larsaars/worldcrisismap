@@ -1,12 +1,12 @@
 grouville
-saint berlade
-saint clement
-saint helier
-saint john
-saint lawrence
-saint martin
-saint mary
-saint ouen
-saint peter
-saint saviour
+saintberlade
+saintclement
+sainthelier
+saintjohn
+saintlawrence
+saintmartin
+saintmary
+saintouen
+saintpeter
+saintsaviour
 trinity

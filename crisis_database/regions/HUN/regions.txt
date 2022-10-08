@@ -1,20 +1,20 @@
-bács kiskun
+bacskiskun
 baranya
-békés
-borsod abaúj zemplén
+bekes
+borsodabaujzemplen
 budapest
-csongrád
-fejér
-gyor moson sopron
-hajdú bihar
+csongrad
+fejer
+gyormosonsopron
+hajdubihar
 heves
-jász nagykun szolnok
-komárom esztergom
-nógrád
+jasznagykunszolnok
+komaromesztergom
+nograd
 pest
 somogy
-szabolcs szatmár bereg
+szabolcsszatmarbereg
 tolna
 vas
-veszprém
+veszprem
 zala

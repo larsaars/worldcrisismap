@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.1992,16.7294],[-62.187,16.7663],[-62.1724,16.7826],[-62.181,16.7993],[-62.181,16.8168],[-62.1987,16.8243],[-62.2049,16.8201],[-62.2054,16.8021],[-62.2235,16.7629],[-62.2351,16.7496],[-62.2329,16.7375],[-62.1992,16.7294]]]},"properties":{"GID_1":"MSR.3_1","GID_0":"MSR","COUNTRY":"Montserrat","NAME_1":"SaintPeter","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"MS.SP","ISO_1":"-"}}
-]}

@@ -2,10 +2,10 @@ aveiro
 azores
 beja
 braga
-bragança
-castelo branco
+braganca
+castelobranco
 coimbra
-évora
+evora
 faro
 guarda
 leiria
@@ -13,8 +13,8 @@ lisboa
 madeira
 portalegre
 porto
-santarém
-setúbal
-vianado castelo
-vila real
+santarem
+setubal
+vianadocastelo
+vilareal
 viseu

@@ -1,22 +1,22 @@
-alta verapaz
-baja verapaz
+altaverapaz
+bajaverapaz
 chimaltenango
 chiquimula
-el progreso
+elprogreso
 escuintla
 guatemala
 huehuetenango
 izabal
 jalapa
 jutiapa
-petén
+peten
 quezaltenango
-quiché
+quiche
 retalhuleu
-sacatepéquez
-san marcos
-santa rosa
-sololá
-suchitepéquez
-totonicapán
+sacatepequez
+sanmarcos
+santarosa
+solola
+suchitepequez
+totonicapan
 zacapa

@@ -1,3 +1,1 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[166.9415,-0.5177],[166.9442,-0.5087],[166.9393,-0.5024],[166.9324,-0.5036],[166.9415,-0.5177]]]},"properties":{"GID_1":"NRU.9_1","GID_0":"NRU","COUNTRY":"Nauru","NAME_1":"Ewa","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"NR.EW","ISO_1":"NA"}}
-]}
+{"type": "Feature", "properties": {"GID_1": "NRU.9_1", "GID_0": "NRU", "COUNTRY": "Nauru", "NAME_1": "Ewa", "VARNAME_1": "NA", "NL_NAME_1": "NA", "TYPE_1": "District", "ENGTYPE_1": "District", "CC_1": "NA", "HASC_1": "NR.EW", "ISO_1": "NA"}, "geometry": {"type": "MultiPolygon", "coordinates": [[[[166.9415, -0.5177], [166.94, -0.5197], [166.9393, -0.5171], [166.9356, -0.5151], [166.9359, -0.5116], [166.9311, -0.5058], [166.9324, -0.5036], [166.9393, -0.5024], [166.9398, -0.5061], [166.9442, -0.5087], [166.9402, -0.511], [166.9399, -0.5157], [166.9415, -0.5177]]]]}}

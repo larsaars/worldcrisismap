@@ -1,32 +1,32 @@
 aguascalientes
-baja california
-baja california sur
+bajacalifornia
+bajacaliforniasur
 campeche
 chiapas
 chihuahua
 coahuila
 colima
-distrito federal
+distritofederal
 durango
 guanajuato
 guerrero
 hidalgo
 jalisco
-méxico
-michoacán
+mexico
+michoacan
 morelos
 nayarit
-nuevo león
+nuevoleon
 oaxaca
 puebla
-querétaro
-quintana roo
-san luis potosí
+queretaro
+quintanaroo
+sanluispotosi
 sinaloa
 sonora
 tabasco
 tamaulipas
 tlaxcala
 veracruz
-yucatán
+yucatan
 zacatecas

@@ -1,12 +1,12 @@
 alderney
 castel
 forest
-saint andrew
-saint martin
-saint peter port
-saint pierredu bois
-saint sampson
-saint saviour
+saintandrew
+saintmartin
+saintpeterport
+saintpierredubois
+saintsampson
+saintsaviour
 sark
 torteval
 vale

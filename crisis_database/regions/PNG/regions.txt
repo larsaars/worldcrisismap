@@ -1,22 +1,22 @@
 bougainville
 central
 chimbu
-east new britain
-east sepik
-eastern highlands
+eastnewbritain
+eastsepik
+easternhighlands
 enga
 gulf
 hela
 jiwaka
 madang
 manus
-milne bay
+milnebay
 morobe
-national capital district
-new ireland
+nationalcapitaldistrict
+newireland
 oro
 sandaun
-southern highlands
-west new britain
+southernhighlands
+westnewbritain
 western
-western highlands
+westernhighlands

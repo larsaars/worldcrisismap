@@ -5,12 +5,12 @@ chernivtsi
 crimea
 dnipropetrovsk
 donetsk
-ivano frankivsk
+ivanofrankivsk
 kharkiv
 kherson
 khmelnytskyy
 kiev
-kiev city
+kievcity
 kirovohrad
 lviv
 luhansk

@@ -3,8 +3,8 @@ apulia
 basilicata
 calabria
 campania
-emilia romagna
-friuli venezia giulia
+emiliaromagna
+friuliveneziagiulia
 lazio
 liguria
 lombardia
@@ -14,7 +14,7 @@ piemonte
 sardegna
 sicily
 toscana
-trentino alto adige
+trentinoaltoadige
 umbria
-valled aosta
+valledaosta
 veneto

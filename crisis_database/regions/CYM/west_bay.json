@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-81.3685,19.3268],[-81.3812,19.3785],[-81.3643,19.3874],[-81.4157,19.3851],[-81.4196,19.3713],[-81.3913,19.3624],[-81.3829,19.3267],[-81.3685,19.3268]]]},"properties":{"GID_1":"CYM.7_1","GID_0":"CYM","COUNTRY":"CaymanIslands","NAME_1":"WestBay","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"KY.WB","ISO_1":"NA"}}
-]}

@@ -1,24 +1,24 @@
 azuay
 bolivar
-cañar
+canar
 carchi
 chimborazo
 cotopaxi
-el oro
+eloro
 esmeraldas
-galápagos
+galapagos
 guayas
 imbabura
 loja
-los rios
+losrios
 manabi
-morona santiago
+moronasantiago
 napo
 orellana
 pastaza
 pichincha
-santa elena
-santo domingodelos tsachilas
+santaelena
+santodomingodelostsachilas
 sucumbios
 tungurahua
-zamora chinchipe
+zamorachinchipe

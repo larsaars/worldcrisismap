@@ -1,3 +1,1 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[45.1216,-12.8399],[45.154,-12.874],[45.1526,-12.804],[45.1216,-12.8399]]]},"properties":{"GID_1":"MYT.14_1","GID_0":"MYT","COUNTRY":"Mayotte","NAME_1":"Ouangani","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Chef-lieucanton","ENGTYPE_1":"Commune","CC_1":"14","HASC_1":"NA","ISO_1":"-"}}
-]}
+{"type": "Feature", "properties": {"GID_1": "MYT.14_1", "GID_0": "MYT", "COUNTRY": "Mayotte", "NAME_1": "Ouangani", "VARNAME_1": "NA", "NL_NAME_1": "NA", "TYPE_1": "Chef-lieucanton", "ENGTYPE_1": "Commune", "CC_1": "14", "HASC_1": "NA", "ISO_1": "-"}, "geometry": {"type": "MultiPolygon", "coordinates": [[[[45.1216, -12.8399], [45.1257, -12.8307], [45.1223, -12.8077], [45.1325, -12.81], [45.1526, -12.804], [45.1547, -12.8199], [45.1393, -12.8339], [45.1453, -12.8373], [45.154, -12.874], [45.1384, -12.8694], [45.1294, -12.8638], [45.1216, -12.8399]]]]}}

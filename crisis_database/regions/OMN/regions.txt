@@ -1,11 +1,11 @@
-ad dakhliyah
-al batinah north
-al batinah south
-al buraymi
-al dhahira
-al wusta
-ash sharqiyah north
-ash sharqiyah south
+addakhliyah
+albatinahnorth
+albatinahsouth
+alburaymi
+aldhahira
+alwusta
+ashsharqiyahnorth
+ashsharqiyahsouth
 dhofar
 musandam
 muscat

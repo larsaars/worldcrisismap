@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.7941,17.3549],[-62.8101,17.3717],[-62.8425,17.3451],[-62.7943,17.3108],[-62.7669,17.3363],[-62.7941,17.3549]]]},"properties":{"GID_1":"KNA.13_1","GID_0":"KNA","COUNTRY":"SaintKittsandNevis","NAME_1":"SaintThomasMiddleIsland","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"KN.TM","ISO_1":"KN-13"}}
-]}

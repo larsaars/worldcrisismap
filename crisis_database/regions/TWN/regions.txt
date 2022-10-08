@@ -1,6 +1,6 @@
 fujian
 kaohsiung
-new taipei
+newtaipei
 taichung
 tainan
 taipei

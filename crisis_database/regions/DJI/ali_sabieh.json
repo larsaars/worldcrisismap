@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[43.0868,11.1865],[43.2195,11.3984],[43.1017,11.4727],[42.892,11.4596],[42.8505,11.3523],[42.5754,11.2474],[42.5805,11.0536],[42.939,10.9665],[43.0868,11.1865]]]},"properties":{"GID_1":"DJI.1_2","GID_0":"DJI","COUNTRY":"Djibouti","NAME_1":"AliSabieh","VARNAME_1":"`AliSabîh","NL_NAME_1":"إقليمعلىصبيح","TYPE_1":"NA","ENGTYPE_1":"Region","CC_1":"NA","HASC_1":"DJ.AS","ISO_1":"DJ-AS"}}
-]}

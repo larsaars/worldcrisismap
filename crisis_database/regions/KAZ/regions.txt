@@ -1,14 +1,14 @@
 almaty
 aqmola
-aqtöbe
+aqtobe
 atyrau
-east kazakhstan
+eastkazakhstan
 mangghystau
-north kazakhstan
+northkazakhstan
 pavlodar
 qaraghandy
 qostanay
 qyzylorda
-south kazakhstan
-west kazakhstan
+southkazakhstan
+westkazakhstan
 zhambyl

@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-71.1318,21.5132],[-71.1379,21.5074],[-71.141,21.5107],[-71.151,21.4949],[-71.1468,21.4657],[-71.154,21.444],[-71.1435,21.4218],[-71.1263,21.4368],[-71.1315,21.4426],[-71.1263,21.449],[-71.1318,21.5132]]]},"properties":{"GID_1":"TCA.1_1","GID_0":"TCA","COUNTRY":"TurksandCaicosIslands","NAME_1":"GrandTurk","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"NA","ISO_1":"NA"}}
-]}

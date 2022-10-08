@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-64.796,32.2903],[-64.7772,32.2941],[-64.7902,32.2969],[-64.796,32.2903]]]},"properties":{"GID_1":"BMU.3_1","GID_0":"BMU","COUNTRY":"Bermuda","NAME_1":"HamiltonMunicipality","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipality","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"BM.HC","ISO_1":"NA"}}
-]}

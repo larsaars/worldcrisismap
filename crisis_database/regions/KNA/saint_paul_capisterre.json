@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.8104,17.3727],[-62.8243,17.3843],[-62.8177,17.4024],[-62.8046,17.4121],[-62.8099,17.4179],[-62.8437,17.4112],[-62.8621,17.3918],[-62.851,17.3856],[-62.8458,17.3897],[-62.8456,17.383],[-62.8104,17.3727]]]},"properties":{"GID_1":"KNA.9_1","GID_0":"KNA","COUNTRY":"SaintKittsandNevis","NAME_1":"SaintPaulCapisterre","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"KN.PP","ISO_1":"KN-09"}}
-]}

@@ -1,5 +1,5 @@
 central
 east
 north
-north east
+northeast
 west

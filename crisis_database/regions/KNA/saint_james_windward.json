@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.5396,17.1415],[-62.5443,17.1787],[-62.5549,17.1946],[-62.5676,17.1957],[-62.5796,17.2076],[-62.6126,17.2035],[-62.5834,17.1534],[-62.5396,17.1415]]]},"properties":{"GID_1":"KNA.5_1","GID_0":"KNA","COUNTRY":"SaintKittsandNevis","NAME_1":"SaintJamesWindward","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"KN.JW","ISO_1":"KN-05"}}
-]}

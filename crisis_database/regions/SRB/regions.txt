@@ -1,25 +1,25 @@
 borski
-braničevski
-grad beograd
-jablanički
-južno bački
-južno banatski
+branicevski
+gradbeograd
+jablanicki
+juznobacki
+juznobanatski
 kolubarski
-mačvanski
-moravički
-nišavski
-pčinjski
+macvanski
+moravicki
+nisavski
+pcinjski
 pirotski
 podunavski
 pomoravski
 rasinski
-raški
-severno bački
-severno banatski
-srednje banatski
+raski
+severnobacki
+severnobanatski
+srednjebanatski
 sremski
-šumadijski
-toplički
-zaječarski
-zapadno bački
+sumadijski
+toplicki
+zajecarski
+zapadnobacki
 zlatiborski

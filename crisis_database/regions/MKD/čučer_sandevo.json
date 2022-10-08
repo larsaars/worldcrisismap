@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[21.388,42.2191],[21.3749,42.1938],[21.3214,42.1634],[21.2996,42.1216],[21.3593,42.0291],[21.3793,42.0232],[21.4047,42.0526],[21.428,42.0272],[21.4479,42.0353],[21.4354,42.0738],[21.4421,42.1038],[21.4656,42.1396],[21.5038,42.1482],[21.5158,42.1679],[21.4801,42.2193],[21.388,42.2191]]]},"properties":{"GID_1":"MKD.15_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"ČučerSandevo","VARNAME_1":"CucerSandevo","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.CS","ISO_1":"NA"}}
-]}

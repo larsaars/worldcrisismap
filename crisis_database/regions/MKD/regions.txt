@@ -7,75 +7,75 @@ bogovinje
 bosilovo
 brvenica
 butel
-čair
-čaška
+cair
+caska
 centar
-centaržupa
-češinovo obleševo
-čučer sandevo
+centarzupa
+cesinovooblesevo
+cucersandevo
 debar
 debarca
-delčevo
-demir hisar
-demir kapija
+delcevo
+demirhisar
+demirkapija
 dolneni
-gazi baba
+gazibaba
 gevgelija
-gjorče petrov
+gjorcepetrov
 gostivar
 gradsko
 ilinden
 jegunovtse
 karbinci
-karpoš
+karpos
 kavadartsi
-kičevo
-kisela voda
-kočani
-konče
+kicevo
+kiselavoda
+kocani
+konce
 kratovo
-kriva palanka
-krivogaštani
-kruševo
+krivapalanka
+krivogastani
+krusevo
 kumanovo
-lake ohrid
+lakeohrid
 lipkovo
 lozovo
-makedonska kamenica
-makedonski brod
-mavrovoand rostuša
+makedonskakamenica
+makedonskibrod
+mavrovoandrostusa
 mogila
 negotino
 novatsi
-novo selo
+novoselo
 ohrid
-pehčevo
+pehcevo
 petrovec
 plasnica
 prilep
-probištip
-radoviš
+probistip
+radovis
 rankovce
 resen
 rosoman
 saraj
-sopište
-star dojran
-staro nagoričane
-štip
+sopiste
+stardojran
+staronagoricane
+stip
 struga
 strumitsa
-studeničani
-šuto orizari
-sveti nikole
+studenicani
+sutoorizari
+svetinikole
 tearce
 tetovo
 valandovo
 vasilevo
 veles
-vevčani
+vevcani
 vinitsa
-vrapčište
+vrapciste
 zelenikovo
-želino
+zelino
 zrnovci

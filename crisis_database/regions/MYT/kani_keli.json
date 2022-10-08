@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[45.1448,-12.9782],[45.1195,-12.9439],[45.0793,-12.9617],[45.1087,-12.9615],[45.1082,-12.9943],[45.1174,-12.9818],[45.1263,-12.9965],[45.1374,-12.9915],[45.1507,-13.0004],[45.1579,-12.9832],[45.1448,-12.9782]]]},"properties":{"GID_1":"MYT.9_1","GID_0":"MYT","COUNTRY":"Mayotte","NAME_1":"Kani-Keli","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Chef-lieucanton","ENGTYPE_1":"Commune","CC_1":"09","HASC_1":"NA","ISO_1":"-"}}
-]}

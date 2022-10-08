@@ -1,16 +1,16 @@
-dolnośląskie
-kujawsko pomorskie
-łódzkie
+dolnoslaskie
+kujawskopomorskie
+lodzkie
 lubelskie
 lubuskie
-małopolskie
+malopolskie
 mazowieckie
 opolskie
 podkarpackie
 podlaskie
 pomorskie
-śląskie
-świętokrzyskie
-warmińsko mazurskie
+slaskie
+swietokrzyskie
+warminskomazurskie
 wielkopolskie
 zachodniopomorskie

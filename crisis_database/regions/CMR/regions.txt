@@ -1,10 +1,10 @@
 adamaoua
 centre
 est
-extrême nord
+extremenord
 littoral
 nord
-nord ouest
+nordouest
 ouest
 sud
-sud ouest
+sudouest

@@ -1,7 +1,7 @@
 burgenland
-kärnten
-niederösterreich
-oberösterreich
+karnten
+niederosterreich
+oberosterreich
 salzburg
 steiermark
 tirol

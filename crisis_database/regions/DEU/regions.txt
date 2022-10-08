@@ -1,16 +1,16 @@
-baden württemberg
+badenwurttemberg
 bayern
 berlin
 brandenburg
 bremen
 hamburg
 hessen
-mecklenburg vorpommern
+mecklenburgvorpommern
 niedersachsen
-nordrhein westfalen
-rheinland pfalz
+nordrheinwestfalen
+rheinlandpfalz
 saarland
 sachsen
-sachsen anhalt
-schleswig holstein
-thüringen
+sachsenanhalt
+schleswigholstein
+thuringen

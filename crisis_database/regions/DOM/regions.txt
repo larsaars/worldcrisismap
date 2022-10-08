@@ -1,32 +1,32 @@
 azua
 bahoruco
 barahona
-dajabón
-distrito nacional
+dajabon
+distritonacional
 duarte
-el seybo
+elseybo
 espaillat
-hato mayor
+hatomayor
 independencia
-la altagracia
-la estrelleta
-la romana
-la vega
-maría trinidad sánchez
-monseñor nouel
-monte cristi
-monte plata
+laaltagracia
+laestrelleta
+laromana
+lavega
+mariatrinidadsanchez
+monsenornouel
+montecristi
+monteplata
 pedernales
 peravia
-puerto plata
+puertoplata
 salcedo
-samaná
-san cristóbal
-san joséde ocoa
-san juan
-san pedrode macorís
-sánchez ramírez
+samana
+sancristobal
+sanjosedeocoa
+sanjuan
+sanpedrodemacoris
+sanchezramirez
 santiago
-santiago rodríguez
-santo domingo
+santiagorodriguez
+santodomingo
 valverde

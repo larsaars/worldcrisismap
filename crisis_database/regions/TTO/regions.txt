@@ -1,15 +1,15 @@
 arima
 chaguanas
-couva tabaquite talparo
-diego martin
-mayaro rio claro
-penal debe
-point fortin
-portof spain
-princes town
-san fernando
-san juan laventille
-sangre grande
+couvatabaquitetalparo
+diegomartin
+mayarorioclaro
+penaldebe
+pointfortin
+portofspain
+princestown
+sanfernando
+sanjuanlaventille
+sangregrande
 siparia
 tobago
-tunapuna piarco
+tunapunapiarco

@@ -1,48 +1,48 @@
 adrar
-aïn defla
-aïn témouchent
+aindefla
+aintemouchent
 alger
 annaba
 batna
-béchar
-béjaïa
+bechar
+bejaia
 biskra
 blida
-bordj bou arréridj
+bordjbouarreridj
 bouira
-boumerdès
+boumerdes
 chlef
 constantine
 djelfa
-el bayadh
-el oued
-el tarf
-ghardaïa
+elbayadh
+eloued
+eltarf
+ghardaia
 guelma
 illizi
 jijel
 khenchela
 laghouat
-m sila
+msila
 mascara
-médéa
+medea
 mila
 mostaganem
-naâma
+naama
 oran
 ouargla
-oumel bouaghi
+oumelbouaghi
 relizane
-saïda
-sétif
-sidi bel abbès
+saida
+setif
+sidibelabbes
 skikda
-souk ahras
+soukahras
 tamanghasset
-tébessa
+tebessa
 tiaret
 tindouf
 tipaza
 tissemsilt
-tizi ouzou
+tiziouzou
 tlemcen

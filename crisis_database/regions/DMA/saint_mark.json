@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-61.3645,15.2335],[-61.361,15.2232],[-61.374,15.2132],[-61.3343,15.2113],[-61.3453,15.2499],[-61.3645,15.2335]]]},"properties":{"GID_1":"DMA.7_1","GID_0":"DMA","COUNTRY":"Dominica","NAME_1":"SaintMark","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"DM.MA","ISO_1":"DM-08"}}
-]}

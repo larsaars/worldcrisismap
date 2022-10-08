@@ -1,14 +1,14 @@
-jihočeský
-jihomoravský
-karlovarský
-kraj vysočina
-královéhradecký
-liberecký
-moravskoslezský
-olomoucký
-pardubický
-plzeňský
+jihocesky
+jihomoravsky
+karlovarsky
+krajvysocina
+kralovehradecky
+liberecky
+moravskoslezsky
+olomoucky
+pardubicky
+plzensky
 prague
-středočeský
-ústecký
-zlínský
+stredocesky
+ustecky
+zlinsky

@@ -1,18 +1,18 @@
-blowing point
-dog island
-east end
-george hill
-island harbour
-north hill
-north side
-pricly pear cays
-sandy ground
-sandy hill
-scrub island
-sombrero island
-south hill
-stoney ground
-the farrington
-the quarter
-the valley
-west end
+blowingpoint
+dogisland
+eastend
+georgehill
+islandharbour
+northhill
+northside
+priclypearcays
+sandyground
+sandyhill
+scrubisland
+sombreroisland
+southhill
+stoneyground
+thefarrington
+thequarter
+thevalley
+westend

@@ -1,8 +1,8 @@
 austurland
-höfuðborgarsvæði
-norðurlandeystra
-norðurlandvestra
-suðurland
-suðurnes
-vestfirðir
+hofudborgarsvaedi
+nordurlandeystra
+nordurlandvestra
+sudurland
+sudurnes
+vestfirdir
 vesturland

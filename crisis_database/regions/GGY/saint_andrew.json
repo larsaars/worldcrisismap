@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-2.5894,49.4453],[-2.5975,49.4358],[-2.5598,49.445],[-2.5661,49.4674],[-2.5894,49.4453]]]},"properties":{"GID_1":"GGY.7_1","GID_0":"GGY","COUNTRY":"Guernsey","NAME_1":"SaintAndrew","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"GG.AN","ISO_1":"NA"}}
-]}

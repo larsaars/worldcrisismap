@@ -11,23 +11,23 @@ chechnya
 chelyabinsk
 chukot
 chuvash
-cityof st petersburg
+cityofstpetersburg
 dagestan
-gorno altay
+gornoaltay
 ingush
 irkutsk
 ivanovo
-kabardin balkar
+kabardinbalkar
 kaliningrad
 kalmyk
 kaluga
 kamchatka
-karachay cherkess
+karachaycherkess
 karelia
 kemerovo
 khabarovsk
 khakass
-khanty mansiy
+khantymansiy
 kirov
 komi
 kostroma
@@ -38,14 +38,14 @@ kursk
 leningrad
 lipetsk
 magadan
-mariy el
+mariyel
 mordovia
-moscow city
+moscowcity
 moskva
 murmansk
 nenets
 nizhegorod
-north ossetia
+northossetia
 novgorod
 novosibirsk
 omsk
@@ -77,7 +77,7 @@ vladimir
 volgograd
 vologda
 voronezh
-yamal nenets
+yamalnenets
 yaroslavl
 yevrey
 zabaykalye

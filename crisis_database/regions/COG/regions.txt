@@ -1,12 +1,12 @@
 bouenza
 brazzaville
 cuvette
-cuvette ouest
+cuvetteouest
 kouilou
-lékoumou
+lekoumou
 likouala
 niari
 plateaux
-pointe noire
+pointenoire
 pool
 sangha

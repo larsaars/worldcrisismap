@@ -1,13 +1,13 @@
-bocasdel toro
-chiriquí
-coclé
-colón
-darién
-emberá
+bocasdeltoro
+chiriqui
+cocle
+colon
+darien
+embera
 herrera
-kuna yala
-los santos
-ngöbe buglé
-panamá
-panamá oeste
+kunayala
+lossantos
+ngobebugle
+panama
+panamaoeste
 veraguas

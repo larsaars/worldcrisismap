@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.8425,17.3451],[-62.8102,17.3724],[-62.8456,17.383],[-62.8458,17.3897],[-62.851,17.3856],[-62.8621,17.3908],[-62.864,17.3701],[-62.8425,17.3451]]]},"properties":{"GID_1":"KNA.2_1","GID_0":"KNA","COUNTRY":"SaintKittsandNevis","NAME_1":"SaintAnneSandyPoint","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"KN.AS","ISO_1":"KN-02"}}
-]}

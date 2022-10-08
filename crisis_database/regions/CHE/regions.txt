@@ -1,19 +1,19 @@
 aargau
-appenzell ausserrhoden
-appenzell innerrhoden
-basel landschaft
-basel stadt
+appenzellausserrhoden
+appenzellinnerrhoden
+basellandschaft
+baselstadt
 bern
 fribourg
-genève
+geneve
 glarus
-graubünden
+graubunden
 jura
 lucerne
-neuchâtel
+neuchatel
 nidwalden
 obwalden
-sankt gallen
+sanktgallen
 schaffhausen
 schwyz
 solothurn
@@ -23,4 +23,4 @@ uri
 valais
 vaud
 zug
-zürich
+zurich

@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[32.8318,25.6932],[32.6998,25.8176],[32.5464,25.6906],[32.5983,25.6409],[32.4743,25.5471],[32.7363,25.5422],[32.8318,25.6932]]]},"properties":{"GID_1":"EGY.13_1","GID_0":"EGY","COUNTRY":"Egypt","NAME_1":"AlUqsur","VARNAME_1":"Luxor","NL_NAME_1":"NA","TYPE_1":"Muhafazah","ENGTYPE_1":"Governorate","CC_1":"NA","HASC_1":"EG.UQ","ISO_1":"EG-LX"}}
-]}

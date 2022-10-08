@@ -1,10 +1,10 @@
-barima waini
-cuyuni mazaruni
-demerara mahaica
-east berbice corentyne
-essequibo islands west demerara
-mahaica berbice
-pomeroon supenaam
-potaro siparuni
-upper demerara berbice
-upper takutu upper essequibo
+barimawaini
+cuyunimazaruni
+demeraramahaica
+eastberbicecorentyne
+essequiboislandswestdemerara
+mahaicaberbice
+pomeroonsupenaam
+potarosiparuni
+upperdemeraraberbice
+uppertakutuupperessequibo

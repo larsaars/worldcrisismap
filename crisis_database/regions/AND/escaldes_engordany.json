@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[1.5216,42.4852],[1.5605,42.4778],[1.5809,42.45],[1.5976,42.4676],[1.63,42.4636],[1.6625,42.474],[1.6309,42.5018],[1.5856,42.5057],[1.5505,42.5261],[1.5216,42.4852]]]},"properties":{"GID_1":"AND.4_1","GID_0":"AND","COUNTRY":"Andorra","NAME_1":"Escaldes-Engordany","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parròquia","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"AD.EE","ISO_1":"AD-08"}}
-]}

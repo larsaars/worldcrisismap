@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-61.6723,12.1674],[-61.6707,12.2105],[-61.681,12.2199],[-61.7246,12.1832],[-61.7246,12.1789],[-61.7031,12.1708],[-61.6804,12.1518],[-61.6723,12.1674]]]},"properties":{"GID_1":"GRD.6_1","GID_0":"GRD","COUNTRY":"Grenada","NAME_1":"SaintMark","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"GD.MA","ISO_1":"GD-05"}}
-]}

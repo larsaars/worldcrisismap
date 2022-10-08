@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-66.0218,18.305],[-65.9681,18.3102],[-65.9422,18.2935],[-65.939,18.3087],[-65.9672,18.3302],[-65.9917,18.3769],[-66.0251,18.3798],[-66.0413,18.3121],[-66.0218,18.305]]]},"properties":{"GID_1":"PRI.71_1","GID_0":"PRI","COUNTRY":"PuertoRico","NAME_1":"TrujilloAlto","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipio","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"PR.TJ","ISO_1":"-"}}
-]}

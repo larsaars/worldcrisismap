@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-66.1906,18.2585],[-66.1688,18.2242],[-66.1439,18.2281],[-66.1373,18.1976],[-66.0851,18.2358],[-66.0662,18.303],[-66.1083,18.2777],[-66.1726,18.2786],[-66.1906,18.2585]]]},"properties":{"GID_1":"PRI.4_1","GID_0":"PRI","COUNTRY":"PuertoRico","NAME_1":"AguasBuenas","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipio","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"PR.AB","ISO_1":"-"}}
-]}

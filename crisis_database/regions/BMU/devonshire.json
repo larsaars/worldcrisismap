@@ -1,3 +1,1 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-64.7417,32.3025],[-64.7754,32.308],[-64.7725,32.2937],[-64.7417,32.3025]]]},"properties":{"GID_1":"BMU.1_1","GID_0":"BMU","COUNTRY":"Bermuda","NAME_1":"Devonshire","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"BM.DE","ISO_1":"NA"}}
-]}
+{"type": "Feature", "properties": {"GID_1": "BMU.1_1", "GID_0": "BMU", "COUNTRY": "Bermuda", "NAME_1": "Devonshire", "VARNAME_1": "NA", "NL_NAME_1": "NA", "TYPE_1": "Parish", "ENGTYPE_1": "Parish", "CC_1": "NA", "HASC_1": "BM.DE", "ISO_1": "NA"}, "geometry": {"type": "MultiPolygon", "coordinates": [[[[-64.7417, 32.3025], [-64.7425, 32.2986], [-64.7475, 32.2961], [-64.7486, 32.2969], [-64.7541, 32.292], [-64.7614, 32.3005], [-64.7725, 32.2937], [-64.7754, 32.308], [-64.7633, 32.31], [-64.7493, 32.3171], [-64.7417, 32.3025]]]]}}

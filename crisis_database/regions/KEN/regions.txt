@@ -2,10 +2,10 @@ baringo
 bomet
 bungoma
 busia
-elgeyo marakwet
+elgeyomarakwet
 embu
 garissa
-homa bay
+homabay
 isiolo
 kajiado
 kakamega
@@ -36,12 +36,12 @@ nyandarua
 nyeri
 samburu
 siaya
-taita taveta
-tana river
-tharaka nithi
-trans nzoia
+taitataveta
+tanariver
+tharakanithi
+transnzoia
 turkana
-uasin gishu
+uasingishu
 vihiga
 wajir
-west pokot
+westpokot

@@ -2,6 +2,6 @@ alajuela
 cartago
 guanacaste
 heredia
-limón
+limon
 puntarenas
-san josé
+sanjose

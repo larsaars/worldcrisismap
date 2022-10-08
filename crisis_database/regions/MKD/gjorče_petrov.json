@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[21.2412,42.0834],[21.2506,42.0518],[21.2843,42.0556],[21.3334,41.9866],[21.3767,41.9842],[21.342,42.0716],[21.3021,42.0983],[21.2412,42.0834]]]},"properties":{"GID_1":"MKD.25_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"GjorčePetrov","VARNAME_1":"GjorcePetrov","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.GP","ISO_1":"NA"}}
-]}

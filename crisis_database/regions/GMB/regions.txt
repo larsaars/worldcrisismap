@@ -1,6 +1,6 @@
 banjul
-lower river
-maccarthy island
-north bank
-upper river
+lowerriver
+maccarthyisland
+northbank
+upperriver
 western

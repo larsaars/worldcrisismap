@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-2.1207,49.2174],[-2.1213,49.2329],[-2.1536,49.2343],[-2.1622,49.2097],[-2.1548,49.1963],[-2.1376,49.196],[-2.1337,49.2073],[-2.1232,49.2085],[-2.1207,49.2174]]]},"properties":{"GID_1":"JEY.6_1","GID_0":"JEY","COUNTRY":"Jersey","NAME_1":"SaintLawrence","VARNAME_1":"St.Lawrence","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"JE.LA","ISO_1":"NA"}}
-]}

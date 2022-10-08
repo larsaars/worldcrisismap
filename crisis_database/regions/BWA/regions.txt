@@ -8,9 +8,9 @@ kgalagadi
 kgatleng
 kweneng
 lobatse
-north east
-north west
-selibe phikwe
-south east
+northeast
+northwest
+selibephikwe
+southeast
 southern
 sowa

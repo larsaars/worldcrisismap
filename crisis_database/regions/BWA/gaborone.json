@@ -1,3 +1,1 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[25.9497,-24.5066],[25.8102,-24.647],[25.8987,-24.7071],[26.0141,-24.679],[25.9497,-24.5066]]]},"properties":{"GID_1":"BWA.4_1","GID_0":"BWA","COUNTRY":"Botswana","NAME_1":"Gaborone","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"City","ENGTYPE_1":"City","CC_1":"NA","HASC_1":"BW.GB","ISO_1":"NA"}}
-]}
+{"type": "Feature", "properties": {"GID_1": "BWA.4_1", "GID_0": "BWA", "COUNTRY": "Botswana", "NAME_1": "Gaborone", "VARNAME_1": "NA", "NL_NAME_1": "NA", "TYPE_1": "City", "ENGTYPE_1": "City", "CC_1": "NA", "HASC_1": "BW.GB", "ISO_1": "NA"}, "geometry": {"type": "MultiPolygon", "coordinates": [[[[25.9497, -24.5066], [26.0217, -24.5505], [25.9888, -24.6016], [26.0169, -24.6382], [26.0141, -24.679], [25.9564, -24.7001], [25.8987, -24.7071], [25.8102, -24.647], [25.8397, -24.6178], [25.8474, -24.6073], [25.8817, -24.5761], [25.9244, -24.5339], [25.9497, -24.5066]]]]}}

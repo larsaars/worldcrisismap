@@ -3,10 +3,10 @@ ajaria
 guria
 imereti
 kakheti
-kvemo kartli
-mtskheta mtianeti
-racha lechkhumi kvemo svaneti
-samegrelo zemo svaneti
-samtskhe javakheti
-shida kartli
+kvemokartli
+mtskhetamtianeti
+rachalechkhumikvemosvaneti
+samegrelozemosvaneti
+samtskhejavakheti
+shidakartli
 tbilisi

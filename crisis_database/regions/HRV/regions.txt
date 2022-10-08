@@ -1,21 +1,21 @@
-bjelovarska bilogorska
-brodsko posavska
-dubrovacko neretvanska
-grad zagreb
+bjelovarskabilogorska
+brodskoposavska
+dubrovackoneretvanska
+gradzagreb
 istarska
 karlovacka
-koprivničko križevačka
-krapinsko zagorska
-licko senjska
+koprivnickokrizevacka
+krapinskozagorska
+lickosenjska
 medimurska
-osjecko baranjska
-požeško slavonska
-primorsko goranska
-šibensko kninska
-sisacko moslavacka
-splitsko dalmatinska
-varaždinska
-viroviticko podravska
-vukovarsko srijemska
+osjeckobaranjska
+pozeskoslavonska
+primorskogoranska
+sibenskokninska
+sisackomoslavacka
+splitskodalmatinska
+varazdinska
+virovitickopodravska
+vukovarskosrijemska
 zadarska
-zagrebačka
+zagrebacka

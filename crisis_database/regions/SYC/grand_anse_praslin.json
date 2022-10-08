@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"MultiPolygon","coordinates":[[[[55.6484,-4.3476],[55.6444,-4.3498],[55.6523,-4.3546],[55.6484,-4.3476]]],[[[55.6842,-4.2969],[55.679,-4.2954],[55.6776,-4.3004],[55.6892,-4.3232],[55.7159,-4.3279],[55.7281,-4.3501],[55.7615,-4.3612],[55.7308,-4.325],[55.6842,-4.2969]]]]},"properties":{"GID_1":"SYC.15_1","GID_0":"SYC","COUNTRY":"Seychelles","NAME_1":"Grand'AnsePraslin","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"SC.GP","ISO_1":"NA"}}
-]}

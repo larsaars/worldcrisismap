@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-2.0276,49.1974],[-2.0163,49.2032],[-2.0293,49.2185],[-2.0193,49.2243],[-2.0099,49.2224],[-2.0226,49.2268],[-2.0243,49.2337],[-2.0617,49.2363],[-2.0686,49.2254],[-2.0568,49.2109],[-2.0647,49.2058],[-2.047,49.207],[-2.0291,49.2027],[-2.0276,49.1974]]]},"properties":{"GID_1":"JEY.7_1","GID_0":"JEY","COUNTRY":"Jersey","NAME_1":"SaintMartin","VARNAME_1":"St.Martin","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"JE.MT","ISO_1":"NA"}}
-]}

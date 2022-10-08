@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-58.3429,-34.6332],[-58.3524,-34.6326],[-58.3351,-34.6276],[-58.3387,-34.6182],[-58.3479,-34.6185],[-58.341,-34.6104],[-58.3546,-34.5951],[-58.3679,-34.5965],[-58.3615,-34.5812],[-58.3785,-34.5696],[-58.3932,-34.5718],[-58.4512,-34.5318],[-58.5005,-34.5541],[-58.5313,-34.6195],[-58.5289,-34.6595],[-58.4617,-34.709],[-58.423,-34.6663],[-58.3746,-34.6623],[-58.3429,-34.6332]]]},"properties":{"GID_1":"ARG.5_1","GID_0":"ARG","COUNTRY":"Argentina","NAME_1":"CiudaddeBuenosAires","VARNAME_1":"BUENOSAIRESD.F.|CapitalFedera","NL_NAME_1":"NA","TYPE_1":"DistritoFederal","ENGTYPE_1":"FederalDistrict","CC_1":"NA","HASC_1":"AR.DF","ISO_1":"NA"}}
-]}

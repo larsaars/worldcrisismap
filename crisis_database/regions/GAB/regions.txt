@@ -1,9 +1,9 @@
 estuaire
-haut ogooué
-moyen ogooué
-ngounié
+hautogooue
+moyenogooue
+ngounie
 nyanga
-ogooué ivindo
-ogooué lolo
-ogooué maritime
-wouleu ntem
+ogooueivindo
+ogoouelolo
+ogoouemaritime
+wouleuntem

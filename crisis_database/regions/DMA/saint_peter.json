@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-61.4012,15.5096],[-61.4187,15.5128],[-61.4526,15.5372],[-61.4696,15.5386],[-61.4757,15.5311],[-61.4549,15.4618],[-61.419,15.4983],[-61.4005,15.5015],[-61.4012,15.5096]]]},"properties":{"GID_1":"DMA.10_1","GID_0":"DMA","COUNTRY":"Dominica","NAME_1":"SaintPeter","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"DM.PR","ISO_1":"NA"}}
-]}

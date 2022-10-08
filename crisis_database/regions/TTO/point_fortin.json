@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-61.7045,10.1637],[-61.6982,10.1422],[-61.6838,10.1431],[-61.6581,10.1613],[-61.6324,10.1957],[-61.637,10.2117],[-61.686,10.1871],[-61.7032,10.2115],[-61.6907,10.1882],[-61.6974,10.186],[-61.6968,10.1671],[-61.7045,10.1637]]]},"properties":{"GID_1":"TTO.7_1","GID_0":"TTO","COUNTRY":"TrinidadandTobago","NAME_1":"PointFortin","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Borough","ENGTYPE_1":"Borough","CC_1":"NA","HASC_1":"TT.PF","ISO_1":"TT-PTF"}}
-]}

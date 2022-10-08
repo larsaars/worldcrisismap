@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[20.7325,41.8617],[20.748,41.8428],[20.7923,41.8392],[20.8111,41.8138],[20.8465,41.8045],[20.9347,41.8138],[20.9559,41.8496],[20.9374,41.878],[20.775,41.9188],[20.7325,41.8617]]]},"properties":{"GID_1":"MKD.81_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"Vrapčište","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.VH","ISO_1":"NA"}}
-]}

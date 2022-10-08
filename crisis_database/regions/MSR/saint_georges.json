@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.1501,16.7121],[-62.1499,16.7521],[-62.1629,16.7629],[-62.1724,16.7826],[-62.187,16.7663],[-62.1994,16.7296],[-62.1786,16.7155],[-62.1501,16.7121]]]},"properties":{"GID_1":"MSR.2_1","GID_0":"MSR","COUNTRY":"Montserrat","NAME_1":"SaintGeorges","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"MS.SG","ISO_1":"NA"}}
-]}

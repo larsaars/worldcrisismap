@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.1501,16.7121],[-62.1786,16.7155],[-62.2071,16.7346],[-62.2329,16.7375],[-62.2418,16.7235],[-62.1893,16.6749],[-62.156,16.6801],[-62.1446,16.6965],[-62.1501,16.7121]]]},"properties":{"GID_1":"MSR.1_1","GID_0":"MSR","COUNTRY":"Montserrat","NAME_1":"SaintAnthon","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"MS.SA","ISO_1":"NA"}}
-]}

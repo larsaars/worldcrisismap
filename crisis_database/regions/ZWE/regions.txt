@@ -1,10 +1,10 @@
 bulawayo
 harare
 manicaland
-mashonaland central
-mashonaland east
-mashonaland west
+mashonalandcentral
+mashonalandeast
+mashonalandwest
 masvingo
-matabeleland north
-matabeleland south
+matabelelandnorth
+matabelelandsouth
 midlands

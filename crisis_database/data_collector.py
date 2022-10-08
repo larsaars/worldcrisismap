@@ -10,6 +10,7 @@ import os
 import json
 from utils import *
 from dotenv import load_dotenv
+import feedparser
 
 # load environment variables
 load_dotenv()
@@ -30,7 +31,7 @@ cur = connection.cursor()
 
 
 # load country region mapper
-mappers = load_country_region_mapper_and_country_code_mapper()
+mappers = load_country_region_mapper_and_country_code_mapper(False)  # TODO must be True!
 
 
 
@@ -54,15 +55,13 @@ def load_disasters_to_database(offset=0, limit=10, single_commits=False) -> int:
             
             # generate geojson
             # get all involved countries (alpha3 codes)
-            countries = []
-            for country in fd['country']:
-                countries.append(country['iso3'])
+            countries = [country['iso3'] for country in fd['country']]
 
             # get description in plain text, if not available
             description = fd['description'] if 'description' in fd else fd['name']
 
             # search for matching geojson files and lat / lon
-            geojson_object, lat, lon = search_matching_geojson_files_or_coords(description, countries, mappers)
+            geojson_object, lat, lon = search_matching_geojson_files_or_coords(description, countries, mappers, False)
 
             # if lat == None, use fallback (primary country lat / lon)
             if  lat == None:
@@ -122,15 +121,13 @@ def load_reports_to_database(offset=0, limit=10, single_commits=False) -> int:
             
             # generate geojson
             # get all involved countries (alpha3 codes)
-            countries = []
-            for country in fd['country']:
-                countries.append(country['iso3'])
+            countries = [country['iso3'] for country in fd['country']]
 
             # get description in plain text, if not available
             description = fd['body'] if 'body' in fd else fd['title']
 
             # search for matching geojson files and lat / lon
-            geojson_object, lat, lon = search_matching_geojson_files_or_coords(description, countries, contry_region_mapper)
+            geojson_object, lat, lon = search_matching_geojson_files_or_coords(description, countries, mappers, False)
 
             # if lat == None, use fallback (primary country lat / lon)
             if  lat == None:
@@ -164,3 +161,55 @@ def load_reports_to_database(offset=0, limit=10, single_commits=False) -> int:
 
     # return total number of disasters in API
     return res['totalCount']
+
+
+def load_news_to_database() -> int:
+    """
+    Loads the daily IPS RSS news feed to the database.
+    Truncate the old table.
+
+    :return: The total number of news items in API.
+    """
+
+
+    # load feed via feedparser lib
+    feed = feedparser.parse('https://www.ipsnews.net/news/headlines/feed/')
+
+    # clear table for today
+    cur.execute('TRUNCATE TABLE news_today;')
+    
+    # loop through each entry
+    for entry in feed.entries:
+        # try: TODO
+        # get entry html content
+        content = entry.content[0].value
+        
+        # generate geojson
+        geojson_object, lat, lon = search_matching_geojson_files_or_coords(content, None, mappers, True)
+
+
+        print('-----RESULTS-----')
+        print(geojson_object, lat, lon)
+
+        # if has not found a country, continue
+        if last_max_country is None:
+            continue
+        
+        # if lat == None, use fallback (primary country lat / lon) [TODO]
+        # TODO as well: what is last country: if None
+        if  lat == None:
+            lat = 0
+            lon = 0
+
+        # convert geojson_object to json
+        geojson = json.dumps(geojson_object)
+
+        query = f"INSERT INTO news_today(date, country_name, geojson, lat, lon, url, title, description_html) VALUES ('{entry.published}', {escape(last_max_country)}', '{geojson}', {lat}, {lon}, '{escape(entry.link)}', '{escape(content)}');"
+        cur.execute(query)
+#         except Exception as e:
+#             connection.rollback()
+#             printerr(type(e), e)
+
+    # commit changes
+    print('Committing changes to database...')
+    connection.commit()

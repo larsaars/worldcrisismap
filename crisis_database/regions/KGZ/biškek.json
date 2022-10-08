@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[74.6935,42.8956],[74.6579,42.8977],[74.5881,42.9525],[74.5327,42.887],[74.4239,42.8852],[74.4206,42.8587],[74.4997,42.8528],[74.5554,42.8233],[74.6128,42.8164],[74.6629,42.8591],[74.7583,42.8523],[74.7927,42.8655],[74.7691,42.8933],[74.6935,42.8956]]]},"properties":{"GID_1":"KGZ.2_1","GID_0":"KGZ","COUNTRY":"Kyrgyzstan","NAME_1":"Biškek","VARNAME_1":"Bishkek","NL_NAME_1":"NA","TYPE_1":"Shaar","ENGTYPE_1":"City","CC_1":"NA","HASC_1":"KG.GB","ISO_1":"NA"}}
-]}

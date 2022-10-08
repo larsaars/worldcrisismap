@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-61.2014,13.2344],[-61.2293,13.215],[-61.2724,13.2028],[-61.2693,13.1826],[-61.2463,13.1668],[-61.2465,13.1554],[-61.2368,13.1565],[-61.2274,13.18],[-61.2056,13.1997],[-61.2075,13.2079],[-61.199,13.2152],[-61.2014,13.2344]]]},"properties":{"GID_1":"VCT.3_1","GID_0":"VCT","COUNTRY":"SaintVincentandtheGrenadines","NAME_1":"SaintAndrew","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"VC.AN","ISO_1":"NA"}}
-]}

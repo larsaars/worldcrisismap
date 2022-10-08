@@ -1,13 +1,13 @@
-boucledu mouhoun
+boucledumouhoun
 cascades
 centre
-centre est
-centre nord
-centre ouest
-centre sud
+centreest
+centrenord
+centreouest
+centresud
 est
-haut bassins
+hautbassins
 nord
-plateau central
+plateaucentral
 sahel
-sud ouest
+sudouest

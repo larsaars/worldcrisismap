@@ -1,18 +1,18 @@
-al anbar
-al basrah
-al muthannia
-al qadisiyah
-an najaf
+alanbar
+albasrah
+almuthannia
+alqadisiyah
+annajaf
 arbil
-as sulaymaniyah
-at tamim
+assulaymaniyah
+attamim
 babil
 baghdad
-dhi qar
+dhiqar
 dihok
 diyala
 karbala
 maysan
 ninawa
-salaad din
+salaaddin
 wasit

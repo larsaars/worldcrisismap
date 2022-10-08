@@ -1,14 +1,14 @@
-al butnan
-al jabalal akhdar
-al jabalal gharbi
-al jifarah
-al jufrah
-al kufrah
-al marj
-al marqab
-al wahat
-an nuqatal khams
-az zawiyah
+albutnan
+aljabalalakhdar
+aljabalalgharbi
+aljifarah
+aljufrah
+alkufrah
+almarj
+almarqab
+alwahat
+annuqatalkhams
+azzawiyah
 benghazi
 darnah
 ghat
@@ -18,5 +18,5 @@ nalut
 sabha
 surt
 tripoli
-wadial hayat
-wadiash shati
+wadialhayat
+wadiashshati

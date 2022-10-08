@@ -1,18 +1,18 @@
-atlántico norte
-atlántico sur
+atlanticonorte
+atlanticosur
 boaco
 carazo
 chinandega
 chontales
-estelí
+esteli
 granada
 jinotega
-lago nicaragua
-león
+lagonicaragua
+leon
 madriz
 managua
 masaya
 matagalpa
-nueva segovia
-río san juan
+nuevasegovia
+riosanjuan
 rivas

@@ -1,24 +1,24 @@
-buenos aires
+buenosaires
 catamarca
 chaco
 chubut
-ciudadde buenos aires
-córdoba
+ciudaddebuenosaires
+cordoba
 corrientes
-entre ríos
+entrerios
 formosa
 jujuy
-la pampa
-la rioja
+lapampa
+larioja
 mendoza
 misiones
-neuquén
-río negro
+neuquen
+rionegro
 salta
-san juan
-san luis
-santa cruz
-santa fe
-santiagodel estero
-tierradel fuego
-tucumán
+sanjuan
+sanluis
+santacruz
+santafe
+santiagodelestero
+tierradelfuego
+tucuman

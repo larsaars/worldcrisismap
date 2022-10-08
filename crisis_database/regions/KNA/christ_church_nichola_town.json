@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.7651,17.3907],[-62.7941,17.3549],[-62.7597,17.3351],[-62.7604,17.3509],[-62.741,17.3768],[-62.7651,17.3907]]]},"properties":{"GID_1":"KNA.1_1","GID_0":"KNA","COUNTRY":"SaintKittsandNevis","NAME_1":"ChristChurchNicholaTown","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"KN.CC","ISO_1":"KN-01"}}
-]}

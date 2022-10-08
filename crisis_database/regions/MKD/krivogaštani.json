@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[21.3104,41.3754],[21.3086,41.3384],[21.3337,41.302],[21.3219,41.2705],[21.385,41.2479],[21.424,41.2997],[21.4102,41.3508],[21.3499,41.3566],[21.3347,41.3875],[21.3104,41.3754]]]},"properties":{"GID_1":"MKD.39_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"Krivogaštani","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.KG","ISO_1":"NA"}}
-]}

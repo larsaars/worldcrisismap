@@ -1,41 +1,41 @@
-andamanand nicobar
-andhra pradesh
-arunachal pradesh
-arunachal pradesh
+andamanandnicobar
+andhrapradesh
+arunachalpradesh
+arunachalpradesh
 assam
 bihar
 chandigarh
 chhattisgarh
-dadraand nagar haveli
-damanand diu
+dadraandnagarhaveli
+damananddiu
 goa
 gujarat
 haryana
-himachal pradesh
-himachal pradesh
-himachal pradesh
-jammuand kashmir
+himachalpradesh
+himachalpradesh
+himachalpradesh
+jammuandkashmir
 jharkhand
 karnataka
 kerala
 lakshadweep
-madhya pradesh
+madhyapradesh
 maharashtra
 manipur
 meghalaya
 mizoram
 nagaland
-n ctof delhi
+nctofdelhi
 odisha
 puducherry
 punjab
 rajasthan
 sikkim
-tamil nadu
+tamilnadu
 telangana
 tripura
-uttar pradesh
+uttarpradesh
 uttarakhand
 uttarakhand
 uttarakhand
-west bengal
+westbengal

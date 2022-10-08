@@ -1,16 +1,16 @@
 harju
 hiiu
-ida viru
-järva
-jõgeva
-lääne
-lääne viru
-pärnu
+idaviru
+jarva
+jogeva
+laane
+laaneviru
+parnu
 peipsi
-põlva
+polva
 rapla
 saare
 tartu
 valga
 viljandi
-võru
+voru

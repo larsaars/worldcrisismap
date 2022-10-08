@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-2.2011,49.2474],[-2.2262,49.2615],[-2.2546,49.2529],[-2.2518,49.2388],[-2.2418,49.2379],[-2.2271,49.2155],[-2.199,49.2159],[-2.1922,49.2295],[-2.18,49.2352],[-2.2011,49.2474]]]},"properties":{"GID_1":"JEY.9_1","GID_0":"JEY","COUNTRY":"Jersey","NAME_1":"SaintOuen","VARNAME_1":"St.Ouen","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"JE.OU","ISO_1":"NA"}}
-]}

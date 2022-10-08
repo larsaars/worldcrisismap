@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[55.4822,-4.6832],[55.4794,-4.6676],[55.4694,-4.6575],[55.4685,-4.6667],[55.4504,-4.6564],[55.4397,-4.6671],[55.4703,-4.7087],[55.4866,-4.6899],[55.4822,-4.6832]]]},"properties":{"GID_1":"SYC.14_1","GID_0":"SYC","COUNTRY":"Seychelles","NAME_1":"Grand'Anse","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"SC.GM","ISO_1":"NA"}}
-]}

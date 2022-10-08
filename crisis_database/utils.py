@@ -12,6 +12,9 @@ import os
 from bs4 import BeautifulSoup
 
 
+last_max_country = None
+
+
 def printerr(*args, **kwargs):
     """
     Prints an error message to the console.
@@ -25,6 +28,8 @@ def escape(string):
 
     :param string: The string to escape.
     """
+    print(string)
+
     return string.replace('\'', '&#39;').replace('"', '&quot;').replace('\\', '\\\\').replace('\n', '<br>')
 
 
@@ -114,18 +119,33 @@ def search_matching_geojson_files_or_coords(text: str, countries: list, mappers=
     if not countries:
         country_max = (None, -1)
 
+        # init countries list
+        countries = []
+
         # search for country name in text
         found = search_for_keywords(text, country_code_mapper.keys(), is_html)
 
-        # add found countries' codes to countries list
-        for country, count in found:
-            if count > country_max[1]:
-                country_max = (country_code_mapper[country], count)
+        print('FOUND')
+        print(found)
 
-        # add country to countries list
-        # if is not None country
-        if country_max[0] != None:
-            countries = [country_max[0]]
+        # also compare to get the country with most occurences
+        for country, count in found:
+        # also compare to get the country with most occurences
+            if count > country_max[1]:
+                country_max = (country, count)
+
+        # add countrie(s) with most occurences to country list
+        # this is done in order to not have too many countries on the map for just one article
+        for country, count in found:
+            if count == country_max[1]:
+                countries.append(country_code_mapper[country])
+
+
+        # set as variable for later use
+        last_max_country = country_max[0]
+
+    print('COUNTRIES')
+    print(countries)
 
     # make countries elements uppercase
     countries = map(str.upper, countries)
@@ -160,7 +180,7 @@ def search_matching_geojson_files_or_coords(text: str, countries: list, mappers=
 
     
     # if most often occuring region exists, return its lat / lon
-    # else return for lat / lon None, the information is delivered by API
+    # else return for lat / lon None, the information is delivered by API or determined elsehow
     if most_often_occuring_region[0] is not None:
         region = region_mapper[most_often_occuring_region[2]][most_often_occuring_region[0]]
         lat, lon = region['lat'], region['lon']

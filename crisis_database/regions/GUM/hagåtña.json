@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[144.7522,13.4672],[144.761,13.466],[144.7581,13.4751],[144.7672,13.48],[144.7283,13.4802],[144.7458,13.4751],[144.7522,13.4672]]]},"properties":{"GID_1":"GUM.7_1","GID_0":"GUM","COUNTRY":"Guam","NAME_1":"Hagåtña","VARNAME_1":"Agana","NL_NAME_1":"NA","TYPE_1":"Municipality","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"GU.AN","ISO_1":"NA"}}
-]}

@@ -1,6 +1,6 @@
 bubanza
-bujumbura mairie
-bujumbura rural
+bujumburamairie
+bujumburarural
 bururi
 cankuzo
 cibitoke

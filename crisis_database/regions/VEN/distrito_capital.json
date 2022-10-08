@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-66.8443,10.5442],[-66.868,10.554],[-66.9893,10.5606],[-67.0268,10.5218],[-67.0368,10.477],[-67.1276,10.4473],[-67.0034,10.4043],[-66.8863,10.4332],[-66.8525,10.4826],[-66.8443,10.5442]]]},"properties":{"GID_1":"VEN.11_1","GID_0":"VEN","COUNTRY":"Venezuela","NAME_1":"DistritoCapital","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Estado","ENGTYPE_1":"State","CC_1":"NA","HASC_1":"NA","ISO_1":"VE-A"}}
-]}

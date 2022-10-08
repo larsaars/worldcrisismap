@@ -1,18 +1,18 @@
-al jazirah
-al qadarif
-blue nile
-central darfur
-east darfur
+aljazirah
+alqadarif
+bluenile
+centraldarfur
+eastdarfur
 kassala
 khartoum
-north darfur
-north kurdufan
+northdarfur
+northkurdufan
 northern
-red sea
-river nile
+redsea
+rivernile
 sennar
-south darfur
-south kurdufan
-west darfur
-west kurdufan
-white nile
+southdarfur
+southkurdufan
+westdarfur
+westkurdufan
+whitenile

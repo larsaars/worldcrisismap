@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[41.9358,9.6635],[41.8732,9.6839],[41.7486,9.6364],[41.7346,9.4715],[41.773,9.4911],[41.9134,9.4725],[41.9825,9.5085],[42.0748,9.4737],[42.1526,9.5564],[42.1249,9.6145],[42.2586,9.6516],[42.3398,9.7196],[42.2134,9.7837],[42.0308,9.6185],[41.9358,9.6635]]]},"properties":{"GID_1":"ETH.5_1","GID_0":"ETH","COUNTRY":"Ethiopia","NAME_1":"DireDawa","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Astedader","ENGTYPE_1":"City","CC_1":"15","HASC_1":"ET.DD","ISO_1":"ET-DD"}}
-]}

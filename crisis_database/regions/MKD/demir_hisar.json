@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[21.2899,41.2188],[21.2934,41.2567],[21.2687,41.2965],[21.2468,41.3108],[21.2193,41.306],[21.2117,41.3573],[21.17,41.3573],[21.1348,41.3867],[21.0855,41.3544],[21.0078,41.354],[20.9543,41.3224],[21.0436,41.2052],[21.0691,41.1985],[21.097,41.1259],[21.2174,41.1675],[21.2899,41.2188]]]},"properties":{"GID_1":"MKD.19_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"DemirHisar","VARNAME_1":"Murgaševo","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.DM","ISO_1":"MK-502"}}
-]}

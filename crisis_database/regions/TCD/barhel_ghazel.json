@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[17.2344,13.4297],[17.271,13.662],[17.586,13.76],[18.051,15.476],[17.842,15.746],[16.687,16.242],[16.523,15.974],[16.143,14.545],[15.619,14.032],[15.602,13.749],[15.884,13.747],[15.91,13.173],[15.998,13.044],[17.161,13.099],[17.2344,13.4297]]]},"properties":{"GID_1":"TCD.1_1","GID_0":"TCD","COUNTRY":"Chad","NAME_1":"BarhelGhazel","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Région","ENGTYPE_1":"Region","CC_1":"NA","HASC_1":"TD.BG","ISO_1":"NA"}}
-]}

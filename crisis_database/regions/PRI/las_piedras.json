@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-65.8526,18.2548],[-65.8688,18.2195],[-65.8878,18.1986],[-65.8961,18.2024],[-65.9285,18.1428],[-65.9262,18.1199],[-65.8777,18.1179],[-65.8541,18.1771],[-65.8365,18.1751],[-65.8282,18.187],[-65.8155,18.2623],[-65.8363,18.2753],[-65.8526,18.2548]]]},"properties":{"GID_1":"PRI.44_1","GID_0":"PRI","COUNTRY":"PuertoRico","NAME_1":"LasPiedras","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipio","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"PR.LP","ISO_1":"-"}}
-]}

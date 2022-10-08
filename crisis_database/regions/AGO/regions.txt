@@ -1,18 +1,18 @@
 bengo
 benguela
-bié
+bie
 cabinda
-cuando cubango
-cuanza norte
-cuanza sul
+cuandocubango
+cuanzanorte
+cuanzasul
 cunene
 huambo
-huíla
+huila
 luanda
-lunda norte
-lunda sul
+lundanorte
+lundasul
 malanje
 moxico
 namibe
-uíge
+uige
 zaire

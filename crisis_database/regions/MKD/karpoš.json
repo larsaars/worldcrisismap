@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[21.3862,42.0274],[21.3657,42.0152],[21.3601,41.9483],[21.4285,41.9454],[21.4297,41.9674],[21.4051,41.9744],[21.4259,42.0101],[21.3862,42.0274]]]},"properties":{"GID_1":"MKD.31_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"Karpoš","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.KX","ISO_1":"NA"}}
-]}

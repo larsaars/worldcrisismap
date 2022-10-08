@@ -1,26 +1,26 @@
-anseaux pins
-anse boileau
-anseétoile
-anse royale
-au cap
-baie lazare
-baie sainte anne
-beau vallon
-bel air
+anseauxpins
+anseboileau
+anseetoile
+anseroyale
+aucap
+baielazare
+baiesainteanne
+beauvallon
+belair
 belombre
 cascade
-english river
+englishriver
 glacis
-grand anse
-grand anse praslin
-la digueand inner islands
-les mamelles
-mont buxton
-mont fleuri
-outer islands
+grandanse
+grandansepraslin
+ladigueandinnerislands
+lesmamelles
+montbuxton
+montfleuri
+outerislands
 plaisance
-pointe la rue
-port glaud
-roche caïman
-saint louis
+pointelarue
+portglaud
+rochecaiman
+saintlouis
 takamaka

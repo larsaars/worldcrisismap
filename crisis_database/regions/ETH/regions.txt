@@ -1,11 +1,11 @@
-addis abeba
+addisabeba
 afar
 amhara
-benshangul gumaz
-dire dawa
-gambela peoples
-harari people
+benshangulgumaz
+diredawa
+gambelapeoples
+hararipeople
 oromia
 somali
-southern nations nationalities
+southernnationsnationalities
 tigray

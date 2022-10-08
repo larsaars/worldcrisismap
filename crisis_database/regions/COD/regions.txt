@@ -1,26 +1,26 @@
-bas uele
-équateur
-haut katanga
-haut lomami
-haut uele
+basuele
+equateur
+hautkatanga
+hautlomami
+hautuele
 ituri
-kasaï
-kasaï central
-kasaï oriental
+kasai
+kasaicentral
+kasaioriental
 kinshasa
-kongo central
+kongocentral
 kwango
 kwilu
 lomami
 lualaba
-mai ndombe
+maindombe
 maniema
 mongala
-nord kivu
-nord ubangi
+nordkivu
+nordubangi
 sankuru
-sud kivu
-sud ubangi
+sudkivu
+sudubangi
 tanganyika
 tshopo
 tshuapa

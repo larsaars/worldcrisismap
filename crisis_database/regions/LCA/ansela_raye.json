@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-61.0332,13.9601],[-61.0471,13.9385],[-61.0221,13.918],[-61.0182,13.9],[-61.0291,13.887],[-61.0106,13.854],[-60.9839,13.882],[-60.9839,13.9194],[-60.9907,13.9467],[-61.0332,13.9601]]]},"properties":{"GID_1":"LCA.1_1","GID_0":"LCA","COUNTRY":"SaintLucia","NAME_1":"Anse-la-Raye","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Quarter","ENGTYPE_1":"Quarter","CC_1":"NA","HASC_1":"LC.AR","ISO_1":"NA"}}
-]}

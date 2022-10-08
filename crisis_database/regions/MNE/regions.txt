@@ -1,21 +1,21 @@
 andrijevica
 bar
 berane
-bijelo polje
+bijelopolje
 budva
 cetinje
 danilovgrad
-herceg novi
-kolašin
+hercegnovi
+kolasin
 kotor
 mojkovac
-nikšic
+niksic
 plav
 pljevlja
-plužine
+pluzine
 podgorica
-rožaje
-šavnik
+rozaje
+savnik
 tivat
 ulcinj
-žabljak
+zabljak

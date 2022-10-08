@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-67.0818,18.2547],[-67.0562,18.2455],[-67.0201,18.1954],[-66.9777,18.2082],[-66.898,18.1876],[-66.9074,18.2533],[-66.9431,18.2606],[-66.946,18.2734],[-66.9695,18.2636],[-67.0377,18.2896],[-67.0403,18.2719],[-67.0818,18.2547]]]},"properties":{"GID_1":"PRI.43_1","GID_0":"PRI","COUNTRY":"PuertoRico","NAME_1":"LasMarías","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipio","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"PR.LM","ISO_1":"NA"}}
-]}

@@ -1,26 +1,26 @@
 amazonas
 ancash
-apurímac
+apurimac
 arequipa
 ayacucho
 cajamarca
 callao
 cusco
 huancavelica
-huánuco
+huanuco
 ica
-junín
-la libertad
+junin
+lalibertad
 lambayeque
 lima
-lima province
+limaprovince
 loreto
-madrede dios
+madrededios
 moquegua
 pasco
 piura
 puno
-san martín
+sanmartin
 tacna
 tumbes
 ucayali

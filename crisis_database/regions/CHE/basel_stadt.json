@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[7.5843,47.5757],[7.561,47.5742],[7.5525,47.5468],[7.5808,47.5448],[7.5874,47.5222],[7.6174,47.5444],[7.6144,47.5617],[7.6859,47.5656],[7.6717,47.5874],[7.6936,47.6005],[7.675,47.592],[7.6458,47.597],[7.6193,47.5769],[7.6045,47.5778],[7.5914,47.5962],[7.5843,47.5757]]]},"properties":{"GID_1":"CHE.5_1","GID_0":"CHE","COUNTRY":"Switzerland","NAME_1":"Basel-Stadt","VARNAME_1":"Bâle-Ville|Basel-City|Basel-Town","NL_NAME_1":"NA","TYPE_1":"Kanton","ENGTYPE_1":"Canton","CC_1":"NA","HASC_1":"CH.BS","ISO_1":"CH-BS"}}
-]}

@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-23.6271,15.0392],[-23.5732,15.0554],[-23.5662,15.0871],[-23.6144,15.0967],[-23.6425,15.0574],[-23.6271,15.0392]]]},"properties":{"GID_1":"CPV.17_1","GID_0":"CPV","COUNTRY":"CaboVerde","NAME_1":"SãoLourençodosÓrgãos","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Concelho","ENGTYPE_1":"County","CC_1":"NA","HASC_1":"CV.LO","ISO_1":"NA"}}
-]}

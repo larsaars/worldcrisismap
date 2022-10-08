@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[144.7396,13.4565],[144.7478,13.4354],[144.7702,13.4224],[144.7928,13.4247],[144.781,13.461],[144.7663,13.4526],[144.7396,13.4565]]]},"properties":{"GID_1":"GUM.5_1","GID_0":"GUM","COUNTRY":"Guam","NAME_1":"Chalan-Pago-Ordot","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipality","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"GU.CP","ISO_1":"NA"}}
-]}

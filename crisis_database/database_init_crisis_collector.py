@@ -64,7 +64,7 @@ def main():
     );
 
     CREATE TABLE IF NOT EXISTS news_today(
-        id INTEGER PRIMARY KEY,
+        id SERIAL PRIMARY KEY,
         date TIMESTAMP,
         country_name VARCHAR(150),
         geojson VARCHAR(8000),
@@ -100,6 +100,12 @@ def main():
 
         total_count = load_reports_to_database(offset=current_offset, limit=jumpsize)
         current_offset += jumpsize
+
+
+    # load news headlines to database
+    load_news_to_database()
+
+    print('Done.')
 
 
 

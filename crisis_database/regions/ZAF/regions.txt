@@ -1,9 +1,9 @@
-eastern cape
-free state
+easterncape
+freestate
 gauteng
-kwa zulu natal
+kwazulunatal
 limpopo
 mpumalanga
-north west
-northern cape
-western cape
+northwest
+northerncape
+westerncape

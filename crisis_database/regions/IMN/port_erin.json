@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-4.7491,54.0817],[-4.7564,54.0969],[-4.7775,54.0996],[-4.7786,54.091],[-4.7592,54.0874],[-4.7717,54.0837],[-4.7491,54.0817]]]},"properties":{"GID_1":"IMN.18_2","GID_0":"IMN","COUNTRY":"IsleofMan","NAME_1":"PortErin","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"VillageDistrict","ENGTYPE_1":"VillageDistrict","CC_1":"NA","HASC_1":"IM.RU","ISO_1":"NA"}}
-]}

@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-2.1713,49.2545],[-2.2011,49.2474],[-2.1804,49.2388],[-2.1696,49.2224],[-2.1535,49.2257],[-2.1478,49.2379],[-2.1529,49.2418],[-2.1606,49.2381],[-2.1545,49.2493],[-2.1713,49.2545]]]},"properties":{"GID_1":"JEY.8_1","GID_0":"JEY","COUNTRY":"Jersey","NAME_1":"SaintMary","VARNAME_1":"St.Mary","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"JE.MY","ISO_1":"NA"}}
-]}

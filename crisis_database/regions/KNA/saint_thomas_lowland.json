@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.614,17.1968],[-62.6299,17.1442],[-62.6085,17.1423],[-62.5834,17.1535],[-62.614,17.1968]]]},"properties":{"GID_1":"KNA.12_1","GID_0":"KNA","COUNTRY":"SaintKittsandNevis","NAME_1":"SaintThomasLowland","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"KN.TL","ISO_1":"NA"}}
-]}

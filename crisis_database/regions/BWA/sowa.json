@@ -1,3 +1,1 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[26.2228,-20.553],[26.2105,-20.5702],[26.2332,-20.5739],[26.2228,-20.553]]]},"properties":{"GID_1":"BWA.16_1","GID_0":"BWA","COUNTRY":"Botswana","NAME_1":"Sowa","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Town","ENGTYPE_1":"Town","CC_1":"NA","HASC_1":"BW.ST","ISO_1":"NA"}}
-]}
+{"type": "Feature", "properties": {"GID_1": "BWA.16_1", "GID_0": "BWA", "COUNTRY": "Botswana", "NAME_1": "Sowa", "VARNAME_1": "NA", "NL_NAME_1": "NA", "TYPE_1": "Town", "ENGTYPE_1": "Town", "CC_1": "NA", "HASC_1": "BW.ST", "ISO_1": "NA"}, "geometry": {"type": "MultiPolygon", "coordinates": [[[[26.2228, -20.553], [26.2287, -20.5562], [26.2368, -20.5642], [26.2332, -20.5739], [26.2105, -20.5702], [26.2105, -20.5638], [26.2138, -20.5574], [26.2172, -20.5533], [26.2228, -20.553]]]]}}

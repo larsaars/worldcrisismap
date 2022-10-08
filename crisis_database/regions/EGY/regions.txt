@@ -1,27 +1,27 @@
-ad daqahliyah
-al bahral ahmar
-al buhayrah
-al fayyum
-al gharbiyah
-al iskandariyah
-al ismailiyah
-al jizah
-al minufiyah
-al minya
-al qahirah
-al qalyubiyah
-al uqsur
-al wadial jadid
-as suways
-ash sharqiyah
+addaqahliyah
+albahralahmar
+albuhayrah
+alfayyum
+algharbiyah
+aliskandariyah
+alismailiyah
+aljizah
+alminufiyah
+alminya
+alqahirah
+alqalyubiyah
+aluqsur
+alwadialjadid
+assuways
+ashsharqiyah
 aswan
 asyut
-bani suwayf
-bur said
+banisuwayf
+bursaid
 dumyat
-janub sina
-kafrash shaykh
+janubsina
+kafrashshaykh
 matrouh
 qina
-shamal sina
+shamalsina
 suhaj

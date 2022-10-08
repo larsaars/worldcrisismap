@@ -1,3 +1,1 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[25.6925,-25.2394],[25.707,-25.1815],[25.6662,-25.2042],[25.6612,-25.2377],[25.6925,-25.2394]]]},"properties":{"GID_1":"BWA.10_1","GID_0":"BWA","COUNTRY":"Botswana","NAME_1":"Lobatse","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Town","ENGTYPE_1":"Town","CC_1":"NA","HASC_1":"BW.LB","ISO_1":"NA"}}
-]}
+{"type": "Feature", "properties": {"GID_1": "BWA.10_1", "GID_0": "BWA", "COUNTRY": "Botswana", "NAME_1": "Lobatse", "VARNAME_1": "NA", "NL_NAME_1": "NA", "TYPE_1": "Town", "ENGTYPE_1": "Town", "CC_1": "NA", "HASC_1": "BW.LB", "ISO_1": "NA"}, "geometry": {"type": "MultiPolygon", "coordinates": [[[[25.6925, -25.2394], [25.6802, -25.2452], [25.6612, -25.2377], [25.6649, -25.2249], [25.6662, -25.2042], [25.6792, -25.1835], [25.6873, -25.1815], [25.707, -25.1815], [25.7038, -25.1982], [25.6927, -25.2122], [25.7098, -25.2182], [25.7085, -25.232], [25.6925, -25.2394]]]]}}

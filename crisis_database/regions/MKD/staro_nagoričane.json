@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[22.0237,42.1636],[22.0472,42.1687],[22.0216,42.2413],[22.0515,42.2554],[22.0457,42.2878],[21.9424,42.3204],[21.8722,42.2793],[21.8241,42.3077],[21.7924,42.2512],[21.7495,42.2473],[21.7821,42.2321],[21.7562,42.1373],[21.7932,42.102],[21.9277,42.1249],[21.946,42.0974],[21.9715,42.102],[21.991,42.1619],[22.0237,42.1636]]]},"properties":{"GID_1":"MKD.66_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"StaroNagoričane","VARNAME_1":"StaroNagoricane","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.NA","ISO_1":"NA"}}
-]}

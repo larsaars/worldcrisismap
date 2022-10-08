@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-67.2396,18.3757],[-67.2718,18.361],[-67.2363,18.3004],[-67.226,18.2964],[-67.2202,18.3059],[-67.1819,18.3117],[-67.2272,18.3487],[-67.2396,18.3757]]]},"properties":{"GID_1":"PRI.60_1","GID_0":"PRI","COUNTRY":"PuertoRico","NAME_1":"Rincón","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipio","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"PR.RC","ISO_1":"NA"}}
-]}

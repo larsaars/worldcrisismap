@@ -1,11 +1,11 @@
-christ church
-saint andrew
-saint george
-saint james
-saint john
-saint joseph
-saint lucy
-saint michael
-saint peter
-saint philip
-saint thomas
+christchurch
+saintandrew
+saintgeorge
+saintjames
+saintjohn
+saintjoseph
+saintlucy
+saintmichael
+saintpeter
+saintphilip
+saintthomas

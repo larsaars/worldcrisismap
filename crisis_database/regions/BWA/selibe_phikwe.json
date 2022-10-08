@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[27.8913,-21.9606],[27.8247,-21.9531],[27.8015,-21.9681],[27.8024,-21.9944],[27.8741,-22.0107],[27.8913,-21.9606]]]},"properties":{"GID_1":"BWA.13_1","GID_0":"BWA","COUNTRY":"Botswana","NAME_1":"SelibePhikwe","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Town","ENGTYPE_1":"Town","CC_1":"NA","HASC_1":"BW.SP","ISO_1":"NA"}}
-]}

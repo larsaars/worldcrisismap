@@ -1,23 +1,23 @@
-barhel ghazel
+barhelghazel
 batha
 borkou
-chari baguirmi
-ennedi est
-ennedi ouest
-guéra
-hadjer lamis
+charibaguirmi
+ennediest
+ennediouest
+guera
+hadjerlamis
 kanem
 lac
-logone occidental
-logone oriental
+logoneoccidental
+logoneoriental
 mandoul
-mayo kebbi est
-mayo kebbi ouest
-moyen chari
-ouaddaï
+mayokebbiest
+mayokebbiouest
+moyenchari
+ouaddai
 salamat
 sila
-tandjilé
+tandjile
 tibesti
-villede ndjamena
-wadi fira
+villedendjamena
+wadifira

@@ -1,18 +1,18 @@
-andalucía
-aragón
+andalucia
+aragon
 cantabria
-castilla la mancha
-castillay león
-cataluña
-ceutay melilla
-comunidadde madrid
-comunidad foralde navarra
-comunidad valenciana
+castillalamancha
+castillayleon
+cataluna
+ceutaymelilla
+comunidaddemadrid
+comunidadforaldenavarra
+comunidadvalenciana
 extremadura
 galicia
-islas baleares
-islas canarias
-la rioja
-país vasco
-principadode asturias
-regiónde murcia
+islasbaleares
+islascanarias
+larioja
+paisvasco
+principadodeasturias
+regiondemurcia

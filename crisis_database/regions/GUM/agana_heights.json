@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[144.7396,13.4565],[144.7514,13.4704],[144.7331,13.4762],[144.7396,13.4565]]]},"properties":{"GID_1":"GUM.1_1","GID_0":"GUM","COUNTRY":"Guam","NAME_1":"AganaHeights","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Municipality","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"GU.AH","ISO_1":"-"}}
-]}

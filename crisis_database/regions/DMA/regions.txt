@@ -1,10 +1,10 @@
-saint andrew
-saint david
-saint george
-saint john
-saint joseph
-saint luke
-saint mark
-saint patrick
-saint paul
-saint peter
+saintandrew
+saintdavid
+saintgeorge
+saintjohn
+saintjoseph
+saintluke
+saintmark
+saintpatrick
+saintpaul
+saintpeter

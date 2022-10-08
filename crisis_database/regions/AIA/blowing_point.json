@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-63.0731,18.1821],[-63.1121,18.1791],[-63.101,18.1682],[-63.0731,18.1821]]]},"properties":{"GID_1":"AIA.1_1","GID_0":"AIA","COUNTRY":"Anguilla","NAME_1":"BlowingPoint","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"District","ENGTYPE_1":"District","CC_1":"NA","HASC_1":"AI.BP","ISO_1":"NA"}}
-]}

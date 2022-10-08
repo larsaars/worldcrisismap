@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-61.3289,15.4119],[-61.3639,15.3958],[-61.4028,15.4007],[-61.4207,15.3898],[-61.3951,15.3582],[-61.3929,15.3185],[-61.3653,15.3202],[-61.3602,15.3315],[-61.3239,15.348],[-61.3214,15.3982],[-61.3289,15.4119]]]},"properties":{"GID_1":"DMA.9_1","GID_0":"DMA","COUNTRY":"Dominica","NAME_1":"SaintPaul","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"DM.PL","ISO_1":"DM-10"}}
-]}

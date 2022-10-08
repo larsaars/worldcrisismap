@@ -2,7 +2,7 @@ baker
 howland
 jarvisisland
 johnston
-kingman reef
+kingmanreef
 midway
 navassa
 palmyra

@@ -1,18 +1,18 @@
-alto paraguay
-alto paraná
+altoparaguay
+altoparana
 amambay
-asunción
-boquerón
-caaguazú
-caazapá
-canindeyú
+asuncion
+boqueron
+caaguazu
+caazapa
+canindeyu
 central
-concepción
+concepcion
 cordillera
-guairá
-itapúa
+guaira
+itapua
 misiones
-ñeembucú
-paraguarí
-presidente hayes
-san pedro
+neembucu
+paraguari
+presidentehayes
+sanpedro

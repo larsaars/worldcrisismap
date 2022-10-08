@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[58.415,37.8506],[58.4978,37.9791],[58.4222,38.0862],[58.2351,38.0719],[58.1238,38.1033],[58.1238,38.0119],[58.0124,38.049],[57.9867,38.0276],[57.9824,37.9691],[58.0655,37.8919],[58.1232,37.9183],[58.3522,37.7892],[58.4393,37.8063],[58.415,37.8506]]]},"properties":{"GID_1":"TKM.2_1","GID_0":"TKM","COUNTRY":"Turkmenistan","NAME_1":"Aşgabat","VARNAME_1":"Ashgabat","NL_NAME_1":"NA","TYPE_1":"CaptialCityDistrict","ENGTYPE_1":"CaptialCityDistrict","CC_1":"NA","HASC_1":"TM.AB","ISO_1":"NA"}}
-]}

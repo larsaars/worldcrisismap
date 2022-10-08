@@ -1,10 +1,10 @@
 centre
-grand anse
-l artibonite
+grandanse
+lartibonite
 nippes
 nord
-nord est
-nord ouest
+nordest
+nordouest
 ouest
 sud
-sud est
+sudest

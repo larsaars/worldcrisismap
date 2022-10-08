@@ -1,19 +1,19 @@
 akershus
-ãstfold
-aust agder
+astfold
+austagder
 buskerud
 finnmark
 hedmark
 hordaland
-møreog romsdal
-nord trøndelag
+moreogromsdal
+nordtrondelag
 nordland
 oppland
 oslo
 rogaland
-sognog fjordane
-sør trøndelag
+sognogfjordane
+sortrondelag
 telemark
 troms
-vest agder
+vestagder
 vestfold

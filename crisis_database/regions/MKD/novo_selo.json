@@ -1,3 +1,0 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[22.9331,41.5214],[22.8581,41.5171],[22.8566,41.4924],[22.8015,41.4487],[22.8015,41.413],[22.7863,41.3978],[22.7957,41.3388],[22.9244,41.3413],[22.9466,41.3515],[22.9251,41.4071],[22.9525,41.4371],[22.9333,41.4674],[22.9452,41.5063],[22.9331,41.5214]]]},"properties":{"GID_1":"MKD.51_1","GID_0":"MKD","COUNTRY":"NorthMacedonia","NAME_1":"NovoSelo","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Opština","ENGTYPE_1":"Municipality","CC_1":"NA","HASC_1":"MK.NS","ISO_1":"MK-408"}}
-]}

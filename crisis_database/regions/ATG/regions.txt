@@ -1,8 +1,8 @@
 barbuda
 redonda
-saint george
-saint john
-saint mary
-saint paul
-saint peter
-saint philip
+saintgeorge
+saintjohn
+saintmary
+saintpaul
+saintpeter
+saintphilip
