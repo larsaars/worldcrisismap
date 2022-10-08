@@ -103,6 +103,7 @@ def main():
 
 
     # load news headlines to database
+    print('Loading news headlines to database...')
     load_news_to_database()
 
     print('Done.')

@@ -191,10 +191,6 @@ def load_news_to_database() -> int:
             if lat == None and lon == None and geojson_object == None:
                 continue
 
-
-            print('-----RESULTS-----')
-            print(geojson_object, lat, lon)
-
             # if has not found a country, continue
             if last_max_country is None:
                 continue
