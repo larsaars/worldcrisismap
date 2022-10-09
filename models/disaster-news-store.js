@@ -3,8 +3,23 @@ const logger = require('../utils/logger.js');
 
 const disasterNewsStore = {
     async getNews(timestamp) {
+        // if no timestamp is provided, return no data
+        // since there is no IPS news archive
+        if (timestamp) {
+            return [];
+        }
+
+        const dbRes = await dataStore.query(
+            'SELECT * FROM news_today',
+            [],
+            'error fetching news'
+        )
+
+        return JSON.stringify(dbRes.rows);
+    },
+    async getReports(timestamp) {
         // default query and values if not given or timestamp
-        let query = 'SELECT * FROM reports WHERE date > now() - INTERVAL \'1 MONTH\'';
+        let query = 'SELECT * FROM reports WHERE date > now() - INTERVAL \'14 DAY\'';
         let values = [];
 
         if (timestamp) {
@@ -16,7 +31,7 @@ const disasterNewsStore = {
                     return '[]';
                     // if date is not today, change query accordingly
                 } else {
-                    query = 'SELECT * FROM reports WHERE date < $1 AND date > $1 - INTERVAL \'1 MONTH\'';
+                    query = 'SELECT * FROM reports WHERE date < $1 AND date > $1 - INTERVAL \'14 DAY\'';
                     values = [date];
                 }
             }
@@ -26,7 +41,7 @@ const disasterNewsStore = {
         const dbRes = await dataStore.query(
             query,
             values,
-            'Error while fetching news'
+            'Error while fetching reports'
         );
         return JSON.stringify(dbRes.rows);
     },

@@ -1,3 +1,10 @@
+/*
+SOURCES
+0: disaster
+1: report
+2: news
+ */
+
 function generateRandomColor() {
     return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
 }
@@ -17,7 +24,7 @@ function generateRandomColors() {
     return colorsList;
 }
 
-async function buildGeoJSON(files, colors, isDisaster) {
+async function buildGeoJSON(files, colors, source) {
     // the object to be returned
     let featureCollection = {
         type: 'FeatureCollection', features: []
@@ -42,7 +49,7 @@ async function buildGeoJSON(files, colors, isDisaster) {
                     feature.properties.fill = colors[eventIndex];
                     // add information about the event to the feature
                     feature.properties.eventIndex = eventIndex;
-                    feature.properties.isDisaster = isDisaster;
+                    feature.properties.source = source;
                     // add the feature to the feature collection
                     featureCollection.features.push(feature);
                 }
@@ -58,32 +65,39 @@ self.addEventListener('message', async function (e) {
 
     // news and disaster data have been sent
     const disasterData = e.data.disasterData;
+    const reportData = e.data.reportData;
     const newsData = e.data.newsData;
 
     // get disaster and news files from the server data
-    let disasterFiles = [], newsFiles = [];
+    let disasterFiles = [], reportFiles = [], newsFiles = [];
 
     // parse from json because they are passed as strings
     for (const data of disasterData) {
         disasterFiles.push(JSON.parse(data.geojson));
     }
 
+    for (const data of reportData) {
+        reportFiles.push(JSON.parse(data.geojson));
+    }
+
     for (const data of newsData) {
         newsFiles.push(JSON.parse(data.geojson));
     }
     // generate colors for all events
-    const [disasterColors, newsColors] = generateRandomColors(disasterData.length, newsData.length);
+    const [disasterColors, reportColors, newsColors] = generateRandomColors(disasterData.length, reportData.length, newsData.length);
 
     // geo json variables
-    disasterGeoJson = await buildGeoJSON(disasterFiles, disasterColors, true);
-    newsGeoJson = await buildGeoJSON(newsFiles, newsColors, false);
+    disasterGeoJson = await buildGeoJSON(disasterFiles, disasterColors, 0);
+    reportGeoJson = await buildGeoJSON(reportFiles, disasterColors, 1);
+    newsGeoJson = await buildGeoJSON(newsFiles, newsColors, 2);
 
     // send the geo json to the main thread (and the colors)
     self.postMessage({
         disasterGeoJson: disasterGeoJson,
+        reportGeoJson: reportGeoJson,
         newsGeoJson: newsGeoJson,
         disasterColors: disasterColors,
+        reportColors: reportColors,
         newsColors: newsColors,
     });
 });
-

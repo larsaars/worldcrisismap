@@ -6,6 +6,7 @@ const home = {
             title: 'World Crisis Map',
             id: 'main',
             disasterData: await disasterNewsStore.getDisasters(request.query.ts),
+            reportData: await disasterNewsStore.getReports(request.query.ts),
             newsData: await disasterNewsStore.getNews(request.query.ts),
             layout: 'main'
         };

@@ -72,11 +72,12 @@ const worker = new Worker('/js/main-worker.js');
 // send data to worker
 worker.postMessage({
     'disasterData': disasterData,
+    'reportData': reportData,
     'newsData': newsData,
 });
 
 // variables for geo json etc.
-let disasterGeoJson, newsGeoJson, newsColors, disasterColors;
+let disasterGeoJson, reportGeoJson, newsGeoJson, disasterColors, reportColors, newsColors;
 let firstSymbolId;
 
 // make map.on load a promise to be awaited
@@ -87,11 +88,13 @@ const mapLoaded = new Promise((resolve) => {
 // get data from worker
 worker.onmessage = async function (e) {
     // get data variables from worker
-    [newsGeoJson, disasterGeoJson, newsColors, disasterColors] = [
-        e.data.newsGeoJson,
+    [disasterGeoJson, reportGeoJson, newsGeoJson, disasterColors, reportColors, newsColors] = [
         e.data.disasterGeoJson,
-        e.data.newsColors,
+        e.data.reportGeoJson,
+        e.data.newsGeoJson,
         e.data.disasterColors,
+        e.data.reportColors,
+        e.data.newsColors,
     ];
 
     // wait for map to be loaded
@@ -111,13 +114,21 @@ worker.onmessage = async function (e) {
     map.addSource('disasters', {
         'type': 'geojson', 'data': disasterGeoJson
     });
+    map.addSource('reports', {
+        'type': 'geojson', 'data': reportGeoJson
+    });
     map.addSource('news', {
         'type': 'geojson', 'data': newsGeoJson
     });
 
-    // add news and disaster layer
+    // add news, report and  disaster layer
     map.addLayer({
-        'id': 'disasters-layer', 'type': 'fill', 'source': 'disasters', 'layout': {}, 'paint': {
+        'id': 'disaster-layer', 'type': 'fill', 'source': 'disasters', 'layout': {}, 'paint': {
+            'fill-color': ['get', 'fill'], 'fill-opacity': 0.33
+        }
+    }, firstSymbolId);
+    map.addLayer({
+        'id': 'report-layer', 'type': 'fill', 'source': 'reports', 'layout': {}, 'paint': {
             'fill-color': ['get', 'fill'], 'fill-opacity': 0.33
         }
     }, firstSymbolId);
@@ -128,11 +139,12 @@ worker.onmessage = async function (e) {
     }, firstSymbolId);
 
     // add markers for every event to the map
-    function addMarkers(dataList, colors, isDisaster) {
+    function addMarkers(dataList, colors, source) {
         for (const dataIndex in dataList) {
             const data = dataList[dataIndex];
-            // define event type text
-            const eventType = data.type ? data.type : 'Report';
+            // define event name and type based on source and type
+            const eventName = [data.type, 'ReliefWeb Report', 'IPS News Article'][source];
+            const eventType = [data.type, 'Report', 'Report'][source];
 
             // get marker image path
             const markerImagePath = getMarkerImagePath(eventType, useBlack(colors[dataIndex]));
@@ -159,14 +171,14 @@ worker.onmessage = async function (e) {
                 year: 'numeric', month: 'long', day: 'numeric',
             });
 
-            marker.description = `<div><img src="${markerImagePath.replace(/white/g, 'black')}" alt="event type" style="width: 2rem; height: 2rem; margin-bottom: 0.5rem"><br><i>` + eventType + '</i></div><p><small>' + dateString + '</small></p><h2>' + data.title + '</h2><br>' + data.description_html.replace(/&quot;/g, '"');
+            marker.description = `<div><img src="${markerImagePath.replace(/white/g, 'black')}" alt="event type" style="width: 2rem; height: 2rem; margin-bottom: 0.5rem"><br><i>` + eventName + '</i></div><p><small>' + dateString + '</small></p><h2>' + data.title + '</h2><br>' + data.description_html.replace(/&quot;/g, '"');
 
             // set color of marker to be used in sidebar text
             marker.color = colors[dataIndex];
 
             // set marker index for GeoJSON retrieval
             marker.eventIndex = Number(dataIndex);
-            marker.isDisaster = isDisaster;
+            marker.source = source;
 
             // set coords to marker
             marker.lat = data.lat;
@@ -181,8 +193,9 @@ worker.onmessage = async function (e) {
     }
 
     // call addMarkers for disaster and news markers
-    addMarkers(disasterData, disasterColors, true);
-    addMarkers(newsData, newsColors, false);
+    addMarkers(disasterData, disasterColors, 0);
+    addMarkers(reportData, reportColors, 1);
+    addMarkers(newsData, newsColors, 2);
 
     // go through all markers and change the positions of those with the same coordinates
     for (const marker of markers) {
@@ -205,11 +218,17 @@ worker.onmessage = async function (e) {
     // function for showing and hiding layers and their markers
     function toggleLayer(layerId, show) {
         map.setLayoutProperty(layerId, 'visibility', show ? 'visible' : 'none');
-        markers.filter(m => m.isDisaster === (layerId === 'disasters-layer')).forEach(m => m.getElement().style.display = show ? 'block' : 'none');
+        const layerNames = {
+            0: 'disaster-layer',
+            1: 'report-layer',
+            2: 'news-layer',
+        };
+        markers.filter(m => layerId === layerNames[m.source]).forEach(m => m.getElement().style.display = show ? 'block' : 'none');
     }
 
     // check for cookies and set checkboxes accordingly
     let disasterCookie = getCookie('disaster');
+    let reportCookie = getCookie('report');
     let newsCookie = getCookie('news');
 
     // if they do not exist, set
@@ -218,18 +237,28 @@ worker.onmessage = async function (e) {
         disasterCookie = 'true';
     }
 
+    if (!reportCookie) {
+        setCookie('report', 'true', 365);
+        reportCookie = 'true';
+    }
+
     if (!newsCookie) {
         setCookie('news', 'true', 365);
         newsCookie = 'true';
     }
 
     // set checkboxes
-    $('#disastersCheckbox').prop('checked', disasterCookie === 'true');
+    $('#disasterCheckbox').prop('checked', disasterCookie === 'true');
+    $('#reportCheckbox').prop('checked', reportCookie === 'true');
     $('#newsCheckbox').prop('checked', newsCookie === 'true');
 
     // check if layer checkboxes are checked. If not, hide the layer
-    if (!$('#disastersCheckbox').is(':checked')) {
-        toggleLayer('disasters-layer', false);
+    if (!$('#disasterCheckbox').is(':checked')) {
+        toggleLayer('disaster-layer', false);
+    }
+
+    if (!$('#reportCheckbox').is(':checked')) {
+        toggleLayer('report-layer', false);
     }
 
     if (!$('#newsCheckbox').is(':checked')) {
@@ -239,9 +268,14 @@ worker.onmessage = async function (e) {
 
     // register on disaster and news checkbox listeners
     // also update cookies
-    $('#disastersCheckbox').change(function () {
-        toggleLayer('disasters-layer', this.checked);
+    $('#disasterCheckbox').change(function () {
+        toggleLayer('disaster-layer', this.checked);
         setCookie('disaster', String(this.checked), 365);
+    });
+
+    $('#reportCheckbox').change(function () {
+        toggleLayer('report-layer', this.checked);
+        setCookie('report', String(this.checked), 365);
     });
 
     $('#newsCheckbox').change(function () {
@@ -277,7 +311,12 @@ map.on('click', event => {
             if (marker === selectedMarker) {
                 closeSideBar();
             } else {
-                openSideBar(map, marker, marker.isDisaster ? disasterGeoJson : newsGeoJson);
+                const geoJsonSource = {
+                    0: disasterGeoJson,
+                    1: reportGeoJson,
+                    2: newsGeoJson,
+                };
+                openSideBar(map, marker, geoJsonSource[marker.source]);
             }
 
             // is marker is true

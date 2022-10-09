@@ -136,7 +136,7 @@ function openSideBar(map, marker, allGeoJson) {
         'type': 'geojson', 'data': eventGeoJSON
     });
 
-    // add news and disaster layer
+    // add a layer that marks the current selection
     map.addLayer({
         'id': 'marked-layer', 'type': 'fill', 'source': 'marked', 'layout': {}, 'paint': {
             'fill-color': ['get', 'fill'], 'fill-opacity': 0.9
