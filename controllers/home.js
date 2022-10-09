@@ -1,13 +1,17 @@
 const disasterNewsStore = require('../models/disaster-news-store.js');
 
+async function getFromSource(func, request, response) {
+    let ts = Number(request.params.ts);
+    const data = await func(ts === 0 ? false : ts);
+    response.setHeader('Content-Type', 'application/json');
+    response.send(data);
+}
+
 const home = {
     async index(request, response) {
         const viewData = {
             title: 'World Crisis Map',
             id: 'main',
-            disasterData: await disasterNewsStore.getDisasters(request.query.ts),
-            reportData: await disasterNewsStore.getReports(request.query.ts),
-            newsData: await disasterNewsStore.getNews(request.query.ts),
             layout: 'main'
         };
 
@@ -23,6 +27,16 @@ const home = {
         };
 
         response.render('about', viewData);
+    },
+
+    async getDisaster(request, response) {
+        await getFromSource(disasterNewsStore.getDisaster, request, response);
+    },
+    async getReport(request, response) {
+        await getFromSource(disasterNewsStore.getReport, request, response);
+    },
+    async getNews(request, response) {
+        await getFromSource(disasterNewsStore.getNews, request, response);
     }
 };
 

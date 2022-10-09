@@ -63,41 +63,34 @@ async function buildGeoJSON(files, colors, source) {
 
 self.addEventListener('message', async function (e) {
 
-    // news and disaster data have been sent
-    const disasterData = e.data.disasterData;
-    const reportData = e.data.reportData;
-    const newsData = e.data.newsData;
+    // request the json from the server
+    // only the needed source type is passed and timestamp
+    const timestamp = e.data.timestamp ? e.data.timestamp : '0';
+    const url = '/api/' + ['disaster', 'report', 'news'][e.data.source] + '/' + timestamp;
 
-    // get disaster and news files from the server data
-    let disasterFiles = [], reportFiles = [], newsFiles = [];
+    // fetch the data from the server
+    const res = await fetch(url);
+    const serverData = await res.json();
+
+    // get files from server data
+    let files = [];
 
     // parse from json because they are passed as strings
-    for (const data of disasterData) {
-        disasterFiles.push(JSON.parse(data.geojson));
+    for (const data of serverData) {
+        files.push(JSON.parse(data.geojson));
     }
 
-    for (const data of reportData) {
-        reportFiles.push(JSON.parse(data.geojson));
-    }
-
-    for (const data of newsData) {
-        newsFiles.push(JSON.parse(data.geojson));
-    }
     // generate colors for all events
-    const [disasterColors, reportColors, newsColors] = generateRandomColors(disasterData.length, reportData.length, newsData.length);
+    const [colors] = generateRandomColors(serverData.length);
 
-    // geo json variables
-    disasterGeoJson = await buildGeoJSON(disasterFiles, disasterColors, 0);
-    reportGeoJson = await buildGeoJSON(reportFiles, disasterColors, 1);
-    newsGeoJson = await buildGeoJSON(newsFiles, newsColors, 2);
+    // build geo json from files
+    const geoJSON = await buildGeoJSON(files, colors, 0);
 
     // send the geo json to the main thread (and the colors)
     self.postMessage({
-        disasterGeoJson: disasterGeoJson,
-        reportGeoJson: reportGeoJson,
-        newsGeoJson: newsGeoJson,
-        disasterColors: disasterColors,
-        reportColors: reportColors,
-        newsColors: newsColors,
+        source: e.data.source,
+        serverData: serverData,
+        geoJSON: geoJSON,
+        colors: colors
     });
 });

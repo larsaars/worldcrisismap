@@ -13,11 +13,11 @@ const disasterNewsStore = {
             'SELECT * FROM news_today',
             [],
             'error fetching news'
-        )
+        );
 
         return JSON.stringify(dbRes.rows);
     },
-    async getReports(timestamp) {
+    async getReport(timestamp) {
         // default query and values if not given or timestamp
         let query = 'SELECT * FROM reports WHERE date > now() - INTERVAL \'14 DAY\'';
         let values = [];
@@ -45,7 +45,7 @@ const disasterNewsStore = {
         );
         return JSON.stringify(dbRes.rows);
     },
-    async getDisasters(timestamp) {
+    async getDisaster(timestamp) {
         // default query and values if not given or timestamp
         let query = 'SELECT * FROM disasters WHERE status IN (\'ongoing\', \'alert\')';
         let values = [];

@@ -14,6 +14,27 @@ function pageIsMobileFormat() {
     return ($(window).innerHeight() / $(window).innerWidth()) >= 1.4;
 }
 
+// set loading show or not
+function setLoading(isLoading) {
+    // do nothing if state is already set
+    if (isLoading === loading) {
+        return;
+    }
+
+    // show or hide earth
+    if (isLoading) {
+        $('#earth').show();
+    } else {
+        $('#earth').hide();
+    }
+
+    // animate show settings or hide
+    $('#settings').animate({width: 'toggle', height: 'toggle'});
+
+    // set variable
+    loading = isLoading;
+}
+
 // get the red, green and blue values
 function hexToRgb(hex) {
     // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
@@ -203,4 +224,68 @@ function clickSettingsButton(onlyHide) {
 
     // also toggle date panel
     toggleDatePickerDiv(null);
+}
+
+function addMarkers(map, markers, dataList, colors, source) {
+    for (const dataIndex in dataList) {
+        const data = dataList[dataIndex];
+        // define event name and type based on source and type
+        const eventName = [data.type, 'ReliefWeb Report', 'IPS News Article'][source];
+        const eventType = [data.type, 'Report', 'Report'][source];
+
+        // get marker image path
+        const markerImagePath = getMarkerImagePath(eventType, useBlack(colors[dataIndex]));
+
+        // create marker icon
+        const markerIcon = document.createElement('div');
+        markerIcon.style.width = '32px';
+        markerIcon.style.height = '32px';
+        markerIcon.style.backgroundSize = 'contain';
+        markerIcon.style.backgroundImage = `url(${markerImagePath})`;
+        markerIcon.style.cursor = 'pointer';
+        markerIcon.style.backgroundColor = colors[dataIndex];
+        markerIcon.style.borderRadius = '50%';
+        markerIcon.style.border = '1px solid ' + colors[dataIndex];
+        markerIcon.style.opacity = '0.72';
+
+        // create marker with popup
+        const marker = new maplibregl.Marker(markerIcon, {
+            color: colors[dataIndex], draggable: false, anchor: 'center',
+        }).setLngLat([data.lon, data.lat]);
+
+        // set description attribute to marker to be used in sidebar text (with formatted date)
+        const dateString = new Date(data.date).toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric',
+        });
+
+        marker.description = `<div><img src="${markerImagePath.replace(/white/g, 'black')}" alt="event type" style="width: 2rem; height: 2rem; margin-bottom: 0.5rem"><br><i>` + eventName + '</i></div><p><small>' + dateString + '</small></p><h2>' + data.title + '</h2><br>' + data.description_html.replace(/&quot;/g, '"');
+
+        // set color of marker to be used in sidebar text
+        marker.color = colors[dataIndex];
+
+        // set marker index for GeoJSON retrieval
+        marker.eventIndex = Number(dataIndex);
+        marker.source = source;
+
+        // set coords to marker
+        marker.lat = data.lat;
+        marker.lon = data.lon;
+
+        // add to map
+        marker.addTo(map);
+
+        // and to the list of markers
+        markers.push(marker);
+    }
+}
+
+// function for showing and hiding layers and their markers
+function toggleLayer(map, markers, layerId, show) {
+    map.setLayoutProperty(layerId, 'visibility', show ? 'visible' : 'none');
+    const layerNames = {
+        0: 'disaster-layer',
+        1: 'report-layer',
+        2: 'news-layer',
+    };
+    markers.filter(m => layerId === layerNames[m.source]).forEach(m => m.getElement().style.display = show ? 'block' : 'none');
 }
