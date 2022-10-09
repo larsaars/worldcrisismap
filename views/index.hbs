@@ -21,6 +21,7 @@
         <i id="settingsButton" class="fa fa-cog fa-2x" onclick="clickSettingsButton(null)"></i>
 
         <div id="settingsPanel" class="container p-2">
+            <hr id="hrSettingsSources">
             <div class="row">
                 <div title="Show ongoing disasters and disaster alerts. If historic date is selected show disasters reaching back three months in the past from selected date.">
                     <label class="switch">
@@ -37,12 +38,21 @@
                     </label> ReliefWeb Reports
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="newsCheckboxDiv">
                 <div title="Show IPS news headlines (only if selected date is today).">
                     <label class="switch">
                         <input id="newsCheckbox" type="checkbox">
                         <span class="slider"></span>
                     </label> IPS News
+                </div>
+            </div>
+            <hr id="hrSettingsOther">
+            <div class="row">
+                <div title="Show on right top of all events how many days they lay (relative to selected date) in the past.">
+                    <label class="switch">
+                        <input id="showEventDurationCheckbox" type="checkbox">
+                        <span class="slider"></span>
+                    </label> Show events' ages (in days)
                 </div>
             </div>
         </div>

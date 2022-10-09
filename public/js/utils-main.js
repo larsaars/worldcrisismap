@@ -227,26 +227,54 @@ function clickSettingsButton(onlyHide) {
 }
 
 function addMarkers(map, markers, dataList, colors, source) {
+
     for (const dataIndex in dataList) {
         const data = dataList[dataIndex];
-        // define event name and type based on source and type
+        // define event name
         const eventName = [data.type, 'ReliefWeb Report', 'IPS News Article'][source];
-        const eventType = [data.type, 'Report', 'Report'][source];
 
-        // get marker image path
-        const markerImagePath = getMarkerImagePath(eventType, useBlack(colors[dataIndex]));
+        // get path of marker image and if black or white should be used
+        const black = useBlack(colors[dataIndex]);
+        const markerImagePath = getMarkerImagePath(source === 0 ? data.type : 'report', black);
+
+        // get publication date
+        const eventDate = new Date(data.date);
 
         // create marker icon
         const markerIcon = document.createElement('div');
         markerIcon.style.width = '32px';
         markerIcon.style.height = '32px';
         markerIcon.style.backgroundSize = 'contain';
-        markerIcon.style.backgroundImage = `url(${markerImagePath})`;
         markerIcon.style.cursor = 'pointer';
         markerIcon.style.backgroundColor = colors[dataIndex];
         markerIcon.style.borderRadius = '50%';
         markerIcon.style.border = '1px solid ' + colors[dataIndex];
         markerIcon.style.opacity = '0.72';
+        markerIcon.style.backgroundImage = `url(${markerImagePath})`;
+
+        // add point in right that shows how long the event lays in the past (days)
+        // if activated
+        const daysSinceEvent = String(Math.floor((date - eventDate) / 86400000));
+
+        const textElementDiv = document.createElement('div');
+        markerIcon.appendChild(textElementDiv);
+        textElementDiv.style.width = '18px';
+        textElementDiv.style.height = '18px';
+        textElementDiv.style.backgroundColor = 'red';
+        textElementDiv.style.borderRadius = '50%';
+        textElementDiv.style.backgroundSize = 'contain';
+        textElementDiv.style.color = 'white';
+        textElementDiv.style.opacity = '0.9';
+        textElementDiv.style.border = '1px solid red';
+        textElementDiv.classList.add('topRightText');
+        textElementDiv.classList.add('eventDuration');
+        textElementDiv.style.display = showEventDurationCookie === 'true' ? 'block' : 'none';
+
+        const textElement = document.createElement('div');
+        textElementDiv.appendChild(textElement);
+        textElement.textContent = daysSinceEvent;
+        textElement.style.fontSize = '0.8rem';
+        textElement.classList.add('absoluteCenter');
 
         // create marker with popup
         const marker = new maplibregl.Marker(markerIcon, {
@@ -254,7 +282,7 @@ function addMarkers(map, markers, dataList, colors, source) {
         }).setLngLat([data.lon, data.lat]);
 
         // set description attribute to marker to be used in sidebar text (with formatted date)
-        const dateString = new Date(data.date).toLocaleDateString('en-US', {
+        const dateString = eventDate.toLocaleDateString('en-US', {
             year: 'numeric', month: 'long', day: 'numeric',
         });
 

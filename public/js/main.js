@@ -67,6 +67,7 @@ map.addControl(new maplibregl.NavigationControl(), 'bottom-right');
 let disasterCookie = getCookie('disaster');
 let reportCookie = getCookie('report');
 let newsCookie = getCookie('news');
+let showEventDurationCookie = getCookie('showEventDuration');
 
 // if they do not exist, set
 if (!disasterCookie) {
@@ -84,14 +85,26 @@ if (!newsCookie) {
     newsCookie = 'true';
 }
 
+if (!showEventDurationCookie) {
+    setCookie('showEventDuration', 'false', 365);
+    showEventDurationCookie = 'false';
+}
+
 // set checkboxes
 $('#disasterCheckbox').prop('checked', disasterCookie === 'true');
 $('#reportCheckbox').prop('checked', reportCookie === 'true');
 $('#newsCheckbox').prop('checked', newsCookie === 'true');
+$('#showEventDurationCheckbox').prop('checked', showEventDurationCookie === 'true');
+
+// add event listener to event duration checkbox
+$('#showEventDurationCheckbox').change(function () {
+    setCookie('showEventDuration', this.checked, 365);
+    $('.eventDuration').toggle(this.checked);
+});
 
 // hide news checkbox if timestamp is set
 if (timestamp) {
-    $('#newsCheckbox').hide();
+    $('#newsCheckboxDiv').hide();
 }
 
 
@@ -204,6 +217,11 @@ if (newsCookie === 'true') {
     feedbacksAwaited++;
 }
 
+// if no cookie is activated, set loading to false
+if (feedbacksAwaited === 0) {
+    setLoading(false);
+}
+
 // register on disaster and news checkbox listeners
 // also update cookies
 for (const checkbox of ['disaster', 'report', 'news']) {
@@ -213,7 +231,6 @@ for (const checkbox of ['disaster', 'report', 'news']) {
 
         // get source
         const source = ['disaster', 'report', 'news'].indexOf(checkbox);
-
 
         if (this.checked && sourceData[source] === null) {
             // start loading if is not loaded yet, else just toggle layer
