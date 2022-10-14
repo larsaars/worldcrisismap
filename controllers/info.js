@@ -17,7 +17,7 @@ const info = {
         };
 
         response.render('privacy-policy', viewData);
-    },
+    }
 }
 
 module.exports = info;

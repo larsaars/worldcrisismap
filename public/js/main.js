@@ -196,6 +196,12 @@ worker.onmessage = async function (e) {
     // if all feedbacks are loaded, stop loading anim
     if (feedbacksAwaited === 0) {
         setLoading(false);
+
+        // if is the first time on website, show settings
+        if (!localStorage.getItem('settingsShown')) {
+            clickSettingsButton(null);
+            localStorage.setItem('settingsShown', 'true');
+        }
     }
 };
 
