@@ -11,7 +11,6 @@ if (timestamp) {
     }
 }
 
-
 // init date picker
 $(document).ready(function () {
     $('#datePicker').datepicker({
@@ -57,36 +56,36 @@ $(window).resize(function () {
 
 // add about attribution to map
 map.addControl(new maplibregl.AttributionControl({
-    compact: false, customAttribution: '<a href="/about">About</a>'
+    compact: false, customAttribution: '<a href="/about">About &amp; Privacy</a>'
 }), 'bottom-right');
 
 // add controls to map (zoom etc)
 map.addControl(new maplibregl.NavigationControl(), 'bottom-right');
 
 // check for cookies and set checkboxes accordingly
-let disasterCookie = getCookie('disaster');
-let reportCookie = getCookie('report');
-let newsCookie = getCookie('news');
-let showEventDurationCookie = getCookie('showEventDuration');
+let disasterCookie = window.localStorage.getItem('disaster');
+let reportCookie = window.localStorage.getItem('report');
+let newsCookie = window.localStorage.getItem('news');
+let showEventDurationCookie = window.localStorage.getItem('showEventDuration');
 
 // if they do not exist, set
 if (!disasterCookie) {
-    setCookie('disaster', 'true', 365);
+    window.localStorage.setItem('disaster', 'true');
     disasterCookie = 'true';
 }
 
 if (!reportCookie) {
-    setCookie('report', 'true', 365);
+    window.localStorage.setItem('report', 'true');
     reportCookie = 'true';
 }
 
 if (!newsCookie) {
-    setCookie('news', 'true', 365);
+    window.localStorage.setItem('news', 'true');
     newsCookie = 'true';
 }
 
 if (!showEventDurationCookie) {
-    setCookie('showEventDuration', 'false', 365);
+    window.localStorage.setItem('showEventDuration', 'false');
     showEventDurationCookie = 'false';
 }
 
@@ -98,7 +97,7 @@ $('#showEventDurationCheckbox').prop('checked', showEventDurationCookie === 'tru
 
 // add event listener to event duration checkbox
 $('#showEventDurationCheckbox').change(function () {
-    setCookie('showEventDuration', this.checked, 365);
+    window.localStorage.setItem('showEventDuration', this.checked);
     $('.eventDuration').toggle(this.checked);
 });
 
@@ -227,7 +226,7 @@ if (feedbacksAwaited === 0) {
 for (const checkbox of ['disaster', 'report', 'news']) {
     $(`#${checkbox}Checkbox`).change(function () {
         // set the cookie
-        setCookie(checkbox, String(this.checked), 365);
+        window.localStorage.setItem(checkbox, String(this.checked));
 
         // get source
         const source = ['disaster', 'report', 'news'].indexOf(checkbox);

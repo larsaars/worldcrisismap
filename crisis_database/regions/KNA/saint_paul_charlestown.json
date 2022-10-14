@@ -1,1 +1,3 @@
-{"type": "Feature", "properties": {"GID_1": "KNA.10_1", "GID_0": "KNA", "COUNTRY": "SaintKittsandNevis", "NAME_1": "SaintPaulCharlestown", "VARNAME_1": "NA", "NL_NAME_1": "NA", "TYPE_1": "Parish", "ENGTYPE_1": "Parish", "CC_1": "NA", "HASC_1": "KN.PL", "ISO_1": "KN-10"}, "geometry": {"type": "MultiPolygon", "coordinates": [[[[-62.5834, 17.1535], [-62.6007, 17.138], [-62.6076, 17.1374], [-62.6202, 17.1334], [-62.6307, 17.1335], [-62.6299, 17.1442], [-62.6085, 17.1423], [-62.6019, 17.1439], [-62.5834, 17.1535]]]]}}
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-62.5834,17.1535],[-62.6299,17.1442],[-62.6307,17.1335],[-62.5834,17.1535]]]},"properties":{"GID_1":"KNA.10_1","GID_0":"KNA","COUNTRY":"SaintKittsandNevis","NAME_1":"SaintPaulCharlestown","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"Parish","ENGTYPE_1":"Parish","CC_1":"NA","HASC_1":"KN.PL","ISO_1":"KN-10"}}
+]}

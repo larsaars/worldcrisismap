@@ -19,15 +19,6 @@ const home = {
 
         response.render('index', viewData);
     },
-    async about(request, response) {
-        const viewData = {
-            title: 'About',
-            id: 'about',
-            layout: 'info'
-        };
-
-        response.render('about', viewData);
-    },
 
     async getDisaster(request, response) {
         await getFromSource(disasterNewsStore.getDisaster, request, response);

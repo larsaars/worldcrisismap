@@ -1,5 +1,3 @@
-<h1>{{ title }}</h1>
-
 <h2>Mission</h2>
 <p>This website was written with the mission to visualize current humanitarian crisis worldwide and global news.</p>
 
@@ -35,7 +33,6 @@
 {{> impressum }}
 
 <script>
-    // make links open in new tab except for the home lin
-    $('a').attr('target', '_blank');
-    $('a[href="/"]').attr('target', '_self');
+    // make links open in new tab except for the home links
+    $('a:not(.menu a)').attr('target', '_blank');
 </script>

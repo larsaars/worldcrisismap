@@ -286,7 +286,16 @@ function addMarkers(map, markers, dataList, colors, source) {
             year: 'numeric', month: 'long', day: 'numeric',
         });
 
-        marker.description = `<div><img src="${markerImagePath.replace(/white/g, 'black')}" alt="event type" style="width: 2rem; height: 2rem; margin-bottom: 0.5rem"><br><i>` + eventName + '</i></div><p><small>' + dateString + '</small></p><h2>' + data.title + '</h2><br>' + data.description_html.replace(/&quot;/g, '"');
+        marker.description = `<div><img src="${markerImagePath.replace(/white/g, 'black')}" alt="event type" style="width: 2rem; height: 2rem; margin-bottom: 0.5rem"><br><i>`
+            + eventName
+            + '</i></div><p><small>'
+            + dateString
+            + '</small></p><h2><a href="'
+            + data.url
+            + '">'
+            + data.title
+            + '</a></h2><br>'
+            + data.description_html.replace(/&quot;/g, '"');
 
         // set color of marker to be used in sidebar text
         marker.color = colors[dataIndex];

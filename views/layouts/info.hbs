@@ -13,26 +13,23 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.0/jquery-ui.min.js"></script>
+    <script type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.0/jquery-ui.min.js"></script>
 
-
-    <script src="/js/cookiebar/cookieBar.min.js"></script>
-    <script src="/js/cookie-utils.js"></script>
-
-    <link rel="stylesheet" href="css/info.css">
+    <link rel="stylesheet" href="/css/info.css">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="#064273">
     <meta name="apple-mobile-web-app-title" content="World Crisis Map">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body>
 <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-radius: 0 0 25px 25px">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark menu" style="border-radius: 0 0 25px 25px">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">World Crisis Map</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerMenu"
@@ -41,14 +38,16 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerMenu">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <!--<li class="nav-item">
-                        <a class="nav-link" id="signup" href="/signup">Signup</a>
-                    </li>-->
+                    <li class="nav-item">
+                        <a class="nav-link" id="about" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="privacy" href="/privacy-policy">Privacy Policy</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <div id="bodyDiv" class="p-1">
         {{{body}}}
     </div>
@@ -63,6 +62,5 @@
     const el = document.createElement('pwa-update');
     document.body.appendChild(el);
 </script>-->
-<script href="/js/cookieBar/activate.js"></script>
 </body>
 </html>

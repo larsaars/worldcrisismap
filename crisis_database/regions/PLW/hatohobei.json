@@ -1,1 +1,3 @@
-{"type": "Feature", "properties": {"GID_1": "PLW.4_1", "GID_0": "PLW", "COUNTRY": "Palau", "NAME_1": "Hatohobei", "VARNAME_1": "NA", "NL_NAME_1": "NA", "TYPE_1": "State", "ENGTYPE_1": "State", "CC_1": "NA", "HASC_1": "PW.HA", "ISO_1": "NA"}, "geometry": {"type": "MultiPolygon", "coordinates": [[[[131.812, 2.9714], [131.811, 2.9739], [131.8116, 2.9755], [131.8121, 2.975], [131.812, 2.9714]]], [[[131.1233, 2.9988], [131.1199, 3.008], [131.1265, 3.0129], [131.1288, 3.0101], [131.1233, 2.9988]]]]}}
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[131.1233,2.9988],[131.1265,3.0129],[131.1199,3.008],[131.1233,2.9988]]]},"properties":{"GID_1":"PLW.4_1","GID_0":"PLW","COUNTRY":"Palau","NAME_1":"Hatohobei","VARNAME_1":"NA","NL_NAME_1":"NA","TYPE_1":"State","ENGTYPE_1":"State","CC_1":"NA","HASC_1":"PW.HA","ISO_1":"NA"}}
+]}
