@@ -30,12 +30,13 @@ async function buildGeoJSON(files, colors, source) {
         type: 'FeatureCollection', features: []
     };
 
+
     // iterate over all files
     await Promise.all(files.map(async (geoJsonFilesList, eventIndex) => {
-            // fetch geo json from provided path
+            // fetch geo json from provided path, check first if cached, else fetch and cache
             const geoJsons = await Promise.all(geoJsonFilesList.map(async (geoJsonFile) => {
-                const res = await fetch('/' + geoJsonFile);
-                return await res.json();
+                    const response = await fetch('/' + geoJsonFile, {cache: 'force-cache'});
+                return await response.json();
             }));
 
             // iterate over geoJsons

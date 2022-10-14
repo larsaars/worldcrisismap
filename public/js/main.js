@@ -63,29 +63,29 @@ map.addControl(new maplibregl.AttributionControl({
 map.addControl(new maplibregl.NavigationControl(), 'bottom-right');
 
 // check for cookies and set checkboxes accordingly
-let disasterCookie = window.localStorage.getItem('disaster');
-let reportCookie = window.localStorage.getItem('report');
-let newsCookie = window.localStorage.getItem('news');
-let showEventDurationCookie = window.localStorage.getItem('showEventDuration');
+let disasterCookie = localStorage.getItem('disaster');
+let reportCookie = localStorage.getItem('report');
+let newsCookie = localStorage.getItem('news');
+let showEventDurationCookie = localStorage.getItem('showEventDuration');
 
 // if they do not exist, set
 if (!disasterCookie) {
-    window.localStorage.setItem('disaster', 'true');
+    localStorage.setItem('disaster', 'true');
     disasterCookie = 'true';
 }
 
 if (!reportCookie) {
-    window.localStorage.setItem('report', 'true');
+    localStorage.setItem('report', 'true');
     reportCookie = 'true';
 }
 
 if (!newsCookie) {
-    window.localStorage.setItem('news', 'true');
+    localStorage.setItem('news', 'true');
     newsCookie = 'true';
 }
 
 if (!showEventDurationCookie) {
-    window.localStorage.setItem('showEventDuration', 'false');
+    localStorage.setItem('showEventDuration', 'false');
     showEventDurationCookie = 'false';
 }
 
@@ -97,7 +97,7 @@ $('#showEventDurationCheckbox').prop('checked', showEventDurationCookie === 'tru
 
 // add event listener to event duration checkbox
 $('#showEventDurationCheckbox').change(function () {
-    window.localStorage.setItem('showEventDuration', this.checked);
+    localStorage.setItem('showEventDuration', this.checked);
     $('.eventDuration').toggle(this.checked);
 });
 
@@ -226,7 +226,7 @@ if (feedbacksAwaited === 0) {
 for (const checkbox of ['disaster', 'report', 'news']) {
     $(`#${checkbox}Checkbox`).change(function () {
         // set the cookie
-        window.localStorage.setItem(checkbox, String(this.checked));
+        localStorage.setItem(checkbox, String(this.checked));
 
         // get source
         const source = ['disaster', 'report', 'news'].indexOf(checkbox);
