@@ -231,11 +231,6 @@ function addMarkers(map, markers, dataList, colors, source) {
     for (const dataIndex in dataList) {
         const data = dataList[dataIndex];
 
-        // continue if is older than n days while the setting is active
-        if(data.daysSinceEvent >= 3 && onlyNewDataCookie === 'true') {
-            continue
-        }
-
         // define event name
         const eventName = [data.type, 'ReliefWeb Report', 'IPS News Article'][source];
 

@@ -68,7 +68,7 @@ self.addEventListener('message', async function (e) {
     // only the needed source type is passed and timestamp (as well as date)
     const timestamp = e.data.timestamp ? e.data.timestamp : '0';
     const dateOfTimestamp = e.data.dateOfTimestamp;
-    const onlyNewData = e.data.onlyNewData  === 'true' ? 'new' : 'all';
+    const onlyNewData = e.data.onlyNewData === 'true' ? 'new' : 'all';
     const url = '/api/' + ['disaster', 'report', 'news'][e.data.source] + '/' + onlyNewData + '/' + timestamp;
 
     // fetch the data from the server
@@ -76,8 +76,8 @@ self.addEventListener('message', async function (e) {
     const serverData = await res.json();
 
     // calculate the days that have passed since the event for each event of serverData (set it there also as variable)
-    for (const e of serverData) {
-        e.daysSinceEvent = Math.floor((dateOfTimestamp - new Date(e.date)) / 86400000);
+    for (const ev of serverData) {
+        ev.daysSinceEvent = Math.floor((dateOfTimestamp - new Date(ev.date)) / 86400000);
     }
 
     // get files from server data
