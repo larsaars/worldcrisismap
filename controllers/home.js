@@ -1,8 +1,9 @@
 const disasterNewsStore = require('../models/disaster-news-store.js');
 
 async function getFromSource(func, request, response) {
-    let ts = Number(request.params.ts);
-    const data = await func(ts === 0 ? false : ts);
+    const ts = Number(request.params.ts);
+    const onlyNewData = request.params.onlyNewData === 'new';
+    const data = await func(ts === 0 ? false : ts, onlyNewData);
     response.setHeader('Content-Type', 'application/json');
     response.send(data);
 }

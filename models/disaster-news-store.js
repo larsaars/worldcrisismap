@@ -1,8 +1,10 @@
 const dataStore = require('./data-store.js');
 const logger = require('../utils/logger.js');
 
+let NEW_DATA_THRESHOLD = '4'; // days
+
 const disasterNewsStore = {
-    async getNews(timestamp) {
+    async getNews(timestamp, onlyNewData) {
         // if no timestamp is provided, return no data
         // since there is no IPS news archive
         if (timestamp) {
@@ -10,16 +12,16 @@ const disasterNewsStore = {
         }
 
         const dbRes = await dataStore.query(
-            'SELECT * FROM news_today',
+            'SELECT * FROM news_today' + (onlyNewData ? ' WHERE date > now() - INTERVAL \'' + NEW_DATA_THRESHOLD + ' DAY \'' : ''),
             [],
             'error fetching news'
         );
 
-        return JSON.stringify(dbRes.rows);
+        return dbRes.rows;
     },
-    async getReport(timestamp) {
+    async getReport(timestamp, onlyNewData) {
         // default query and values if not given or timestamp
-        let query = 'SELECT * FROM reports WHERE date > now() - INTERVAL \'14 DAY\'';
+        let query = 'SELECT * FROM reports WHERE date > now() - INTERVAL \'' + (onlyNewData ? NEW_DATA_THRESHOLD : '14') +' DAY\'';
         let values = [];
 
         if (timestamp) {
@@ -31,7 +33,7 @@ const disasterNewsStore = {
                     return '[]';
                     // if date is not today, change query accordingly
                 } else {
-                    query = 'SELECT * FROM reports WHERE date < $1 AND date > $1 - INTERVAL \'14 DAY\'';
+                    query = 'SELECT * FROM reports WHERE date < $1 AND date > $1 - INTERVAL \'' + (onlyNewData ? NEW_DATA_THRESHOLD : '14') + ' DAY\'';
                     values = [date];
                 }
             }
@@ -43,24 +45,24 @@ const disasterNewsStore = {
             values,
             'Error while fetching reports'
         );
-        return JSON.stringify(dbRes.rows);
+        return dbRes.rows;
     },
-    async getDisaster(timestamp) {
+    async getDisaster(timestamp, onlyNewData) {
         // default query and values if not given or timestamp
-        let query = 'SELECT * FROM disasters WHERE status IN (\'ongoing\', \'alert\')';
+        let query = 'SELECT * FROM disasters WHERE status IN (\'ongoing\', \'alert\')' + (onlyNewData ? ' AND date > now() - INTERVAL \'' + NEW_DATA_THRESHOLD +' DAY\'' : '');
         let values = [];
 
         if (timestamp) {
             const date = new Date(Number(timestamp) * 1000);
             // validate time stamp
             if (date.getTime() > 0) {
-                // if timestamp is below min date of 1981-11-26 00:00:00 (oldest disaster in database); return empty json array '[]'
+                // if timestamp is below min date of 1981-11-26 00:00:00 (the oldest disaster in database); return empty json array '[]'
                 if (date.getTime() < 375577200000) {
                     return '[]';
                     // if date is not today, change query accordingly
                 } else {
-                    query = 'SELECT * FROM disasters WHERE date < $1 AND date > $1 - INTERVAL \'3 MONTH\'';
-                    values = [date];
+                    query = 'SELECT * FROM disasters WHERE date < $1 AND date > $1 - INTERVAL \'' + (onlyNewData ? NEW_DATA_THRESHOLD + ' DAY': '3 MONTH');
+                    values = [date]
                 }
             }
         }
@@ -71,7 +73,7 @@ const disasterNewsStore = {
             values,
             'Error while fetching disasters'
         );
-        return JSON.stringify(dbRes.rows);
+        return dbRes.rows;
     },
 };
 

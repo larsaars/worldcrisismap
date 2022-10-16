@@ -1,5 +1,6 @@
 let pg = require('pg');
 const logger = require('../utils/logger');
+const {query} = require('winston');
 const conString = process.env.DB_CON_STRING;
 
 const dbConfig = {

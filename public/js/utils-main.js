@@ -230,6 +230,12 @@ function addMarkers(map, markers, dataList, colors, source) {
 
     for (const dataIndex in dataList) {
         const data = dataList[dataIndex];
+
+        // continue if is older than n days while the setting is active
+        if(data.daysSinceEvent >= 3 && onlyNewDataCookie === 'true') {
+            continue
+        }
+
         // define event name
         const eventName = [data.type, 'ReliefWeb Report', 'IPS News Article'][source];
 
@@ -254,7 +260,6 @@ function addMarkers(map, markers, dataList, colors, source) {
 
         // add point in right that shows how long the event lays in the past (days)
         // if activated
-        const daysSinceEvent = String(Math.floor((date - eventDate) / 86400000));
 
         const textElementDiv = document.createElement('div');
         markerIcon.appendChild(textElementDiv);
@@ -272,7 +277,7 @@ function addMarkers(map, markers, dataList, colors, source) {
 
         const textElement = document.createElement('div');
         textElementDiv.appendChild(textElement);
-        textElement.textContent = daysSinceEvent;
+        textElement.textContent = data.daysSinceEvent;
         textElement.style.fontSize = '0.8rem';
         textElement.classList.add('absoluteCenter');
 

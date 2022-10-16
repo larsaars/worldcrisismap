@@ -10,8 +10,8 @@ router.get('/about', info.about);
 router.get('/privacy-policy', info.privacy);
 
 // database request routes
-router.get('/api/disaster/:ts', home.getDisaster);
-router.get('/api/report/:ts', home.getReport);
-router.get('/api/news/:ts', home.getNews);
+router.get('/api/disaster/:onlyNewData/:ts', home.getDisaster);
+router.get('/api/report/:onlyNewData/:ts', home.getReport);
+router.get('/api/news/:onlyNewData/:ts', home.getNews);
 
 module.exports = router;

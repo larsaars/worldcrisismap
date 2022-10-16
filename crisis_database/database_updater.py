@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 # load environment variables
 load_dotenv()
 
-N_HOURS = int(os.getenv('UPDATE_DISASTERS_N_HOURS', '6'))
+N_HOURS = int(os.getenv('UPDATE_DISASTERS_N_HOURS', '3'))
 N_ITEMS = int(os.getenv('UPDATE_DISASTERS_N_ITEMS', '10'))
 
 

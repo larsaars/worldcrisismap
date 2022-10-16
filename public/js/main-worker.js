@@ -35,7 +35,7 @@ async function buildGeoJSON(files, colors, source) {
     await Promise.all(files.map(async (geoJsonFilesList, eventIndex) => {
             // fetch geo json from provided path, check first if cached, else fetch and cache
             const geoJsons = await Promise.all(geoJsonFilesList.map(async (geoJsonFile) => {
-                    const response = await fetch('/' + geoJsonFile, {cache: 'force-cache'});
+                const response = await fetch('/' + geoJsonFile, {cache: 'force-cache'});
                 return await response.json();
             }));
 
@@ -65,13 +65,20 @@ async function buildGeoJSON(files, colors, source) {
 self.addEventListener('message', async function (e) {
 
     // request the json from the server
-    // only the needed source type is passed and timestamp
+    // only the needed source type is passed and timestamp (as well as date)
     const timestamp = e.data.timestamp ? e.data.timestamp : '0';
-    const url = '/api/' + ['disaster', 'report', 'news'][e.data.source] + '/' + timestamp;
+    const dateOfTimestamp = e.data.dateOfTimestamp;
+    const onlyNewData = e.data.onlyNewData  === 'true' ? 'new' : 'all';
+    const url = '/api/' + ['disaster', 'report', 'news'][e.data.source] + '/' + onlyNewData + '/' + timestamp;
 
     // fetch the data from the server
     const res = await fetch(url);
     const serverData = await res.json();
+
+    // calculate the days that have passed since the event for each event of serverData (set it there also as variable)
+    for (const e of serverData) {
+        e.daysSinceEvent = Math.floor((dateOfTimestamp - new Date(e.date)) / 86400000);
+    }
 
     // get files from server data
     let files = [];

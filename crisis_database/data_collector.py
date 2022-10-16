@@ -195,8 +195,6 @@ def load_news_to_database() -> int:
             if last_max_country is None:
                 continue
 
-            print(last_max_country)
-            
 
             # convert geojson_object to json
             geojson = json.dumps(geojson_object)

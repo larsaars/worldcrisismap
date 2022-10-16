@@ -67,6 +67,7 @@ let disasterCookie = localStorage.getItem('disaster');
 let reportCookie = localStorage.getItem('report');
 let newsCookie = localStorage.getItem('news');
 let showEventDurationCookie = localStorage.getItem('showEventDuration');
+let onlyNewDataCookie = localStorage.getItem('onlyNewData');
 
 // if they do not exist, set
 if (!disasterCookie) {
@@ -89,16 +90,29 @@ if (!showEventDurationCookie) {
     showEventDurationCookie = 'false';
 }
 
+if (!onlyNewDataCookie) {
+    localStorage.setItem('onlyNewData', 'false');
+    onlyNewDataCookie = 'false';
+}
+
 // set checkboxes
 $('#disasterCheckbox').prop('checked', disasterCookie === 'true');
 $('#reportCheckbox').prop('checked', reportCookie === 'true');
 $('#newsCheckbox').prop('checked', newsCookie === 'true');
 $('#showEventDurationCheckbox').prop('checked', showEventDurationCookie === 'true');
+$('#onlyNewDataCheckbox').prop('checked', onlyNewDataCookie === 'true');
 
 // add event listener to event duration checkbox
 $('#showEventDurationCheckbox').change(function () {
     localStorage.setItem('showEventDuration', this.checked);
     $('.eventDuration').toggle(this.checked);
+});
+
+// add event listener to events only n days old checkbox
+$('#onlyNewDataCheckbox').change(function () {
+    localStorage.setItem('onlyNewData', this.checked);
+    // and reload page
+    window.location.reload();
 });
 
 // hide news checkbox if timestamp is set
@@ -208,17 +222,17 @@ worker.onmessage = async function (e) {
 // send data to worker; load variables only for needed cookies
 // from the beginning loading is enabled
 if (disasterCookie === 'true') {
-    worker.postMessage({source: 0, timestamp: timestamp});
+    worker.postMessage({source: 0, dateOfTimestamp: date,  onlyNewData: onlyNewDataCookie, timestamp: timestamp});
     feedbacksAwaited++;
 }
 
 if (reportCookie === 'true') {
-    worker.postMessage({source: 1, timestamp: timestamp});
+    worker.postMessage({source: 1, dateOfTimestamp: date,  onlyNewData: onlyNewDataCookie, timestamp: timestamp});
     feedbacksAwaited++;
 }
 
 if (newsCookie === 'true') {
-    worker.postMessage({source: 2, timestamp: timestamp});
+    worker.postMessage({source: 2, dateOfTimestamp: date,  onlyNewData: onlyNewDataCookie, timestamp: timestamp});
     feedbacksAwaited++;
 }
 
@@ -240,7 +254,7 @@ for (const checkbox of ['disaster', 'report', 'news']) {
         if (this.checked && sourceData[source] === null) {
             // start loading if is not loaded yet, else just toggle layer
             setLoading(true);
-            worker.postMessage({source: source, timestamp: timestamp});
+            worker.postMessage({source: source, dateOfTimestamp: date, onlyNewData: onlyNewDataCookie, timestamp: timestamp});
             feedbacksAwaited++;
         } else {
             toggleLayer(map, markers, checkbox + '-layer', this.checked);
