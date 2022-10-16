@@ -14,6 +14,7 @@ Website displaying humanitarian crisis and news using [OpenStreetMap](https://op
 - setup database with script `database_init_crisis_collector.py`
 - install packages and updates by running `./update_server.sh`
 - use something like `pm2` to keep track of running the two scripts
+- use command `grunt` or `grunt watch --force` to keep be sure minified js is up to date
 
 ## helpful tips
 

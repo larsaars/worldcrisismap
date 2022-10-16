@@ -17,5 +17,6 @@ sudo npm install -g pm2
 
 # install dependencies for python as well as for nodejs
 npm install
+sudo npm install -g grunt-cli
 pip install -r ./crisis_database/requirements.txt
 

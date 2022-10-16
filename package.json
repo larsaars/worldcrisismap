@@ -4,6 +4,11 @@
   "description": "Website displaying humanitarian crisis and news using OpenStreetMap and ReliefWeb.",
   "main": "app.js",
   "scripts": {},
+  "devDependencies": {
+    "grunt": "^1.5.3",
+    "grunt-contrib-uglify": "^5.2.2",
+    "grunt-contrib-watch": "^1.1.0"
+  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
