@@ -61,7 +61,7 @@ const disasterNewsStore = {
                     return '[]';
                     // if date is not today, change query accordingly
                 } else {
-                    query = 'SELECT * FROM disasters WHERE date < $1 AND date > $1 - INTERVAL \'' + (onlyNewData ? NEW_DATA_THRESHOLD + ' DAY': '3 MONTH');
+                    query = 'SELECT * FROM disasters WHERE date < $1 AND date > $1 - INTERVAL \'' + (onlyNewData ? NEW_DATA_THRESHOLD + ' DAY\'': '3 MONTH\'');
                     values = [date]
                 }
             }
