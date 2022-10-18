@@ -223,7 +223,7 @@ def infer_type_by_title(title):
     """
     # dict of keywords
     keywords = {
-        'escape': 'fleeing'2, 'refugee': 'fleeing', 'fleeing': 'fleeing', 'safe route': 'fleeing', 'legal route': 'fleeing', 'migrant': 'fleeing', 'migration': 'fleeing', 'camp': 'fleeing',
+        'escape': 'fleeing', 'refugee': 'fleeing', 'fleeing': 'fleeing', 'safe route': 'fleeing', 'legal route': 'fleeing', 'migrant': 'fleeing', 'migration': 'fleeing', 'camp': 'fleeing',
         'climate': 'climate_change', 'energy': 'climate_change', 'environment': 'climate_change', 'hydrogen': 'climate_change', 'sustainable': 'climate_change', 'sustainability': 'climate_change',
         'poverty': 'money', 'money': 'money', 'business': 'money', 'bank': 'money', 'economy': 'money', 'economist': 'money', 'debt': 'money', 'financial': 'money', 'stock': 'money', 'credit': 'money', 'fund': 'money', 'inflation': 'money',
         'digital': 'technology', 'technology': 'technology', 'internet': 'technology', 'tech': 'technology',

@@ -34,6 +34,7 @@ def main():
     cur.execute('''-- clear complete database
     DROP TABLE IF EXISTS disasters;
     DROP TABLE IF EXISTS reports;
+    DROP TABLE IF EXISTS news_today;
 
 
     CREATE TABLE IF NOT EXISTS disasters(
