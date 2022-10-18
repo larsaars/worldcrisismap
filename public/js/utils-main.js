@@ -236,7 +236,7 @@ function addMarkers(map, markers, dataList, colors, source) {
 
         // get path of marker image and if black or white should be used
         const black = useBlack(colors[dataIndex]);
-        const markerImagePath = getMarkerImagePath(source === 0 ? data.type : 'report', black);
+        const markerImagePath = getMarkerImagePath(data.type, black);
 
         // get publication date
         const eventDate = new Date(data.date);

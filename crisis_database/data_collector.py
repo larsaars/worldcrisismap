@@ -137,11 +137,14 @@ def load_reports_to_database(offset=0, limit=10, single_commits=False) -> int:
             # convert geojson_object to json
             geojson = json.dumps(geojson_object)
 
+            # get type of report
+            report_type = infer_type_by_title(fd['title'])
+
             # load description_html if available
             description_html = escape(fd['body-html']) if 'body-html' in fd else '' 
 
             # execute insert query
-            query = f"INSERT INTO reports(id, date, country_name, geojson, lat, lon, url, title, description_html) VALUES ({item['id']}, '{fd['date']['changed']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{fd['url']}', '{escape(fd['title'])}', '{description_html}');"
+            query = f"INSERT INTO reports(id, date, country_name, geojson, lat, lon, type, url, title, description_html) VALUES ({item['id']}, '{fd['date']['changed']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{report_type}', '{fd['url']}', '{escape(fd['title'])}', '{description_html}');"
             cur.execute(query)
 
             # if single_commits, commit changes after every insert
@@ -195,11 +198,14 @@ def load_news_to_database() -> int:
             if last_max_country is None:
                 continue
 
+            # get type from title
+            news_type = infer_type_by_title(entry.title)
+
 
             # convert geojson_object to json
             geojson = json.dumps(geojson_object)
 
-            query = f"INSERT INTO news_today(date, country_name, geojson, lat, lon, url, title, description_html) VALUES ('{entry.published}', '{escape(last_max_country)}', '{geojson}', {lat}, {lon}, '{escape(entry.link)}', '{escape(entry.title)}', '{escape(content)}');"
+            query = f"INSERT INTO news_today(date, country_name, geojson, lat, lon, type, url, title, description_html) VALUES ('{entry.published}', '{escape(last_max_country)}', '{geojson}', {lat}, {lon}, '{news_type}', '{escape(entry.link)}', '{escape(entry.title)}', '{escape(content)}');"
             cur.execute(query)
         except Exception as e:
             connection.rollback()

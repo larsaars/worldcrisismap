@@ -212,3 +212,50 @@ def search_matching_geojson_files_or_coords(text: str, countries: list, mappers=
 
     
     return all_files if all_files else None, lat, lon, last_max_country
+
+
+def infer_type_by_title(title):
+    """
+    Infer the type of the article by its title.
+
+    :param title: The title of the article.
+    :return: The type of the article.
+    """
+    # dict of keywords
+    keywords = {
+        'escape': 'fleeing'2, 'refugee': 'fleeing', 'fleeing': 'fleeing', 'safe route': 'fleeing', 'legal route': 'fleeing', 'migrant': 'fleeing', 'migration': 'fleeing', 'camp': 'fleeing',
+        'climate': 'climate_change', 'energy': 'climate_change', 'environment': 'climate_change', 'hydrogen': 'climate_change', 'sustainable': 'climate_change', 'sustainability': 'climate_change',
+        'poverty': 'money', 'money': 'money', 'business': 'money', 'bank': 'money', 'economy': 'money', 'economist': 'money', 'debt': 'money', 'financial': 'money', 'stock': 'money', 'credit': 'money', 'fund': 'money', 'inflation': 'money',
+        'digital': 'technology', 'technology': 'technology', 'internet': 'technology', 'tech': 'technology',
+        'covid': 'epidemic', 'epidemic': 'epidemic', 'corona': 'epidemic', 'pandemic': 'epidemic', 'virus': 'epidemic', 'disease': 'epidemic', 'infection': 'epidemic', 'fever': 'epidemic', 'cholera': 'epidemic', 'ebola': 'epidemic', 'vaccinate': 'epidemic', 'vaccination': 'epidemic',
+        'human right': 'human_rights', 'journalist': 'human_rights', 'protection': 'human_rights', 'homeless': 'human_rights', 'humanitarian': 'human_rights',
+        'education': 'education',
+        'disabilities': 'disabilities', 'disabled': 'disabilities',
+        'health': 'health',
+        'food': 'food', 'nutrition': 'food', 'hungry': 'food', 'hunger': 'food', 'drought': 'food', 'agriculture': 'food', 'famine': 'food', 'malnourished': 'food',
+        'torture': 'violence', 'abuse': 'violence', 'sexual': 'violence', 'violence': 'violence', 'arms': 'violence', 'military': 'violence', 'war': 'violence', 'coup': 'violence', 'protest': 'violence',
+        'fire': 'fire', 'burning': 'fire', 'forest fire': 'fire', 'wildfire': 'fire', 'wildfire': 'fire',
+        'flood': 'flood', 'flooding': 'flood', 'rain': 'flood', 'rainfall': 'flood', 'tsunami': 'flood',
+        'storm': 'storm', 'hurricane': 'storm', 'tornado': 'storm', 'cyclone': 'storm',
+        'earthquake': 'earthquake',
+        'volcano': 'volcano', 'lava': 'volcano',
+        'democracy': 'vote', 'election': 'vote'
+    }
+
+    # get title in lower case
+    results = search_for_keywords(title, keywords.keys(), is_html=False)
+
+    # if no results, return just info
+    if not results:
+        return 'report'
+    else:
+        # loop through results
+        highest = (None, -1)
+        for result, count in results:
+            # return the highest
+            if count > highest[1]:
+                highest = (result, count)
+
+        return keywords[highest[0]]
+
+

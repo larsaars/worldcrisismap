@@ -58,6 +58,7 @@ def main():
         geojson VARCHAR(8000),
         lat DECIMAL(10,7) CHECK (lat >= -90 AND lat <= 90),
         lon DECIMAL(10,7) CHECK (lon >= -180 AND lon <= 180),
+        type VARCHAR(200),
         url VARCHAR(250),
         title VARCHAR(500),
         description_html VARCHAR(100000)
@@ -70,6 +71,7 @@ def main():
         geojson VARCHAR(8000),
         lat DECIMAL(10,7) CHECK (lat >= -90 AND lat <= 90),
         lon DECIMAL(10,7) CHECK (lon >= -180 AND lon <= 180),
+        type VARCHAR(200),
         url VARCHAR(500),
         title VARCHAR(500),
         description_html VARCHAR(100000)
