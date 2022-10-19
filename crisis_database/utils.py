@@ -232,7 +232,7 @@ def infer_type_by_title(title):
         'education': 'education',
         'disabilities': 'disabilities', 'disabled': 'disabilities',
         'health': 'health',
-        'food': 'food', 'nutrition': 'food', 'hungry': 'food', 'hunger': 'food', 'drought': 'food', 'agriculture': 'food', 'famine': 'food', 'malnourished': 'food',
+        'food': 'food', 'nutrition': 'food', 'hungry': 'food', 'hunger': 'food', 'drought': 'food', 'agriculture': 'food', 'famine': 'food', 'malnourished': 'food', 'starve': 'food',
         'torture': 'violence', 'abuse': 'violence', 'sexual': 'violence', 'violence': 'violence', 'arms': 'violence', 'military': 'violence', 'war': 'violence', 'coup': 'violence', 'protest': 'violence',
         'fire': 'fire', 'burning': 'fire', 'forest fire': 'fire', 'wildfire': 'fire', 'wildfire': 'fire',
         'flood': 'flood', 'flooding': 'flood', 'rain': 'flood', 'rainfall': 'flood', 'tsunami': 'flood',
