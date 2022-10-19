@@ -25,3 +25,4 @@ Website displaying humanitarian crisis and news using [OpenStreetMap](https://op
 - start `pm2` process with watching: `pm2 start file --watch`
 - minify [html](https://github.com/kangax/html-minifier), [css](https://github.com/cssnano/cssnano) and [JS](https://github.com/mishoo/UglifyJS)
 - [nginx https](https://certbot.eff.org/)
+- [enable gzip](https://ubiq.co/tech-blog/how-to-enable-nginx-gzip-compression/)
