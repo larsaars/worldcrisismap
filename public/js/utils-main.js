@@ -243,6 +243,7 @@ function addMarkers(map, markers, dataList, colors, source) {
 
         // create marker icon
         const markerIcon = document.createElement('div');
+        markerIcon.title = data.title;  // title on hover
         markerIcon.style.width = '32px';
         markerIcon.style.height = '32px';
         markerIcon.style.backgroundSize = 'contain';

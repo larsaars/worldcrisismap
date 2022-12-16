@@ -35,8 +35,17 @@ async function buildGeoJSON(files, colors, source) {
     await Promise.all(files.map(async (geoJsonFilesList, eventIndex) => {
             // fetch geo json from provided path, check first if cached, else fetch and cache
             const geoJsons = await Promise.all(geoJsonFilesList.map(async (geoJsonFile) => {
-                const response = await fetch('/' + geoJsonFile, {cache: 'force-cache'});
-                return await response.json();
+                try {
+                    const response = await fetch('/' + geoJsonFile, {cache: 'force-cache'});
+                    return await response.json();
+                } catch (e) {
+                    console.error(e);
+                    console.error('Error finding or parsing geojson file: ' + geoJsonFile);
+                }
+
+                // return empty object instead of nothing in case of error
+                return {};
+
             }));
 
             // iterate over geoJsons

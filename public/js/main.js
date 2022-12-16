@@ -143,6 +143,25 @@ const mapLoaded = new Promise((resolve) => {
     map.on('load', resolve);
 });
 
+
+// function that gets called when a feedback has been received,
+// even a not wished one (error)
+function feedbackReceived() {
+    // feedbacks awaited is decreased
+    feedbacksAwaited--;
+
+    // if all feedbacks are loaded, stop loading anim
+    if (feedbacksAwaited === 0) {
+        setLoading(false);
+
+        // if is the first time on website, show settings
+        if (!localStorage.getItem('settingsShown')) {
+            clickSettingsButton(null);
+            localStorage.setItem('settingsShown', 'true');
+        }
+    }
+}
+
 // get data from worker
 worker.onmessage = async function (e) {
     // start loading anim
@@ -204,19 +223,17 @@ worker.onmessage = async function (e) {
         }
     }
 
-    // feedbacks awaited is decreased
-    feedbacksAwaited--;
+    // feedback received, stop loading anim if all feedbacks are received
+    feedbackReceived();
+};
 
-    // if all feedbacks are loaded, stop loading anim
-    if (feedbacksAwaited === 0) {
-        setLoading(false);
+// add also an error event listener
+worker.onerror = function (e) {
+    console.error(e);
 
-        // if is the first time on website, show settings
-        if (!localStorage.getItem('settingsShown')) {
-            clickSettingsButton(null);
-            localStorage.setItem('settingsShown', 'true');
-        }
-    }
+    // but this is also a feedback, even if not a wished one
+    // so call feedbackReceived
+    feedbackReceived();
 };
 
 // send data to worker; load variables only for needed cookies

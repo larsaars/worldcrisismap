@@ -223,23 +223,23 @@ def infer_type_by_title(title):
     """
     # dict of keywords
     keywords = {
-        'escape': 'fleeing', 'refugee': 'fleeing', 'fleeing': 'fleeing', 'safe route': 'fleeing', 'legal route': 'fleeing', 'migrant': 'fleeing', 'migration': 'fleeing', 'camp': 'fleeing',
-        'climate': 'climate_change', 'energy': 'climate_change', 'environment': 'climate_change', 'hydrogen': 'climate_change', 'sustainable': 'climate_change', 'sustainability': 'climate_change',
-        'poverty': 'money', 'money': 'money', 'business': 'money', 'bank': 'money', 'economy': 'money', 'economist': 'money', 'debt': 'money', 'financial': 'money', 'stock': 'money', 'credit': 'money', 'fund': 'money', 'inflation': 'money',
+        'escape': 'fleeing', 'refugee': 'fleeing', 'fleeing': 'fleeing', 'safe route': 'fleeing', 'legal route': 'fleeing', 'migrant': 'fleeing', 'migration': 'fleeing', 'camp': 'fleeing', 'population movement': 'fleeing', 'displacement': 'fleeing',
+        'climate': 'climate_change', 'energy': 'climate_change', 'environment': 'climate_change', 'hydrogen': 'climate_change', 'sustainable': 'climate_change', 'sustainability': 'climate_change', 'biodiversity': 'climate_change',
+        'poverty': 'money', 'money': 'money', 'business': 'money', 'bank': 'money', 'economy': 'money', 'economist': 'money', 'debt': 'money', 'financial': 'money', 'stock': 'money', 'credit': 'money', 'fund': 'money', 'inflation': 'money', 'corruption': 'money', 'trading': 'money',
         'digital': 'technology', 'technology': 'technology', 'internet': 'technology', 'tech': 'technology',
         'covid': 'epidemic', 'epidemic': 'epidemic', 'corona': 'epidemic', 'pandemic': 'epidemic', 'virus': 'epidemic', 'disease': 'epidemic', 'infection': 'epidemic', 'fever': 'epidemic', 'cholera': 'epidemic', 'ebola': 'epidemic', 'vaccinate': 'epidemic', 'vaccination': 'epidemic',
-        'human right': 'human_rights', 'journalist': 'human_rights', 'protection': 'human_rights', 'homeless': 'human_rights', 'humanitarian': 'human_rights',
+        'human right': 'human_rights', 'journalist': 'human_rights', 'protection': 'human_rights', 'homeless': 'human_rights', 'humanitarian': 'human_rights', 'lgtbq': 'human_rights', 'gay rights': 'human_rights', 'discrimination': 'human_rights', 'racis': 'human_rights', 'social crisis': 'human_rights', 'antisemit': 'human_rights',
         'education': 'education',
         'disabilities': 'disabilities', 'disabled': 'disabilities',
-        'health': 'health',
+        'health': 'health', 'pollution': 'health',
         'food': 'food', 'nutrition': 'food', 'hungry': 'food', 'hunger': 'food', 'drought': 'food', 'agriculture': 'food', 'famine': 'food', 'malnourished': 'food', 'starve': 'food',
-        'torture': 'violence', 'abuse': 'violence', 'sexual': 'violence', 'violence': 'violence', 'arms': 'violence', 'military': 'violence', 'war': 'violence', 'coup': 'violence', 'protest': 'violence',
+        'torture': 'violence', 'abuse': 'violence', 'sexual': 'violence', 'violence': 'violence', 'arms': 'violence', 'military': 'violence', 'war': 'violence', 'coup': 'violence', 'protest': 'violence', 'kill': 'violence', 'death': 'violence',
         'fire': 'fire', 'burning': 'fire', 'forest fire': 'fire', 'wildfire': 'fire', 'wildfire': 'fire',
         'flood': 'flood', 'flooding': 'flood', 'rain': 'flood', 'rainfall': 'flood', 'tsunami': 'flood',
-        'storm': 'storm', 'hurricane': 'storm', 'tornado': 'storm', 'cyclone': 'storm',
+        'storm': 'storm', 'hurricane': 'storm', 'tornado': 'storm', 'cyclone': 'storm', 'typhoon': 'storm',
         'earthquake': 'earthquake',
         'volcano': 'volcano', 'lava': 'volcano',
-        'democracy': 'vote', 'election': 'vote'
+        'democracy': 'vote', 'election': 'vote',
     }
 
     # get title in lower case
