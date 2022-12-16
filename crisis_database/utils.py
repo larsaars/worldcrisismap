@@ -223,12 +223,13 @@ def infer_type_by_title(title):
     """
     # dict of keywords
     keywords = {
+        'gay': 'lqtbqplus', 'lgtb': 'lgtbqplus', 'queer': 'lgtbqplus',
         'escape': 'fleeing', 'refugee': 'fleeing', 'fleeing': 'fleeing', 'safe route': 'fleeing', 'legal route': 'fleeing', 'migrant': 'fleeing', 'migration': 'fleeing', 'camp': 'fleeing', 'population movement': 'fleeing', 'displacement': 'fleeing',
         'climate': 'climate_change', 'energy': 'climate_change', 'environment': 'climate_change', 'hydrogen': 'climate_change', 'sustainable': 'climate_change', 'sustainability': 'climate_change', 'biodiversity': 'climate_change',
         'poverty': 'money', 'money': 'money', 'business': 'money', 'bank': 'money', 'economy': 'money', 'economist': 'money', 'debt': 'money', 'financial': 'money', 'stock': 'money', 'credit': 'money', 'fund': 'money', 'inflation': 'money', 'corruption': 'money', 'trading': 'money',
         'digital': 'technology', 'technology': 'technology', 'internet': 'technology', 'tech': 'technology',
         'covid': 'epidemic', 'epidemic': 'epidemic', 'corona': 'epidemic', 'pandemic': 'epidemic', 'virus': 'epidemic', 'disease': 'epidemic', 'infection': 'epidemic', 'fever': 'epidemic', 'cholera': 'epidemic', 'ebola': 'epidemic', 'vaccinate': 'epidemic', 'vaccination': 'epidemic',
-        'human right': 'human_rights', 'journalist': 'human_rights', 'protection': 'human_rights', 'homeless': 'human_rights', 'humanitarian': 'human_rights', 'lgtbq': 'human_rights', 'gay rights': 'human_rights', 'discrimination': 'human_rights', 'racis': 'human_rights', 'social crisis': 'human_rights', 'antisemit': 'human_rights',
+        'human right': 'human_rights', 'journalist': 'human_rights', 'protection': 'human_rights', 'homeless': 'human_rights', 'humanitarian': 'human_rights', 'discrimination': 'human_rights', 'racis': 'human_rights', 'social crisis': 'human_rights', 'antisemit': 'human_rights',
         'education': 'education',
         'disabilities': 'disabilities', 'disabled': 'disabilities',
         'health': 'health', 'pollution': 'health',
