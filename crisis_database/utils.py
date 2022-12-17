@@ -223,7 +223,7 @@ def infer_type_by_title(title):
     """
     # dict of keywords
     keywords = {
-        'gay': 'lqtbqplus', 'lgtbq': 'lgtbqplus', 'queer': 'lgtbqplus', 'lgtbqi': 'lgtbqplus', 'lgtbqplus': 'lgtbqplus',
+        'gay': 'lqtbqplus', 'lgtbq': 'lgtbqplus', 'queer': 'lgtbqplus', 'lgbtqi': 'lgtbqplus', 'lgtbqplus': 'lgtbqplus',
         'escape': 'fleeing', 'refugee': 'fleeing', 'fleeing': 'fleeing', 'safe route': 'fleeing', 'legal route': 'fleeing', 'migrant': 'fleeing', 'migration': 'fleeing', 'camp': 'fleeing', 'population movement': 'fleeing', 'displacement': 'fleeing', 'displaced': 'fleeing',
         'climate': 'climate_change', 'energy': 'climate_change', 'environment': 'climate_change', 'hydrogen': 'climate_change', 'sustainable': 'climate_change', 'sustainability': 'climate_change', 'biodiversity': 'climate_change', 'green fuel': 'climate_change',
         'poverty': 'money', 'money': 'money', 'business': 'money', 'bank': 'money', 'economy': 'money', 'economist': 'money', 'debt': 'money', 'financial': 'money', 'stock': 'money', 'credit': 'money', 'fund': 'money', 'inflation': 'money', 'corruption': 'money', 'trading': 'money',
