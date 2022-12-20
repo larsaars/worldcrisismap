@@ -141,6 +141,10 @@ function openSideBar(map, marker, allGeoJson) {
         $('#sidebarText').html(marker.description);
         // open links in sidebar in new tab
         $('#sidebarText a').attr('target', '_blank');
+        // make sure is scrolled to top
+        sidebarContent.scrollTop(0);
+        // shake sidebar
+        sidebarContent.effect('fade', 100);
     }
 
     // on the map, mark the region as selected (get event geo json and add it to the map as layer)
