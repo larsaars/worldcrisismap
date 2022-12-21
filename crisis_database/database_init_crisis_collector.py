@@ -35,6 +35,9 @@ def main():
     DROP TABLE IF EXISTS disasters;
     DROP TABLE IF EXISTS reports;
     DROP TABLE IF EXISTS news_today;
+    DROP TABLE IF EXISTS disasters_text;
+    DROP TABLE IF EXISTS reports_text;
+    DROP TABLE IF EXISTS news_today_text;
 
 
     CREATE TABLE IF NOT EXISTS disasters(
@@ -47,8 +50,12 @@ def main():
         lon DECIMAL(10,7) CHECK (lon >= -180 AND lon <= 180),
         type VARCHAR(200),
         url VARCHAR(100),
-        title VARCHAR(500),
-        description_html VARCHAR(100000)
+        title VARCHAR(500)
+    );
+
+    CREATE TABLE IF NOT EXISTS disasters_text(
+        id INTEGER PRIMARY KEY,
+        text VARCHAR(100000)
     );
 
 
@@ -61,12 +68,17 @@ def main():
         lon DECIMAL(10,7) CHECK (lon >= -180 AND lon <= 180),
         type VARCHAR(200),
         url VARCHAR(250),
-        title VARCHAR(500),
-        description_html VARCHAR(100000)
+        title VARCHAR(500)
     );
 
+    CREATE TABLE IF NOT EXISTS reports_text(
+        id INTEGER PRIMARY KEY,
+        text VARCHAR(100000)
+    );
+    
+
     CREATE TABLE IF NOT EXISTS news_today(
-        id SERIAL PRIMARY KEY,
+        id INTEGER PRIMARY KEY,
         date TIMESTAMP,
         country_name VARCHAR(150),
         geojson VARCHAR(8000),
@@ -74,8 +86,12 @@ def main():
         lon DECIMAL(10,7) CHECK (lon >= -180 AND lon <= 180),
         type VARCHAR(200),
         url VARCHAR(500),
-        title VARCHAR(500),
-        description_html VARCHAR(100000)
+        title VARCHAR(500)
+    );
+
+    CREATE TABLE IF NOT EXISTS news_today_text(
+        id INTEGER PRIMARY KEY,
+        text VARCHAR(100000)
     );
     ''')
 

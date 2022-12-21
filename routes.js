@@ -16,9 +16,12 @@ router.get('/about', info.about);
 router.get('/privacy-policy', info.privacy);
 
 // database request routes
-router.get('/api/disaster/:onlyNewData/:ts', home.getDisaster);
-router.get('/api/report/:onlyNewData/:ts', home.getReport);
-router.get('/api/news/:onlyNewData/:ts', home.getNews);
+router.get('/api/data/disaster/:onlyNewData/:ts', home.getDisaster);
+router.get('/api/data/report/:onlyNewData/:ts', home.getReport);
+router.get('/api/data/news/:onlyNewData/:ts', home.getNews);
+router.get('/api/text/disaster/:id', home.getDisasterText);
+router.get('/api/text/report/:id', home.getReportText);
+router.get('/api/text/news/:id', home.getNewsText);
 
 // easteregg
 router.get('/nocrisis', easteregg.index);

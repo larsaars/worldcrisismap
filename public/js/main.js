@@ -136,7 +136,7 @@ let sourceColors = [null, null, null];
 let sourceGeoJSON = [null, null, null];
 
 // start web worker
-const worker = new Worker('/js/main-worker.min.js');
+const worker = new Worker('/js/main-load-worker.min.js');
 
 // make map.on load a promise to be awaited
 const mapLoaded = new Promise((resolve) => {

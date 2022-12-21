@@ -78,22 +78,19 @@ self.addEventListener('message', async function (e) {
     const timestamp = e.data.timestamp ? e.data.timestamp : '0';
     const dateOfTimestamp = e.data.dateOfTimestamp;
     const onlyNewData = e.data.onlyNewData === 'true' ? 'new' : 'all';
-    const url = '/api/' + ['disaster', 'report', 'news'][e.data.source] + '/' + onlyNewData + '/' + timestamp;
+    const url = '/api/data/' + ['disaster', 'report', 'news'][e.data.source] + '/' + onlyNewData + '/' + timestamp;
 
     // fetch the data from the server
     const res = await fetch(url);
     const serverData = await res.json();
 
-    // calculate the days that have passed since the event for each event of serverData (set it there also as variable)
-    for (const ev of serverData) {
-        ev.daysSinceEvent = Math.floor((dateOfTimestamp - new Date(ev.date)) / 86400000);
-    }
-
     // get files from server data
     let files = [];
 
-    // parse from json because they are passed as strings
     for (const data of serverData) {
+        // calculate the days that have passed since the event for each event of serverData (set it there also as variable)
+        data.daysSinceEvent = Math.floor((dateOfTimestamp - new Date(data.date)) / 86400000);
+        // parse from json because they are passed as strings
         files.push(JSON.parse(data.geojson));
     }
 
@@ -101,7 +98,7 @@ self.addEventListener('message', async function (e) {
     const [colors] = generateRandomColors(serverData.length);
 
     // build geo json from files
-    const geoJSON = await buildGeoJSON(files, colors, 0);
+    const geoJSON = await buildGeoJSON(files, colors, e.data.source);
 
     // send the geo json to the main thread (and the colors)
     self.postMessage({

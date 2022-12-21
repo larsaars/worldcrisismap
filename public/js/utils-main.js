@@ -6,6 +6,8 @@ let settingsOpened = false;
 let loading = true;
 // global variable if datepicker div has been animated, if so, show it again on sidebar close
 let datePickerDivHiddenOnSidebar = false;
+// global variable if uses geoJSON
+let useGeoJSON;
 
 
 // detect if page is in mobile format or mobile phone
@@ -13,6 +15,10 @@ let datePickerDivHiddenOnSidebar = false;
 function pageIsMobileFormat() {
     return ($(window).innerHeight() / $(window).innerWidth()) >= 1.4;
 }
+
+// init  directly on start, if page is mobile format, don't use geo json
+// for the whole session
+useGeoJSON = !pageIsMobileFormat();
 
 // set loading show or not
 function setLoading(isLoading) {
@@ -97,7 +103,7 @@ function toggleDatePickerDiv(isMobile) {
     datePickerDiv.animate({height: 'toggle'}, {duration: 200});
 }
 
-function openSideBar(map, marker, allGeoJson) {
+async function openSideBar(map, marker, allGeoJson) {
     // specific actions only take place if sidebar is not already opened
     // get color rgb values from hex
     const rgb = hexToRgb(marker.color);
@@ -112,6 +118,22 @@ function openSideBar(map, marker, allGeoJson) {
 
     // set margin left for main element, show sidebar, set color etc.
     sidebarContent.css('background', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.19)`);
+
+    // fetch sidebar text if not already loaded
+    if (false === marker.descriptionLoaded) {
+        // load the description text
+        const res = await fetch('/api/text/' + ['disaster', 'report', 'news'][marker.source] + '/' + marker.id);
+        // check response is ok
+        if (res.status === 200) {
+            // parse the text
+            const text = await res.text();
+            // set to true
+            marker.descriptionLoaded = true;
+
+            // replace &quot; with " and append text
+            marker.description += text.replace(/&quot;/g, '"');
+        }
+    }
 
     if (sidebarIsClosed) {
         //$('#main').css('marginLeft', sidebarWidth);
@@ -143,8 +165,6 @@ function openSideBar(map, marker, allGeoJson) {
         $('#sidebarText a').attr('target', '_blank');
         // make sure is scrolled to top
         sidebarContent.scrollTop(0);
-        // shake sidebar
-        sidebarContent.effect('fade', 100);
     }
 
     // on the map, mark the region as selected (get event geo json and add it to the map as layer)
@@ -232,7 +252,8 @@ function clickSettingsButton(onlyHide) {
 
 function addMarkers(map, markers, dataList, colors, source) {
 
-    for (const dataIndex in dataList) {
+    // loop through all data indexes
+    for (let dataIndex = 0; dataIndex < dataList.length; dataIndex++) {
         const data = dataList[dataIndex];
 
         // define event name
@@ -260,7 +281,6 @@ function addMarkers(map, markers, dataList, colors, source) {
 
         // add point in right that shows how long the event lays in the past (days)
         // if activated
-
         const textElementDiv = document.createElement('div');
         markerIcon.appendChild(textElementDiv);
         textElementDiv.style.width = '18px';
@@ -291,6 +311,7 @@ function addMarkers(map, markers, dataList, colors, source) {
             year: 'numeric', month: 'long', day: 'numeric',
         });
 
+        // set basic description and loaded false
         marker.description = `<div><img src="${markerImagePath.replace(/white/g, 'black')}" alt="event type" style="width: 2rem; height: 2rem; margin-bottom: 0.5rem"><br><i>`
             + eventName
             + '</i></div><p><small>'
@@ -299,8 +320,12 @@ function addMarkers(map, markers, dataList, colors, source) {
             + data.url
             + '">'
             + data.title
-            + '</a></h2><br>'
-            + data.description_html.replace(/&quot;/g, '"');
+            + '</a></h2><br>';
+
+        marker.descriptionLoaded = false;
+
+        // add id of event to marker
+        marker.id = data.id;
 
         // set color of marker to be used in sidebar text
         marker.color = colors[dataIndex];

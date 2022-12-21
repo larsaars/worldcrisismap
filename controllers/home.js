@@ -1,10 +1,19 @@
 const disasterNewsStore = require('../models/disaster-news-store.js');
 
-async function getFromSource(func, request, response) {
+// GET /api/:what/:onlyNewData/:ts
+async function getDataFromSource(func, request, response) {
     const ts = Number(request.params.ts);
     const onlyNewData = request.params.onlyNewData === 'new';
     const data = await func(ts === 0 ? false : ts, onlyNewData);
     response.setHeader('Content-Type', 'application/json');
+    response.send(data);
+}
+
+// GET /api/text/:what/:id
+async function getTextFromSource(func, request, response) {
+    const id = request.params.id;
+    const data = await func(id);
+    response.setHeader('Content-Type', 'text/plain');
     response.send(data);
 }
 
@@ -22,13 +31,22 @@ const home = {
     },
 
     async getDisaster(request, response) {
-        await getFromSource(disasterNewsStore.getDisaster, request, response);
+        await getDataFromSource(disasterNewsStore.getDisaster, request, response);
     },
     async getReport(request, response) {
-        await getFromSource(disasterNewsStore.getReport, request, response);
+        await getDataFromSource(disasterNewsStore.getReport, request, response);
     },
     async getNews(request, response) {
-        await getFromSource(disasterNewsStore.getNews, request, response);
+        await getDataFromSource(disasterNewsStore.getNews, request, response);
+    },
+    async getDisasterText(request, response) {
+        await getTextFromSource(disasterNewsStore.getDisasterText, request, response);
+    },
+    async getReportText(request, response) {
+        await getTextFromSource(disasterNewsStore.getReportText, request, response);
+    },
+    async getNewsText(request, response) {
+        await getTextFromSource(disasterNewsStore.getNewsText, request, response);
     }
 };
 

@@ -17,7 +17,7 @@ const disasterNewsStore = {
             'error fetching news'
         );
 
-        return dbRes.rows;
+        return dbRes?.rows ?? [];
     },
     async getReport(timestamp, onlyNewData) {
         // default query and values if not given or timestamp
@@ -39,13 +39,13 @@ const disasterNewsStore = {
             }
         }
 
-        // execute query and send stringified json array
+        // execute query and send json array
         const dbRes = await dataStore.query(
             query,
             values,
             'Error while fetching reports'
         );
-        return dbRes.rows;
+        return dbRes?.rows ?? [];
     },
     async getDisaster(timestamp, onlyNewData) {
         // default query and values if not given or timestamp
@@ -67,7 +67,7 @@ const disasterNewsStore = {
             }
         }
 
-        // execute query and send stringified json array
+        // execute query and send json array
         const dbRes = await dataStore.query(
             query,
             values,
@@ -75,6 +75,30 @@ const disasterNewsStore = {
         );
         return dbRes.rows;
     },
+    async getNewsText(id) {
+        const dbRes = await dataStore.query(
+            'SELECT text FROM news_today_text WHERE id = $1',
+            [id],
+            'Error while fetching news text'
+        );
+        return dbRes?.rows[0]?.text ?? '';
+    },
+    async getReportText(id) {
+        const dbRes = await dataStore.query(
+            'SELECT text FROM reports_text WHERE id = $1',
+            [id],
+            'Error while fetching report text'
+        );
+        return dbRes?.rows[0]?.text ?? '';
+    },
+    async getDisasterText(id) {
+        const dbRes = await dataStore.query(
+            'SELECT text FROM disasters_text WHERE id = $1',
+            [id],
+            'Error while fetching disaster text'
+        );
+        return dbRes?.rows[0]?.text ?? '';
+    }
 };
 
 module.exports = disasterNewsStore;

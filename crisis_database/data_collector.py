@@ -74,9 +74,13 @@ def load_disasters_to_database(offset=0, limit=10, single_commits=False) -> int:
             # load description_html if available
             description_html = escape(fd['description-html']) if 'description-html' in fd else '' 
 
-            # execute insert query
-            query = f"INSERT INTO disasters(id, date, status, country_name, geojson, lat, lon, type, url, title, description_html) VALUES ({item['id']}, '{fd['date']['event']}', '{fd['status']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{escape(fd['primary_type']['name'])}', '{fd['url']}', '{escape(fd['name'])}', '{description_html}');"
+            # execute insert query for info
+            query = f"INSERT INTO disasters(id, date, status, country_name, geojson, lat, lon, type, url, title) VALUES ({item['id']}, '{fd['date']['event']}', '{fd['status']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{escape(fd['primary_type']['name'])}', '{fd['url']}', '{escape(fd['name'])}');"
             cur.execute(query)
+            # insert insert query for description
+            query = f"INSERT INTO disasters_text(id, text) VALUES ({item['id']}, '{description_html}');"
+            cur.execute(query)
+
 
             # if single_commits, commit changes after every insert
             if single_commits:
@@ -143,8 +147,11 @@ def load_reports_to_database(offset=0, limit=10, single_commits=False) -> int:
             # load description_html if available
             description_html = escape(fd['body-html']) if 'body-html' in fd else '' 
 
-            # execute insert query
-            query = f"INSERT INTO reports(id, date, country_name, geojson, lat, lon, type, url, title, description_html) VALUES ({item['id']}, '{fd['date']['changed']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{report_type}', '{fd['url']}', '{escape(fd['title'])}', '{description_html}');"
+            # execute insert query for info
+            query = f"INSERT INTO reports(id, date, country_name, geojson, lat, lon, type, url, title) VALUES ({item['id']}, '{fd['date']['changed']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{report_type}', '{fd['url']}', '{escape(fd['title'])}');"
+            cur.execute(query)
+            # insert insert query for description
+            query = f"INSERT INTO reports_text(id, text) VALUES ({item['id']}, '{description_html}');"
             cur.execute(query)
 
             # if single_commits, commit changes after every insert
@@ -180,10 +187,16 @@ def load_news_to_database() -> int:
 
     # clear table for today
     cur.execute('TRUNCATE TABLE news_today;')
+
+    # create id counter
+    identifier = 0
     
     # loop through each entry
     for entry in feed.entries:
         try:
+            # increase id
+            identifier += 1
+
             # get entry html content
             content = entry.content[0].value
             
@@ -205,7 +218,11 @@ def load_news_to_database() -> int:
             # convert geojson_object to json
             geojson = json.dumps(geojson_object)
 
-            query = f"INSERT INTO news_today(date, country_name, geojson, lat, lon, type, url, title, description_html) VALUES ('{entry.published}', '{escape(last_max_country)}', '{geojson}', {lat}, {lon}, '{news_type}', '{escape(entry.link)}', '{escape(entry.title)}', '{escape(content)}');"
+            # execute insert query for info
+            query = f"INSERT INTO news_today(id, date, country_name, geojson, lat, lon, type, url, title) VALUES ({identifier}, '{entry.published}', '{escape(last_max_country)}', '{geojson}', {lat}, {lon}, '{news_type}', '{escape(entry.link)}', '{escape(entry.title)}');"
+            cur.execute(query)
+            # insert insert query for description
+            query = f"INSERT INTO news_today_text(id, text) VALUES ({identifier}, '{escape(content)}');"
             cur.execute(query)
         except Exception as e:
             connection.rollback()
