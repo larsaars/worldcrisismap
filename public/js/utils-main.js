@@ -167,26 +167,29 @@ async function openSideBar(map, marker, allGeoJson) {
         sidebarContent.scrollTop(0);
     }
 
-    // on the map, mark the region as selected (get event geo json and add it to the map as layer)
-    const eventGeoJSON = getGeoJSONFromEvent(allGeoJson, marker.eventIndex);
+    // only if useGeoJSON is true
+    if (useGeoJSON) {
+        // on the map, mark the region as selected (get event geo json and add it to the map as layer)
+        const eventGeoJSON = getGeoJSONFromEvent(allGeoJson, marker.eventIndex);
 
-    // remove marked layer and source if they already exist (sidebar was already opened for other event)
-    if (!sidebarIsClosed) {
-        map.removeLayer('marked-layer');
-        map.removeSource('marked');
-    }
-
-    // add source and layer
-    map.addSource('marked', {
-        'type': 'geojson', 'data': eventGeoJSON
-    });
-
-    // add a layer that marks the current selection
-    map.addLayer({
-        'id': 'marked-layer', 'type': 'fill', 'source': 'marked', 'layout': {}, 'paint': {
-            'fill-color': ['get', 'fill'], 'fill-opacity': 0.9
+        // remove marked layer and source if they already exist (sidebar was already opened for other event)
+        if (!sidebarIsClosed) {
+            map.removeLayer('marked-layer');
+            map.removeSource('marked');
         }
-    });
+
+        // add source and layer
+        map.addSource('marked', {
+            'type': 'geojson', 'data': eventGeoJSON
+        });
+
+        // add a layer that marks the current selection
+        map.addLayer({
+            'id': 'marked-layer', 'type': 'fill', 'source': 'marked', 'layout': {}, 'paint': {
+                'fill-color': ['get', 'fill'], 'fill-opacity': 0.9
+            }
+        });
+    }
 
     // set boolean to indicate sidebar is open and set selected marker
     sidebarIsClosed = false;
@@ -219,9 +222,11 @@ function closeSideBar() {
         toggleDatePickerDiv(isMobile);
     }
 
-    // remove marked layer and source
-    map.removeLayer('marked-layer');
-    map.removeSource('marked');
+    // remove marked layer and source if uses geojson
+    if (useGeoJSON) {
+        map.removeLayer('marked-layer');
+        map.removeSource('marked');
+    }
     // set sidebar closed and selected marker null
     sidebarIsClosed = true;
     selectedMarker = null;
@@ -348,11 +353,17 @@ function addMarkers(map, markers, dataList, colors, source) {
 
 // function for showing and hiding layers and their markers
 function toggleLayer(map, markers, layerId, show) {
-    map.setLayoutProperty(layerId, 'visibility', show ? 'visible' : 'none');
+    // try to toggle geojson layers only if used
+    if (useGeoJSON){
+        map.setLayoutProperty(layerId, 'visibility', show ? 'visible' : 'none');
+    }
+
+    // filter show or hide markers
     const layerNames = {
         0: 'disaster-layer',
         1: 'report-layer',
         2: 'news-layer',
     };
+
     markers.filter(m => layerId === layerNames[m.source]).forEach(m => m.getElement().style.display = show ? 'block' : 'none');
 }

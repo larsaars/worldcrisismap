@@ -178,29 +178,31 @@ worker.onmessage = async function (e) {
     // wait for map to be loaded (if is not)
     await mapLoaded;
 
-    // determine firstSymbolId if not calculated yet
-    if (!firstSymbolId) {
-        let layers = map.getStyle().layers;
-        // find the index of the first symbol layer in the map style
-        for (let i = 0; i < layers.length; i++) {
-            if (layers[i].type === 'symbol') {
-                firstSymbolId = layers[i].id;
-                break;
+    // build sources from provided geo json files if uses geojson
+    if (useGeoJSON) {
+        // determine firstSymbolId if not calculated yet
+        if (!firstSymbolId) {
+            let layers = map.getStyle().layers;
+            // find the index of the first symbol layer in the map style
+            for (let i = 0; i < layers.length; i++) {
+                if (layers[i].type === 'symbol') {
+                    firstSymbolId = layers[i].id;
+                    break;
+                }
             }
         }
+
+        map.addSource(sourceName, {
+            'type': 'geojson', 'data': geoJSON
+        });
+
+        // add layer from provided data
+        map.addLayer({
+            'id': sourceName + '-layer', 'type': 'fill', 'source': sourceName, 'layout': {}, 'paint': {
+                'fill-color': ['get', 'fill'], 'fill-opacity': 0.32
+            }
+        }, firstSymbolId);
     }
-
-    // build sources from provided geo json files
-    map.addSource(sourceName, {
-        'type': 'geojson', 'data': geoJSON
-    });
-
-    // add layer from provided data
-    map.addLayer({
-        'id': sourceName + '-layer', 'type': 'fill', 'source': sourceName, 'layout': {}, 'paint': {
-            'fill-color': ['get', 'fill'], 'fill-opacity': 0.32
-        }
-    }, firstSymbolId);
 
     // add markers for event to the map
     addMarkers(map, markers, serverData, colors, source);
@@ -239,17 +241,17 @@ worker.onerror = function (e) {
 // send data to worker; load variables only for needed cookies
 // from the beginning loading is enabled
 if (disasterCookie === 'true') {
-    worker.postMessage({source: 0, dateOfTimestamp: date,  onlyNewData: onlyNewDataCookie, timestamp: timestamp});
+    worker.postMessage({source: 0, useGeoJSON: useGeoJSON,dateOfTimestamp: date,  onlyNewData: onlyNewDataCookie, timestamp: timestamp});
     feedbacksAwaited++;
 }
 
 if (reportCookie === 'true') {
-    worker.postMessage({source: 1, dateOfTimestamp: date,  onlyNewData: onlyNewDataCookie, timestamp: timestamp});
+    worker.postMessage({source: 1, useGeoJSON: useGeoJSON, dateOfTimestamp: date,  onlyNewData: onlyNewDataCookie, timestamp: timestamp});
     feedbacksAwaited++;
 }
 
 if (newsCookie === 'true') {
-    worker.postMessage({source: 2, dateOfTimestamp: date,  onlyNewData: onlyNewDataCookie, timestamp: timestamp});
+    worker.postMessage({source: 2, useGeoJSON: useGeoJSON, dateOfTimestamp: date,  onlyNewData: onlyNewDataCookie, timestamp: timestamp});
     feedbacksAwaited++;
 }
 
@@ -271,7 +273,7 @@ for (const checkbox of ['disaster', 'report', 'news']) {
         if (this.checked && sourceData[source] === null) {
             // start loading if is not loaded yet, else just toggle layer
             setLoading(true);
-            worker.postMessage({source: source, dateOfTimestamp: date, onlyNewData: onlyNewDataCookie, timestamp: timestamp});
+            worker.postMessage({source: source, useGeoJSON: useGeoJSON, dateOfTimestamp: date, onlyNewData: onlyNewDataCookie, timestamp: timestamp});
             feedbacksAwaited++;
         } else {
             toggleLayer(map, markers, checkbox + '-layer', this.checked);
