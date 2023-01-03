@@ -37,6 +37,9 @@ function setLoading(isLoading) {
     // animate show settings or hide
     $('#settings').animate({width: 'toggle', height: 'toggle'});
 
+    // the same with articles list button
+    $('#articlesButtonDiv').animate({width: 'toggle'});
+
     // set variable
     loading = isLoading;
 }
@@ -103,10 +106,17 @@ function toggleDatePickerDiv(isMobile) {
     datePickerDiv.animate({height: 'toggle'}, {duration: 200});
 }
 
-async function openSideBar(map, marker, allGeoJson) {
+async function openSideBar(marker) {
+    // if is opened with marker
+    // show articles list
+    const markerMode = marker !== null;
+
     // specific actions only take place if sidebar is not already opened
     // get color rgb values from hex
-    const rgb = hexToRgb(marker.color);
+    const rgb = markerMode ?
+        hexToRgb(marker.color) : {
+            r: 0, g: 0, b: 0
+        };
 
     // sidebar and content divs
     const sidebar = $('#sidebar');
@@ -119,8 +129,8 @@ async function openSideBar(map, marker, allGeoJson) {
     // set margin left for main element, show sidebar, set color etc.
     sidebarContent.css('background', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.19)`);
 
-    // fetch sidebar text if not already loaded
-    if (false === marker.descriptionLoaded) {
+    // fetch sidebar text if not already loaded if is not in articles mode
+    if (markerMode && false === marker.descriptionLoaded) {
         // load the description text
         const res = await fetch('/api/text/' + ['disaster', 'report', 'news'][marker.source] + '/' + marker.id);
         // check response is ok
@@ -142,12 +152,23 @@ async function openSideBar(map, marker, allGeoJson) {
             width: 'toggle'
         }, {
             complete: function () {
-                // set sidebar text
-                $('#sidebarText').html(marker.description);
-                // open links in sidebar in new tab
-                $('#sidebarText a').attr('target', '_blank');
+                if (markerMode) {
+                    // set sidebar text
+                    $('#sidebarText').html(marker.description);
+                    // open links in sidebar in new tab
+                    $('#sidebarText a').attr('target', '_blank');
+                } else {
+                    // show articles list if is in articles mode
+                    $('#articlesListDiv').show();
+                    // and set no text in sidebarText
+                    $('#sidebarText').text('');
+                }
             }
         });
+
+        // hide articlesButtonDiv with opening of the sidebar
+        $('#articlesButtonDiv').animate({width: 'hide'});
+
         // toggle show settings (only on mobile sized devices)
         if (isMobile) {
             $('#settings').animate({width: 'toggle', height: 'toggle'});
@@ -158,22 +179,33 @@ async function openSideBar(map, marker, allGeoJson) {
                 $('#datePickerDiv').animate({height: 'toggle'});
             }
         }
-    } else {
+        // if is not in articles mode, show new text
+    } else if (markerMode) {
+        // show articles button dive again since is marker mode
+        $('#articlesButtonDiv').animate({width: 'toggle'});
+        // hide articles list
+        $('#articlesListDiv').hide();
         // set sidebar text directly without animation
         $('#sidebarText').html(marker.description);
         // open links in sidebar in new tab
         $('#sidebarText a').attr('target', '_blank');
         // make sure is scrolled to top
         sidebarContent.scrollTop(0);
+    } else {
+        // if is in articles mode, show articles list
+        $('#articlesListDiv').show();
+        // and set no text in sidebarText
+        $('#sidebarText').text('');
     }
 
     // only if useGeoJSON is true
-    if (useGeoJSON) {
+    // and is in marker and not article mode
+    if (markerMode && useGeoJSON) {
         // on the map, mark the region as selected (get event geo json and add it to the map as layer)
-        const eventGeoJSON = getGeoJSONFromEvent(allGeoJson, marker.eventIndex);
+        const eventGeoJSON = getGeoJSONFromEvent(sourceGeoJSON[marker.source], marker.eventIndex);
 
         // remove marked layer and source if they already exist (sidebar was already opened for other event)
-        if (!sidebarIsClosed) {
+        if (!sidebarIsClosed && map.getLayer('marked-layer')) {
             map.removeLayer('marked-layer');
             map.removeSource('marked');
         }
@@ -193,7 +225,17 @@ async function openSideBar(map, marker, allGeoJson) {
 
     // set boolean to indicate sidebar is open and set selected marker
     sidebarIsClosed = false;
-    selectedMarker = marker;
+    selectedMarker = markerMode ? marker : null;
+}
+
+
+// open the sidebar with list of articles
+function openArticlesList() {
+    // toggle hide article button div
+    $('#articlesButtonDiv').animate({width: 'hide'});
+
+    // open sidebar with list of articles (pass null)
+    openSideBar(null);
 }
 
 function closeSideBar() {
@@ -202,6 +244,7 @@ function closeSideBar() {
         return;
     }
 
+    // get if is mobile orientation
     const isMobile = pageIsMobileFormat();
 
     // hide sidebar
@@ -216,6 +259,9 @@ function closeSideBar() {
         $('#settings').animate({width: 'toggle', height: 'toggle'});
     }
 
+    // show article button div again
+    $('#articlesButtonDiv').animate({width: 'show'});
+
     // show date picker div if it was hidden on sidebar open
     if (datePickerDivHiddenOnSidebar) {
         datePickerDivHiddenOnSidebar = false;
@@ -223,10 +269,15 @@ function closeSideBar() {
     }
 
     // remove marked layer and source if uses geojson
-    if (useGeoJSON) {
+    // and if the layer exists
+    if (useGeoJSON && map.getLayer('marked-layer')) {
         map.removeLayer('marked-layer');
         map.removeSource('marked');
     }
+
+    // make sure articlesList is hidden again
+    $('#articlesListDiv').hide();
+
     // set sidebar closed and selected marker null
     sidebarIsClosed = true;
     selectedMarker = null;
@@ -316,16 +367,11 @@ function addMarkers(map, markers, dataList, colors, source) {
             year: 'numeric', month: 'long', day: 'numeric',
         });
 
-        // add date property to marker for article list
-        // as well as the events:
-        // - title
-        // - icon
-        marker.articleTitle = data.title;
-        marker.articleDate = dateString;
-        marker.date = eventDate;
+        // get marker image path for sidebar
+        const markerImagePathSidebar = markerImagePath.replace(/white/g, 'black');
 
-        // set basic description and loaded false
-        marker.description = `<div><img src="${markerImagePath.replace(/white/g, 'black')}" alt="event type" style="width: 2rem; height: 2rem; margin-bottom: 0.5rem"><br><i>`
+        // set marker html text for sidebar
+        marker.description = `<div><img src="${markerImagePathSidebar}" alt="event type" style="width: 2rem; height: 2rem; margin-bottom: 0.5rem"><br><i>`
             + eventName
             + '</i></div><p><small>'
             + dateString
@@ -336,6 +382,15 @@ function addMarkers(map, markers, dataList, colors, source) {
             + '</a></h2><br>';
 
         marker.descriptionLoaded = false;
+
+
+        // set marker html text for article list
+        marker.articleDescription = `<div class="p-1" style="display: inline-flex"><img src="${markerImagePathSidebar}" alt="event type" style="width: 2rem; height: 2rem; float: left">`
+            + `<button class="link ms-2" onclick="onArticleClick(${data.id})">`
+            + data.title
+            + ' <small>('
+            + dateString
+            + ')</small></button></div>';
 
         // add id of event to marker
         marker.id = data.id;
@@ -359,10 +414,18 @@ function addMarkers(map, markers, dataList, colors, source) {
     }
 }
 
+
+function onArticleClick(markerId) {
+    // get marker with id
+    const marker = markers.find((marker) => marker.id === markerId);
+    // open sidebar with marker
+    openSideBar(marker);
+}
+
 // function for showing and hiding layers and their markers
 function toggleLayer(map, markers, layerId, show) {
     // try to toggle geojson layers only if used
-    if (useGeoJSON){
+    if (useGeoJSON) {
         map.setLayoutProperty(layerId, 'visibility', show ? 'visible' : 'none');
     }
 

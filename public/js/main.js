@@ -163,16 +163,14 @@ function feedbackReceived() {
         // sort markers by date when all loaded for article list
         markers.sort((a, b) => b.date - a.date);
 
-        // print list of articles
+        // remove all elements from article list html
+        $('#articleList').empty();
+
+        // add list of articles to articlesList
         for (let i = 0; i < markers.length; i++) {
-            const marker = markers[i];
-            // const article = marker.article;
-            // const articleDiv = document.createElement('div');
-            // articleDiv.classList.add('article');
-            // articleDiv.innerHTML = `<a href="${article.url}" target="_blank">${article.title}</a>`;
-            // $('#articles').append(articleDiv);
-            // TODO here article list in sidebar
-            console.log(marker.articleTitle, marker.articleDate)
+            const articleDiv = document.createElement('div');
+            articleDiv.innerHTML = markers[i].articleDescription;
+            $('#articlesList').append(articleDiv);
         }
     }
 }
@@ -256,17 +254,35 @@ worker.onerror = function (e) {
 // send data to worker; load variables only for needed cookies
 // from the beginning loading is enabled
 if (disasterCookie === 'true') {
-    worker.postMessage({source: 0, useGeoJSON: useGeoJSON,dateOfTimestamp: date,  onlyNewData: onlyNewDataCookie, timestamp: timestamp});
+    worker.postMessage({
+        source: 0,
+        useGeoJSON: useGeoJSON,
+        dateOfTimestamp: date,
+        onlyNewData: onlyNewDataCookie,
+        timestamp: timestamp
+    });
     feedbacksAwaited++;
 }
 
 if (reportCookie === 'true') {
-    worker.postMessage({source: 1, useGeoJSON: useGeoJSON, dateOfTimestamp: date,  onlyNewData: onlyNewDataCookie, timestamp: timestamp});
+    worker.postMessage({
+        source: 1,
+        useGeoJSON: useGeoJSON,
+        dateOfTimestamp: date,
+        onlyNewData: onlyNewDataCookie,
+        timestamp: timestamp
+    });
     feedbacksAwaited++;
 }
 
 if (newsCookie === 'true') {
-    worker.postMessage({source: 2, useGeoJSON: useGeoJSON, dateOfTimestamp: date,  onlyNewData: onlyNewDataCookie, timestamp: timestamp});
+    worker.postMessage({
+        source: 2,
+        useGeoJSON: useGeoJSON,
+        dateOfTimestamp: date,
+        onlyNewData: onlyNewDataCookie,
+        timestamp: timestamp
+    });
     feedbacksAwaited++;
 }
 
@@ -288,7 +304,13 @@ for (const checkbox of ['disaster', 'report', 'news']) {
         if (this.checked && sourceData[source] === null) {
             // start loading if is not loaded yet, else just toggle layer
             setLoading(true);
-            worker.postMessage({source: source, useGeoJSON: useGeoJSON, dateOfTimestamp: date, onlyNewData: onlyNewDataCookie, timestamp: timestamp});
+            worker.postMessage({
+                source: source,
+                useGeoJSON: useGeoJSON,
+                dateOfTimestamp: date,
+                onlyNewData: onlyNewDataCookie,
+                timestamp: timestamp
+            });
             feedbacksAwaited++;
         } else {
             toggleLayer(map, markers, checkbox + '-layer', this.checked);
@@ -315,7 +337,7 @@ map.on('click', event => {
             if (marker === selectedMarker) {
                 closeSideBar();
             } else {
-                openSideBar(map, marker, sourceGeoJSON[marker.source]);
+                openSideBar(marker);
             }
 
             // is marker is true

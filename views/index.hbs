@@ -4,18 +4,27 @@
     <div id="sidebarContent" class="p-3">
         <div class="row sticky-top">
             <div class="col-sm-12">
-
                 <button type="button" class="w3-button w3-large float-end"
                         onclick="closeSideBar()">&times;
                 </button>
             </div>
         </div>
         <div id="sidebarText" class="container ps-5 pe-5 pb-5"></div>
+
+        <div id="articlesListDiv" class="container ps-5 pe-5 pb-5">
+            <h1>All Articles</h1>
+            <ul id="articlesList"></ul>
+        </div>
     </div>
 </div>
 
 <div id="main">
     <div id="map"></div>
+
+
+    <div id="articlesButtonDiv" class="p-2 w3-card">
+        <i id="articlesButton" class="fa fa-list-ul fa-2x" onclick="openArticlesList()"></i>
+    </div>
 
     <div id="settings" class="p-2 w3-card">
         <i id="settingsButton" class="fa fa-cog fa-2x" onclick="clickSettingsButton(null)"></i>
