@@ -32,6 +32,9 @@ def update_database():
     # load news to database
     load_news_to_database()
 
+    # update ongoing disasters
+    update_ongoing_disasters_in_database()
+
 
 if __name__ == '__main__':
     while True:

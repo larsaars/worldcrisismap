@@ -316,6 +316,14 @@ function addMarkers(map, markers, dataList, colors, source) {
             year: 'numeric', month: 'long', day: 'numeric',
         });
 
+        // add date property to marker for article list
+        // as well as the events:
+        // - title
+        // - icon
+        marker.articleTitle = data.title;
+        marker.articleDate = dateString;
+        marker.date = eventDate;
+
         // set basic description and loaded false
         marker.description = `<div><img src="${markerImagePath.replace(/white/g, 'black')}" alt="event type" style="width: 2rem; height: 2rem; margin-bottom: 0.5rem"><br><i>`
             + eventName

@@ -26,9 +26,6 @@ except Exception as e:
 
 cur = connection.cursor()
 
-# cur.execute(QUERY)
-# cur.fetchall()
-
 
 # load country region mapper
 mappers = load_country_region_mapper_and_country_code_mapper()
@@ -96,9 +93,59 @@ def load_disasters_to_database(offset=0, limit=10, single_commits=False) -> int:
         print('Committing changes to database...')
         connection.commit()
 
-
     # return total number of disasters in API
     return res['totalCount']
+
+
+def update_ongoing_disasters_in_database():
+    """
+    Updates the ongoing disasters in the database.
+    """
+
+    # get ongoing disasters from ReliefWeb API
+    res = requests.get('https://api.reliefweb.int/v1/disasters?appname=crisis_collector&profile=full&preset=latest&slim=1&filter[field]=status&filter[value]=ongoing&limit=999').json()
+
+    # get list of currently as active listed disasters in database
+    cur.execute('SELECT id FROM disasters WHERE status = \'ongoing\';')
+    database_ongoing_disasters = [item[0] for item in cur.fetchall()]
+
+    # get list of ongoing disasters in API
+    api_ongoing_disasters = [item['id'] for item in res['data']]
+
+    # get list of ongoing disasters that are not in API
+    old_ongoing_disasters = [item for item in database_ongoing_disasters if item not in api_ongoing_disasters]
+
+    # update old ongoing disasters to be inactive
+    for item in old_ongoing_disasters:
+        cur.execute(f'UPDATE disasters SET status = \'past\' WHERE id = {item};')
+
+
+    # update text of ongoing disasters the api provided in database
+    # as well as status to ongoing
+    for item in res['data']:
+        try: 
+            # the fields object
+            fd = item['fields']
+
+            # load description_html if available
+            description_html = escape(fd['description-html']) if 'description-html' in fd else '' 
+
+            # execute update query for description
+            query = f"UPDATE disasters_text SET text = '{description_html}' WHERE id = {item['id']};"
+            cur.execute(query)
+
+            # execute update query for status
+            query = f"UPDATE disasters SET status = 'ongoing' WHERE id = {item['id']};"
+            cur.execute(query)
+
+            # commit changes after every insert
+            connection.commit()
+        except Exception as e:
+            connection.rollback()
+            printerr(type(e), e)
+
+
+        
 
 
 def load_reports_to_database(offset=0, limit=10, single_commits=False) -> int:

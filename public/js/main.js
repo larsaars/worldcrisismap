@@ -159,6 +159,21 @@ function feedbackReceived() {
             clickSettingsButton(null);
             localStorage.setItem('settingsShown', 'true');
         }
+
+        // sort markers by date when all loaded for article list
+        markers.sort((a, b) => b.date - a.date);
+
+        // print list of articles
+        for (let i = 0; i < markers.length; i++) {
+            const marker = markers[i];
+            // const article = marker.article;
+            // const articleDiv = document.createElement('div');
+            // articleDiv.classList.add('article');
+            // articleDiv.innerHTML = `<a href="${article.url}" target="_blank">${article.title}</a>`;
+            // $('#articles').append(articleDiv);
+            // TODO here article list in sidebar
+            console.log(marker.articleTitle, marker.articleDate)
+        }
     }
 }
 
@@ -306,6 +321,7 @@ map.on('click', event => {
             // is marker is true
             isMarker = true;
 
+            // break the loop
             break;
         }
     }
