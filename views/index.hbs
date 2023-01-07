@@ -4,8 +4,13 @@
     <div id="sidebarContent" class="p-3">
         <div class="row sticky-top">
             <div class="col-sm-12">
+                <button type="button" class="w3-button w3-large float-start" onclick="openSideBar(lastSelectedMarker)">
+                    <i id="articlesListButtonList" class="fa fa-list-ul" style="display: none"></i>
+                    <i id="articlesListButtonBack" class="fa fa-arrow-left" style="display: none"></i>
+                </button>
                 <button type="button" class="w3-button w3-large float-end"
-                        onclick="closeSideBar()">&times;
+                        onclick="closeSideBar()">
+                    <i class="fa fa-times"></i>
                 </button>
             </div>
         </div>
@@ -21,9 +26,8 @@
 <div id="main">
     <div id="map"></div>
 
-
-    <div id="articlesButtonDiv" class="p-2 w3-card">
-        <i id="articlesButton" class="fa fa-list-ul fa-2x" onclick="openArticlesList()"></i>
+    <div id="articlesButtonDiv" class="w3-card">
+        <i id="articlesButton" class="fa fa-list-ul fa-2x p-2" onclick="openArticlesList()"></i>
     </div>
 
     <div id="settings" class="p-2 w3-card">

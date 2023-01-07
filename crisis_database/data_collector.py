@@ -234,6 +234,8 @@ def load_news_to_database() -> int:
 
     # clear table for today
     cur.execute('TRUNCATE TABLE news_today;')
+    cur.execute('TRUNCATE TABLE news_today_text;')
+    connection.commit()
 
     # create id counter
     identifier = 0
@@ -271,10 +273,10 @@ def load_news_to_database() -> int:
             # insert insert query for description
             query = f"INSERT INTO news_today_text(id, text) VALUES ({identifier}, '{escape(content)}');"
             cur.execute(query)
+
+            # direcly commit insert
+            connection.commit()
         except Exception as e:
             connection.rollback()
             printerr(type(e), e)
 
-    # commit changes
-    print('Committing changes to database...')
-    connection.commit()

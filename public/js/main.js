@@ -164,12 +164,21 @@ function feedbackReceived() {
         markers.sort((a, b) => b.date - a.date);
 
         // remove all elements from article list html
-        $('#articleList').empty();
+        $('#articlesList').empty();
+
+        // update article list scroll state to zero
+        articlesListScrollState = 0
 
         // add list of articles to articlesList
         for (let i = 0; i < markers.length; i++) {
+            // create the element and set the html
             const articleDiv = document.createElement('div');
             articleDiv.innerHTML = markers[i].articleDescription;
+
+            // add class of article to be able to hide and show it on change of checkbox
+            articleDiv.classList.add('article-' + markers[i].source);
+
+            // add to articles list div
             $('#articlesList').append(articleDiv);
         }
     }
@@ -313,6 +322,13 @@ for (const checkbox of ['disaster', 'report', 'news']) {
             });
             feedbacksAwaited++;
         } else {
+            // hide and remove items from article list accordingly (class is set)
+            $('.article-' + source).toggle(this.checked);
+
+            // update article list scroll state to zero
+            articlesListScrollState = 0
+
+            // toggle the layer if information already loaded
             toggleLayer(map, markers, checkbox + '-layer', this.checked);
         }
     });

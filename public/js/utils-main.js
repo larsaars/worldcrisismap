@@ -1,5 +1,5 @@
 // global bool if sidebar is open
-let sidebarIsClosed = true, selectedMarker = null;
+let sidebarIsClosed = true, selectedMarker = null, lastSelectedMarker = null;
 // global variable for settings
 let settingsOpened = false;
 // global variable if is loading
@@ -8,6 +8,9 @@ let loading = true;
 let datePickerDivHiddenOnSidebar = false;
 // global variable if uses geoJSON
 let useGeoJSON;
+
+// the articles list scroll state
+let articlesListScrollState = 0;
 
 
 // detect if page is in mobile format or mobile phone
@@ -106,6 +109,40 @@ function toggleDatePickerDiv(isMobile) {
     datePickerDiv.animate({height: 'toggle'}, {duration: 200});
 }
 
+function hideArticlesList() {
+    // save scroll state of article list
+    articlesListScrollState = $('#sidebarContent').scrollTop();
+
+    // hide articles list div
+    $('#articlesListDiv').hide();
+
+    // animate show articles list button div
+    $('#articlesButtonDiv').animate({width: 'show'});
+
+    // show articles button
+    $('#articlesListButtonBack').hide();
+    $('#articlesListButtonList').show();
+}
+
+function showArticlesList() {
+    // show articles list div
+    $('#articlesListDiv').show();
+
+    // re-initate with old scroll state
+    $('#sidebarContent').scrollTop(articlesListScrollState);
+
+
+    // animate hide articles list button div
+    $('#articlesButtonDiv').animate({width: 'hide'});
+
+    // show back button (if last selected marker is not null)
+    if (lastSelectedMarker !== null) {
+        $('#articlesListButtonBack').show();
+    }
+
+    $('#articlesListButtonList').hide();
+}
+
 async function openSideBar(marker) {
     // if is opened with marker
     // show articles list
@@ -158,16 +195,19 @@ async function openSideBar(marker) {
                     // open links in sidebar in new tab
                     $('#sidebarText a').attr('target', '_blank');
                 } else {
-                    // show articles list if is in articles mode
-                    $('#articlesListDiv').show();
-                    // and set no text in sidebarText
                     $('#sidebarText').text('');
                 }
             }
         });
 
-        // hide articlesButtonDiv with opening of the sidebar
-        $('#articlesButtonDiv').animate({width: 'hide'});
+        if (markerMode) {
+            // display article list button in marker mode
+            $('#articlesListButtonList').show();
+            $('#articlesListButtonBack').hide();
+        } else {
+            // hide articlesButtonDiv with opening of the sidebar if is articles mode
+            $('#articlesButtonDiv').animate({width: 'hide'});
+        }
 
         // toggle show settings (only on mobile sized devices)
         if (isMobile) {
@@ -179,12 +219,12 @@ async function openSideBar(marker) {
                 $('#datePickerDiv').animate({height: 'toggle'});
             }
         }
-        // if is not in articles mode, show new text
+        // if is in marker mode, show new text
     } else if (markerMode) {
-        // show articles button dive again since is marker mode
-        $('#articlesButtonDiv').animate({width: 'toggle'});
         // hide articles list
-        $('#articlesListDiv').hide();
+        hideArticlesList();
+        // set last selected marker to null to get back to articles list mode next button click
+        lastSelectedMarker = null;
         // set sidebar text directly without animation
         $('#sidebarText').html(marker.description);
         // open links in sidebar in new tab
@@ -192,8 +232,10 @@ async function openSideBar(marker) {
         // make sure is scrolled to top
         sidebarContent.scrollTop(0);
     } else {
+        // set last selected marker to selected maker
+        lastSelectedMarker = selectedMarker;
         // if is in articles mode, show articles list
-        $('#articlesListDiv').show();
+        showArticlesList();
         // and set no text in sidebarText
         $('#sidebarText').text('');
     }
@@ -231,8 +273,8 @@ async function openSideBar(marker) {
 
 // open the sidebar with list of articles
 function openArticlesList() {
-    // toggle hide article button div
-    $('#articlesButtonDiv').animate({width: 'hide'});
+    // show the list of articles
+    showArticlesList();
 
     // open sidebar with list of articles (pass null)
     openSideBar(null);
@@ -278,9 +320,13 @@ function closeSideBar() {
     // make sure articlesList is hidden again
     $('#articlesListDiv').hide();
 
-    // set sidebar closed and selected marker null
+    // set sidebar closed and selected marker null, as well as sidebar marker
     sidebarIsClosed = true;
+    lastSelectedMarker = null;
     selectedMarker = null;
+
+    // reset articles list scroll top
+    articlesListScrollState = 0;
 }
 
 function clickSettingsButton(onlyHide) {
@@ -405,6 +451,9 @@ function addMarkers(map, markers, dataList, colors, source) {
         // set coords to marker
         marker.lat = data.lat;
         marker.lon = data.lon;
+
+        // add date info
+        marker.date = eventDate;
 
         // add to map
         marker.addTo(map);
