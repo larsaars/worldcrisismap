@@ -143,7 +143,28 @@ function showArticlesList() {
     $('#articlesListButtonList').hide();
 }
 
-async function openSideBar(marker) {
+// sleep thread for ms milliseconds
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// let layer and marker blink by showing and hiding it n times
+async function blinkLayerAndMarker(layerName, marker, times=3) {
+    for (let i = 0; i < times; i++) {
+        // wait 200 ms
+        await sleep(200);
+        // hide layer and marker
+        map.setLayoutProperty(layerName, 'visibility', 'none');
+        $(marker.getElement()).hide();
+        // wait 200 ms
+        await sleep(200);
+        // show layer and marker
+        map.setLayoutProperty(layerName, 'visibility', 'visible');
+        $(marker.getElement()).show()
+    }
+}
+
+async function openSideBar(marker, comingFromArticlesList=false) {
     // if is opened with marker
     // show articles list
     const markerMode = marker !== null;
@@ -263,6 +284,25 @@ async function openSideBar(marker) {
                 'fill-color': ['get', 'fill'], 'fill-opacity': 0.9
             }
         });
+
+        // if is coming from article list (or back button was clicked)
+        // perform blinking effect on the layer
+        // (in order to make it more visible)
+        if (comingFromArticlesList) {
+            blinkLayerAndMarker('marked-layer', marker);
+        }
+    }
+
+    // if is in marker mode and coming from the articles list
+    // (or back button was clicked),
+    // scroll to the selected marker to make it clearer
+    if (markerMode && comingFromArticlesList) {
+        map.flyTo({
+            center: {
+                lat: marker.lat,
+                lng: marker.lon
+            }
+        })
     }
 
     // set boolean to indicate sidebar is open and set selected marker
@@ -468,7 +508,7 @@ function onArticleClick(markerId) {
     // get marker with id
     const marker = markers.find((marker) => marker.id === markerId);
     // open sidebar with marker
-    openSideBar(marker);
+    openSideBar(marker, true);
 }
 
 // function for showing and hiding layers and their markers
