@@ -158,12 +158,18 @@ async function blinkLayerAndMarker(layerName, marker, times = 3) {
         await sleep(200);
         // hide layer and marker
         map.setLayoutProperty(layerName, 'visibility', 'none');
-        $(marker.getElement()).hide();
+
+        if (marker !== null) {
+            $(marker.getElement()).hide();
+        }
         // wait 200 ms
         await sleep(200);
         // show layer and marker
         map.setLayoutProperty(layerName, 'visibility', 'visible');
-        $(marker.getElement()).show();
+
+        if (marker !== null) {
+            $(marker.getElement()).show();
+        }
     }
 }
 
@@ -174,10 +180,9 @@ async function openSideBar(marker, comingFromArticlesList = false) {
 
     // specific actions only take place if sidebar is not already opened
     // get color rgb values from hex
-    const rgb = markerMode ?
-        hexToRgb(marker.color) : {
-            r: 0, g: 0, b: 0
-        };
+    const rgb = markerMode ? hexToRgb(marker.color) : {
+        r: 0, g: 0, b: 0
+    };
 
     // sidebar and content divs
     const sidebar = $('#sidebar');
@@ -278,17 +283,12 @@ async function openSideBar(marker, comingFromArticlesList = false) {
 
         // add source and layer
         map.addSource('marked', {
-            type: 'geojson',
-            data: eventGeoJSON
+            type: 'geojson', data: eventGeoJSON
         });
 
         // add a layer that marks the current selection
         map.addLayer({
-            id: 'marked-layer',
-            type: 'fill',
-            source: 'marked',
-            layout: {},
-            paint: {
+            id: 'marked-layer', type: 'fill', source: 'marked', layout: {}, paint: {
                 'fill-color': ['get', 'fill'], 'fill-opacity': 0.9
             }
         });
@@ -300,10 +300,8 @@ async function openSideBar(marker, comingFromArticlesList = false) {
     if (markerMode && comingFromArticlesList) {
         map.flyTo({
             center: {
-                lat: marker.lat,
-                lng: marker.lon
-            },
-            offset: isMobile ? [0, 0] : [window.innerWidth * 0.21, 0] // set offset of 21% because the side window is 42% of size (correct center with sidebar, only if not in mobile format)
+                lat: marker.lat, lng: marker.lon
+            }, offset: isMobile ? [0, 0] : [window.innerWidth * 0.21, 0] // set offset of 21% because the side window is 42% of size (correct center with sidebar, only if not in mobile format)
         });
 
         // set is flying to true (for map move end listener)
@@ -462,26 +460,13 @@ function addMarkers(map, markers, dataList, colors, source) {
         const markerImagePathSidebar = markerImagePath.replace(/white/g, 'black');
 
         // set marker html text for sidebar
-        marker.description = `<div><img src="${markerImagePathSidebar}" alt="event type" style="width: 2rem; height: 2rem; margin-bottom: 0.5rem"><br><i>`
-            + eventName
-            + '</i></div><p><small>'
-            + dateString
-            + '</small></p><h2><a href="'
-            + data.url
-            + '">'
-            + data.title
-            + '</a></h2><br>';
+        marker.description = `<div><img src="${markerImagePathSidebar}" alt="event type" style="width: 2rem; height: 2rem; margin-bottom: 0.5rem"><br><i>` + eventName + '</i></div><p><small>' + dateString + '</small></p><h2><a href="' + data.url + '">' + data.title + '</a></h2><br>';
 
         marker.descriptionLoaded = false;
 
 
         // set marker html text for article list
-        marker.articleDescription = `<div class="p-1" style="display: inline-flex"><img src="${markerImagePathSidebar}" alt="event type" style="width: 2rem; height: 2rem; float: left">`
-            + `<button class="link ms-2" onclick="onArticleClick(${data.id})">`
-            + data.title
-            + ' <small>('
-            + dateString
-            + ')</small></button></div>';
+        marker.articleDescription = `<div class="p-1" style="display: inline-flex"><img src="${markerImagePathSidebar}" alt="event type" style="width: 2rem; height: 2rem; float: left">` + `<button class="link ms-2" onclick="onArticleClick(${data.id})">` + data.title + ' <small>(' + dateString + ')</small></button></div>';
 
         // add id of event to marker
         marker.id = data.id;
@@ -525,9 +510,7 @@ function toggleLayer(map, markers, layerId, show) {
 
     // filter show or hide markers
     const layerNames = {
-        0: 'disaster-layer',
-        1: 'report-layer',
-        2: 'news-layer',
+        0: 'disaster-layer', 1: 'report-layer', 2: 'news-layer',
     };
 
     markers.filter(m => layerId === layerNames[m.source]).forEach(m => m.getElement().style.display = show ? 'block' : 'none');
