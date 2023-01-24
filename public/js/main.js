@@ -167,7 +167,7 @@ function feedbackReceived() {
         $('#articlesList').empty();
 
         // update article list scroll state to zero
-        articlesListScrollState = 0
+        articlesListScrollState = 0;
 
         // add list of articles to articlesList
         for (let i = 0; i < markers.length; i++) {
@@ -260,6 +260,19 @@ worker.onerror = function (e) {
     feedbackReceived();
 };
 
+map.on('moveend', function () {
+    // if map stopped moving from flying motion,
+    // and is using geojson
+    if (isFlying && useGeoJSON) {
+        // perform blinking effect on the layer
+        // (in order to make it more visible)
+        blinkLayerAndMarker('marked-layer', selectedMarker);
+
+        // update flying state again
+        isFlying = false;
+    }
+});
+
 // send data to worker; load variables only for needed cookies
 // from the beginning loading is enabled
 if (disasterCookie === 'true') {
@@ -326,7 +339,7 @@ for (const checkbox of ['disaster', 'report', 'news']) {
             $('.article-' + source).toggle(this.checked);
 
             // update article list scroll state to zero
-            articlesListScrollState = 0
+            articlesListScrollState = 0;
 
             // toggle the layer if information already loaded
             toggleLayer(map, markers, checkbox + '-layer', this.checked);

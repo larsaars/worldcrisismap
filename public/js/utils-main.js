@@ -12,6 +12,9 @@ let useGeoJSON;
 // the articles list scroll state
 let articlesListScrollState = 0;
 
+// variable if is map is flying
+let isFlying = false;
+
 
 // detect if page is in mobile format or mobile phone
 // call every time newly because window can be resized
@@ -149,7 +152,7 @@ function sleep(ms) {
 }
 
 // let layer and marker blink by showing and hiding it n times
-async function blinkLayerAndMarker(layerName, marker, times=3) {
+async function blinkLayerAndMarker(layerName, marker, times = 3) {
     for (let i = 0; i < times; i++) {
         // wait 200 ms
         await sleep(200);
@@ -160,11 +163,11 @@ async function blinkLayerAndMarker(layerName, marker, times=3) {
         await sleep(200);
         // show layer and marker
         map.setLayoutProperty(layerName, 'visibility', 'visible');
-        $(marker.getElement()).show()
+        $(marker.getElement()).show();
     }
 }
 
-async function openSideBar(marker, comingFromArticlesList=false) {
+async function openSideBar(marker, comingFromArticlesList = false) {
     // if is opened with marker
     // show articles list
     const markerMode = marker !== null;
@@ -275,22 +278,20 @@ async function openSideBar(marker, comingFromArticlesList=false) {
 
         // add source and layer
         map.addSource('marked', {
-            'type': 'geojson', 'data': eventGeoJSON
+            type: 'geojson',
+            data: eventGeoJSON
         });
 
         // add a layer that marks the current selection
         map.addLayer({
-            'id': 'marked-layer', 'type': 'fill', 'source': 'marked', 'layout': {}, 'paint': {
+            id: 'marked-layer',
+            type: 'fill',
+            source: 'marked',
+            layout: {},
+            paint: {
                 'fill-color': ['get', 'fill'], 'fill-opacity': 0.9
             }
         });
-
-        // if is coming from article list (or back button was clicked)
-        // perform blinking effect on the layer
-        // (in order to make it more visible)
-        if (comingFromArticlesList) {
-            blinkLayerAndMarker('marked-layer', marker);
-        }
     }
 
     // if is in marker mode and coming from the articles list
@@ -303,7 +304,10 @@ async function openSideBar(marker, comingFromArticlesList=false) {
                 lng: marker.lon
             },
             offset: isMobile ? [0, 0] : [window.innerWidth * 0.21, 0] // set offset of 21% because the side window is 42% of size (correct center with sidebar, only if not in mobile format)
-        })
+        });
+
+        // set is flying to true (for map move end listener)
+        isFlying = true;
     }
 
     // set boolean to indicate sidebar is open and set selected marker
