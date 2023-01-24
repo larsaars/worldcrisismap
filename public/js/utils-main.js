@@ -301,7 +301,8 @@ async function openSideBar(marker, comingFromArticlesList=false) {
             center: {
                 lat: marker.lat,
                 lng: marker.lon
-            }
+            },
+            offset: isMobile ? [0, 0] : [window.innerWidth * 0.21, 0] // set offset of 21% because the side window is 42% of size (correct center with sidebar, only if not in mobile format)
         })
     }
 
