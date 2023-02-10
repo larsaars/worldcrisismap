@@ -131,10 +131,6 @@ function showArticlesList() {
     // show articles list div
     $('#articlesListDiv').show();
 
-    // re-initate with old scroll state
-    $('#sidebarContent').scrollTop(articlesListScrollState);
-
-
     // animate hide articles list button div
     $('#articlesButtonDiv').animate({width: 'hide'});
 
@@ -144,6 +140,9 @@ function showArticlesList() {
     }
 
     $('#articlesListButtonList').hide();
+    
+    // re-initate with old scroll state
+    $('#sidebarContent').scrollTop(articlesListScrollState);
 }
 
 // sleep thread for ms milliseconds
@@ -233,9 +232,12 @@ async function openSideBar(marker, comingFromArticlesList = false) {
             // display article list button in marker mode
             $('#articlesListButtonList').show();
             $('#articlesListButtonBack').hide();
+            // article mode
         } else {
             // hide articlesButtonDiv with opening of the sidebar if is articles mode
             $('#articlesButtonDiv').animate({width: 'hide'});
+            // show articles list
+            showArticlesList()
         }
 
         // toggle show settings (only on mobile sized devices)
@@ -260,13 +262,14 @@ async function openSideBar(marker, comingFromArticlesList = false) {
         $('#sidebarText a').attr('target', '_blank');
         // make sure is scrolled to top
         sidebarContent.scrollTop(0);
+        // else is articles mode
     } else {
         // set last selected marker to selected maker
         lastSelectedMarker = selectedMarker;
+        // set no text in sidebarText
+        $('#sidebarText').html('');
         // if is in articles mode, show articles list
         showArticlesList();
-        // and set no text in sidebarText
-        $('#sidebarText').text('');
     }
 
     // only if useGeoJSON is true
@@ -316,9 +319,6 @@ async function openSideBar(marker, comingFromArticlesList = false) {
 
 // open the sidebar with list of articles
 function openArticlesList() {
-    // show the list of articles
-    showArticlesList();
-
     // open sidebar with list of articles (pass null)
     openSideBar(null);
 }
