@@ -3,6 +3,29 @@ body {
     padding: 0;
 }
 
+/* logs in the console: */
+#logContainer {
+    display: none;
+    width: 200px;
+    height: 200px;
+    z-index: 1000;  /* show on top of everything */
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: monospace;
+    font-size: 12px;
+    overflow: auto;
+}
+
+.log-warn { color: orange }
+.log-error { color: red }
+.log-info { color: skyblue }
+.log-log { color: silver }
+
+.log-warn, .log-error { font-weight: bold; }
+
 .absoluteCenter {
     position: absolute;
     top: 50%;

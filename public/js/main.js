@@ -1,6 +1,58 @@
 // init url params
 const urlParams = new URLSearchParams(window.location.search);
 
+// get if is debug mode from url params
+if (urlParams.get('debug') === 'true') {
+    console.log('JS console displayed on screen');
+    // if is, show js console on screen
+    $('#logContainer').show();
+
+    // show js console on screen
+    // https://stackoverflow.com/a/50773729/5899585
+    function rewireLoggingToElement(eleLocator, eleOverflowLocator, autoScroll) {
+        function fixLoggingFunc(name) {
+            console['old' + name] = console[name];
+            console[name] = function (...arguments) {
+                const output = produceOutput(name, arguments);
+                const eleLog = eleLocator();
+
+                if (autoScroll) {
+                    const eleContainerLog = eleOverflowLocator();
+                    const isScrolledToBottom = eleContainerLog.scrollHeight - eleContainerLog.clientHeight <= eleContainerLog.scrollTop + 1;
+                    eleLog.innerHTML += output + '<br>';
+                    if (isScrolledToBottom) {
+                        eleContainerLog.scrollTop = eleContainerLog.scrollHeight - eleContainerLog.clientHeight;
+                    }
+                } else {
+                    eleLog.innerHTML += output + '<br>';
+                }
+
+                console['old' + name].apply(undefined, arguments);
+            };
+        }
+
+        function produceOutput(name, args) {
+            return args.reduce((output, arg) => {
+                return output +
+                    '<span class="log-' + (typeof arg) + ' log-' + name + '">' +
+                    (typeof arg === 'object' && (JSON || {}).stringify ? JSON.stringify(arg) : arg) +
+                    '</span>&nbsp;';
+            }, '');
+        }
+
+        fixLoggingFunc('log');
+        fixLoggingFunc('debug');
+        fixLoggingFunc('warn');
+        fixLoggingFunc('error');
+        fixLoggingFunc('info');
+    }
+
+    rewireLoggingToElement(
+        () => document.getElementById('log'),
+        () => document.getElementById('logContainer'), true);
+}
+
+
 // get timestamp and validate to date if available
 const timestamp = urlParams.get('ts');
 let date = new Date();
