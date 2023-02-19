@@ -1,5 +1,4 @@
 const dataStore = require('./data-store.js');
-const logger = require('../utils/logger.js');
 
 let NEW_DATA_THRESHOLD = '4'; // days
 

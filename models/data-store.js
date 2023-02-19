@@ -1,6 +1,5 @@
 let pg = require('pg');
 const logger = require('../utils/logger');
-const {query} = require('winston');
 const conString = process.env.DB_CON_STRING;
 
 const dbConfig = {
@@ -31,11 +30,6 @@ const dataStore = {
             );
         }
         return dbClient;
-    },
-    async endConnection() {
-        if (dbClient !== null) {
-            await dbClient.end();
-        }
     },
     async query(sql, values = [], errorMessage = 'Error executing SQL query', throwError = false) {
         try {

@@ -3,7 +3,6 @@ const urlParams = new URLSearchParams(window.location.search);
 
 // get if is debug mode from url params
 if (urlParams.get('debug') === 'true') {
-    console.log('JS console displayed on screen');
     // if is, show js console on screen
     $('#logContainer').show();
 
@@ -50,6 +49,8 @@ if (urlParams.get('debug') === 'true') {
     rewireLoggingToElement(
         () => document.getElementById('log'),
         () => document.getElementById('logContainer'), true);
+
+    console.log('JS console displayed on screen');
 }
 
 

@@ -1,6 +1,7 @@
 {
+  "author": "Lars Specht",
   "name": "worldcrisismap",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Website displaying humanitarian crisis and news using OpenStreetMap and ReliefWeb.",
   "main": "app.js",
   "scripts": {},
@@ -20,8 +21,7 @@
     "express-session": "^1.17.3",
     "node-fetch": "^2.6.7",
     "pg": "^8.7.3",
-    "winston": "^3.3.3",
-    "nodemailer": "^6.6.3"
+    "winston": "^3.3.3"
   },
   "repository": {
     "url": "https://github.com/larsaars/worldcrisismap"
@@ -30,5 +30,6 @@
   "keywords": [
     "node",
     "express"
-  ]
+  ],
+  "browserslist": ["defaults"]
 }

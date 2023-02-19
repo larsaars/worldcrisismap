@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const express = require('express');
-const logger = require('./utils/logger');
 const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const session = require('express-session');
@@ -36,7 +35,7 @@ const routes = require('./routes');
 app.use('/', routes);
 
 // define 404 not found
-app.use(function (req, res, next) {
+app.use(function (req, res, _) {
     res.status(404);
 
     // respond with html page
