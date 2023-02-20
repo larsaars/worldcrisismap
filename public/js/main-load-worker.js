@@ -73,6 +73,10 @@ async function buildGeoJSON(files, colors, source) {
 
 self.addEventListener('message', async function (e) {
 
+    if (!e.data) {
+        return;
+    }
+
     // request the json from the server
     // only the needed source type is passed and timestamp (as well as date)
     const timestamp = e.data.timestamp ? e.data.timestamp : '0';
