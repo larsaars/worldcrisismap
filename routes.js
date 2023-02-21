@@ -29,7 +29,7 @@ router.get('/nocrisis', easteregg.index);
 // robots.txt
 router.get('/robots.txt', (req, res) => {
     res.type('text/plain');
-    res.send("User-agent: *\nDisallow: /about");
+    res.send("User-agent: *\nDisallow: /about\nDisallow: /privacy-policy");
 });
 
 module.exports = router;
