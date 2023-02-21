@@ -16,5 +16,12 @@
     <orderEntry type="library" name="jquery-ui" level="application" />
     <orderEntry type="library" name="bootstrap-datepicker" level="application" />
     <orderEntry type="library" name="@popperjs/core" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="@fortawesome/fontawesome-free" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="jquery-ui" level="application" />
+    <orderEntry type="library" name="maplibre-gl" level="application" />
+    <orderEntry type="library" name="w3" level="application" />
+    <orderEntry type="library" name="bootstrap-datepicker" level="application" />
   </component>
 </module>

@@ -39,6 +39,14 @@ body {
     right: -15%;
 }
 
+.textDivisor {
+    display: block;
+    width: 21%;
+    height: 1px;
+    background: #064273;
+    margin: 2px auto 2px 21%;
+}
+
 li {
     display: inline-block;
 }

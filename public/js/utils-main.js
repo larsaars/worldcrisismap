@@ -140,7 +140,7 @@ function showArticlesList() {
     }
 
     $('#articlesListButtonList').hide();
-    
+
     // re-initate with old scroll state
     $('#sidebarContent').scrollTop(articlesListScrollState);
 }
@@ -218,12 +218,14 @@ async function openSideBar(marker, comingFromArticlesList = false) {
         }, {
             complete: function () {
                 if (markerMode) {
-                    // set sidebar text
+                    // set sidebar text and show element
+                    $('#sidebarText').show();
                     $('#sidebarText').html(marker.description);
                     // open links in sidebar in new tab
                     $('#sidebarText a').attr('target', '_blank');
                 } else {
-                    $('#sidebarText').text('');
+                    // hide sidebar text element
+                    $('#sidebarText').hide();
                 }
             }
         });
@@ -237,7 +239,7 @@ async function openSideBar(marker, comingFromArticlesList = false) {
             // hide articlesButtonDiv with opening of the sidebar if is articles mode
             $('#articlesButtonDiv').animate({width: 'hide'});
             // show articles list
-            showArticlesList()
+            showArticlesList();
         }
 
         // toggle show settings (only on mobile sized devices)
@@ -256,7 +258,8 @@ async function openSideBar(marker, comingFromArticlesList = false) {
         hideArticlesList();
         // set last selected marker to null to get back to articles list mode next button click
         lastSelectedMarker = null;
-        // set sidebar text directly without animation
+        // set sidebar text directly without animation (and show element)
+        $('#sidebarText').show();
         $('#sidebarText').html(marker.description);
         // open links in sidebar in new tab
         $('#sidebarText a').attr('target', '_blank');
@@ -267,7 +270,7 @@ async function openSideBar(marker, comingFromArticlesList = false) {
         // set last selected marker to selected maker
         lastSelectedMarker = selectedMarker;
         // set no text in sidebarText
-        $('#sidebarText').html('');
+        $('#sidebarText').hide();
         // if is in articles mode, show articles list
         showArticlesList();
     }
@@ -336,7 +339,7 @@ function closeSideBar() {
     $('#sidebar').animate({width: 'toggle'}, {
         complete: function () {
             // remove sidebar text on animation finish
-            $('#sidebarText').html('');
+            $('#sidebarText').hide();
         }
     });
     // toggle show settings (if on mobile view or is not showing currently)
@@ -466,7 +469,8 @@ function addMarkers(map, markers, dataList, colors, source) {
 
 
         // set marker html text for article list
-        marker.articleDescription = `<div class="p-1" style="display: inline-flex"><img src="${markerImagePathSidebar}" alt="event type" style="width: 2rem; height: 2rem; float: left">` + `<button class="link ms-2" onclick="onArticleClick(${data.id})">` + data.title + ' <small>(' + dateString + ')</small></button></div>';
+        marker.articleDescription = `<div class="p-1" style="display: inline-flex"><img src="${markerImagePathSidebar}" alt="event type" style="width: 2rem; height: 2rem; float: left">` + `<button class="link ms-2" onclick="onArticleClick(${data.id})">` + data.title + ' <small>(' + dateString + ')</small></button></div>'
+            + '<div class="textDivisor"></div>';
 
         // add id of event to marker
         marker.id = data.id;
