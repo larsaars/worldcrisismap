@@ -102,11 +102,11 @@ def update_ongoing_disasters_in_database():
     Updates the ongoing disasters in the database.
     """
 
-    # get ongoing disasters from ReliefWeb API
-    res = requests.get('https://api.reliefweb.int/v1/disasters?appname=crisis_collector&profile=full&preset=latest&slim=1&filter[field]=status&filter[value]=ongoing&limit=999').json()
+    # get ongoing (and alert) disasters from ReliefWeb API
+    res = requests.get('https://api.reliefweb.int/v1/disasters?appname=crisis_collector&profile=full&preset=latest&slim=1&filter[field]=status&filter[value][]=alert&filter[value][]=ongoing&filter[operator]=OR&limit=999').json()
 
     # get list of currently as active listed disasters in database
-    cur.execute('SELECT id FROM disasters WHERE status = \'ongoing\';')
+    cur.execute('SELECT id FROM disasters WHERE status IN (\'ongoing\', \'alert\'");')
     database_ongoing_disasters = [item[0] for item in cur.fetchall()]
 
     # get list of ongoing disasters in API
@@ -117,7 +117,6 @@ def update_ongoing_disasters_in_database():
 
     # update old ongoing disasters to be inactive
     for item in old_ongoing_disasters:
-        print('Updating disaster', item, 'to be inactive')
         cur.execute(f'UPDATE disasters SET status = \'past\' WHERE id = {item};')
 
 
