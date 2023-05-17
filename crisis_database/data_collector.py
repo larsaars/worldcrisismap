@@ -117,6 +117,7 @@ def update_ongoing_disasters_in_database():
 
     # update old ongoing disasters to be inactive
     for item in old_ongoing_disasters:
+        print('Updating disaster', item, 'to be inactive')
         cur.execute(f'UPDATE disasters SET status = \'past\' WHERE id = {item};')
 
 
