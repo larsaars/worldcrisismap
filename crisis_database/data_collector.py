@@ -106,7 +106,7 @@ def update_ongoing_disasters_in_database():
     res = requests.get('https://api.reliefweb.int/v1/disasters?appname=crisis_collector&profile=full&preset=latest&slim=1&filter[field]=status&filter[value][]=alert&filter[value][]=ongoing&filter[operator]=OR&limit=999').json()
 
     # get list of currently as active listed disasters in database
-    cur.execute('SELECT id FROM disasters WHERE status IN (\'ongoing\', \'alert\'");')
+    cur.execute('SELECT id FROM disasters WHERE status IN (\'ongoing\', \'alert\');')
     database_ongoing_disasters = [item[0] for item in cur.fetchall()]
 
     # get list of ongoing disasters in API
