@@ -33,36 +33,41 @@ async function buildGeoJSON(files, colors, source) {
 
     // iterate over all files
     await Promise.all(files.map(async (geoJsonFilesList, eventIndex) => {
-            // fetch geo json from provided path, check first if cached, else fetch and cache
-            const geoJsons = await Promise.all(geoJsonFilesList.map(async (geoJsonFile) => {
-                try {
-                    const response = await fetch('/' + geoJsonFile, {cache: 'force-cache'});
-                    return await response.json();
-                } catch (e) {
-                    console.error(e);
-                    console.error('Error finding or parsing geojson file: ' + geoJsonFile);
-                }
+	    if (geoJsonFilesList) { 
+                // fetch geo json from provided path, check first if cached, else fetch and cache
+                const geoJsons = await Promise.all(geoJsonFilesList.map(async (geoJsonFile) => {
+                    try {
+                        const response = await fetch('/' + geoJsonFile, {cache: 'force-cache'});
+                        return await response.json();
+                    } catch (e) {
+                        console.error(e);
+                        console.error('Error finding or parsing geojson file: ' + geoJsonFile);
+                    }
 
-                // return empty object instead of nothing in case of error
+                    // return empty object instead of nothing in case of error
+                    return {};
+
+                }));
+
+                // iterate over geoJsons
+                for (const geoJson of geoJsons) {
+                    // if the type is a feature list, add the features to the feature collection
+                    // else add the single feature to the feature collection
+                    let features = geoJson.type === 'FeatureCollection' ? geoJson.features : [geoJson];
+                    for (const feature of features) {
+                        // add styling information (all elements from one event have the same color)
+                        feature.properties = {};
+                        feature.properties.fill = colors[eventIndex];
+                        // add information about the event to the feature
+                        feature.properties.eventIndex = eventIndex;
+                        feature.properties.source = source;
+                        // add the feature to the feature collection
+                        featureCollection.features.push(feature);
+                    }
+                }
+	    } else {
+                // geoJsonFilesList is null, return empty
                 return {};
-
-            }));
-
-            // iterate over geoJsons
-            for (const geoJson of geoJsons) {
-                // if the type is a feature list, add the features to the feature collection
-                // else add the single feature to the feature collection
-                let features = geoJson.type === 'FeatureCollection' ? geoJson.features : [geoJson];
-                for (const feature of features) {
-                    // add styling information (all elements from one event have the same color)
-                    feature.properties = {};
-                    feature.properties.fill = colors[eventIndex];
-                    // add information about the event to the feature
-                    feature.properties.eventIndex = eventIndex;
-                    feature.properties.source = source;
-                    // add the feature to the feature collection
-                    featureCollection.features.push(feature);
-                }
             }
         }
     ));
