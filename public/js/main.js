@@ -134,8 +134,8 @@ if (!reportCookie) {
 }
 
 if (!newsCookie) {
-    localStorage.setItem('news', 'true');
-    newsCookie = 'true';
+    localStorage.setItem('news', 'false');
+    newsCookie = 'false';
 }
 
 if (!showEventDurationCookie) {
