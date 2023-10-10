@@ -437,3 +437,11 @@ map.on('click', event => {
     }
 });
 
+// handle webgl context loss (on ie. memory errors, happens on smartphones onPause() sometimes) 
+// Listen for WebGL context loss event.
+map.on('webglcontextlost', function (event) {
+    // show an alert and then erload the site
+    window.alert('WebGL context lost (map not showing properly). The site is reloading.')
+    window.location.reload()
+});
+
