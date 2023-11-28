@@ -102,7 +102,7 @@ def search_matching_geojson_files_or_coords(text: str, countries: list, mappers=
     :param mappers: The mappers to use.
     :param is_html: If the text is html.
 
-    :return: A list of country files and lat / lon as well as last max country.
+    :return: A list of country files and lat / lon as well as last max country (the country which had the maximum occurences in the text).
     """
 
     # load region mapper if not provided

@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 
 """
-Creates init_tables.sql (postgressql) file from scraping
-the ReliefWeb Disasters and Reports API.
+Initializes the datbase from scraping the ReliefWeb Disasters and Reports API
+as well as loading the IPS news to database (from their RSS feed)
+and OHCHR's humanitarian crises.
 
 Meant to init the database, the server will then proceed to update the
 database every N hours.
 
-
-The reason to do this is, that it is unpracital (for both us and ReliefWeb)
-to use the API every time the timeline is used.
+The reason to do this is (caching basically everything of the ReliefWeb API etc.), 
+that it is unpracital (for both us and ReliefWeb)
+to use the foreign API every time the timeline is used.
 """
 
 import requests
@@ -38,8 +39,11 @@ def main():
     DROP TABLE IF EXISTS disasters_text;
     DROP TABLE IF EXISTS reports_text;
     DROP TABLE IF EXISTS news_today_text;
+    DROP TABLE IF EXISTS human;
+    DROP TABLE IF EXISTS human_text;
 
 
+    --- disasters table (ReliefWeb Disasters)
     CREATE TABLE IF NOT EXISTS disasters(
         id INTEGER PRIMARY KEY,
         date TIMESTAMP,
@@ -59,6 +63,7 @@ def main():
     );
 
 
+    --- reports table (ReliefWeb Reports)
     CREATE TABLE IF NOT EXISTS reports(
         id INTEGER PRIMARY KEY,
         date TIMESTAMP,
@@ -77,6 +82,7 @@ def main():
     );
     
 
+    --- news table (IPS News)
     CREATE TABLE IF NOT EXISTS news_today(
         id INTEGER PRIMARY KEY,
         date TIMESTAMP,
@@ -93,14 +99,33 @@ def main():
         id INTEGER PRIMARY KEY,
         text VARCHAR(100000)
     );
+
+
+    --- human table (OHCHR humanitarian violations (document-wise))
+    CREATE TABLE IF NOT EXISTS human(
+        id INTEGER PRIMARY KEY,
+        date TIMESTAMP,
+        country_name VARCHAR(150),
+        geojson VARCHAR(8000),
+        lat DECIMAL(10,7) CHECK (lat >= -90 AND lat <= 90),
+        lon DECIMAL(10,7) CHECK (lon >= -180 AND lon <= 180),
+        type VARCHAR(200),
+        url VARCHAR(250),
+        title VARCHAR(500)
+    );
+
+    CREATE TABLE IF NOT EXISTS human_text(
+        id INTEGER PRIMARY KEY,
+        text VARCHAR(100000)
+    );
     ''')
 
     connection.commit()
 
-    # begin looping through the disasters API
+    # begin looping through the ReliefWeb disasters API
     current_offset, total_count = 0, 1
 
-    print('Loading disasters to database...')
+    print('\n\nLoading ReliefWeb disasters to database...')
 
     while current_offset < total_count:
         print(f'current offset: {current_offset}')
@@ -109,10 +134,10 @@ def main():
         current_offset += jumpsize
 
 
-    # continue loading reports (headlines)
+    # continue loading ReliefWeb reports (headlines)
     current_offset, total_count = 0, 1
 
-    print('Loading reports to database...')
+    print('\n\nLoading ReliefWeb reports to database...')
 
     while current_offset < total_count:
         print(f'current offset: {current_offset}')
@@ -121,9 +146,14 @@ def main():
         current_offset += jumpsize
 
 
-    # load news headlines to database
-    print('Loading news headlines to database...')
+    # load IPS news headlines to database
+    print('\n\nLoading IPS news headlines to database...')
     load_news_to_database()
+
+    # load humanitarian crisis into database
+    print('\n\nLoading humanitarian crises of OHCHR to database...')
+    load_human_to_database()
+    
 
     print('Done.')
 

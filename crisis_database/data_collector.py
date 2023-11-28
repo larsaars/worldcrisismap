@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Handles the scraping of the ReliefWeb Disasters and Reports API.
+Handles the scraping of the ReliefWeb Disasters and Reports API (as well as IPS news).
 """
 
 import requests

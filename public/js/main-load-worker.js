@@ -1,8 +1,9 @@
 /*
 SOURCES
-0: disaster
-1: report
-2: news
+0: disaster (ReliefWeb Disasters)
+1: report (ReliefWeb Reports)
+2: news (IPS News)
+3: human (UN Human Rights)
  */
 
 function generateRandomColor() {
