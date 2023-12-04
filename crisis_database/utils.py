@@ -83,10 +83,10 @@ def load_country_region_mapper_and_country_code_mapper(change_dir=True) -> dict:
         os.chdir(os.path.dirname(sys.argv[0]))
 
     # load mappers
-    with open('country_region_mapping.json', 'r') as f:
+    with open('./mappers/country_region_mapping.json', 'r') as f:
         country_region_mapping = json.load(f)
 
-    with open('country_code_mapping.json', 'r') as f:
+    with open('./mappers/country_code_mapping.json', 'r') as f:
         country_code_mapping = json.load(f)
 
     return country_region_mapping, country_code_mapping
