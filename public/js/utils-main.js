@@ -405,7 +405,7 @@ function addMarkers(map, markers, dataList, colors, source) {
         const data = dataList[dataIndex];
 
         // define event name
-        const eventName = [data.type, 'ReliefWeb Report', 'IPS News Article'][source];
+        const eventName = [data.type, 'ReliefWeb Report', 'IPS News Article', 'UHRI Human Right Violation'][source];
 
         // get path of marker image and if black or white should be used
         const black = useBlack(colors[dataIndex]);

@@ -57,8 +57,7 @@ def main():
         title VARCHAR(500)
     );
 
-    CREATE TABLE IF NOT EXISTS disasters_text(
-        id INTEGER PRIMARY KEY,
+    CREATE TABLE IF NOT EXISTS disasters_text( id INTEGER PRIMARY KEY,
         text VARCHAR(100000)
     );
 
@@ -101,16 +100,14 @@ def main():
     );
 
 
-    --- human table (OHCHR humanitarian violations (document-wise))
+    --- human table (UHRI humanitarian violations (document-wise))
     CREATE TABLE IF NOT EXISTS human(
-        id INTEGER PRIMARY KEY,
+        id SERIAL PRIMARY KEY,
         date TIMESTAMP,
         country_name VARCHAR(150),
         geojson VARCHAR(8000),
         lat DECIMAL(10,7) CHECK (lat >= -90 AND lat <= 90),
         lon DECIMAL(10,7) CHECK (lon >= -180 AND lon <= 180),
-        type VARCHAR(200),
-        url VARCHAR(250),
         title VARCHAR(500)
     );
 
