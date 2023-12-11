@@ -102,7 +102,7 @@ def main():
 
     --- human table (UHRI humanitarian violations (document-wise))
     CREATE TABLE IF NOT EXISTS human(
-        id SERIAL PRIMARY KEY,
+        id CHAR(36) PRIMARY KEY,
         date TIMESTAMP,
         country_name VARCHAR(150),
         geojson VARCHAR(8000),
@@ -112,7 +112,7 @@ def main():
     );
 
     CREATE TABLE IF NOT EXISTS human_text(
-        id INTEGER PRIMARY KEY,
+        id CHAR(36) PRIMARY KEY,
         text VARCHAR(100000)
     );
     ''')
