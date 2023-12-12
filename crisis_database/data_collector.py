@@ -11,6 +11,7 @@ import json
 from utils import *
 from dotenv import load_dotenv
 import feedparser
+from uhri_database_loader import load_uhri_to_database
 
 # load environment variables
 load_dotenv()
@@ -30,6 +31,13 @@ cur = connection.cursor()
 # load country region mapper
 mappers = load_country_region_mapper_and_country_code_mapper()
 
+
+def load_urhi_to_database():
+    """
+    wrap load_uhri_to_database() in a function to be able to use it in the main function
+    """
+
+    load_uhri_to_database(connection, cur)
 
 
 def load_disasters_to_database(offset=0, limit=10, single_commits=False) -> int:

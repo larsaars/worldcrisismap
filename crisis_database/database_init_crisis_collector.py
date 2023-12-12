@@ -148,8 +148,8 @@ def main():
     load_news_to_database()
 
     # load humanitarian crisis into database
-    print('\n\nLoading humanitarian crises of OHCHR to database...')
-    load_human_to_database()
+    print('\n\nLoading humanitarian crises of UHRI to database...')
+    load_uhri_to_database()
     
 
     print('Done.')
