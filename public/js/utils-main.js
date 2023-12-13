@@ -197,7 +197,7 @@ async function openSideBar(marker, comingFromArticlesList = false) {
     // fetch sidebar text if not already loaded if is not in articles mode
     if (markerMode && false === marker.descriptionLoaded) {
         // load the description text
-        const res = await fetch('/api/text/' + ['disaster', 'report', 'news'][marker.source] + '/' + marker.id);
+        const res = await fetch('/api/text/' + ['disaster', 'report', 'news', 'human'][marker.source] + '/' + marker.id);
         // check response is ok
         if (res.status === 200) {
             // parse the text
@@ -408,7 +408,7 @@ function addMarkers(map, markers, dataList, colors, source) {
         // not provided by database
         if (source === 3) {
             data.type = 'Human Rights';
-            data.url = 'https://uhri.ushahidi.io/posts/' + data.id;
+            data.url = 'about:blank';
         }
 
         // define event name
