@@ -39,6 +39,9 @@ const home = {
     async getNews(request, response) {
         await getDataFromSource(disasterNewsStore.getNews, request, response);
     },
+    async getHuman(request, response) {
+        await getDataFromSource(disasterNewsStore.getHuman, request, response);
+    },
     async getDisasterText(request, response) {
         await getTextFromSource(disasterNewsStore.getDisasterText, request, response);
     },
@@ -47,6 +50,9 @@ const home = {
     },
     async getNewsText(request, response) {
         await getTextFromSource(disasterNewsStore.getNewsText, request, response);
+    },
+    async getHumanText(request, response) {
+        await getTextFromSource(disasterNewsStore.getHumanText, request, response);
     }
 };
 

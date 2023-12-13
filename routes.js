@@ -19,9 +19,11 @@ router.get('/privacy-policy', info.privacy);
 router.get('/api/data/disaster/:onlyNewData/:ts', home.getDisaster);
 router.get('/api/data/report/:onlyNewData/:ts', home.getReport);
 router.get('/api/data/news/:onlyNewData/:ts', home.getNews);
+router.get('/api/data/human/:onlyNewData/:ts', home.getHuman);
 router.get('/api/text/disaster/:id', home.getDisasterText);
 router.get('/api/text/report/:id', home.getReportText);
 router.get('/api/text/news/:id', home.getNewsText);
+router.get('/api/text/human/:id', home.getHumanText);
 
 // easteregg
 router.get('/nocrisis', easteregg.index);

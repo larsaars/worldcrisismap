@@ -89,7 +89,7 @@ self.addEventListener('message', async function (e) {
     const useGeoJSON = e.data.useGeoJSON;
     const dateOfTimestamp = e.data.dateOfTimestamp;
     const onlyNewData = e.data.onlyNewData === 'true' ? 'new' : 'all';
-    const url = '/api/data/' + ['disaster', 'report', 'news'][e.data.source] + '/' + onlyNewData + '/' + timestamp;
+    const url = '/api/data/' + ['disaster', 'report', 'news', 'human'][e.data.source] + '/' + onlyNewData + '/' + timestamp;
 
     // fetch the data from the server
     const res = await fetch(url);

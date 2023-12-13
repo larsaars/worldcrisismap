@@ -119,6 +119,7 @@ map.addControl(new maplibregl.NavigationControl(), 'bottom-right');
 let disasterCookie = localStorage.getItem('disaster');
 let reportCookie = localStorage.getItem('report');
 let newsCookie = localStorage.getItem('news');
+let humanCookie = localStorage.getItem('human');
 let showEventDurationCookie = localStorage.getItem('showEventDuration');
 let onlyNewDataCookie = localStorage.getItem('onlyNewData');
 
@@ -138,6 +139,11 @@ if (!newsCookie) {
     newsCookie = 'false';
 }
 
+if (!humanCookie) {
+    localStorage.setItem('human', 'false');
+    humanCookie = 'false';
+}
+
 if (!showEventDurationCookie) {
     localStorage.setItem('showEventDuration', 'false');
     showEventDurationCookie = 'false';
@@ -152,6 +158,7 @@ if (!onlyNewDataCookie) {
 $('#disasterCheckbox').prop('checked', disasterCookie === 'true');
 $('#reportCheckbox').prop('checked', reportCookie === 'true');
 $('#newsCheckbox').prop('checked', newsCookie === 'true');
+$('#humanCheckbox').prop('checked', humanCookie === 'true');
 $('#showEventDurationCheckbox').prop('checked', showEventDurationCookie === 'true');
 $('#onlyNewDataCheckbox').prop('checked', onlyNewDataCookie === 'true');
 
@@ -243,7 +250,7 @@ worker.onmessage = async function (e) {
     setLoading(true);
     // get data variables from worker
     const [source, serverData, geoJSON, colors] = [e.data.source, e.data.serverData, e.data.geoJSON, e.data.colors];
-    const sourceName = ['disaster', 'report', 'news'][source];
+    const sourceName = ['disaster', 'report', 'news', 'human'][source];
 
     // set data variables
     sourceData[source] = serverData;
@@ -328,37 +335,18 @@ map.on('moveend', function () {
 
 // send data to worker; load variables only for needed cookies
 // from the beginning loading is enabled
-if (disasterCookie === 'true') {
-    worker.postMessage({
-        source: 0,
-        useGeoJSON: useGeoJSON,
-        dateOfTimestamp: date,
-        onlyNewData: onlyNewDataCookie,
-        timestamp: timestamp
-    });
-    feedbacksAwaited++;
-}
-
-if (reportCookie === 'true') {
-    worker.postMessage({
-        source: 1,
-        useGeoJSON: useGeoJSON,
-        dateOfTimestamp: date,
-        onlyNewData: onlyNewDataCookie,
-        timestamp: timestamp
-    });
-    feedbacksAwaited++;
-}
-
-if (newsCookie === 'true') {
-    worker.postMessage({
-        source: 2,
-        useGeoJSON: useGeoJSON,
-        dateOfTimestamp: date,
-        onlyNewData: onlyNewDataCookie,
-        timestamp: timestamp
-    });
-    feedbacksAwaited++;
+const cookies = [disasterCookie, reportCookie, newsCookie, humanCookie];
+for (let i = 0; i < cookies.length; i++) {
+    if (cookies[i] === 'true') {
+        worker.postMessage({
+            source: i,
+            useGeoJSON: useGeoJSON,
+            dateOfTimestamp: date,
+            onlyNewData: onlyNewDataCookie,
+            timestamp: timestamp
+        });
+        feedbacksAwaited++;
+    }
 }
 
 // if no cookie is activated, set loading to false
@@ -368,13 +356,12 @@ if (feedbacksAwaited === 0) {
 
 // register on disaster and news checkbox listeners
 // also update cookies
-for (const checkbox of ['disaster', 'report', 'news']) {
+const checkboxes = ['disaster', 'report', 'news', 'human'];
+for (let source = 0; source < checkboxes.length; source++) {
+    const checkbox = checkboxes[source];
     $(`#${checkbox}Checkbox`).change(function () {
         // set the cookie
         localStorage.setItem(checkbox, String(this.checked));
-
-        // get source
-        const source = ['disaster', 'report', 'news'].indexOf(checkbox);
 
         if (this.checked && sourceData[source] === null) {
             // start loading if is not loaded yet, else just toggle layer
@@ -441,7 +428,7 @@ map.on('click', event => {
 // Listen for WebGL context loss event.
 map.on('webglcontextlost', function (event) {
     // show an alert and then erload the site
-    window.alert('WebGL context lost (map not showing properly). The site is reloading.')
-    window.location.reload()
+    window.alert('WebGL context lost (map not showing properly). The site is reloading.');
+    window.location.reload();
 });
 

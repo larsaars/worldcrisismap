@@ -1,4 +1,5 @@
 const dataStore = require('./data-store.js');
+const {keys} = require('grunt/lib/grunt/option');
 
 let NEW_DATA_THRESHOLD = '4'; // days
 
@@ -16,11 +17,11 @@ const disasterNewsStore = {
             'error fetching news'
         );
 
-        return dbRes?.rows ?? [];
+        return dbRes?.rows ?? '[]';
     },
     async getReport(timestamp, onlyNewData) {
         // default query and values if not given or timestamp
-        let query = 'SELECT * FROM reports WHERE date > now() - INTERVAL \'' + (onlyNewData ? NEW_DATA_THRESHOLD : '14') +' DAY\'';
+        let query = 'SELECT * FROM reports WHERE date > now() - INTERVAL \'' + (onlyNewData ? NEW_DATA_THRESHOLD : '14') + ' DAY\'';
         let values = [];
 
         if (timestamp) {
@@ -44,11 +45,11 @@ const disasterNewsStore = {
             values,
             'Error while fetching reports'
         );
-        return dbRes?.rows ?? [];
+        return dbRes?.rows ?? '[]';
     },
     async getDisaster(timestamp, onlyNewData) {
         // default query and values if not given or timestamp
-        let query = 'SELECT * FROM disasters WHERE status IN (\'ongoing\', \'alert\')' + (onlyNewData ? ' AND date > now() - INTERVAL \'' + NEW_DATA_THRESHOLD +' DAY\'' : '');
+        let query = 'SELECT * FROM disasters WHERE status IN (\'ongoing\', \'alert\')' + (onlyNewData ? ' AND date > now() - INTERVAL \'' + NEW_DATA_THRESHOLD + ' DAY\'' : '');
         let values = [];
 
         if (timestamp) {
@@ -60,8 +61,8 @@ const disasterNewsStore = {
                     return '[]';
                     // if date is not today, change query accordingly
                 } else {
-                    query = 'SELECT * FROM disasters WHERE date < $1 AND date > $1 - INTERVAL \'' + (onlyNewData ? NEW_DATA_THRESHOLD + ' DAY\'': '3 MONTH\'');
-                    values = [date]
+                    query = 'SELECT * FROM disasters WHERE date < $1 AND date > $1 - INTERVAL \'' + (onlyNewData ? NEW_DATA_THRESHOLD + ' DAY\'' : '3 MONTH\'');
+                    values = [date];
                 }
             }
         }
@@ -72,7 +73,41 @@ const disasterNewsStore = {
             values,
             'Error while fetching disasters'
         );
-        return dbRes.rows;
+        return dbRes?.rows ?? '[]';
+    },
+    async getHuman(timestamp, onlyNewData) {
+        // default query and values if not given or timestamp
+        let query = 'SELECT * FROM human'
+            + ' WHERE date > now() - INTERVAL \''
+            + (onlyNewData ? NEW_DATA_THRESHOLD + ' DAY' : '3 MONTH')
+            + '\' LIMIT 250';
+        let values = [];
+
+        if (timestamp) {
+            const date = new Date(Number(timestamp) * 1000);
+            // validate time stamp
+            if (date.getTime() > 0) {
+                // if timestamp is below min date of 2006-06-02 00:00:00 (the oldest disaster in database); return empty json array '[]'
+                if (date.getTime() < 1149199200000) {
+                    return '[]';
+                    // if date is not today, change query accordingly
+                } else {
+                    query = 'SELECT * FROM human'
+                        + ' WHERE date < $1 AND date > $1 - INTERVAL \''
+                        + (onlyNewData ? NEW_DATA_THRESHOLD + ' DAY' : '3 MONTH')
+                        + '\' LIMIT 250';
+                    values = [date];
+                }
+            }
+        }
+
+        // execute query and send json array
+        const dbRes = await dataStore.query(
+            query,
+            values,
+            'Error while fetching human'
+        );
+        return dbRes?.rows ?? '[]';
     },
     async getNewsText(id) {
         const dbRes = await dataStore.query(
@@ -95,6 +130,14 @@ const disasterNewsStore = {
             'SELECT text FROM disasters_text WHERE id = $1',
             [id],
             'Error while fetching disaster text'
+        );
+        return dbRes?.rows[0]?.text ?? '';
+    },
+    async getHumanText(id) {
+        const dbRes = await dataStore.query(
+            'SELECT text FROM human_text WHERE id = $1',
+            [id],
+            'Error while fetching human text'
         );
         return dbRes?.rows[0]?.text ?? '';
     }

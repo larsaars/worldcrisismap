@@ -404,6 +404,13 @@ function addMarkers(map, markers, dataList, colors, source) {
     for (let dataIndex = 0; dataIndex < dataList.length; dataIndex++) {
         const data = dataList[dataIndex];
 
+        // if the source is human rights, set a few extra properties
+        // not provided by database
+        if (source === 3) {
+            data.type = 'Human Rights';
+            data.url = 'https://uhri.ushahidi.io/posts/' + data.id;
+        }
+
         // define event name
         const eventName = [data.type, 'ReliefWeb Report', 'IPS News Article', 'UHRI Human Right Violation'][source];
 
@@ -514,7 +521,7 @@ function toggleLayer(map, markers, layerId, show) {
 
     // filter show or hide markers
     const layerNames = {
-        0: 'disaster-layer', 1: 'report-layer', 2: 'news-layer',
+        0: 'disaster-layer', 1: 'report-layer', 2: 'news-layer', 3: 'human-layer'
     };
 
     markers.filter(m => layerId === layerNames[m.source]).forEach(m => m.getElement().style.display = show ? 'block' : 'none');
