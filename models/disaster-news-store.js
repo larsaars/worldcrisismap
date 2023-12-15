@@ -79,7 +79,7 @@ const disasterNewsStore = {
         // default query and values if not given or timestamp
         let query = 'SELECT * FROM human'
             + ' WHERE date > now() - INTERVAL \''
-            + (onlyNewData ? NEW_DATA_THRESHOLD + ' DAY' : '18 MONTH')
+            + (onlyNewData ? NEW_DATA_THRESHOLD + ' DAY' : '3 MONTH')
             + '\' LIMIT 250';
         let values = [];
 
@@ -94,7 +94,7 @@ const disasterNewsStore = {
                 } else {
                     query = 'SELECT * FROM human'
                         + ' WHERE date < $1 AND date > $1 - INTERVAL \''
-                        + (onlyNewData ? NEW_DATA_THRESHOLD + ' DAY' : '3 MONTH')
+                        + (onlyNewData ? NEW_DATA_THRESHOLD + ' DAY' : '6 MONTH')
                         + '\' LIMIT 250';
                     values = [date];
                 }

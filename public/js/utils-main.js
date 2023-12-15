@@ -15,6 +15,9 @@ let articlesListScrollState = 0;
 // variable if is map is flying
 let isFlying = false;
 
+// global variable for all sources and their names
+const sourcesAvailable = ['disaster', 'report', 'news', 'human'];
+
 
 // detect if page is in mobile format or mobile phone
 // call every time newly because window can be resized
@@ -197,7 +200,7 @@ async function openSideBar(marker, comingFromArticlesList = false) {
     // fetch sidebar text if not already loaded if is not in articles mode
     if (markerMode && false === marker.descriptionLoaded) {
         // load the description text
-        const res = await fetch('/api/text/' + ['disaster', 'report', 'news', 'human'][marker.source] + '/' + marker.id);
+        const res = await fetch('/api/text/' + sourcesAvailable[marker.source] + '/' + marker.id);
         // check response is ok
         if (res.status === 200) {
             // parse the text
@@ -408,7 +411,7 @@ function addMarkers(map, markers, dataList, colors, source) {
         // not provided by database
         if (source === 3) {
             data.type = 'Human Rights';
-            data.url = 'about:blank';
+            data.url = false;
         }
 
         // define event name
@@ -470,13 +473,21 @@ function addMarkers(map, markers, dataList, colors, source) {
         const markerImagePathSidebar = markerImagePath.replace(/white/g, 'black');
 
         // set marker html text for sidebar
-        marker.description = `<div><img src="${markerImagePathSidebar}" alt="event type" style="width: 2rem; height: 2rem; margin-bottom: 0.5rem"><br><i>` + eventName + '</i></div><p><small>' + dateString + '</small></p><h2><a href="' + data.url + '">' + data.title + '</a></h2><br>';
+        marker.description = `<div><img src="${markerImagePathSidebar}" alt="event type" style="width: 2rem; height: 2rem; margin-bottom: 0.5rem"><br><i>`
+            + eventName
+            + '</i></div><p><small>'
+            + dateString
+            + '</small></p><h2>'
+            + (data.url ?
+                '<a href="' + data.url + '">' + data.title + '</a>'
+                : data.title)
+            + '</h2><br>';
 
         marker.descriptionLoaded = false;
 
 
         // set marker html text for article list
-        marker.articleDescription = `<div class="p-1" style="display: inline-flex"><img src="${markerImagePathSidebar}" alt="event type" style="width: 2rem; height: 2rem; float: left">` + `<button class="link ms-2" onclick="onArticleClick(${data.id})">` + data.title + ' <small>(' + dateString + ')</small></button></div>'
+        marker.articleDescription = `<div class="p-1" style="display: inline-flex"><img src="${markerImagePathSidebar}" alt="event type" style="width: 2rem; height: 2rem; float: left">` + `<button class="link ms-2" onclick="onArticleClick(\'${data.id}\')">` + data.title + ' <small>(' + dateString + ')</small></button></div>'
             + '<div class="textDivisor"></div>';
 
         // add id of event to marker
@@ -507,7 +518,9 @@ function addMarkers(map, markers, dataList, colors, source) {
 
 function onArticleClick(markerId) {
     // get marker with id
-    const marker = markers.find((marker) => marker.id === markerId);
+    // (keep comparison with '==' because type else does sometimes not match, since the human
+    // layer has a string id, the rest are numbers)
+    const marker = markers.find((marker) => marker.id == markerId);
     // open sidebar with marker
     openSideBar(marker, true);
 }
@@ -520,9 +533,10 @@ function toggleLayer(map, markers, layerId, show) {
     }
 
     // filter show or hide markers
-    const layerNames = {
-        0: 'disaster-layer', 1: 'report-layer', 2: 'news-layer', 3: 'human-layer'
-    };
+    let layerNames = {};
+    for (let i = 0; i < sourcesAvailable.length; i++) {
+        layerNames[i] = sourcesAvailable[i] + '-layer';
+    }
 
     markers.filter(m => layerId === layerNames[m.source]).forEach(m => m.getElement().style.display = show ? 'block' : 'none');
 }

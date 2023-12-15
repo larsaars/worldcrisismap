@@ -34,10 +34,16 @@ async function buildGeoJSON(files, colors, source) {
 
     // iterate over all files
     await Promise.all(files.map(async (geoJsonFilesList, eventIndex) => {
-	    if (geoJsonFilesList) { 
+            if (geoJsonFilesList) {
                 // fetch geo json from provided path, check first if cached, else fetch and cache
                 const geoJsons = await Promise.all(geoJsonFilesList.map(async (geoJsonFile) => {
                     try {
+                        if (geoJsonFile === 'EU') {
+                            // if the geojson is the EU, don't fetch its geojson since the EU is too big on the map
+                            // (will show just marker)
+                            return {};
+                        }
+
                         const response = await fetch('/' + geoJsonFile, {cache: 'force-cache'});
                         return await response.json();
                     } catch (e) {
@@ -47,7 +53,6 @@ async function buildGeoJSON(files, colors, source) {
 
                     // return empty object instead of nothing in case of error
                     return {};
-
                 }));
 
                 // iterate over geoJsons
@@ -66,7 +71,7 @@ async function buildGeoJSON(files, colors, source) {
                         featureCollection.features.push(feature);
                     }
                 }
-	    } else {
+            } else {
                 // geoJsonFilesList is null, return empty
                 return {};
             }
@@ -83,41 +88,46 @@ self.addEventListener('message', async function (e) {
         return;
     }
 
-    // request the json from the server
-    // only the needed source type is passed and timestamp (as well as date)
-    const timestamp = e.data.timestamp ? e.data.timestamp : '0';
-    const useGeoJSON = e.data.useGeoJSON;
-    const dateOfTimestamp = e.data.dateOfTimestamp;
-    const onlyNewData = e.data.onlyNewData === 'true' ? 'new' : 'all';
-    const url = '/api/data/' + ['disaster', 'report', 'news', 'human'][e.data.source] + '/' + onlyNewData + '/' + timestamp;
+    try {
+        // request the json from the server
+        // only the needed source type is passed and timestamp (as well as date)
+        const timestamp = e.data.timestamp ? e.data.timestamp : '0';
+        const useGeoJSON = e.data.useGeoJSON;
+        const dateOfTimestamp = e.data.dateOfTimestamp;
+        const onlyNewData = e.data.onlyNewData === 'true' ? 'new' : 'all';
+        const url = '/api/data/' + e.data.sourcesAvailable[e.data.source] + '/' + onlyNewData + '/' + timestamp;
 
-    // fetch the data from the server
-    const res = await fetch(url);
-    const serverData = await res.json();
+        // fetch the data from the server
+        const res = await fetch(url);
+        const serverData = await res.json();
 
-    // get files from server data
-    let files = [];
+        // get files from server data
+        let files = [];
 
-    for (const data of serverData) {
-        // calculate the days that have passed since the event for each event of serverData (set it there also as variable)
-        data.daysSinceEvent = Math.floor((dateOfTimestamp - new Date(data.date)) / 86400000);
-        // parse from json because they are passed as strings if using geojson
-        if (useGeoJSON) {
-            files.push(JSON.parse(data.geojson));
+        for (const data of serverData) {
+            // calculate the days that have passed since the event for each event of serverData (set it there also as variable)
+            data.daysSinceEvent = Math.floor((dateOfTimestamp - new Date(data.date)) / 86400000);
+            // parse from json because they are passed as strings if using geojson
+            if (useGeoJSON) {
+                files.push(JSON.parse(data.geojson));
+            }
         }
+
+        // generate colors for all events
+        const [colors] = generateRandomColors(serverData.length);
+
+        // build geo json from files if using geojson
+        const geoJSON = useGeoJSON ? await buildGeoJSON(files, colors, e.data.source) : null;
+
+        // send the geo json to the main thread (and the colors)
+        self.postMessage({
+            source: e.data.source,
+            serverData: serverData,
+            geoJSON: geoJSON,
+            colors: colors
+        });
+    } catch (e) {
+        console.error(e);
+        console.error('Error fetching data from server (in worker)');
     }
-
-    // generate colors for all events
-    const [colors] = generateRandomColors(serverData.length);
-
-    // build geo json from files if using geojson
-    const geoJSON = useGeoJSON ? await buildGeoJSON(files, colors, e.data.source) : null;
-
-    // send the geo json to the main thread (and the colors)
-    self.postMessage({
-        source: e.data.source,
-        serverData: serverData,
-        geoJSON: geoJSON,
-        colors: colors
-    });
 });

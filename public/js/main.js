@@ -116,51 +116,48 @@ map.addControl(new maplibregl.AttributionControl({
 map.addControl(new maplibregl.NavigationControl(), 'bottom-right');
 
 // check for cookies and set checkboxes accordingly
-let disasterCookie = localStorage.getItem('disaster');
-let reportCookie = localStorage.getItem('report');
-let newsCookie = localStorage.getItem('news');
-let humanCookie = localStorage.getItem('human');
-let showEventDurationCookie = localStorage.getItem('showEventDuration');
+// check first for control cookies
 let onlyNewDataCookie = localStorage.getItem('onlyNewData');
+let showEventDurationCookie = localStorage.getItem('showEventDuration');
 
-// if they do not exist, set
-if (!disasterCookie) {
-    localStorage.setItem('disaster', 'true');
-    disasterCookie = 'true';
-}
-
-if (!reportCookie) {
-    localStorage.setItem('report', 'true');
-    reportCookie = 'true';
-}
-
-if (!newsCookie) {
-    localStorage.setItem('news', 'false');
-    newsCookie = 'false';
-}
-
-if (!humanCookie) {
-    localStorage.setItem('human', 'false');
-    humanCookie = 'false';
-}
-
-if (!showEventDurationCookie) {
+// if they do not exist, create them with default values
+if (showEventDurationCookie === null) {
     localStorage.setItem('showEventDuration', 'false');
-    showEventDurationCookie = 'false';
+    showEventDurationCookie = false;
+} else {
+    showEventDurationCookie = Boolean(showEventDurationCookie);
 }
 
-if (!onlyNewDataCookie) {
+if (onlyNewDataCookie === null) {
     localStorage.setItem('onlyNewData', 'false');
-    onlyNewDataCookie = 'false';
+    onlyNewDataCookie = false;
+} else {
+    onlyNewDataCookie = Boolean(onlyNewDataCookie);
 }
 
-// set checkboxes
-$('#disasterCheckbox').prop('checked', disasterCookie === 'true');
-$('#reportCheckbox').prop('checked', reportCookie === 'true');
-$('#newsCheckbox').prop('checked', newsCookie === 'true');
-$('#humanCheckbox').prop('checked', humanCookie === 'true');
-$('#showEventDurationCheckbox').prop('checked', showEventDurationCookie === 'true');
-$('#onlyNewDataCheckbox').prop('checked', onlyNewDataCookie === 'true');
+// set the checkboxes accordingly
+$('#showEventDurationCheckbox').prop('checked', showEventDurationCookie);
+$('#onlyNewDataCheckbox').prop('checked', onlyNewDataCookie);
+
+// then the source cookies
+// these are the source cookie's default values
+const sourceCookies = [true, true, false, false];
+
+for (let i = 0; i < sourcesAvailable.length; i++) {
+    // if cookie does not exist in local storage,
+    // create with default value,
+    // else get value from local storage
+    let value = localStorage.getItem(sourcesAvailable[i]);
+
+    if (!value) {
+        localStorage.setItem(sourcesAvailable[i], String(sourceCookies[i]));
+    } else {
+        sourceCookies[i] = Boolean(value);
+    }
+
+    // set the checkbox accordingly
+    $(`#${sourcesAvailable[i]}Checkbox`).prop('checked', sourceCookies[i]);
+}
 
 // add event listener to event duration checkbox
 $('#showEventDurationCheckbox').change(function () {
@@ -190,10 +187,16 @@ let firstSymbolId;
 // number of feedbacks awaited to be loaded
 let feedbacksAwaited = 0;
 
-// all data variables
-let sourceData = [null, null, null];
-let sourceColors = [null, null, null];
-let sourceGeoJSON = [null, null, null];
+// all data variables (fill with as many nulls as sources are available)
+let sourceData = [],
+    sourceColors = [],
+    sourceGeoJSON = [];
+
+for (let i = 0; i < sourcesAvailable.length; i++) {
+    sourceData[i] = null;
+    sourceColors[i] = null;
+    sourceGeoJSON[i] = null;
+}
 
 // start web worker
 const worker = new Worker('/js/main-load-worker.js');
@@ -250,7 +253,7 @@ worker.onmessage = async function (e) {
     setLoading(true);
     // get data variables from worker
     const [source, serverData, geoJSON, colors] = [e.data.source, e.data.serverData, e.data.geoJSON, e.data.colors];
-    const sourceName = ['disaster', 'report', 'news', 'human'][source];
+    const sourceName = sourcesAvailable[source];
 
     // set data variables
     sourceData[source] = serverData;
@@ -335,11 +338,11 @@ map.on('moveend', function () {
 
 // send data to worker; load variables only for needed cookies
 // from the beginning loading is enabled
-const cookies = [disasterCookie, reportCookie, newsCookie, humanCookie];
-for (let i = 0; i < cookies.length; i++) {
-    if (cookies[i] === 'true') {
+for (let i = 0; i < sourceCookies.length; i++) {
+    if (sourceCookies[i]) {
         worker.postMessage({
             source: i,
+            sourcesAvailable: sourcesAvailable,
             useGeoJSON: useGeoJSON,
             dateOfTimestamp: date,
             onlyNewData: onlyNewDataCookie,
@@ -356,18 +359,20 @@ if (feedbacksAwaited === 0) {
 
 // register on disaster and news checkbox listeners
 // also update cookies
-const checkboxes = ['disaster', 'report', 'news', 'human'];
-for (let source = 0; source < checkboxes.length; source++) {
-    const checkbox = checkboxes[source];
+for (let source = 0; source < sourcesAvailable.length; source++) {
+    const checkbox = sourcesAvailable[source];
     $(`#${checkbox}Checkbox`).change(function () {
-        // set the cookie
+        // set the cookie in the local storage
         localStorage.setItem(checkbox, String(this.checked));
+        // and in the sourceCookies array
+        sourceCookies[source] = this.checked;
 
         if (this.checked && sourceData[source] === null) {
             // start loading if is not loaded yet, else just toggle layer
             setLoading(true);
             worker.postMessage({
                 source: source,
+                sourcesAvailable: sourcesAvailable,
                 useGeoJSON: useGeoJSON,
                 dateOfTimestamp: date,
                 onlyNewData: onlyNewDataCookie,

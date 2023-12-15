@@ -7,9 +7,10 @@ Loads UHRI data to database from online json database.
 import json
 import ijson
 from urllib.request import urlopen
+from tqdm import tqdm
 
 
-def load_uhri_to_database(connection, cur, uhri_country_mapping=None):
+def load_uhri_to_database(connection, cur, uhri_country_mapping=None, show_progress=False):
     """
     Main function to load UHRI data to database.
     Resets whole dataset and reloads it (since it either ways has to iterate over the whole > 200MB json file).
@@ -17,6 +18,12 @@ def load_uhri_to_database(connection, cur, uhri_country_mapping=None):
     :param connection: psycopg2 connection object
     :param cur: psycopg2 cursor object
     """
+
+    def prog(iterable):
+        if show_progress:
+            return tqdm(iterable)
+        else:
+            return iterable
 
     # load country mapping
     if uhri_country_mapping is None:
@@ -50,14 +57,14 @@ TRUNCATE TABLE human_text;''')
     doc_data = {} 
 
     # iterate over observations (document parts)
-    for o in observations:
+    for o in prog(observations):
         doc_id = o['DocumentId']
         doc = doc_data.get(doc_id)
 
         # if document is not yet in dictionary, add it
         if doc == None:
             doc_data[doc_id] = doc = {
-                'date': o['PublicationDate'],
+                'date': o['PublicationDateOnUhri'],
                 'countries': set(o['Countries']),
             }
 
@@ -79,7 +86,7 @@ TRUNCATE TABLE human_text;''')
         doc['countries'].update(o['Countries'])
 
     # loop through each single document id
-    for doc_id in doc_data:
+    for doc_id in prog(doc_data):
         # these information are needed (and loaded into database 'human')
         # - date
         # - country name
@@ -145,4 +152,4 @@ if __name__ == '__main__':
     cur = connection.cursor()
 
     # run main
-    load_uhri_to_database(connection, cur)
+    load_uhri_to_database(connection, cur, show_progress=True)

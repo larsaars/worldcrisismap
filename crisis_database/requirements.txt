@@ -3,3 +3,5 @@ unidecode
 python-dotenv
 bs4
 feedparser
+tqdm
+ijson
