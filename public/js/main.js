@@ -125,14 +125,14 @@ if (showEventDurationCookie === null) {
     localStorage.setItem('showEventDuration', 'false');
     showEventDurationCookie = false;
 } else {
-    showEventDurationCookie = Boolean(showEventDurationCookie);
+    showEventDurationCookie = JSON.parse(showEventDurationCookie);
 }
 
 if (onlyNewDataCookie === null) {
     localStorage.setItem('onlyNewData', 'false');
     onlyNewDataCookie = false;
 } else {
-    onlyNewDataCookie = Boolean(onlyNewDataCookie);
+    onlyNewDataCookie = JSON.parse(onlyNewDataCookie);
 }
 
 // set the checkboxes accordingly
@@ -152,7 +152,7 @@ for (let i = 0; i < sourcesAvailable.length; i++) {
     if (!value) {
         localStorage.setItem(sourcesAvailable[i], String(sourceCookies[i]));
     } else {
-        sourceCookies[i] = Boolean(value);
+        sourceCookies[i] = JSON.parse(value);
     }
 
     // set the checkbox accordingly
