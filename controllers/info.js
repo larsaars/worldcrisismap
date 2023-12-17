@@ -1,5 +1,14 @@
 
 const info = {
+    async helpfulLinks(request, response) {
+        const viewData = {
+            title: 'Helpful Links',
+            id: 'helpful-links',
+            layout: 'info'
+        };
+
+        response.render('helpful-links', viewData);
+    },
     async about(request, response) {
         const viewData = {
             title: 'About',

@@ -109,7 +109,7 @@ $(window).resize(function () {
 
 // add about attribution to map
 map.addControl(new maplibregl.AttributionControl({
-    compact: false, customAttribution: '<a href="/about">About &amp; Privacy</a>'
+    compact: false, customAttribution: '<a href="/helpful-links">Helpful Links</a> | <a href="/about">About &amp; Privacy</a>'
 }), 'bottom-right');
 
 // add controls to map (zoom etc)

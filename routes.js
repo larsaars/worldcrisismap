@@ -14,6 +14,7 @@ const easteregg = require('./controllers/easteregg.js');
 router.get('/', home.index);
 router.get('/about', info.about);
 router.get('/privacy-policy', info.privacy);
+router.get('/helpful-links', info.helpfulLinks);
 
 // database request routes
 router.get('/api/data/disaster/:onlyNewData/:ts', home.getDisaster);
