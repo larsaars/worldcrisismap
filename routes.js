@@ -32,7 +32,7 @@ router.get('/nocrisis', easteregg.index);
 // robots.txt
 router.get('/robots.txt', (req, res) => {
     res.type('text/plain');
-    res.send("User-agent: *\nDisallow: /about/\nDisallow: /privacy-policy/");
+    res.send("User-agent: *\nDisallow: /about\nDisallow: /privacy-policy\nDisallow: /helpful-links\nDisallow: /nocrisis\nDisallow: /api/*");
 });
 
 module.exports = router;
