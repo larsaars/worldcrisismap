@@ -218,10 +218,11 @@ function feedbackReceived() {
         setLoading(false);
 
         // if is the first time on website, show settings
-        if (!localStorage.getItem('settingsShown')) {
-            clickSettingsButton(null);
+        // if (!localStorage.getItem('settingsShown')) {
             localStorage.setItem('settingsShown', 'true');
-        }
+            // perform the tutorial
+            doTutorial();
+        // }
 
         // sort markers by date when all loaded for article list
         markers.sort((a, b) => b.date - a.date);

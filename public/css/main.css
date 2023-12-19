@@ -249,6 +249,8 @@ thead tr:nth-child(3) th {
     color: #fff;
 }
 
+/* Datepicker END */
+
 
 /* earth loading animation */
 #earth:before {
@@ -304,6 +306,8 @@ thead tr:nth-child(3) th {
     }
 }
 
+/* earth loading animation END */
+
 /* SWITCHES */
 .switch input {
     display: none;
@@ -351,3 +355,5 @@ input:checked + .slider:before {
 input:checked + .slider {
     box-shadow: 0 0 0 2px #8fcc9f, 0 0 8px #8fcc9f;
 }
+
+/* SWITCHES END */

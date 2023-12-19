@@ -21,9 +21,12 @@ app.use(session({
 
 // enable for forms reading
 app.use(bodyParser.urlencoded({extended: true}));
-// use folder public as static folder for assets
-app.use(express.static('public'));
-app.use(express.static('crisis_database'));
+// use folder 'public' as static folder for assets
+app.use(express.static('./public'));
+// and the crisis database (geojson files for countries and regions)
+app.use(express.static('./crisis_database'));
+// and all node modules
+app.use(express.static('./node_modules'));
 
 // define handlebars as the view engine
 app.engine('.hbs', handlebars.engine({extname: '.hbs'}));
