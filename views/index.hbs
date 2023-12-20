@@ -8,7 +8,8 @@
     <div id="sidebarContent" class="p-3">
         <div class="row sticky-top">
             <div class="col-sm-12">
-                <button type="button" class="w3-button w3-large float-start" onclick="openSideBar(lastSelectedMarker, true)">
+                <button type="button" class="w3-button w3-large float-start"
+                        onclick="openSideBar(lastSelectedMarker, true)">
                     <i id="articlesListButtonList" class="fa fa-list-ul" style="display: none"></i>
                     <i id="articlesListButtonBack" class="fa fa-arrow-left" style="display: none"></i>
                 </button>
@@ -39,20 +40,22 @@
 
         <div id="settingsPanel" class="container p-2">
             <hr id="hrSettingsSources">
-            <div class="row">
+            <div class="row" id="disasterCheckboxDiv">
                 <div title="Show ongoing disasters and disaster alerts. If historic date is selected show disasters reaching back three months in the past from selected date.">
                     <label class="switch">
                         <input id="disasterCheckbox" type="checkbox">
                         <span class="slider"></span>
-                    </label>&nbsp;<a href="https://reliefweb.int/disasters" target="_blank">ReliefWeb Disasters</a>&nbsp;<small>(ongoing disasters)</small>
+                    </label>&nbsp;<a href="https://reliefweb.int/disasters" target="_blank">ReliefWeb Disasters</a>&nbsp;<small>(ongoing
+                    disasters)</small>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="reportCheckboxDiv">
                 <div title="Show ReliefWeb Headlines from one month previous to selected date until selected date.">
                     <label class="switch">
                         <input id="reportCheckbox" type="checkbox">
                         <span class="slider"></span>
-                    </label>&nbsp;<a href="https://reliefweb.int/updates" target="_blank">ReliefWeb Reports</a>&nbsp;<small>(published last two weeks)</small>
+                    </label>&nbsp;<a href="https://reliefweb.int/updates" target="_blank">ReliefWeb
+                    Reports</a>&nbsp;<small>(published last two weeks)</small>
                 </div>
             </div>
             <div class="row" id="humanCheckboxDiv">
@@ -60,7 +63,8 @@
                     <label class="switch">
                         <input id="humanCheckbox" type="checkbox">
                         <span class="slider"></span>
-                    </label>&nbsp;<a href="https://uhri.ohchr.org/en/" target="_blank">UHRI</a>&nbsp;<small>(published last three months)</small>
+                    </label>&nbsp;<a href="https://uhri.ohchr.org/en/" target="_blank">UHRI</a>&nbsp;<small>(published
+                    last three months)</small>
                 </div>
             </div>
             <div class="row" id="newsCheckboxDiv">
@@ -68,7 +72,8 @@
                     <label class="switch">
                         <input id="newsCheckbox" type="checkbox">
                         <span class="slider"></span>
-                    </label>&nbsp;<a href="https://www.ipsnews.net/" target="_blank">IPS News</a>&nbsp;<small>(all recent)</small>
+                    </label>&nbsp;<a href="https://www.ipsnews.net/" target="_blank">IPS News</a>&nbsp;<small>(all
+                    recent)</small>
                 </div>
             </div>
             <hr id="hrSettingsOther">

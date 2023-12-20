@@ -325,6 +325,12 @@ async function openSideBar(marker, comingFromArticlesList = false) {
 
 // open the sidebar with list of articles
 function openArticlesList() {
+    // if is tutorial, don't open articles list
+    if (isTutorial) {
+        isTutorial.next();
+        return;
+    }
+
     // open sidebar with list of articles (pass null)
     openSideBar(null);
 }
@@ -380,6 +386,11 @@ function closeSideBar() {
 
 function clickSettingsButton(onlyHide) {
     if (loading || (onlyHide !== null && onlyHide !== settingsOpened)) {
+        return;
+    }
+
+    // if is tutorial, don't close setting, open them max
+    if (isTutorial && settingsOpened) {
         return;
     }
 

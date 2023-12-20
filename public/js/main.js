@@ -217,12 +217,12 @@ function feedbackReceived() {
     if (feedbacksAwaited === 0) {
         setLoading(false);
 
-        // if is the first time on website, show settings
-        // if (!localStorage.getItem('settingsShown')) {
-            localStorage.setItem('settingsShown', 'true');
+        // if is the first time on website, show tutorial
+        if (!localStorage.getItem('tutorialShown')) {
+            localStorage.setItem('tutorialShown', 'true');
             // perform the tutorial
             doTutorial();
-        // }
+        }
 
         // sort markers by date when all loaded for article list
         markers.sort((a, b) => b.date - a.date);
@@ -396,6 +396,14 @@ for (let source = 0; source < sourcesAvailable.length; source++) {
 // add on map click listener
 // for preventing popup from opening on click (only on hover)
 map.on('click', event => {
+    // in the case of the tutorial, do not the original action
+    // but continue with the tutorial
+    if (isTutorial) {
+        isTutorial.next();
+        return
+    }
+
+
     const target = event.originalEvent.target;
 
     // boolean if marker was clicked
@@ -423,7 +431,7 @@ map.on('click', event => {
         }
     }
 
-    // if this was no marker clicked, close sidebar and settings
+    // if this was no marker clicked, close sidebar and setting
     if (!isMarker) {
         closeSideBar();
         clickSettingsButton(true);
