@@ -29,6 +29,7 @@ function doTutorial() {
         },
         {
             action() {
+                isTutorial = false
                 return this.cancel();
             },
             classes: 'shepherd-button-secondary',
@@ -53,6 +54,7 @@ function doTutorial() {
         },
         {
             action() {
+                isTutorial = false
                 return this.cancel();
             },
             classes: 'shepherd-button-secondary',
@@ -81,6 +83,7 @@ function doTutorial() {
         buttons: [
             {
                 action() {
+                    isTutorial = false
                     return this.cancel();
                 },
                 classes: 'shepherd-button-secondary',
@@ -124,6 +127,7 @@ function doTutorial() {
             },
             {
                 action() {
+                    isTutorial = false
                     return this.cancel();
                 },
                 classes: 'shepherd-button-secondary',
