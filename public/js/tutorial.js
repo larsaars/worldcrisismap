@@ -155,7 +155,7 @@ function doTutorial() {
             + 'ReliefWeb Disasters are mainly natural disasters, epedemics, etc.',
         attachTo: {
             element: '#disasterCheckboxDiv',
-            on: 'left'
+            on: pageIsMobileFormat() ? 'bottom' : 'left'
         },
         buttons: buttonsSources,
     });
@@ -166,7 +166,7 @@ function doTutorial() {
         text: 'These are mostly humanitarian reports.',
         attachTo: {
             element: '#reportCheckboxDiv',
-            on: 'left'
+            on: pageIsMobileFormat() ? 'bottom':'left'
         },
         buttons: buttonsSources,
     });
@@ -179,7 +179,7 @@ function doTutorial() {
             + '<small>(<a href="https://uhri.ohchr.org/en/">from UHRI</a>)</small>',
         attachTo: {
             element: '#humanCheckboxDiv',
-            on: 'left'
+            on: pageIsMobileFormat() ? 'bottom' : 'left'
         },
         buttons: buttonsSources,
     });
@@ -192,7 +192,7 @@ function doTutorial() {
             + '<small>(<a href="https://en.wikipedia.org/wiki/Inter_Press_Service" target="_blank">from Wikipedia</a>)</small>',
         attachTo: {
             element: '#newsCheckboxDiv',
-            on: 'left'
+            on: pageIsMobileFormat() ? 'bottom' : 'left'
         },
         buttons: buttonsNormal,
     });
