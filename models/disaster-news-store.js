@@ -94,7 +94,7 @@ const disasterNewsStore = {
                 } else {
                     query = 'SELECT * FROM human'
                         + ' WHERE date < $1 AND date > $1 - INTERVAL \''
-                        + (onlyNewData ? NEW_DATA_THRESHOLD + ' DAY' : '6 MONTH')
+                        + (onlyNewData ? NEW_DATA_THRESHOLD + ' DAY' : '3 MONTH')
                         + '\' LIMIT 250';
                     values = [date];
                 }

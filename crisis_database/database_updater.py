@@ -42,7 +42,7 @@ def update_database():
 
     # update urhi database (human rights violations), but only every nth time
     if update_uhri_n_counter >= UPDATE_UHRI_N:
-        load_urhi_to_database()
+        load_uhri_to_database0()
         update_uhri_n_counter = 0
     else:
         update_uhri_n_counter += 1  # increment counter

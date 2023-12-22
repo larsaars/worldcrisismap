@@ -50,7 +50,14 @@ def load_disasters_to_database(offset=0, limit=10, single_commits=False) -> int:
     :return: The total number of disasters in API.
     """
     # get disasters from ReliefWeb API
-    res = requests.get(f'https://api.reliefweb.int/v1/disasters?appname=crisis_collector&profile=full&preset=latest&slim=1&limit={limit}&offset={offset}').json()
+    res = requests.get(f'https://api.reliefweb.int/v1/disasters?appname=crisis_collector&profile=full&preset=latest&slim=1&limit={limit}&offset={offset}')
+
+    # check if response is empty
+    if not res.text:
+        print('No response from ReliefWeb API')
+        return 5
+    else:
+        res = res.json()
 
     # loop through each disaster and add to database
     for item in res['data']:
@@ -111,7 +118,13 @@ def update_ongoing_disasters_in_database():
     """
 
     # get ongoing (and alert) disasters from ReliefWeb API
-    res = requests.get('https://api.reliefweb.int/v1/disasters?appname=crisis_collector&profile=full&preset=latest&slim=1&filter[field]=status&filter[value][]=alert&filter[value][]=ongoing&filter[operator]=OR&limit=999').json()
+    res = requests.get('https://api.reliefweb.int/v1/disasters?appname=crisis_collector&profile=full&preset=latest&slim=1&filter[field]=status&filter[value][]=alert&filter[value][]=ongoing&filter[operator]=OR&limit=999')
+    # check if response is empty
+    if not res.text:
+        print('No response from ReliefWeb API')
+        return 5
+    else:
+        res = res.json()
 
     # get list of currently as active listed disasters in database
     cur.execute('SELECT id FROM disasters WHERE status IN (\'ongoing\', \'alert\');')
@@ -166,7 +179,13 @@ def load_reports_to_database(offset=0, limit=10, single_commits=False) -> int:
     :return: The total number of reports (headlines) in API.
     """
     # get disasters from ReliefWeb API
-    res = requests.get(f'https://api.reliefweb.int/v1/reports?appname=crisis_collector&profile=full&preset=latest&slim=1&filter[field]=headline&offset={offset}&limit={limit}').json()
+    res = requests.get(f'https://api.reliefweb.int/v1/reports?appname=crisis_collector&profile=full&preset=latest&slim=1&filter[field]=headline&offset={offset}&limit={limit}')
+    # check if response is empty
+    if not res.text:
+        print('No response from ReliefWeb API')
+        return 5
+    else:
+        res = res.json()
 
     # loop through each disaster and add to database
     for item in res['data']:
