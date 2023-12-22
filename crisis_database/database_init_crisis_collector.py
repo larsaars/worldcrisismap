@@ -149,7 +149,7 @@ def main():
 
     # load humanitarian crisis into database
     print('\n\nLoading humanitarian crises of UHRI to database...')
-    load_uhri_to_database()
+    load_uhri_to_database0()
     
 
     print('Done.')

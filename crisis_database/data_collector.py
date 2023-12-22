@@ -32,7 +32,7 @@ cur = connection.cursor()
 mappers = load_country_region_mapper_and_country_code_mapper()
 
 
-def load_urhi_to_database():
+def load_uhri_to_database0():
     """
     wrap load_uhri_to_database() in a function to be able to use it in the main function
     """
