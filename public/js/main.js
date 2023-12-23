@@ -101,7 +101,7 @@ let map = new maplibregl.Map({
     attributionControl: false,
     zoom: 2.2,
     minZoom: 2,
-    maxZoom: 7,
+    maxZoom: 7.5,
 });
 
 $(window).resize(function () {
