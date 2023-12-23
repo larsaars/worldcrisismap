@@ -96,10 +96,12 @@ $(document).ready(function () {
 // get map variable
 let map = new maplibregl.Map({
     container: 'map',
-    style: 'https://api.maptiler.com/maps/streets/style.json?key=FmkZcpxnyFTMyvbqcIqk',
+    style: 'https://api.maptiler.com/maps/dataviz/style.json?key=FmkZcpxnyFTMyvbqcIqk',
     center: [0, 33],
+    attributionControl: false,
     zoom: 2.2,
-    attributionControl: false
+    minZoom: 2,
+    maxZoom: 7,
 });
 
 $(window).resize(function () {
