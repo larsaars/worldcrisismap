@@ -1,5 +1,14 @@
 
 const info = {
+    async inequalityWorldwide(request, response) {
+        const viewData = {
+            title: 'Inequality Graphs',
+            id: 'inequality-worldwide',
+            layout: 'info'
+        };
+
+        response.render('inequality-worldwide', viewData);
+    },
     async helpfulLinks(request, response) {
         const viewData = {
             title: 'Helpful Links',

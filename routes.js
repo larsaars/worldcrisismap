@@ -15,6 +15,7 @@ router.get('/', home.index);
 router.get('/about', info.about);
 router.get('/privacy-policy', info.privacy);
 router.get('/helpful-links', info.helpfulLinks);
+router.get('/inequality-worldwide', info.inequalityWorldwide);
 
 // database request routes
 router.get('/api/data/disaster/:onlyNewData/:ts', home.getDisaster);
