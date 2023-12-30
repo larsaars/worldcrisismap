@@ -63,6 +63,11 @@
             </div>
         </div>
     </nav>
+
+    <div id="enlarged-image-container" onclick="shrinkImage()">
+        <img src="" alt="Enlarged Image" id="enlarged-image">
+    </div>
+
     <div id="bodyDiv" class="p-1">
         {{{body}}}
     </div>
@@ -70,6 +75,15 @@
 
 <script>
     $("#{{id}}").addClass('active');
+
+    function enlargeImage(element) {
+        $('#enlarged-image-container').css('display', 'flex').hide().fadeIn()
+        $('#enlarged-image').attr('src', element.src)
+    }
+
+    function shrinkImage() {
+        $('#enlarged-image-container').fadeOut()
+    }
 </script>
 <!--<script type="module">
     import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
