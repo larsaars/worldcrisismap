@@ -372,9 +372,27 @@ input:checked + .slider {
     z-index: 1000;
 }
 
-#enlarged-image {
+#enlarged-image-sub-container {
+    display: inline-block;
+    position: relative;
     max-width: 80%;
     max-height: 80%;
+}
+
+#enlarged-image-text-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    margin: 2rem;
+    padding: 1px;
+    font-size: small;
+}
+
+#enlarged-image {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 /* ENLARGED IMAGE CONTAINER END */
