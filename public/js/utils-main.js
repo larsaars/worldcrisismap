@@ -67,11 +67,30 @@ function hexToRgb(hex) {
     } : null;
 }
 
+// get if file exists without reading it
+async function fileExists(path) {
+    try {
+        const response = await fetch(path, {method: 'HEAD'});
+        return response.ok;
+    } catch (e) {
+        return false;
+    }
+}
+
 // decide whether white or black is better readable based on color
 function useBlack(baseColor) {
     let rgb = hexToRgb(baseColor);
     let brightness = (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
     return brightness > 150;
+}
+
+function enlargeImage(src) {
+    $('#enlarged-image-container').css('display', 'flex').hide().fadeIn();
+    $('#enlarged-image').attr('src', src);
+}
+
+function shrinkImage() {
+    $('#enlarged-image-container').fadeOut();
 }
 
 function getGeoJSONFromEvent(geoJSON, eventIndex) {

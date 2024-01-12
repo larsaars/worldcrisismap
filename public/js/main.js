@@ -111,7 +111,8 @@ $(window).resize(function () {
 
 // add about attribution to map
 map.addControl(new maplibregl.AttributionControl({
-    compact: false, customAttribution: '<a href="/inequality-worldwide">Inequality Graphs</a> | <a href="/helpful-links">Helpful Links</a> | <a href="/about">About &amp; Privacy</a>'
+    compact: false,
+    customAttribution: '<a href="/inequality-worldwide">Inequality Graphs</a> | <a href="/helpful-links">Helpful Links</a> | <a href="/about">About &amp; Privacy</a>'
 }), 'bottom-right');
 
 // add controls to map (zoom etc)
@@ -398,47 +399,70 @@ for (let source = 0; source < sourcesAvailable.length; source++) {
 // add on map click listener
 // for preventing popup from opening on click (only on hover)
 map.on('click', event => {
-    // in the case of the tutorial, do not the original action
-    // but continue with the tutorial
-    if (isTutorial) {
-        isTutorial.next();
-        return
-    }
+        // in the case of the tutorial, do not the original action
+        // but continue with the tutorial
+        if (isTutorial) {
+            isTutorial.next();
+            return;
+        }
 
 
-    const target = event.originalEvent.target;
+        const target = event.originalEvent.target;
 
-    // boolean if marker was clicked
-    let isMarker = false;
+        // boolean if marker was clicked
+        let isMarker = false;
 
-    // find the marker clicked
-    for (const marker of markers) {
-        // on match
-        if (marker.getElement().contains(target)) {
-            // effect of marker click
-            $(marker.getElement()).effect('highlight', {color: marker.color}, 100);
+        // find the marker clicked
+        for (const marker of markers) {
+            // on match
+            if (marker.getElement().contains(target)) {
+                // effect of marker click
+                $(marker.getElement()).effect('highlight', {color: marker.color}, 100);
 
-            // open sidebar with description
-            if (marker === selectedMarker) {
-                closeSideBar();
-            } else {
-                openSideBar(marker);
+                // open sidebar with description
+                if (marker === selectedMarker) {
+                    closeSideBar();
+                } else {
+                    openSideBar(marker);
+                }
+
+                // is marker is true
+                isMarker = true;
+
+                // nothing else should happen after that (don't trigger two events)
+                return;
             }
+        }
 
-            // is marker is true
-            isMarker = true;
 
-            // break the loop
-            break;
+        // now check if it was a country label clicked
+        // from the Country labels layer
+        const features = map.queryRenderedFeatures(event.point, {
+            layers: ['Country labels']
+        });
+
+        if (features.length > 0) {
+            // A country label was clicked, get the iso2 of country if available
+            const clickedCountry = features[0]?.properties?.iso_a2;
+            if (clickedCountry) {
+                // if is not null, check if inequality graph is even available
+                fileExists(`/inequality_graphs/${clickedCountry}.png`).then(
+                    exists => {
+                        if (exists) {
+                            enlargeImage(`/inequality_graphs/${clickedCountry}.png`);
+                        }
+                    });
+            }
+        }
+
+        // if this was no marker clicked and no country title, close sidebar and setting
+        if (!isMarker) {
+            closeSideBar();
+            clickSettingsButton(true);
         }
     }
-
-    // if this was no marker clicked, close sidebar and setting
-    if (!isMarker) {
-        closeSideBar();
-        clickSettingsButton(true);
-    }
-});
+)
+;
 
 // handle webgl context loss (on ie. memory errors, happens on smartphones onPause() sometimes) 
 // Listen for WebGL context loss event.
