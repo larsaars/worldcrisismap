@@ -7,7 +7,7 @@ dotenv.config();
 
 const home = require('./controllers/home.js');
 const info = require('./controllers/info.js');
-const easteregg = require('./controllers/easteregg.js');
+const thoughts = require('./controllers/thoughts.js');
 
 
 // public routes
@@ -27,13 +27,13 @@ router.get('/api/text/report/:id', home.getReportText);
 router.get('/api/text/news/:id', home.getNewsText);
 router.get('/api/text/human/:id', home.getHumanText);
 
-// easteregg
-router.get('/nocrisis', easteregg.index);
+// thoughts / easteregg
+router.get('/thoughts', thoughts.index);
 
 // robots.txt
 router.get('/robots.txt', (req, res) => {
     res.type('text/plain');
-    res.send("User-agent: *\nDisallow: /about\nDisallow: /privacy-policy\nDisallow: /helpful-links\nDisallow: /nocrisis\nDisallow: /api/*");
+    res.send("User-agent: *\nDisallow: /about\nDisallow: /privacy-policy\nDisallow: /helpful-links\nDisallow: /thoughts\nDisallow: /nocrisis\nDisallow: /api/*");
 });
 
 module.exports = router;
