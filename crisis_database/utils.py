@@ -30,7 +30,7 @@ def escape(string):
     return string.replace('\'', '&#39;').replace('"', '&quot;').replace('\\', '\\\\').replace('\n', '<br>')
 
 
-def try_request(url, retries=3):
+def try_request(url, retries=6):
     """
     Try to request a url multiple times.
 
