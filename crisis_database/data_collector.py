@@ -4,7 +4,6 @@
 Handles the scraping of the ReliefWeb Disasters and Reports API (as well as IPS news).
 """
 
-import requests
 import psycopg2 as pg
 import os
 import json
@@ -51,7 +50,9 @@ def load_disasters_to_database(offset=0, limit=10, single_commits=False) -> int:
     :return: The total number of disasters in API.
     """
     # get disasters from ReliefWeb API
-    res = requests.get(f'https://api.reliefweb.int/v1/disasters?appname=crisis_collector&profile=full&preset=latest&slim=1&limit={limit}&offset={offset}')
+    res = try_request(f'https://api.reliefweb.int/v1/disasters?appname=worldcrisis&profile=full&preset=latest&slim=1&limit={limit}&offset={offset}')
+    if res is None:
+        return 5
 
     # check if response is empty
     if not res.text:
@@ -119,7 +120,10 @@ def update_ongoing_disasters_in_database():
     """
 
     # get ongoing (and alert) disasters from ReliefWeb API
-    res = requests.get('https://api.reliefweb.int/v1/disasters?appname=crisis_collector&profile=full&preset=latest&slim=1&filter[field]=status&filter[value][]=alert&filter[value][]=ongoing&filter[operator]=OR&limit=999')
+    res = try_request('https://api.reliefweb.int/v1/disasters?appname=worldcrisis&profile=full&preset=latest&slim=1&filter[field]=status&filter[value][]=alert&filter[value][]=ongoing&filter[operator]=OR&limit=999')
+    if res is None:
+        return 5
+
     # check if response is empty
     if not res.text:
         print('No response from ReliefWeb API')
@@ -180,7 +184,10 @@ def load_reports_to_database(offset=0, limit=10, single_commits=False) -> int:
     :return: The total number of reports (headlines) in API.
     """
     # get disasters from ReliefWeb API
-    res = requests.get(f'https://api.reliefweb.int/v1/reports?appname=crisis_collector&profile=full&preset=latest&slim=1&filter[field]=headline&offset={offset}&limit={limit}')
+    res = try_request(f'https://api.reliefweb.int/v1/reports?appname=worldcrisis&profile=full&preset=latest&slim=1&filter[field]=headline&offset={offset}&limit={limit}')
+    if res is None:
+        return 5
+
     # check if response is empty
     if not res.text:
         print('No response from ReliefWeb API')

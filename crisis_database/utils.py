@@ -10,6 +10,7 @@ import sys
 from unidecode import unidecode
 import os
 from bs4 import BeautifulSoup
+import requests
 
 
 def printerr(*args, **kwargs):
@@ -27,6 +28,25 @@ def escape(string):
     """
 
     return string.replace('\'', '&#39;').replace('"', '&quot;').replace('\\', '\\\\').replace('\n', '<br>')
+
+
+def try_request(url, retries=3):
+    """
+    Try to request a url multiple times.
+
+    :param url: The url to request.
+    :param retries: The number of retries.
+    :return: The response object.
+    """
+
+    for _ in range(retries):
+        try:
+            return requests.get(url)
+        except Exception as e:
+            printerr(f'Error requesting {url}: retrying...')
+            continue
+
+    return None
 
 
 
