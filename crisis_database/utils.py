@@ -29,6 +29,7 @@ def escape(string):
     return string.replace('\'', '&#39;').replace('"', '&quot;').replace('\\', '\\\\').replace('\n', '<br>')
 
 
+
 def search_for_keywords(text: str, keywords, is_html=False) -> list:
     """
     Search for keywords in string.

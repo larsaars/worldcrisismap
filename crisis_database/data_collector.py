@@ -9,6 +9,7 @@ import psycopg2 as pg
 import os
 import json
 from utils import *
+from content_escaper import escape_content
 from dotenv import load_dotenv
 import feedparser
 from uhri_database_loader import load_uhri_to_database
@@ -84,7 +85,7 @@ def load_disasters_to_database(offset=0, limit=10, single_commits=False) -> int:
             geojson = json.dumps(geojson_object)
 
             # load description_html if available
-            description_html = escape(fd['description-html']) if 'description-html' in fd else '' 
+            description_html = escape_content(fd['description-html'], 'ReliefWeb', fd['url']) if 'description-html' in fd else '' 
 
             # execute insert query for info
             query = f"INSERT INTO disasters(id, date, status, country_name, geojson, lat, lon, type, url, title) VALUES ({item['id']}, '{fd['date']['event']}', '{fd['status']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{escape(fd['primary_type']['name'])}', '{fd['url']}', '{escape(fd['name'])}');"
@@ -149,7 +150,7 @@ def update_ongoing_disasters_in_database():
             fd = item['fields']
 
             # load description_html if available
-            description_html = escape(fd['description-html']) if 'description-html' in fd else '' 
+            description_html = escape_content(fd['description-html'], 'ReliefWeb', fd['url']) if 'description-html' in fd else '' 
 
             # execute update query for description
             query = f"UPDATE disasters_text SET text = '{description_html}' WHERE id = {item['id']};"
@@ -219,7 +220,7 @@ def load_reports_to_database(offset=0, limit=10, single_commits=False) -> int:
             report_type = infer_type_by_title(fd['title'])
 
             # load description_html if available
-            description_html = escape(fd['body-html']) if 'body-html' in fd else '' 
+            description_html = escape_content(fd['body-html'], 'ReliefWeb', fd['url']) if 'body-html' in fd else '' 
 
             # execute insert query for info
             query = f"INSERT INTO reports(id, date, country_name, geojson, lat, lon, type, url, title) VALUES ({item['id']}, '{fd['date']['changed']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{report_type}', '{fd['url']}', '{escape(fd['title'])}');"
@@ -289,16 +290,18 @@ def load_news_to_database() -> int:
 
             # get type from title
             news_type = infer_type_by_title(entry.title)
+            link = escape(entry.link)
 
 
             # convert geojson_object to json
             geojson = json.dumps(geojson_object)
 
             # execute insert query for info
-            query = f"INSERT INTO news_today(id, date, country_name, geojson, lat, lon, type, url, title) VALUES ({identifier}, '{entry.published}', '{escape(last_max_country)}', '{geojson}', {lat}, {lon}, '{news_type}', '{escape(entry.link)}', '{escape(entry.title)}');"
+            query = f"INSERT INTO news_today(id, date, country_name, geojson, lat, lon, type, url, title) VALUES ({identifier}, '{entry.published}', '{escape(last_max_country)}', '{geojson}', {lat}, {lon}, '{news_type}', '{link}', '{escape(entry.title)}');"
             cur.execute(query)
             # insert insert query for description
-            query = f"INSERT INTO news_today_text(id, text) VALUES ({identifier}, '{escape(content)}');"
+            escaped_content = escape_content(entry.summary, 'IPS News', link)
+            query = f"INSERT INTO news_today_text(id, text) VALUES ({identifier}, '{escaped_content}');"
             cur.execute(query)
 
             # direcly commit insert
