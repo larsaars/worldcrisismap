@@ -230,7 +230,7 @@ def load_reports_to_database(offset=0, limit=10, single_commits=False) -> int:
             description_html = escape_content(fd['body-html'], 'ReliefWeb', fd['url']) if 'body-html' in fd else '' 
 
             # execute insert query for info
-            query = f"INSERT INTO reports(id, date, country_name, geojson, lat, lon, type, url, title) VALUES ({item['id']}, '{fd['date']['changed']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{report_type}', '{fd['url']}', '{escape(fd['title'])}');"
+            query = f"INSERT INTO reports(id, date, country_name, geojson, lat, lon, type, url, title) VALUES ({item['id']}, '{fd['date']['created']}', '{escape(fd['primary_country']['name'])}', '{geojson}', {lat}, {lon}, '{report_type}', '{fd['url']}', '{escape(fd['title'])}');"
             cur.execute(query)
             # insert insert query for description
             query = f"INSERT INTO reports_text(id, text) VALUES ({item['id']}, '{description_html}');"

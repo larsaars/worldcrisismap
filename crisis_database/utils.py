@@ -43,7 +43,7 @@ def try_request(url, retries=6):
         try:
             return requests.get(url)
         except Exception as e:
-            printerr(f'Error requesting {url}: retrying...')
+            printerr(f'Error requesting {url} - retrying...')
             continue
 
     return None
